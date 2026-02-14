@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Linear Algebra — Interactive Course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <button id="sidebar-toggle" aria-label="Toggle sidebar">&#9776;</button>
+        <aside id="sidebar">
+            <div id="sidebar-header">
+                <h1>Advanced Linear Algebra</h1>
+                <p class="author">Based on Steven Roman (GTM 135)</p>
+                <div id="progress-container">
+                    <div id="progress-bar"><div id="progress-fill"></div></div>
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search topics...">
+            </div>
+            <nav id="chapter-nav"></nav>
+            <div id="sidebar-footer">
+                <button id="reset-progress">Reset Progress</button>
+            </div>
+        </aside>
+        <main id="main-content">
+            <div id="welcome-screen">
+                <div class="welcome-hero">
+                    <h1>Advanced Linear Algebra</h1>
+                    <h2>An Interactive Journey</h2>
+                    <p class="welcome-description">
+                        A rigorous, visualization-driven course through graduate-level linear algebra,
+                        following Steven Roman's celebrated text (Springer GTM 135, 3rd Edition).
+                    </p>
+                </div>
+                <div class="roadmap">
+                    <h3>Course Roadmap</h3>
+                    <div class="roadmap-parts">
+                        <div class="roadmap-part">
+                            <h4>Part I: Basic Linear Algebra</h4>
+                            <ul>
+                                <li>Ch 0: Preliminaries</li>
+                                <li>Ch 1: Vector Spaces</li>
+                                <li>Ch 2: Linear Transformations</li>
+                                <li>Ch 3: The Isomorphism Theorems</li>
+                                <li>Ch 4: Modules I: Basic Properties</li>
+                                <li>Ch 5: Modules II: Free &amp; Noetherian</li>
+                                <li>Ch 6: Modules over a PID</li>
+                                <li>Ch 7: Structure of a Linear Operator</li>
+                                <li>Ch 8: Eigenvalues &amp; Eigenvectors</li>
+                                <li>Ch 9: Inner Product Spaces</li>
+                                <li>Ch 10: Normal Operators</li>
+                            </ul>
+                        </div>
+                        <div class="roadmap-part">
+                            <h4>Part II: Topics</h4>
+                            <ul>
+                                <li>Ch 11: Bilinear Forms</li>
+                                <li>Ch 12: Metric Spaces</li>
+                                <li>Ch 13: Hilbert Spaces</li>
+                                <li>Ch 14: Tensor Products</li>
+                                <li>Ch 15: Positive Solutions / Convexity</li>
+                                <li>Ch 16: Affine Geometry</li>
+                                <li>Ch 17: SVD &amp; Moore-Penrose</li>
+                                <li>Ch 18: Algebras</li>
+                                <li>Ch 19: The Umbral Calculus</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="welcome-start">Select a chapter from the sidebar to begin.</p>
+            </div>
+            <div id="chapter-content" style="display:none;">
+                <div id="chapter-header">
+                    <div id="chapter-number-badge"></div>
+                    <h1 id="chapter-title"></h1>
+                    <p id="chapter-subtitle"></p>
+                </div>
+                <div id="section-tabs"></div>
+                <article id="section-content"></article>
+                <div id="exercises-panel" style="display:none;">
+                    <h3>Exercises</h3>
+                    <div id="exercises-list"></div>
+                </div>
+                <div id="chapter-nav-buttons">
+                    <button id="prev-btn" disabled>&larr; Previous</button>
+                    <span id="section-indicator"></span>
+                    <button id="next-btn">Next &rarr;</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="viz-engine.js"></script>
+
+    <!-- Chapter manifest for lazy loading -->
+    <script>
+    window.CHAPTER_MANIFEST = [
+        {number:0,  id:'ch00', title:'Preliminaries',              file:'ch00-preliminaries'},
+        {number:1,  id:'ch01', title:'Vector Spaces',              file:'ch01-vector-spaces'},
+        {number:2,  id:'ch02', title:'Linear Transformations',     file:'ch02-linear-transformations'},
+        {number:3,  id:'ch03', title:'The Isomorphism Theorems',   file:'ch03-isomorphism-theorems'},
+        {number:4,  id:'ch04', title:'Modules I',                  file:'ch04-modules-i'},
+        {number:5,  id:'ch05', title:'Modules II',                 file:'ch05-modules-ii'},
+        {number:6,  id:'ch06', title:'Modules over a PID',         file:'ch06-modules-pid'},
+        {number:7,  id:'ch07', title:'Structure of a Linear Operator', file:'ch07-structure-linear-operator'},
+        {number:8,  id:'ch08', title:'Eigenvalues & Eigenvectors', file:'ch08-eigenvalues'},
+        {number:9,  id:'ch09', title:'Inner Product Spaces',       file:'ch09-inner-product-spaces'},
+        {number:10, id:'ch10', title:'Normal Operators',            file:'ch10-normal-operators'},
+        {number:11, id:'ch11', title:'Bilinear Forms',              file:'ch11-bilinear-forms'},
+        {number:12, id:'ch12', title:'Metric Spaces',               file:'ch12-metric-spaces'},
+        {number:13, id:'ch13', title:'Hilbert Spaces',              file:'ch13-hilbert-spaces'},
+        {number:14, id:'ch14', title:'Tensor Products',             file:'ch14-tensor-products'},
+        {number:15, id:'ch15', title:'Positive Solutions & Convexity', file:'ch15-convexity'},
+        {number:16, id:'ch16', title:'Affine Geometry',             file:'ch16-affine-geometry'},
+        {number:17, id:'ch17', title:'SVD & Moore-Penrose Inverse', file:'ch17-svd'},
+        {number:18, id:'ch18', title:'Algebras',                    file:'ch18-algebras'},
+        {number:19, id:'ch19', title:'The Umbral Calculus',         file:'ch19-umbral-calculus'}
+    ];
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
