@@ -1,0 +1,2130 @@
+The Umbral Calculus
+
+483
+
+to knowing the polynomials  ²%³. Moreover, a knowledge of the generating
+function of a sequence of polynomials can often lead to a deeper understanding
+of the sequence itself, that might not be otherwise easily accessible. For this
+reason, generating functions are studied quite extensively.
+For the proofs of the following characterizations, we refer the reader to Roman
+´1984µ.
+Theorem 19.10 (Generating function)
+1) The sequence  ²%³ is the associated sequence for a delta series  ²!³ if and
+only if
+B
+
+ ²&³ 
+!
+!
+~
+
+& ²!³ ~ 
+
+where  ²!³ is the compositional inverse of  ²!³.
+2) The sequence  ²%³ is Sheffer for ²²!³Á  ²!³³ if and only if
+B
+
+ ²&³ 
+& ²!³ ~ 
+!
+!
+² ²!³³
+~
+
+The sum on the right is called the generating function of  ²%³.
+Proof. Part 1) is a special case of part 2). For part 2), the expression above is
+equivalent to
+B
+ &!
+ ²&³ 
+ ~
+ ²!³
+²!³
+!
+~
+
+which is equivalent to
+B
+
+ ²&³
+
+&! ~ 
+
+!
+
+~
+
+²!³  ²!³
+
+But if  ²%³ is Sheffer for ² ²!³Á ²!³³, then this is just the expansion theorem
+for &! . Conversely, this expression implies that
+B
+&!
+ ²&³ ~ º 
+
+ ²%³» ~ 
+~
+
+and so º²!³  ²!³ 
+² Á ³.
+
+ ²%³» ~ [Á ,
+
+ ²&³
+
+!
+
+º²!³  ²!³ 
+
+which says that
+
+We can now give a representation for Sheffer sequences.
+Theorem 19.11 (Conjugate representation)
+
+ ²%³»
+
+ ²%³
+
+is Sheffer for
+
+484
+
+Advanced Linear Algebra
+
+1) A sequence  ²%³ is the associated sequence for  ²!³ if and only if
+
+
+
+º ²!³  % »%
+[
+~
+
+ ²%³ ~ 
+2) A sequence
+
+ ²%³ is Sheffer for ²²!³Á  ²!³³ if and only if
+
+
+
+
+º² ²!³³
+ ²%³ ~ 
+[
+~
+
+c
+
+ ²!³  % »%
+
+Proof. We need only prove part 2). We know that
+²²!³Á  ²!³³ if and only if
+
+ ²%³
+
+is Sheffer for
+
+B
+
+ ²&³ 
+& ²!³ ~ 
+!
+!
+² ²!³³
+~
+
+But this is equivalent to
+N
+
+B
+
+ ²&³  
+& ²!³  % O ~ L
+! c% M ~
+!
+² ²!³³
+~
+
+ ²&³
+
+Expanding the exponential on the left gives
+B
+
+B
+º² ²!³³c  ²!³  % » 
+ ²&³  
+& ~ L
+! c% M ~
+[
+!
+~
+~
+
+
+
+ ²&³
+
+Replacing & by % gives the result.
+Sheffer sequences can also be characterized by means of linear operators.
+Theorem 19.12 ²Operator characterization)
+1) A sequence  ²%³ is the associated sequence for  ²!³ if and only if
+a)  ²³ ~ Á
+b)  ²!³ ²%³ ~ c ²%³ for   
+2) A sequence  ²%³ is Sheffer for ²²!³Á  ²!³³ for some invertible series ²!³ if
+and only if
+ ²!³  ²%³ ~  c ²%³
+for all   .
+Proof. For part 1), if  ²%³ is associated with  ²!³, then
+ ²³ ~ º!   ²%³» ~ º ²!³  ²%³» ~ [Á
+and
+
+The Umbral Calculus
+
+485
+
+º ²!³   ²!³ ²%³» ~ º ²!³b   ²%³»
+~ [Áb
+~ ² c ³[cÁ
+~ º ²!³  c ²%³»
+and since this holds for all    we get 1b). Conversely, if 1a) and 1b) hold,
+then
+º ²!³   ²%³» ~ º!   ²!³  ²%³»
+~ ²³ c ²³
+~ ²³ cÁ
+~ [Á
+and so  ²%³ is the associated sequence for  ²!³.
+As for part 2), if
+
+ ²%³ is Sheffer for ²²!³Á  ²!³³, then
+
+º²!³ ²!³   ²!³  ²%³» ~ º²!³ ²!³b   ²%³»
+~ [Áb
+~ ² c ³[cÁ
+~ º²!³ ²!³  c ²%³»
+and so  ²!³  ²%³ ~  c ²%³, as desired. Conversely, suppose that
+ ²!³  ²%³ ~  c ²%³
+and let  ²%³ be the associated sequence for  ²!³. Let ; be the invertible linear
+operator on = defined by
+;  ²%³ ~  ²%³
+Then
+;  ²!³  ²%³ ~ ; c ²%³ ~ c ²%³ ~  ²!³ ²%³ ~  ²!³;  ²%³
+and so Lemma 19.5 implies that ; ~ ²!³ for some invertible series ²!³. Then
+º²!³ ²!³ 
+
+and so
+
+ ²%³» ~ º ²!³
+
+
+
+
+ ²!³  ²%³»
+~ º!   ²!³  ²%³»
+~ ²³ c ²³
+~ ²³ cÁ
+~ [Á
+
+ ²%³ is Sheffer for ²²!³Á  ²!³³.
+
+We next give a formula for the action of a linear operator ²!³ on a Sheffer
+sequence.
+
+486
+
+Advanced Linear Algebra
+
+Theorem 19.13 Let  ²%³ be a Sheffer sequence for ²²!³Á  ²!³³ and let  ²%³
+be associated with  ²!³. Then for any ²!³ we have
+
+
+²!³  ²%³ ~ 4 5º²!³ 
+
+~
+
+ ²%³»c ²%³
+
+Proof. By the expansion theorem
+B
+
+º²!³   ²%³»
+²!³  ²!³
+
+!
+~
+
+²!³ ~ 
+we have
+B
+
+º²!³   ²%³»
+²!³  ²!³  ²%³
+
+!
+~
+
+²!³  ²%³ ~ 
+B
+
+º²!³   ²%³»
+²³ c ²%³
+!
+~
+
+~
+
+which is the desired formula.
+Theorem 19.14
+1) (The binomial identity) A sequence  ²%³ is the associated sequence for a
+delta series  ²!³ if and only if it is of binomial type, that is, if and only if it
+satisfies the identity
+
+
+ ²% b &³ ~ 4 5  ²&³c ²%³
+
+~
+
+for all &  d.
+2) (The Sheffer identity) A sequence
+some invertible ²!³ if and only if
+
+
+ ²%³ is Sheffer for ²²!³Á  ²!³³ for
+
+
+
+ ²% b &³ ~ 4 5  ²&³ c ²%³
+
+~
+
+for all &  d, where  ²%³ is the associated sequence for  ²!³.
+Proof. To prove part 1), if  ²%³ is an associated sequence, then taking
+²!³ ~ &! in Theorem 19.13 gives the binomial identity. Conversely, suppose
+that the sequence  ²%³ is of binomial type. We will use the operator
+characterization to show that  ²%³ is an associated sequence. Taking
+% ~ & ~  we have for  ~ ,
+ ²³ ~  ²³ ²³
+and so  ²³ ~ . Also,
+
+The Umbral Calculus
+
+487
+
+ ²³ ~  ²³ ²³ b  ²³ ²³ ~  ²³
+and so  ²³ ~ . Assuming that  ²³ ~  for  ~ Á Ã Á  c  we have
+ ²³ ~  ²³ ²³ b  ²³ ²³ ~  ²³
+and so  ²³ ~ . Thus,  ²³ ~ Á .
+Next, define a linear functional  ²!³ by
+º ²!³   ²%³» ~ Á
+Since º ²!³  » ~ º ²!³   ²%³» ~  and º ²!³  ²%³» ~  £  we deduce
+that  ²!³ is a delta series. Now, the binomial identity gives
+
+
+º ²!³  &!  ²%³» ~ 4 5  ²&³º ²!³  c ²%³»
+
+~
+
+
+~ 4 5  ²&³cÁ
+
+~
+
+~ c ²&³
+and so
+º&!   ²!³ ²%³» ~ º&!  c ²%³»
+and since this holds for all &, we get  ²!³ ²%³ ~ c ²%³. Thus,  ²%³ is the
+associated sequence for  ²!³.
+For part 2), if  ²%³ is a Sheffer sequence, then taking ²!³ ~ &! in Theorem
+19.13 gives the Sheffer identity. Conversely, suppose that the Sheffer identity
+holds, where  ²%³ is the associated sequence for  ²!³. It suffices to show that
+²!³  ²%³ ~  ²%³ for some invertible ²!³. Define a linear operator ; by
+;  ²%³ ~  ²%³
+Then
+&! ;  ²%³ ~ &!  ²%³ ~  ²% b &³
+and by the Sheffer identity,
+
+
+
+
+; &!  ²%³ ~ 4 5  ²&³; c ²%³ ~ 4 5  ²&³c ²%³
+
+
+~
+~
+
+and the two are equal by part 1). Hence, ; commutes with &! and is therefore
+of the form ²!³, as desired.
+
+488
+
+Advanced Linear Algebra
+
+Examples of Sheffer Sequences
+We can now give some examples of Sheffer sequences. While it is often a
+relatively straightforward matter to verify that a given sequence is Sheffer for a
+given pair ²²!³Á  ²!³³, it is quite another matter to find the Sheffer sequence for
+a given pair. The umbral calculus provides two formulas for this purpose, one of
+which is direct, but requires the usually very difficult computation of the series
+² ²!³°!³c . The other is a recurrence relation that expresses each  ²%³ in terms
+of previous terms in the Sheffer sequence. Unfortunately, space does not permit
+us to discuss these formulas in detail. However, we will discuss the recurrence
+formula for associated sequences later in this chapter.
+Example 19.4 The sequence  ²%³ ~ % is the associated sequence for the delta
+series  ²!³ ~ !. The generating function for this sequence is
+B
+
+& 
+!
+[
+~
+
+&! ~ 
+
+and the binomial identity is the well-known binomial formula
+
+
+²% b &³ ~ 4 5 % &c
+
+~
+
+Example 19.5 The lower factorial polynomials
+²%³ ~ %²% c ³Ä²% c  b ³
+form the associated sequence for the forward difference functional
+ ²!³ ~ ! c 
+discussed in Example 19.2. To see this, we simply compute, using Theorem
+19.12. Since ²³ is defined to be , we have ²³ ~ Á . Also,
+²! c ³²%³ ~ ²% b ³ c ²%³
+~ ´²% b ³%²% c ³Ä²% c  b ³µ c ´%²% c ³Ä²% c  b ³µ
+~ %²% c ³Ä²% c  b ³´²% b ³ c ²% c  b ³µ
+~ %²% c ³Ä²% c  b ³
+~ ²%³c
+The generating function for the lower factorial polynomials is
+B
+
+²&³ 
+!
+[
+~
+
+& log²b!³ ~ 
+
+The Umbral Calculus
+
+489
+
+which can be rewritten in the more familiar form
+B
+&
+² b !³& ~ 4 5 !
+
+~
+
+Of course, this is a formal identity, so there is no need to make any restrictions
+on !. The binomial identity in this case is
+
+
+²% b &³ ~ 4 5²%³ ²&³c
+
+~
+
+which can also be written in the form
+4
+
+
+%b&
+%
+&
+5 ~ 4 54
+5
+
+
+c
+~
+
+This is known as the Vandermonde convolution formula.
+Example 19.6 The Abel polynomials
+( ²%Â ³ ~ %²% c ³c
+form the associated sequence for the Abel functional
+ ²!³ ~ !e!
+also discussed in Example 19.2. We leave verification of this to the reader. The
+generating function for the Abel polynomials is
+B
+
+&²& c ³c 
+!
+[
+~
+
+& ²!³ ~ 
+
+Taking the formal derivative of this with respect to & gives
+B
+
+²& c ³²& c ³c 
+!
+[
+~
+
+ ²!³& ²!³ ~ 
+
+which, for & ~ , gives a formula for the compositional inverse of the series
+ ²!³ ~ !! ,
+B
+
+²c³  c 
+!
+²c³[
+~
+
+ ²!³ ~ 
+
+Example 19.7 The famous Hermite polynomials / ²%³ form the Appell
+sequence for the invertible functional
+
+
+²!³ ~ ! °
+
+490
+
+Advanced Linear Algebra
+
+We ask the reader to show that  ²%³ is the Appell sequence for ²!³ if and only
+if  ²%³ ~ ²!³c % . Using this fact, we get
+ ²³ c
+
+/ ²%³ ~ c! ° % ~ ²c ³
+%
+
+[
+
+The generating function for the Hermite polynomials is
+B
+
+/ ²&³ 
+!
+[
+~
+
+
+
+&!c! ° ~ 
+and the Sheffer identity is
+
+
+
+/ ²% b &³ ~ 4 5/ ²%³&c
+
+~
+
+We should remark that the Hermite polynomials, as defined in the literature,
+often differ from our definition by a multiplicative constant.
+²³
+
+Example 19.8 The well-known and important Laguerre polynomials 3 ²%³
+of order  form the Sheffer sequence for the pair
+²!³ ~ ² c !³cc Á  ²!³ ~
+
+!
+!c
+
+It is possible to show ²although we will not do so here³ that
+
+
+[  b 
+4
+5²c%³
+[
+
+c
+
+~
+
+3²³ ²%³ ~ 
+
+The generating function of the Laguerre polynomials is
+²³
+
+B
+3 ²%³ 
+
+&!°²!c³
+
+
+~
+!
+
+b
+² c !³
+[
+~
+
+As with the Hermite polynomials, some definitions of the Laguerre polynomials
+differ by a multiplicative constant.
+We presume that the few examples we have given here indicate that the umbral
+calculus applies to a significant range of important polynomial sequences. In
+Roman ´1984µ, we discuss approximately 30 different sequences of polynomials
+that are (or are closely related to) Sheffer sequences.
+
+Umbral Operators and Umbral Shifts
+We have now established the basic framework of the umbral calculus. As we
+have seen, the umbral algebra plays three roles: as the algebra of formal power
+series in a single variable, as the algebra of all linear functionals on F and as the
+
+The Umbral Calculus
+
+491
+
+algebra of all linear operators on F that commute with the derivative operator.
+Moreover, since < is an algebra, we can consider geometric sequences
+Á  Á   Á   Á Ã
+in < , where ²³ ~  and ² ³ ~ . We have seen by example that the
+orthogonality conditions
+º²!³  ²!³ 
+
+ ²%³» ~ [Á
+
+define important families of polynomial sequences.
+While the machinery that we have developed so far does unify a number of
+topics from the classical study of polynomial sequences (for example, special
+cases of the expansion theorem include Taylor's expansion, the Euler–
+MacLaurin formula and Boole's summation formula), it does not provide much
+new insight into their study. Our plan now is to take a brief look at some of the
+deeper results in the umbral calculus, which center on the interplay between
+operators on F and their adjoints, which are operators on the umbral algebra
+< ~ F i.
+We begin by defining two important operators on F associated with each
+Sheffer sequence.
+Definition Let  ²%³ be Sheffer for ²²!³Á  ²!³³. The linear operator
+Á ¢ F ¦ F defined by
+Á ²% ³ ~
+
+ ²%³
+
+is called the Sheffer operator for the pair ²²!³Á  ²!³³, or for the sequence
+ ²%³. If  ²%³ is the associated sequence for  ²!³, the Sheffer operator
+ ²% ³ ~  ²%³
+is called the umbral operator for  ²!³, or for  ²%³.
+Definition Let  ²%³ be Sheffer for ²²!³Á  ²!³³. The linear operator
+Á ¢ F ¦ F defined by
+Á ´  ²%³µ ~
+
+b ²%³
+
+is called the Sheffer shift for the pair ²²!³Á  ²!³³, or for the sequence
+ ²%³ is the associated sequence for  ²!³, the Sheffer operator
+ ´ ²%³µ ~ b ²%³
+
+is called the umbral shift for  ²!³, or for  ²%³.
+
+ ²%³. If
+
+492
+
+Advanced Linear Algebra
+
+It is clear that each Sheffer sequence uniquely determines a Sheffer operator and
+vice versa. Hence, knowing the Sheffer operator of a sequence is equivalent to
+knowing the sequence.
+
+Continuous Operators on the Umbral Algebra
+It is clearly desirable that a linear operator ; on the umbral algebra < pass
+under infinite sums, that is, that
+B
+
+B
+
+; 4  ²!³5 ~  ; ´ ²!³µ
+~
+
+(19.6)
+
+~
+
+whenever the sum on the left is defined, which is precisely when ² ²!³³ ¦ B
+as  ¦ B. Not all operators on < have this property, which leads to the
+following definition.
+Definition A linear operator ; on the umbral algebra < is continuous if it
+satisfies ²19.6).
+The term continuous can be justified by defining a topology on < . However,
+since no additional topological concepts will be needed, we will not do so here.
+Note that in order for (19.6) to make sense, we must have ²; ´ ²!³µ³ ¦ B. It
+turns out that this condition is also sufficient.
+Theorem 19.15 A linear operator ; on < is continuous if and only if
+(19.7)
+
+² ³ ¦ B ¬ ²; ² ³³ ¦ B
+
+Proof. The necessity is clear. Suppose that (19.7) holds and that ² ³ ¦ B.
+For any   , we have
+B
+
+
+
+L;   ²!³c% M ~ L;   ²!³c% M b L;    ²!³c% M (19.8)
+~
+
+~
+
+Since
+8    ²!³9 ¦ B
+
+
+(19.7) implies that we may choose  large enough that
+4;    ²!³5  
+
+
+and
+²; ´ ²!³µ³   for   
+
+
+
+The Umbral Calculus
+
+493
+
+Hence, (19.8) gives
+B
+
+
+
+L;    ²!³c% M ~ L;    ²!³c% M
+~
+
+~
+
+
+~ L  ; ´ ²!³µc% M
+~
+B
+
+~ L  ; ´ ²!³µc% M
+~
+
+which implies the desired result.
+
+Operator Adjoints
+If  ¢ F ¦ F is a linear operator on F , then its (operator) adjoint  d is an
+operator on F i ~ < defined by
+ d ´²!³µ ~ ²!³ k 
+In the symbolism of the umbral calculus, this is
+º d ²!³  ²%³» ~ º²!³   ²%³»
+(We have reduced the number of parentheses used to aid clarity.³
+Let us recall the basic properties of the adjoint from Chapter 3.
+Theorem 19.16 For  Á   B²F ³,
+1) ² b ³d ~  d b d
+2) ² ³d ~  d for any   d
+3) ²³d ~ d  d
+4) ² c ³d ~ ² d ³c for any invertible   B²F ³
+Thus, the map ¢ B²F ³ ¦ B²< ³ that sends  ¢ F ¦ F to its adjoint  d ¢ < ¦ <
+is a linear transformation from B²F ³ to B²< ³. Moreover, since  d ~  implies
+that º²!³   ²%³» ~  for all ²!³  < and ²%³  F , which in turn implies
+that  ~ , we deduce that  is injective. The next theorem describes the range
+of .
+Theorem 19.17 A linear operator ;  B²< ³ is the adjoint of a linear operator
+B  B²F ³ if and only if ; is continuous.
+Proof. First, suppose that ; ~  d for some   B²F ³ and let ² ²!³³ ¦ B. If
+  , then for all      we have
+º d  ²!³  % » ~ º ²!³   % »
+and so it is only necessary to take  large enough that ² ²!³³  deg  ²% ³ for
+all     , whence
+
+494
+
+Advanced Linear Algebra
+
+º d  ²!³  % » ~ 
+for all      and so ² d  ²!³³  . Thus, ² d  ²!³³ ¦ B and  d is
+continuous.
+For the converse, assume that ; is continuous. If ; did have the form  d , then
+º; !  % » ~ º d !  % » ~ º!   % »
+and since
+º!   % » 
+%
+[
+
+
+ % ~ 
+we are prompted to define  by
+
+º; !  % » 
+%
+[
+
+
+% ~ 
+
+This makes sense since ²; ! ³ ¦ B as  ¦ B and so the sum on the right is a
+finite sum. Then
+º; !  % »  
+º!  % » ~ º; !  %»
+[
+
+
+º d !  % » ~ º!   % » ~ 
+
+which implies that ; ! ~  d ! for all   . Finally, since ; and  d are both
+continuous, we have ; ~  d .
+
+Umbral Operators and Automorphisms of the Umbral Algebra
+Figure 19.1 shows the map , which is an isomorphism from the vector space
+B²F ³ onto the space of all continuous linear operators on < . We are interested
+in determining the images under this isomorphism of the set of umbral operators
+and the set of umbral shifts, as pictured in Figure 19.1.
+
+The Umbral Calculus
+
+495
+
+Figure 19.1
+Let us begin with umbral operators. Suppose that  is the umbral operator for
+the associated sequence  ²%³, with delta series  ²!³  < . Then
+ºd  ²!³  % » ~ º ²!³   % » ~ º ²!³   ²%³» ~ [Á ~ º!  %»
+for all  and . Hence, d  ²!³ ~ ! and the continuity of d implies that
+d ! ~  ²!³
+More generally, for any ²!³  < ,
+d ²!³ ~ ² ²!³³
+
+(19.9)
+
+In words, d is composition by  ²!³.
+From (19.9), we deduce that d is a vector space isomorphism and that
+d ´²!³²!³µ ~ ² ²!³³² ²!³³ ~ d ²!³d²!³
+Hence, d is an automorphism of the umbral algebra < . It is a pleasant fact that
+this characterizes umbral operators. The first step in the proof of this is the
+following, whose proof is left as an exercise.
+Theorem 19.18 If ; is an automorphism of the umbral algebra, then ;
+preserves order, that is, ²;  ²!³³ ~ ² ²!³³. In particular, ; is continuous.
+Theorem 19.19 A linear operator  on F is an umbral operator if and only if
+its adjoint is an automorphism of the umbral algebra < . Moreover, if  is an
+umbral operator, then
+
+496
+
+Advanced Linear Algebra
+
+d ²!³ ~ ² ²!³³
+for all ²!³  < . In particular, d  ²!³ ~ !.
+Proof. We have already shown that the adjoint of  is an automorphism
+satisfying (19.9). For the converse, suppose that d is an automorphism of < .
+Since d is surjective, there is a unique series  ²!³ for which d  ²!³ ~ !.
+Moreover, Theorem 19.18 implies that  ²!³ is a delta series. Thus,
+[Á ~ º!  % » ~ ºd  ²!³  % » ~ º ²!³  % »
+which shows that % is the associated sequence for  ²!³ and hence that  is an
+umbral operator.
+Theorem 19.19 allows us to fill in one of the boxes on the right side of Figure
+19.1. Let us see how we might use Theorem 19.19 to advantage in the study of
+associated sequences.
+We have seen that the isomorphism  ª d maps the set K of umbral operators
+on F onto the set aut²< ³ of automorphisms of < ~ F i . But aut²< ³ is a group
+under composition. So if
+ ¢ % ¦  ²%³ and  ¢ % ¦  ²%³
+are umbral operators, then since
+² k  ³d ~ d k d
+is an automorphism of < , it follows that the composition  k  is an umbral
+operator. In fact, since
+² k  ³d  ²²!³³ ~ d k d  ²²!³³ ~ d  ²!³ ~ !
+we deduce that  k  ~  k . Also, since
+ k  ~  k ~ ! ~ 
+we have c ~  .
+Thus, the set K of umbral operators is a group under composition with
+ k  ~  k
+and
+c ~ 
+Let us see how this plays out with respect to associated sequences. If the
+
+The Umbral Calculus
+
+497
+
+associated sequence for  ²!³ is
+
+
+ ²%³ ~  Á %
+~
+
+then  ¢ % ¦  ²%³ and so  k ~  k  is the umbral operator for the
+associated sequence
+
+
+
+
+² k  ³% ~   ²%³ ~  Á  % ~  Á  ²%³
+~
+
+~
+
+This sequence, denoted by
+
+
+ ² ²%³³ ~  Á  ²%³
+
+(19.10)
+
+~
+
+is called the umbral composition of  ²%³ with  ²%³. The umbral operator
+ ~ c is the umbral operator for the associated sequence  ²%³ ~ 'Á %
+where
+c % ~  ²%³
+and so
+
+
+% ~  Á  ²%³
+~
+
+Let us summarize.
+Theorem 19.20
+1) The set K of umbral operators on F is a group under composition, with
+ k  ~  k
+
+and
+
+c ~ 
+
+2) The set of associated sequences forms a group under umbral composition
+
+
+ ² ²%³³ ~  Á  ²%³
+~
+
+In particular, the umbral composition  ² ²%³³ is the associated sequence
+for the composition  k , that is,
+ k ¢ % ¦  ² ²%³³
+The identity is the sequence % and the inverse of  ²%³ is the associated
+sequence for the compositional inverse  ²!³.
+
+498
+
+Advanced Linear Algebra
+
+3) Let   K and ²!³  < . Then as operators,
+ ²!³ ~ c ²!³
+4) Let   K and ²!³  < . Then
+ ² ²!³³ ~ ²!³
+Proof. We prove 3) as follows. For any ²!³  < and ²%³  7 ,
+º²!³  d ²!³²%³» ~ º´d ²!³µ²!³  ²%³»
+~ ºd ´²!³²c ³d ²!³µ  ²%³»
+~ º²!³²c ³d ²!³  ²%³»
+~ º²c ³d ²!³  ²!³²%³»
+~ º²!³  c ²!³²%³»
+which gives the desired result. Part 4) follows immediately from part 3) since 
+is composition by  .
+
+Sheffer Operators
+If
+
+ ²%³ is Sheffer for ²Á  ³, then the linear operator Á defined by
+
+Á ²% ³ ~
+
+ ²%³
+
+is called a Sheffer operator. Sheffer operators are closely related to umbral
+operators, since if  ²%³ is associated with  ²!³, then
+ ²%³ ~ 
+
+c
+
+²!³ ²%³ ~ c ²!³ %
+
+and so
+Á ~ c ²!³
+It follows that the Sheffer operators form a group with composition
+Á k Á ~ c ²!³ c ²!³
+~ c ²!³c ² ²!³³ 
+~ ´²!³² ²!³³µc k
+~ h²k ³Ák
+and inverse
+c
+Á
+~ c ² ³Á
+
+From this, we deduce that the umbral composition of Sheffer sequences is a
+Sheffer sequence. In particular, if  ²%³ is Sheffer for ²Á  ³ and
+! ²%³ ~ '!Á % is Sheffer for ²Á ³, then
+
+The Umbral Calculus
+
+499
+
+
+
+Á k Á ²% ³ ~  !Á Á %
+~
+
+
+~  !Á  ²%³
+~
+
+~ ! ² ²%³³
+is Sheffer for ² h ² k  ³Á  k  ³.
+
+Umbral Shifts and Derivations of the Umbral Algebra
+We have seen that an operator on F is an umbral operator if and only if its
+adjoint is an automorphism of < . Now suppose that   B²F ³ is the umbral
+shift for the associated sequence  ²%³, associated with the delta series
+ ²!³  < . Then
+º d  ²!³   ²%³» ~ º ²!³ 
+
+  ²%³»
+
+
+
+~ º ²!³  b ²%³»
+~ ² b 1)[bÁ
+~ ² c ³[Ác
+~ º ²!³c   ²%³»
+and so
+d
+
+c
+  ²!³ ~  ²!³
+
+(19.11)
+
+This implies that
+d
+
+
+ ´ ²!³  ²!³ µ ~
+
+d
+
+
+ d
+
+ ´ ²!³ µ ²!³ b  ²!³  ´ ²!³ µ
+
+(19.12)
+
+and further, by continuity, that
+d
+d
+d
+ ´²!³²!³µ ~ ´  ²!³µ²!³ b ²!³´  ²!³µ
+
+(19.13)
+
+Let us pause for a definition.
+Definition Let 7 be an algebra. A linear operator C on 7 is a derivation if
+C²³ ~ ²C³ b Cb
+for all Á   7.
+Thus, we have shown that the adjoint of an umbral shift is a derivation of the
+umbral algebra < . Moreover, the expansion theorem and (19.11) show that d
+is surjective. This characterizes umbral shifts. First we need a preliminary result
+on surjective derivations.
+
+500
+
+Advanced Linear Algebra
+
+Theorem 19.21 Let C be a surjective derivation on the umbral algebra < . Then
+C c ~  for any constant   < and ²C f²!³³ ~ ² ²!³³ c , if ² ²!³³  . In
+particular, C is continuous.
+Proof. We begin by noting that
+C ~ C ~ C b C ~ C
+and so C ~ C ~  for all constants   < . Since C is surjective, there must
+exist an ²!³  < for which
+C²!³ ~ 
+Writing ²!³ ~  b ! ²!³, we have
+ ~ C´ b ! ²!³µ ~ ²C!³ ²!³ b !C ²!³
+which implies that ²C!³ ~ . Finally, if ²²!³³ ~   , then ²!³ ~ !  ²!³,
+where ² ²!³³ ~  and so
+´C²!³µ ~ ´C!  ²!³µ ~ ´! C²!³ b !c ²!³C!µ ~  c 
+Theorem 19.22 A linear operator on F is an umbral shift if and only if its
+adjoint is a surjective derivation of the umbral algebra < . Moreover, if  is an
+umbral shift, then d ~ C is derivation with respect to  ²!³, that is,
+d
+
+c
+  ²!³ ~  ²!³
+
+for all   . In particular, d  ²!³ ~ .
+Proof. We have already seen that d is derivation with respect to  ²!³. For the
+converse, suppose that d is a surjective derivation. Theorem 19.21 implies that
+there is a delta functional  ²!³ such that d  ²!³ ~ . If  ²%³ is the associated
+sequence for  ²!³, then
+º ²!³   ²%³» ~ º d  ²!³  ²%³»
+~ º ²!³c d  ²!³   ²%³»
+~ º ²!³c   ²%³»
+~ ² b 1)[bÁ
+~ º ²!³  b ²%³»
+Hence,  ²%³ ~ b ²%³, that is,
+
+~
+
+ is the umbral shift for  ²%³.
+
+We have seen that the fact that the set of all automorphisms on < is a group
+under composition shows that the set of all associated sequences is a group
+under umbral composition. The set of all surjective derivations on < does not
+form a group. However, we do have the chain rule for derivations[
+
+The Umbral Calculus
+
+501
+
+Theorem 19.23 (The chain rule) Let C and C be surjective derivations on < .
+Then
+C ~ ²C  ²!³³C
+Proof. This follows from
+C  ²!³ ~  ²!³c C  ²!³ ~ ²C  ²!³³C  ²!³
+and so continuity implies the result.
+The chain rule leads to the following umbral result.
+Theorem 19.24 If
+
+ and
+
+ are umbral shifts, then
+ ~
+
+ k C  ²!³
+
+Proof. Taking adjoints in the chain rule gives
+ ~
+
+ k ²C  ²!³³
+
+d
+
+~
+
+ k C  ²!³
+
+We leave it as an exercise to show that C  ²!³ ~ ´C ²!³µc . Now, by taking
+²!³ ~ ! in Theorem 19.24 and observing that ! % ~ %b and so ! is
+multiplication by %, we get
+ ~ %C ! ~ %´C!  ²!³µ
+
+c
+
+~ %´ Z ²!³µc
+
+Applying this to the associated sequence  ²%³ for  ²!³ gives the following
+important recurrence relation for  ²%³.
+Theorem 19.25 (The recurrence formula) Let  ²%³ be the associated
+sequence for  ²!³. Then
+1) b ²%³ ~ %´ Z ²!³µc  ²%³
+2) b ²%³ ~ % ´ ²!³µZ %
+Proof. The first part is proved. As to the second, using Theorem 19.20 we have
+b ²%³ ~ %´ Z ²!³µc  ²%³
+~ %´ Z ²!³µc  %
+~ % ´ Z ² ²!³³µc %
+~ % ´ ²!³µZ %
+Example 19.9 The recurrence relation can be used to find the associated
+sequence for the forward difference functional  ²!³ ~ ! c . Since  Z ²!³ ~ ! ,
+the recurrence relation is
+b ²%³ ~ %c!  ²%³ ~ % ²% c 1)
+
+502
+
+Advanced Linear Algebra
+
+Using the fact that  ²%³ ~ , we have
+ ²%³ ~ %Á  ²%³ ~ %²% c ³Á 3 ²%³ ~ %²% c ³²% c ³
+and so on, leading easily to the lower factorial polynomials
+ ²%³ ~ %²% c ³Ä²% c  b ³ ~ ²%³
+Example 19.10 Consider the delta functional
+ ²!³ ~ log² b !³
+Since  ²!³ ~ ! c  is the forward difference functional, Theorem 19.20 implies
+that the associated sequence  ²%³ for  ²!³ is the inverse, under umbral
+composition, of the lower factorial polynomials. Thus, if we write
+
+
+ ²%³ ~  :²Á ³%
+~
+
+then
+
+
+% ~ :²Á ³²%³
+~
+
+The coefficients :²Á ³ in this equation are known as the Stirling numbers of
+the second kind and have great combinatorial significance. In fact, :²Á ³ is
+the number of partitions of a set of size  into  blocks. The polynomials  ²%³
+are called the exponential polynomials.
+The recurrence relation for the exponential polynomials is
+b ²%³ ~ %² b !³ ²%³ ~ %² ²%³ b Z ²%³³
+Equating coefficients of % on both sides of this gives the well-known formula
+for the Stirling numbers
+:² b Á ³ ~ :²Á  c ³ b :²Á ³
+Many other properties of the Stirling numbers can be derived by umbral
+means.
+Now we have the analog of part 3) of Theorem 19.20.
+Theorem 19.26 Let
+
+ be an umbral shift. Then
+d
+ ²!³ ~ ²!³  c  ²!³
+
+The Umbral Calculus
+
+503
+
+Proof. We have
+º  ²!³ 
+
+d
+d
+
+ ²!³ ²%³» ~ º´  ²!³µ ²!³   ²%³»
+~ º d ´²!³  ²!³µ c ²!³ d   ²!³   ²%³»
+~ º d ´²!³  ²!³µ   ²%³» c º²!³ c ²!³  ²%³»
+~ º  ²!³  ²!³   ²%³» c º c ²!³  ²!³ ²%³»
+~ º  ²!³  ²!³   ²%³» c º d   ²!³  ²!³²%³»
+~ º  ²!³  ²!³   ²%³» c º  ²!³   ²!³ ²%³»
+
+from which the result follows.
+If  ²!³ ~ !, then  is multiplication by % and
+! and so the previous result becomes
+
+d
+ is the derivative with respect to
+
+Z ²!³ ~ ²!³% c %²!³
+as operators on F . The right side of this is called the Pincherle derivative of
+the operator ²!³. (See [104].)
+
+Sheffer Shifts
+Recall that the linear map
+Á ´  ²%³µ ~
+
+b ²%³
+
+where  ²%³ is Sheffer for ²²!³Á  ²!³³ is called a Sheffer shift. If  ²%³ is
+associated with  ²!³, then ²!³  ²%³ ~  ²%³ and so
+c ²!³b ²%³ ~
+
+Á ´
+
+c
+
+²!³ ²%³µ
+
+and so
+Á ~ 
+
+c
+
+²!³  ²!³
+
+From Theorem 19.26, the recurrence formula and the chain rule, we have
+Á ~ 
+
+c
+
+²!³  ²!³
+~  ²!³´²!³  c d ²!³µ
+c
+
+~  c c ²!³C ²!³
+~  c c ²!³C ²!³
+~  c c ²!³C !C! ²!³
+~ %´ Z ²!³µc c c ²!³´ Z ²!³µc Z ²!³
+Z ²!³
+
+~ >% c
+?
+²!³  Z ²!³
+We have proved the following.
+
+504
+
+Advanced Linear Algebra
+
+Theorem 19.27 Let
+1)
+
+Á be a Sheffer shift. Then
+Z ²!³
+
+Á ~ <% c ²!³ =  Z ²!³
+
+2)
+
+Z ²!³
+
+b ²%³ ~ <% c ²!³ =  Z ²!³  ²%³
+
+The Transfer Formulas
+We conclude with a pair of formulas for the computation of associated
+sequences.
+Theorem 19.28 (The transfer formulas) Let  ²%³ be the associated sequence
+for  ²!³. Then
+cc
+
+1)  ²%³ ~  Z ²!³4  ²!³
+! 5
+c
+
+2)  ²%³ ~ %4  ²!³
+! 5
+
+%
+
+%c
+
+Proof. First we show that 1) and 2) are equivalent. Write ²!³ ~  ²!³°!. Then
+ Z ²!³²!³cc % ~ ´!²!³µZ ²!³cc %
+~ ²!³c % b !Z ²!³²!³cc %
+~ ²!³c % b Z ²!³²!³cc %c
+~ ²!³c % b ´²!³c µZ %c
+~ ²!³c % c ´²!³c % c %²!³c µ%c
+~ %²!³c %c
+To prove 1), we verify the operation conditions for an associated sequence for
+the sequence  ²%³ ~  Z ²!³²!³cc % . First, when    the fourth equality
+above gives
+º!   ²%³» ~ º!   Z ²!³²!³cc % »
+~ º!  ²!³c % c ´²!³c µZ %c »
+~ º²!³c  % » c º´²!³c µZ  %c »
+~ º²!³c  % » c º²!³c  % »
+~
+If  ~ , then º!   ²%³» ~ , and so in general, we have º!   ²%³» ~ Á as
+required.
+For the second required condition,
+ ²!³ ²%³ ~  ²!³ Z ²!³²!³cc %
+~ !²!³ Z ²!³²!³cc %
+~  Z ²!³²!³cc %c
+~ c ²%³
+Thus,  ²%³ is the associated sequence for  ²!³.
+
+The Umbral Calculus
+
+505
+
+A Final Remark
+Unfortunately, space does not permit a detailed discussion of examples of
+Sheffer sequences nor the application of the umbral calculus to various classical
+problems. In [105], one can find a discussion of the following polynomial
+sequences:
+The lower factorial polynomials and Stirling numbers
+The exponential polynomials and Dobinski's formula
+The Gould polynomials
+The central factorial polynomials
+The Abel polynomials
+The Mittag-Leffler polynomials
+The Bessel polynomials
+The Bell polynomials
+The Hermite polynomials
+The Bernoulli polynomials and the Euler–MacLaurin expansion
+The Euler polynomials
+The Laguerre polynomials
+The Bernoulli polynomials of the second kind
+The Poisson–Charlier polynomials
+The actuarial polynomials
+The Meixner polynomials of the first and second kinds
+The Pidduck polynomials
+The Narumi polynomials
+The Boole polynomials
+The Peters polynomials
+The squared Hermite polynomials
+The Stirling polynomials
+The Mahler polynomials
+The Mott polynomials
+and more. In [105], we also find a discussion of how the umbral calculus can be
+used to approach the following types of problems:
+The connection constants problem
+Duplication formulas
+The Lagrange inversion formula
+Cross sequences
+Steffensen sequences
+Operational formulas
+Inverse relations
+Sheffer sequence solutions to recurrence relations
+Binomial convolution
+
+506
+
+Advanced Linear Algebra
+
+Finally, it is possible to generalize the classical umbral calculus that we have
+described in this chapter to provide a context for studying polynomial sequences
+such as those of the names Gegenbauer, Chebyshev and Jacobi. Also, there is a
+q-version of the umbral calculus that involves the q-binomial coefficients (also
+known as the Gaussian coefficients)
+
+² c ³Ä² c   ³
+4 5 ~
+ 
+² c ³Ä² c   ³² c ³Ä² c  c ³
+in place of the binomial coefficients. There is also a logarithmic version of the
+umbral calculus, which studies the harmonic logarithms and sequences of
+logarithmic type. For more on these topics, please see [103], [106] and [107].
+
+Exercises
+1.
+2.
+3.
+4.
+5.
+6.
+
+Prove that ² ³ ~ ² ³ b ²³, for any  Á   < .
+Prove that ² b ³  min¸² ³Á ²³¹, for any  Á   < .
+Show that any delta series has a compositional inverse.
+Show that for any delta series  , the sequence   is a pseudobasis.
+Prove that C! is a derivation.
+Show that   < is a delta functional if and only if º  » ~  and
+º  %» £ .
+7. Show that   < is invertible if and only if º  » £ .
+8. Show that º ²!³  ²%³» ~ º ²!³  ²%³» for any a  d,   < and
+  F.
+9. Show that º!e!  ²%³» ~ Z ²a³ for any polynomial ²%³  F .
+10. Show that  ~  in < if and only if  ~  as linear functionals, which
+holds if and only if  ~  as linear operators.
+11. Prove that if  ²%³ is Sheffer for ²²!³Á  ²!³³, then  ²!³  ²%³ ~  c ²%³.
+Hint: Apply the functionals ²!³  ²!³ to both sides.
+12. Verify that the Abel polynomials form the associated sequence for the Abel
+functional.
+13. Show that a sequence  ²%³ is the Appell sequence for ²!³ if and only if
+c 
+ ²%³ ~ ²!³ % .
+14. If  is a delta series, show that the adjoint d of the umbral operator  is a
+vector space isomorphism of < .
+15. Prove that if ; is an automorphism of the umbral algebra, then ; preserves
+order, that is, ²;  ²!³³ ~ ² ²!³³. In particular, ; is continuous.
+16. Show that an umbral operator maps associated sequences to associated
+sequences.
+17. Let  ²%³ and  ²%³ be associated sequences. Define a linear operator  by
+¢  ²%³ ¦  ²%³. Show that  is an umbral operator.
+18. Prove that if C and C are surjective derivations on < , then
+C  ²!³ ~ ´C ²!³µc .
+
+References
+
+General References
+[1]
+[2]
+
+Jacobson, N., Basic Algebra I, second edition, W.H. Freeman, 1985.
+Snapper, E. and Troyer, R., Metric Affine Geometry, Dover Publications,
+1971.
+
+General Linear Algebra
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+[9]
+[10]
+[11]
+[12]
+[13]
+[14]
+[15]
+[16]
+[17]
+[18]
+[19]
+
+Akivis, M., Goldberg, V., An Introduction To Linear Algebra and
+Tensors, Dover, 1977.
+Blyth, T., Robertson, E., Further Linear Algebra, Springer, 2002.
+Brualdi, R., Friedland, S., Klee, V., Combinatorial and GraphTheoretical Problems in Linear Algebra, Springer, 1993.
+Curtis, M., Place, P., Abstract Linear Algebra, Springer, 1990.
+Fuhrmann, P., A Polynomial Approach to Linear Algebra, Springer, 1996.
+Gel'fand, I. M., Lectures On Linear Algebra, Dover, 1989.
+Greub, W., Linear Algebra, Springer, 1995.
+Halmos, P. R., Linear Algebra Problem Book, Mathematical Association
+of America, 1995.
+Halmos, P. R., Finite-Dimensional Vector Spaces, Springer, 1974.
+Hamilton, A. G., Linear Algebra, Cambridge University Press, 1990.
+Jacobson, N., Lectures in Abstract Algebra II: Linear Algebra, Springer,
+1953.
+Jänich, K., Linear Algebra, Springer, 1994.
+Kaplansky, I., Linear Algebra and Geometry: A Second Course, Dover,
+2003.
+Kaye, R., Wilson, R., Linear Algebra, Oxford University Press, 1998.
+Kostrikin, A. and Manin, Y., Linear Algebra and Geometry, Gordon and
+Breach Science Publishers, 1997.
+Lax, P., Linear Algebra, John Wiley, 1996.
+Lewis, J. G., Proceedings of the 5th SIAM Conference On Applied Linear
+Algebra, SIAM, 1994.
+
+508
+[20]
+[21]
+[22]
+[23]
+[24]
+[25]
+[26]
+[27]
+[28]
+[29]
+[30]
+
+Advanced Linear Algebra
+Marcus, M., Minc, H., Introduction to Linear Algebra, Dover, 1988.
+Mirsky, L., An Introduction to Linear Algebra, Dover, 1990.
+Nef, W., Linear Algebra, Dover, 1988.
+Nering, E. D., Linear Algebra and Matrix Theory, John Wiley, 1976.
+Pettofrezzo, A., Matrices and Transformations, Dover, 1978.
+Porter, G., Hill, D., Interactive Linear Algebra: A Laboratory Course
+Using Mathcad, Springer, 1996.
+Schneider, H., Barker, G., Matrices and Linear Algebra, Dover, 1989.
+Schwartz, J., Introduction to Matrices and Vectors, Dover, 2001.
+Shapiro, H., A survey of canonical forms and invariants for unitary
+similarity, Linear Algebra and Its Applications 147:101–167 (1991).
+Shilov, G., Linear Algebra, Dover, 1977.
+Wilkinson, J., The Algebraic Eigenvalue Problem, Oxford University
+Press, 1988.
+
+Matrix Theory
+[31] Antosik, P., Swartz, C., Matrix Methods in Analysis, Springer, 1985.
+[32] Bapat, R., Raghavan, T., Nonnegative Matrices and Applications,
+Cambridge University Press, 1997.
+[33] Barnett, S., Matrices, Oxford University Press, 1990.
+[34] Bellman, R., Introduction to Matrix Analysis, SIAM, 1997.
+[35] Berman, A., Plemmons, R., Non-negative Matrices in the Mathematical
+Sciences, SIAM, 1994.
+[36] Bhatia, R., Matrix Analysis, Springer, 1996.
+[37] Bowers, J., Matrices and Quadratic Forms, Oxford University Press,
+2000.
+[38] Boyd, S., El Ghaoui, L., Feron, E.; Balakrishnan, V., Linear Matrix
+Inequalities in System and Control Theory, SIAM, 1994.
+[39] Chatelin, F., Eigenvalues of Matrices, John Wiley, 1993.
+[40] Ghaoui, L., Advances in Linear Matrix Inequality Methods in Control,
+SIAM, 1999.
+[41] Coleman, T., Van Loan, C., Handbook for Matrix Computations, SIAM,
+1988.
+[42] Duff, I., Erisman, A., Reid, J., Direct Methods for Sparse Matrices,
+Oxford University Press, 1989.
+[43] Eves, H., Elementary Matrix Theory, Dover, 1966.
+[44] Franklin, J., Matrix Theory, Dover, 2000.
+[45] Gantmacher, F.R., Matrix Theory I, American Mathematical Society,
+2000.
+[46] Gantmacher, F.R., Matrix Theory II, American Mathematical Society,
+2000.
+[47] Gohberg, I., Lancaster, P., Rodman, L., Invariant Subspaces of Matrices
+with Applications, John Wiley, 1986.
+[48] Horn, R. and Johnson, C., Matrix Analysis, Cambridge University Press,
+1985.
+
+References
+
+509
+
+[49] Horn, R. and Johnson, C., Topics in Matrix Analysis, Cambridge
+University Press, 1991.
+[50] Jennings, A., McKeown, J. J., Matrix Computation, John Wiley, 1992.
+[51] Joshi, A. W., Matrices and Tensors in Physics, John Wiley, 1995.
+[52] Laub, A., Matrix Analysis for Scientists and Engineers, SIAM, 2004.
+[53] Lütkepohl, H., Handbook of Matrices, John Wiley, 1996.
+[54] Marcus, M., Minc, H., A Survey of Matrix Theory and Matrix
+Inequalities, Dover, 1964.
+[55] Meyer, C., Matrix Analysis and Applied Linear Algebra, SIAM, 2000.
+[56] Muir, T., A Treatise on the Theory of Determinants, Dover, 2003.
+[57] Perlis, S., Theory of Matrices, Dover, 1991.
+[58] Serre, D., Matrices: Theory and Applications, Springer, 2002.
+[59] Stewart, G., Matrix Algorithms, SIAM, 1998.
+[60] Stewart, G., Matrix Algorithms Volume II: Eigensystems, SIAM, 2001.
+[61] Watkins, D., Fundamentals of Matrix Computations, John Wiley, 1991.
+
+Multilinear Algebra
+[62] Marcus, M., Finite Dimensional Multilinear Algebra, Part I, Marcel
+Dekker, 1971.
+[63] Marcus, M., Finite Dimensional Multilinear Algebra, Part II, Marcel
+Dekker, 1975.
+[64] Merris, R., Multilinear Algebra, Gordon & Breach, 1997.
+[65] Northcott, D. G., Multilinear Algebra, Cambridge University Press, 1984.
+
+Applied and Numerical Linear Algebra
+[66] Anderson, E., LAPACK User's Guide, SIAM, 1995.
+[67] Axelsson, O., Iterative Solution Methods, Cambridge University Press,
+1994.
+[68] Bai, Z., Templates for the Solution of Algebraic Eigenvalue Problems: A
+Practical Guide, SIAM, 2000.
+[69] Banchoff, T., Wermer, J., Linear Algebra Through Geometry, Springer,
+1992.
+[70] Blackford, L., ScaLAPACK User's Guide, SIAM, 1997.
+[71] Ciarlet, P. G., Introduction to Numerical Linear Algebra and
+Optimization, Cambridge University Press, 1989.
+[72] Campbell, S., Meyer, C., Generalized Inverses of Linear
+Transformations, Dover, 1991.
+[73] Datta, B., Johnson, C., Kaashoek, M., Plemmons, R., Sontag, E., Linear
+Algebra in Signals, Systems and Control, SIAM, 1988.
+[74] Demmel, J., Applied Numerical Linear Algebra, SIAM, 1997.
+[75] Dongarra, J., Bunch, J. R., Moler, C. B., Stewart, G. W., Linpack Users'
+Guide, SIAM, 1979.
+[76] Dongarra, J., Numerical Linear Algebra for High-Performance
+Computers, SIAM, 1998.
+
+510
+
+Advanced Linear Algebra
+
+[77] Dongarra, J., Templates for the Solution of Linear Systems: Building
+Blocks For Iterative Methods, SIAM, 1993.
+[78] Faddeeva, V. N., Computational Methods of Linear Algebra, Dover,
+[79] Frazier, M., An Introduction to Wavelets Through Linear Algebra,
+Springer, 1999.
+[80] George, A., Gilbert, J., Liu, J., Graph Theory and Sparse Matrix
+Computation, Springer, 1993.
+[81] Golub, G., Van Dooren, P., Numerical Linear Algebra, Digital Signal
+Processing and Parallel Algorithms, Springer, 1991.
+[82] Granville S., Computational Methods of Linear Algebra, 2nd edition,
+John Wiley, 2005.
+[83] Greenbaum, A., Iterative Methods for Solving Linear Systems, SIAM,
+1997.
+[84] Gustafson, K., Rao, D., Numerical Range: The Field of Values of Linear
+Operators and Matrices, Springer, 1996.
+[85] Hackbusch, W., Iterative Solution of Large Sparse Systems of Equations,
+Springer, 1993.
+[86] Jacob, B., Linear Functions and Matrix Theory, Springer, 1995.
+[87] Kuijper, M., First-Order Representations of Linear Systems, Birkhäuser,
+1994.
+[88] Meyer, C., Plemmons, R., Linear Algebra, Markov Chains, and Queueing
+Models, Springer, 1993.
+[89] Neumaier, A., Interval Methods for Systems of Equations, Cambridge
+University Press, 1991.
+[90] Nevanlinna, O., Convergence of Iterations for Linear Equations,
+Birkhäuser, 1993.
+[91] Olshevsky, V., Fast Algorithms for Structured Matrices: Theory and
+Applications, SIAM, 2003.
+[92] Plemmon, R.J., Gallivan, K.A., Sameh, A.H., Parallel Algorithms for
+Matrix Computations, SIAM, 1990.
+[93] Rao, K. N., Linear Algebra and Group Theory for Physicists, John Wiley,
+1996.
+[94] Reichel, L., Ruttan, A., Varga, R., Numerical Linear Algebra, Walter de
+Gruyter, 1993.
+[95] Saad, Y., Iterative Methods for Sparse Linear Systems, SIAM, 2003.
+[96] Scharlau, W., Quadratic and Hermitian Forms, Springer, 1985.
+[97] Snapper, E., Troyer, R., Metric Affine Geometry, Dover,
+[98] Spedicato, E., Computer Algorithms for Solving Linear Algebraic
+Equations, Springer, 1991.
+[99] Trefethen, L., Bau, D., Numerical Linear Algebra, SIAM, 1997.
+[100] Van Dooren, P., Wyman, B., Linear Algebra for Control Theory,
+Springer, 1994.
+[101] Vorst, H., Iterative Krylov Methods for Large Linear Systems, Cambridge
+University Press, 2003.
+[102] Young, D., Iterative Solution of Large Linear Systems, Dover, 2003.
+
+References
+
+511
+
+The Umbral Calculus
+[103] Loeb, D. and Rota, G.-C., Formal Power Series of Logarithmic Type,
+Advances in Mathematics, Vol. 75, No. 1, (May 1989) 1–118.
+[104] Pincherle, S. "Operatori lineari e coefficienti di fattoriali." Alti Accad.
+Naz. Lincei, Rend. Cl. Fis. Mat. Nat. (6) 18, 417–519, 1933.
+[105] Roman, S., The Umbral Calculus, Pure and Applied Mathematics vol.
+111, Academic Press, 1984.
+[106] Roman, S., The logarithmic binomial formula, American Mathematical
+Monthly 99 (1992) 641–648.
+[107] Roman, S., The harmonic logarithms and the binomial formula, Journal
+of Combinatorial Theory, series A, 63 (1992) 143–163.
+
+Index of Symbols
+
+*´²%³µ: the companion matrix of ²%³
+ ²%³: characteristic polynomial of 
+crk²(³: column rank of (
+cs²(³: column space of (
+diag²( Á Ã Á ( ³: a block diagonal matrix with ( 's on the block diagonal
+ElemDiv² ³: the multiset of elementary divisors
+InvFact² ³: the multiset of invariant factors of 
+@ ² Á Á ³: Jordan block
+ ²%³: minimal polynomial of 
+null² ³: the nullity of 
+: : canonical projection modulo :
+9 : Riesz vector for   = i
+rk² ³: the rank of 
+rrk²(³: row rank of (
+rs²(³: row space of (
+(Á) : projection onto ( along )
+( : the multiplication by ( operator
+supp² ³: the support of a function
+= : the - -vector space/- ´%µ-module where ²%³# ~ ² ³#
+= d : the complexification of =
+ : assignment, for example, "  º:» means that " stands for º:»
+ : subspace or submodule
+ : proper subspace or proper submodule
+º:»: subspace/ideal spanned by :
+ºº:»»: submodule spanned by :
+
+Æ ¢ an embedding that is an isomorphism when all is finite-dimensional.
+ : similarity of matrices or operators, associate in a ring.
+d : cartesian product
+p : orthogonal direct sum
+` : external direct product
+^ : external direct sum
+l : internal direct sum
+ :%  & means º%Á &» ~ º&Á %»
+
+514
+
+Index of Symbols
+
+w : wedge product
+n : tensor product
+n
+: -fold tensor product
+d
+: -fold cartesion product
+²Á ³ ~ :  and  are relatively prime
+ : affine combination
+
+Index
+
+Abel functional, 477, 489
+Abel operator, 479
+Abel polynomials, 489
+abelian, 17
+absolutely convergent, 330
+accumulation point, 306
+adjoint, 227, 231
+affine basis, 435
+affine closed, 428
+affine combination, 428
+affine geometry, 427
+affine group, 436
+affine hull, 430
+affine hyperplane, 416
+affine map, 435
+affine span, 430
+affine subspace, 57
+affine transformation, 435
+affine, 424
+affinely independent, 433
+affinity, 435
+algebra homomorphism, 455
+algebra, 31, 451
+algebraic, 100, 458
+algebraic closure, 30
+algebraic dual space, 94
+algebraic multiplicity, 189
+algebraic numbers, 460
+algebraically closed, 30
+algebraically reflexive, 101
+algorithm, 217
+almost upper triangular, 194
+along, 73
+alternate, 260, 262, 391
+alternating, 260, 391
+ancestor, 14
+anisotropic, 265
+annihilator, 102, 115, 459
+antisymmetric, 259, 390, 395
+
+antisymmetric tensor algebra, 398
+antisymmetric tensor space, 395, 400
+antisymmetry, 10
+Apollonius identity, 223
+Appell sequence, 481
+approximation problem, 331
+as measured by, 357
+ascending chain condition, 26, 133
+associate classes, 27
+associated sequence, 481
+associates, 26
+automorphism, 60
+barycentric coordinates, 435
+base ring, 110
+base, 427
+basis, 47, 116
+Bernoulli numbers, 477
+Bernstein theorem, 13
+Bessel's identity, 221
+Bessel's inequality, 220, 337, 338, 345
+best approximation, 219, 332
+bijection, 6
+bijective, 6
+bilinear form, 259, 360
+bilinear, 206, 360
+binomial identity, 486
+binomial type, 486
+block diagonal matrix, 3
+block matrix, 3
+blocks, 7
+bottom, 10
+bounded, 321, 349
+canonical form, 8
+canonical injections, 359
+canonical map, 100
+canonical projection, 89
+Cantor's theorem, 13
+
+516
+
+Index
+
+cardinal number, 13
+cardinality, 12, 13
+cartesian product, 14
+Cauchy sequence, 311
+Cauchy–Schwarz inequality, 208, 303, 325
+Cayley-Hamilton theorem, 170
+center, 452
+central, 452
+centralizer, 464, 469
+chain, 11
+chain rule, 501
+change of basis matrix, 65
+change of basis operator, 65
+change of coordinates operator, 65
+characteristic, 30
+characteristic equation, 186
+characteristic polynomial, 170
+characteristic value, 185
+characteristic vector, 186
+Cholsky decomposition, 255
+circulant matrices, 457
+class equation, 464
+classification problem, 276
+closed ball, 304
+closed half-spaces, 417
+closed interval, 143
+closed, 304, 414
+closure, 306
+codimension, 93
+coefficients, 36
+column equivalent, 9
+column rank, 52
+column space, 52
+common eigenvector, 202
+commutative, 17, 19, 451
+commutativity, 15, 35, 384
+commuting family, 201
+compact, 414
+companion matrix, 173
+complement, 42, 120
+complemented, 120
+complete, 40, 311
+complete invariant, 8
+complete system of invariants, 8
+completion, 316
+complex operator, 59
+
+complex vector space, 36
+complexification, 53, 54, 82
+complexification map, 54
+composition, 472
+cone, 265, 414
+congruence classes, 262
+congruence relation, 88
+congruent modulo, 21, 87
+congruent, 9, 262
+conjugacy class, 463
+conjugate isomorphism, 222
+conjugate linear, 206, 221
+conjugate linearity, 206
+conjugate representation, 483
+conjugate space, 350
+conjugate symmetry, 205
+connected, 281
+continuity, 340
+continuous, 310, 492
+continuous dual space, 350
+continuum, 16
+contraction, 389
+contravariant tensors, 386
+contravariant type, 386
+converge, 339, 210, 305, 330
+convex combination, 414
+convex, 332, 414
+convex hull, 415
+coordinate map, 51
+coordinate matrix, 52, 368
+correspondence theorem, 90, 118
+coset, 22, 87, 118
+coset representative, 22, 87
+countable, 13
+countably infinite, 13
+covariant tensors, 386
+covariant type, 386
+cycle, 391
+cyclic basis, 166
+cyclic decomposition, 149, 168
+cyclic group generated by, 18
+cyclic group of order, 18
+cyclic submodule, 113
+cyclotomic polynomial, 465
+decomposable, 362
+
+Index
+
+degenerate, 266
+degree, 5
+deleted absolute row sum, 203
+delta functional, 475
+delta operator, 478
+delta series, 472
+dense, 308
+derivation, 499
+descendants, 13
+determinant, 292, 405
+diagonal, 4
+diagonalizable, 196
+diagonally dominant, 203
+diameter, 321
+dimension, 50, 427
+direct product, 41, 408
+direct sum, 41, 73, 119
+direct summand, 42, 120
+discrete metric, 302
+discriminant, 263
+distance, 209, 322
+divides, 5, 26
+division algebra, 462
+division algorithm, 5
+domain, 6
+dot product, 206
+double, 100
+dual basis, 96
+dual space, 59, 100
+eigenspace, 186
+eigenvalue, 185, 186, 461
+eigenvector, 186
+elementary divisor basis, 169
+elementary divisor form, 176
+elementary divisor version, 177
+elementary divisors, 155, 167, 168
+elementary divisors and dimensions, 168
+elementary matrix, 3
+elementary symmetric functions, 189
+embedding, 59, 117
+endomorphism, 59, 117
+epimorphism, 59, 117
+equivalence class, 7
+equivalence relation, 7
+equivalent, 9, 69
+
+517
+
+essentially unique, 45
+Euclidean metric, 302
+Euclidean space, 206
+evaluation at, 96, 100
+evaluation functional, 474, 476
+even permutation, 391
+even weight subspace, 38
+exponential polynomials, 502
+exponential, 482
+extension by, 103
+extension, 6, 273
+exterior algebra, 398
+exterior product, 393
+exterior product space, 395, 400
+external direct sum, 40, 41, 119
+factored through, 355, 357
+factorization, 217
+faithful, 457
+Farkas's lemma, 423
+field of quotients, 24
+field, 19, 29
+finite support, 41
+finite, 1, 12, 18
+finite-dimensional, 50, 451
+finitely generated, 113
+first isomorphism theorem, 92, 118, 469
+flat representative, 427
+flat, 427
+form, 299, 382
+forward difference functional, 477
+forward difference operator, 479
+Fourier coefficient, 219
+Fourier expansion, 219, 338, 345
+free, 116
+Frobenius norm, 450, 466
+functional calculus, 248
+functional, 94
+Gaussian coefficients, 57, 506
+generating function, 482, 483
+geometric multiplicity, 189
+Geršgorin region, 203
+Geršgorin row disk, 203
+Geršgorin row region, 203
+graded algebra, 392
+
+518
+
+Index
+
+Gram-Schmidt augmentation, 213
+Gram-Schmidt orthogonalization process, 214
+greatest common divisor, 5
+greatest lower bound, 11
+group algebra, 453
+group, 17
+Hamel basis, 218
+Hamming distance function, 321
+Hermite polynomials, 224, 489
+Hermitian, 238
+Hilbert basis theorem, 136
+Hilbert basis, 218, 335
+Hilbert dimension, 347
+Hilbert space adjoint, 230
+Hilbert space, 315, 327
+Hölder's inequality, 303
+homogeneous, 392
+homomorphism, 59, 117
+Householder transformation, 244
+hyperbolic basis, 273
+hyperbolic extension, 274
+hyperbolic pair, 272
+hyperbolic plane, 272
+hyperbolic space, 272
+hyperplane, 416, 427
+ideal generated by, 21, 455
+ideal, 20, 455
+idempotent, 74, 125
+identity, 17
+image, 6, 61
+imaginary part, 54
+indecomposable, 158
+index of nilpotence, 200
+induced, 305
+inertia, 288
+infinite, 13
+infinite-dimensional, 50
+injection, 6, 117
+inner product, 205, 260
+inner product space, 205, 260
+integral domain, 23
+invariant, 8, 73, 83, 165
+invariant factor basis, 179
+invariant factor decomposition, 157
+
+invariant factor form, 178
+invariant factor version, 179
+invariant factors, 157, 167, 168
+invariant factor decomposition theorem, 157
+invariant ideals, 157
+invariant under, 73
+inverses, 17
+invertible functional, 475
+involution, 199
+irreducible, 5, 26, 83
+isometric isomorphism, 211, 326
+isometric, 271, 316
+isometrically isomorphic, 211, 326
+isometry, 211, 271, 315, 326
+isomorphic, 59, 62, 117
+isotropic, 265
+join, 40
+Jordan basis, 191
+Jordan block, 191
+Jordan canonical form, 191
+kernel, 61
+Kronecker delta function, 96
+Kronecker product, 408
+Lagrange interpolation formula, 248
+Laguerre polynomials, 490
+largest, 10
+lattice, 39, 40
+leading coefficient, 5
+leading entry, 3
+least, 10
+least squares solution, 448
+least upper bound, 11
+left inverse, 122, 470
+left regular matrix representation, 457
+left regular representation, 457
+left singular vectors, 445
+left zero divisor, 460
+left-invertible, 470
+Legendre polynomials, 215
+length, 208
+limit, 306
+limit point, 306
+line, 427, 429
+
+Index
+
+linear code, 38
+linear combination, 36, 112
+linear function, 382
+linear functional, 59, 94
+linear hyperplane, 416
+linear least squares, 448
+linear operator, 59
+linear transformation, 59
+linearity, 340
+linearity in the first coordinate, 205
+linearly dependent, 45, 114
+linearly independent, 45, 114
+linearly ordered set, 11
+lower bound, 11
+lower factorial numbers, 471
+lower factorial polynomials, 488
+lower triangular, 4
+main diagonal, 2
+matrix, 64
+matrix of, 66
+matrix of the form, 261
+maximal element, 10
+maximal ideal, 23
+maximal orthonormal set, 218
+maximum, 10
+measuring family, 357
+measuring functions, 357
+mediating morphism map, 367
+mediating morphism, 357, 362, 383
+meet, 40
+metric, 210, 301
+metric space, 210, 301
+metric vector space, 260
+mimimum, 10
+minimal element, 11
+minimal polynomial, 165, 166, 459
+Minkowski space, 260
+Minkowski's inequality, 37, 303
+mixed tensors, 386
+modular law, 56
+module, 109, 133, 167
+modulo, 22, 87, 118
+monic, 5
+monomorphism, 59, 117
+Moore-Penrose generalized inverse, 446
+
+Moore-Penrose pseudoinverse, 446
+MP inverse, 447
+multilinear, 382
+multilinear form, 382
+multiplicity, 1
+multiset, 1
+natural map, 100
+natural projection, 89
+natural topology, 80, 82
+negative, 17
+net definition, 339
+nilpotent, 198, 200
+Noetherian, 133
+nondegenerate, 266
+nonderogatory, 171
+nonisotropic, 265
+nonnegative orthant, 225, 411
+nonnegative, 225, 411
+nonsingular, 266
+nonsingular completion, 273
+nonsingular extension theorem, 274
+nontrivial, 36
+norm, 208, 209, 303, 349
+normal equations, 449
+normal, 234
+normalizing, 213
+normed linear space, 209, 224
+null, 265
+nullity, 61
+odd permutation, 391
+one-sided inverses, 122, 470
+one-to-one, 6
+onto, 6
+open ball, 304
+open half-spaces, 417
+open neighborhood, 304
+open rectangles, 79
+open sets, 305
+operator adjoint, 104
+operator characterization, 484
+order, 18, 101, 139, 471
+order ideals, 115
+ordered basis, 51
+order-reversing, 102
+
+519
+
+

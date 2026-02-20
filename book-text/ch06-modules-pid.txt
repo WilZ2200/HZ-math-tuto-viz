@@ -1,0 +1,990 @@
+Modules Over a Principal Ideal Domain
+
+143
+
+0 ~ ¸  9  ² Á Ã Á c Á Á Á Ã Á ³  : for some  Á Ã Á c  9¹
+Then it is easy to see that 0 is an ideal of 9 and so 0 ~ º » for some   9 .
+Let
+" ~ ² Á Ã Á c Á  Á Á Ã Á ³  :
+We claim that
+8 ~ ¸"   ~ Á Ã Á  and  £ ¹
+is a basis for : . As to linear independence, suppose that
+8 ~ ¸" Á Ã Á " ¹
+and that
+ " b Ä b  " ~ 
+Then comparing the  th coordinates gives   ~  and since  £ , it
+follows that  ~ . In a similar way, all coefficients are  and so 8 is linearly
+independent.
+To see that 8 spans : , we partition the elements %  : according to the largest
+coordinate index ²%³ with nonzero entry and induct on ²%³. If ²%³ ~ , then
+% ~ , which is in the span of 8 . Suppose that all %  : with ²%³   are in
+the span of 8 and let ²%³ ~  , that is,
+% ~ ² Á Ã Á  Á Á Ã Á ³
+where  £ . Then   0 and so  £  and  ~  for some   9 .
+Hence, ²% c " ³   and so & ~ % c "  ºº8»» and therefore %  ºº8»».
+Thus, 8 is a basis for : .
+The previous proof can be generalized in a more or less direct way to modules
+of arbitrary rank. In this case, we may assume that 4 ~ ²9  ³ is the 9 -module
+of functions with finite support from  to 9 , where  is a cardinal number. We
+use the fact that  is a well-ordered set, that is,  is a totally ordered set in which
+any nonempty subset has a smallest element. If   , the closed interval ´Á µ
+is
+´Á µ ~ ¸%      %  ¹
+Let :  4 . For each     , let
+4 ~ ¸  :  supp² ³  ´Á µ¹
+Then the set
+0 ~ ¸ ²³    4 ¹
+
+144
+
+Advanced Linear Algebra
+
+is an ideal of 9 and so 0 ~ º ²³» for some   : . We show that
+8 ~ ¸      Á  ²³ £ ¹
+is a basis for : . First, suppose that
+  b Ä b   ~ 
+where    for   . Applying this to  gives
+  ² ³ ~ 
+and since 9 is an integral domain,  ~ . Similarly,  ~  for all  and so 8 is
+linearly independent.
+To show that 8 spans : , since any   : has finite support, there is a largest
+index  ~ ² ³ for which  ² ³ £ . Now, if ºº8 »»  : , then since  is wellordered, we may choose a   : ± ºº8 »» for which  ~  ~ ²³ is as small as
+possible. Then   4 . Moreover, since  £ ²³  0 , it follows that
+ ²³ £  and ²³ ~  ²³ for some   9 . Then
+supp² c  ³  ´Á µ
+and
+² c  ³²³ ~ ²³ c  ²³ ~ 
+and so ² c  ³  , which implies that  c   ºº8 »». But then
+ ~ ² c  ³ b   ºº8 »»
+a contradiction. Thus, 8 is a basis for : .
+In a vector space of dimension , any set of  linearly independent vectors is a
+basis. This fails for modules. For example, { is a {-module of rank  but the
+independent set ¸¹ is not a basis. On the other hand, the fact that a spanning set
+of size  is a basis does hold for modules over a principal ideal domain, as we
+now show.
+Theorem 6.6 Let 4 be a free 9 -module of finite rank , where 9 is a principal
+ideal domain. Let : ~ ¸  Á Ã Á  ¹ be a spanning set for 4 . Then : is a basis
+for 4 .
+Proof. Let 8 ~ ¸ Á Ã Á  ¹ be a basis for 4 and define the map  ¢ 4 ¦ 4 by
+ ~  and extending to a surjective 9 -homomorphism. Since 4 is free,
+Theorem 5.6 implies that
+4  ker² ³ ^ im² ³ ~ ker² ³ ^ 4
+Since ker² ³ is a submodule of the free module and since 9 is a principal ideal
+domain, we know that ker² ³ is free of rank at most . It follows that
+
+Modules Over a Principal Ideal Domain
+
+145
+
+rk²4 ³ ~ rk²ker² ³³ b rk²4 ³
+and so rk²ker² ³³ ~ , that is, ker² ³ ~ ¸¹, which implies that  is an 9 isomorphism and so : is a basis.
+In general, a basis for a submodule of a free module over a principal ideal
+domain cannot be extended to a basis for the entire module. For example, the set
+¸¹ is a basis for the submodule { of the {-module {, but this set cannot be
+extended to a basis for { itself. We state without proof the following result
+along these lines.
+Theorem 6.7 Let 4 be a free 9 -module of rank , where 9 is a principal ideal
+domain. Let 5 be a submodule of 4 that is free of rank   . Then there is a
+basis 8 for 4 that contains a subset : ~ ¸# Á Ã Á # ¹ for which
+¸ # Á Ã Á  # ¹ is a basis for 5 , for some nonzero elements  Á Ã Á  of 9 .
+
+Torsion-Free and Free Modules
+Let us explore the relationship between the concepts of torsion-free and free. It
+is not hard to see that any free module over an integral domain is torsion-free.
+The converse does not hold, unless we strengthen the hypotheses by requiring
+that the module be finitely generated.
+Theorem 6.8 A finitely generated module over a principal ideal domain is free
+if and only if it is torsion-free.
+Proof. We leave proof that a free module over an integral domain is torsion-free
+to the reader. Let . ~ ¸# Á Ã Á # ¹ be a generating set for 4 . Consider first the
+case  ~ , whence . ~ ¸#¹. Then . is a basis for 4 since singleton sets are
+linearly independent in a torsion-free module. Hence, 4 is free.
+Now suppose that . ~ ¸"Á #¹ is a generating set with "Á # £ . If . is linearly
+independent, we are done. If not, then there exist nonzero Á  9 for which
+" ~ #. It follows that 4 ~ ºº"Á #»»  ºº"»» and so 4 is a submodule of a
+free module and is therefore free by Theorem 6.5. But the map ¢ 4 ¦ 4
+defined by # ~ # is an isomorphism because 4 is torsion-free. Thus 4 is
+also free.
+Now we can do the general case. Write
+. ~ ¸" Á Ã Á " Á # Á Ã Á #c ¹
+where : ~ ¸" Á Ã Á " ¹ is a maximal linearly independent subset of . . (Note
+that : is nonempty because singleton sets are linearly independent.)
+For each # , the set ¸" Á Ã Á " Á # ¹ is linearly dependent and so there exist
+  9 and  Á Ã Á   9 for which
+
+146
+
+Advanced Linear Algebra
+
+ # b  " b Ä b  " ~ 
+If  ~  Äc , then
+4 ~ ºº" Á Ã Á " Á # Á Ã Á #c »»  ºº" Á Ã Á " »»
+and since the latter is a free module, so is 4 , and therefore so is 4 .
+
+The Primary Cyclic Decomposition Theorem
+The first step in the decomposition of a finitely generated module 4 over a
+principal ideal domain 9 is an easy one.
+Theorem 6.9 Any finitely generated module 4 over a principal ideal domain 9
+is the direct sum of a finitely generated free 9 -module and a finitely generated
+torsion 9 -module
+4 ~ 4free l 4tor
+The torsion part 4tor is unique, since it must be the set of all torsion elements of
+4 , whereas the free part 4free is unique only up to isomorphism, that is, the
+rank of the free part is unique.
+Proof. It is easy to see that the set 4tor of all torsion elements is a submodule of
+4 and the quotient 4 °4tor is torsion-free. Moreover, since 4 is finitely
+generated, so is 4 °4tor . Hence, Theorem 6.8 implies that 4 °4tor is free.
+Hence, Theorem 5.6 implies that
+4 ~ 4tor l where -  4 °4tor is free.
+As to the uniqueness of the torsion part, suppose that 4 ~ ; l . where ; is
+torsion and . is free. Then ;  4tor . But if # ~ ! b   4tor for !  ; and
+  ., then  ~ # c !  4tor and so  ~  and #  ; . Thus, ; ~ 4tor .
+For the free part, since 4 ~ 4tor l - ~ 4tor l . , the submodules - and .
+are both complements of 4tor and hence are isomorphic.
+Note that if ¸$ Á Ã Á $ ¹ is a basis for 4free we can write
+4 ~ ºº$ »» l Ä l ºº$ »» l 4tor
+where each cyclic submodule ºº$ »» has zero annihilator. This is a partial
+decomposition of 4 into a direct sum of cyclic submodules.
+
+The Primary Decomposition
+In view of Theorem 6.9, we turn our attention to the decomposition of finitely
+generated torsion modules 4 over a principal ideal domain. The first step is to
+decompose 4 into a direct sum of primary submodules, defined as follows.
+
+Modules Over a Principal Ideal Domain
+
+147
+
+Definition Let  be a prime in 9 . A -primary (or just primary) module is a
+module whose order is a power of .
+Theorem 6.10 (The primary decomposition theorem) Let 4 be a torsion
+module over a principal ideal domain 9 , with order
+ ~  Ä
+where the  's are distinct nonassociate primes in 9 .
+1) 4 is the direct sum
+4 ~ 4  l Ä l 4  
+where
+4  ~
+
+
+4 ~ ¸#  4   # ~ ¹
+
+
+is a primary submodule of order  . This decomposition of 4 into primary
+submodules is called the primary decomposition of 4 .
+2) The primary decomposition of 4 is unique up to order of the summands.
+That is, if
+4 ~ 5 l Ä l 5
+where 5 is primary of order  and  Á Ã Á  are distinct nonassociate
+primes, then  ~  and, after a possible reindexing, 5 ~ 4 . Hence,
+ ~  and    , for  ~ Á Ã Á .
+3) Two 9 -modules 4 and 5 are isomorphic if and only if the summands in
+their primary decompositions are pairwise isomorphic, that is, if
+4 ~ 4  l Ä l 4  
+and
+5 ~ 5 l Ä l 5
+are primary decompositions, then  ~  and, after a possible reindexing,
+4  5 for  ~ Á Ã Á .
+Proof. Let us write  ~ ° and show first that
+4  ~   4 ~ ¸   #  #  4 ¹
+Since  ² 4 ³ ~ 4 ~ ¸¹, we have  4  4 . On the other hand, since
+ and  are relatively prime, there exist Á   9 for which
+ b  ~ 
+and so if %  4 then
+
+148
+
+Advanced Linear Algebra
+
+% ~ ² b  ³% ~  %   4
+Hence 4 ~  4 .
+For part 1), since gcd² Á Ã Á  ³ ~ , there exist scalars  for which
+  b Ä b   ~ 
+and so for any %  4 ,
+
+
+% ~ ²  b Ä b   ³%    4
+~
+
+Moreover, since the ² 4 ³   and the  's are pairwise relatively prime, it
+follows that the sum of the submodules  4 is direct, that is,
+4 ~   4 l Ä l   4 ~ 4  l Ä l 4  
+As to the annihilators, it is clear that º »  ann² 4 ³. For the reverse
+inclusion, if   ann² 4 ³, then   ann²4 ³ and so     , that is,
+   and so   º ». Thus ann² 4 ³ ~ º ».
+
+As to uniqueness, we claim that  ~  Ä
+is an order of 4 . It is clear that 
+annihilates 4 and so    . On the other hand, 5 contains an element " of
+order  and so the sum # ~ " b Ä b " has order  , which implies that
+  . Hence,  and  are associates.
+
+Unique factorization in 9 now implies that  ~  and, after a suitable
+reindexing, that  ~  and  and  are associates. Hence, 5 is primary of
+order  . For convenience, we can write 5 as 5 . Hence,
+5  ¸#  4   # ~ ¹ ~ 4
+But if
+5 l Ä l 5 ~ 4 l Ä l 4
+and 5  4 for all , we must have 5 ~ 4 for all .
+For part 3), if  ~  and  ¢ 4  5 , then the map ¢ 4 ¦ 5 defined by
+² b Ä b  ³ ~  ² ³ b Ä b  ² ³
+is an isomorphism and so 4  5 . Conversely, suppose that ¢ 4  5 . Then
+4 and 5 have the same annihilators and therefore the same order
+ ~  Ä
+Hence, part 1) and part 2) imply that  ~  and after a suitable reindexing,
+
+Modules Over a Principal Ideal Domain
+
+149
+
+ ~  . Moreover, since
+  4 ¯   ~  ¯ ² ³ ~  ¯   ~  ¯   5
+it follows that ¢ 4  5 .
+
+The Cyclic Decomposition of a Primary Module
+The next step in the decomposition process is to show that a primary module
+can be decomposed into a direct sum of cyclic submodules. While this
+decomposition is not unique (see the exercises), the set of annihilators is unique,
+as we will see. To establish this uniqueness, we use the following result.
+Lemma 6.11 Let 4 be a module over a principal ideal domain 9 and let
+  9 be a prime.
+1) If 4 ~ ¸¹, then 4 is a vector space over the field 9°º» with scalar
+multiplication defined by
+² b º»³# ~ #
+for all #  4 .
+2) For any submodule : of 4 the set
+: ²³ ~ ¸#  :  # ~ ¹
+is also a submodule of 4 and if 4 ~ : l ; , then
+4 ²³ ~ : ²³ l ; ²³
+Proof. For part 1), since  is prime, the ideal º» is maximal and so 9°º» is a
+field. We leave the proof that 4 is a vector space over 9°º» to the reader. For
+part 2), it is straightforward to show that : ²³ is a submodule of 4 . Since
+: ²³  : and ; ²³  ; we see that : ²³ q ; ²³ ~ ¸¹. Also, if #  4 ²³ , then
+# ~ . But # ~ b ! for some  : and !  ; and so  ~ # ~  b !.
+Since   : and !  ; we deduce that  ~ ! ~ , whence #  : ²³ l ; ²³ .
+Thus, 4 ²³  : ²³ l ; ²³ . But the reverse inequality is manifest.
+Theorem 6.12 (The cyclic decomposition theorem of a primary module) Let
+4 be a primary finitely generated torsion module over a principal ideal domain
+9 , with order  .
+1) 4 is a direct sum
+4 ~ ºº# »» l Ä l ºº# »»
+
+(6.1)
+
+of cyclic submodules with annihilators ann²ºº# »»³ ~ º », which can be
+arranged in ascending order
+ann²ºº# »»³  Ä  ann²ºº# »»³
+
+150
+
+Advanced Linear Algebra
+or equivalently,
+ ~      Ä   
+
+2) As to uniqueness, suppose that 4 is also the direct sum
+4 ~ ºº" »» l Ä l ºº" »»
+of cyclic submodules with annihilators ann²ºº" »»³ ~ º  », arranged in
+ascending order
+ann²ºº" »»³  Ä  ann²ºº" »»³
+or equivalently
+     Ä   
+Then the two chains of annihilators are identical, that is,  ~  and
+ann²ºº" »»³ ~ ann²ºº# »»³
+for all . Thus,    and  ~  for all .
+3) Two -primary 9 -modules
+4 ~ ºº# »» l Ä l ºº# »»
+and
+5 ~ ºº" »» l Ä l ºº" »»
+are isomorphic if and only if they have the same annihilator chains, that is,
+if and only if  ~  and, after a possible reindexing,
+ann²ºº" »»³ ~ ann²ºº# »»³
+Proof. Let #  4 have order equal to the order of 4 , that is,
+ann²# ³ ~ ann²4 ³ ~ º »
+Such an element must exist since ²# ³   for all #  4 and if this inequality
+is strict, then c will annihilate 4 .
+If we show that ºº# »» is complemented, that is, 4 ~ ºº# »» l : for some
+submodule : , then since : is also a finitely generated primary torsion module
+over 9, we can repeat the process to get
+4 ~ ºº# »» l ºº# »» l :
+where ann²# ³ ~ º ». We can continue this decomposition:
+4 ~ ºº# »» l ºº# »» l Ä l ºº# »» l :
+as long as : £ ¸¹. But the ascending sequence of submodules
+
+Modules Over a Principal Ideal Domain
+
+151
+
+ºº# »»  ºº# »» l ºº# »»  Ä
+must terminate since 4 is Noetherian and so there is an integer  for which
+eventually : ~ ¸¹, giving (6.1).
+Let # ~ # . The direct sum 4 ~ ºº#»» l ¸¹ clearly exists. Suppose that the
+direct sum
+4 ~ ºº#»» l :
+exists. We claim that if 4  4 , then it is possible to find a submodule :b
+for which :  :b and for which the direct sum 4b ~ ºº#»» l :b also
+exists. This process must also stop after a finite number of steps, giving
+4 ~ ºº#»» l : as desired.
+If 4  4 and "  4 ± 4 let
+:b ~ ºº: Á " c #»»
+for   9. Then :  :b since " ¤ 4 . We wish to show that for some
+  9, the direct sum
+ºº#»» l :b
+exists, that is,
+%  ºº#»» q ºº: Á " c #»» ¬ % ~ 
+Now, there exist scalars  and  for which
+% ~ # ~ b ²" c #³
+for  : and so if we find a scalar  for which
+²" c #³  :
+
+(6.2)
+
+then ºº#»» q : ~ ¸¹ implies that % ~  and the proof of existence will be
+complete.
+Solving for " gives
+" ~ ² b ³# c  ºº#»» l : ~ 4
+so let us consider the ideal of all such scalars:
+? ~ ¸  9  "  4 ¹
+Since   ? and ? is principal, we have
+? ~ º »
+for some   . Also,    since " ¤ 4 implies that  ¤ ? .
+
+152
+
+Advanced Linear Algebra
+
+Since   ? , we have  ~   and there exist   9 and !  : for which
+ " ~ # b !
+Hence,
+" ~   " ~  ²# b !³ ~  # b  !
+Now we need more information about . Multiplying the expression for  " by
+c gives
+ ~  " ~ c ² "³ ~ c # b c !
+and since ºº#»» q : ~ ¸¹, it follows that c # ~ . Hence,   c  , that
+is,    and so  ~   for some   9 . Now we can write
+" ~   # b  !
+and so
+²" c  #³ ~  !  :
+Thus, we take  ~  to get (6.2) and that completes the proof of existence.
+For uniqueness, note first that 4 has orders  and   and so  and  are
+associates and  ~  . Next we show that  ~ . According to part 2) of
+Lemma 6.10,
+4 ²³ ~ ºº# »»²³ l Ä l ºº# »»²³
+and
+4 ²³ ~ ºº" »»²³ l Ä l ºº" »»²³
+where all summands are nonzero. Since 4 ²³ ~ ¸¹, it follows from Lemma
+6.10 that 4 ²³ is a vector space over 9°º» and so each of the preceding
+decompositions expresses 4 ²³ as a direct sum of one-dimensional vector
+subspaces. Hence,  ~ dim²4 ²³ ³ ~ .
+Finally, we show that the exponents  and  are equal using induction on  . If
+ ~ , then  ~  for all  and since  ~  , we also have  ~  for all .
+Suppose the result is true whenever    c  and let  ~  . Write
+² Á Ã Á  ³ ~ ² Á Ã Á  Á Á Ã Á ³Á   
+and
+² Á Ã Á  ³ ~ ² Á Ã Á ! Á Á Ã Á ³Á !  
+
+Modules Over a Principal Ideal Domain
+
+153
+
+Then
+4 ~ ºº# »» l Ä l ºº# »»
+and
+4 ~ ºº" »» l Ä l ºº"! »»
+But ºº# »» ~ ºº# »» is a cyclic submodule of 4 with annihilator º c » and so
+by the induction hypothesis
+~ ! and  ~  Á Ã Á  ~ 
+which concludes the proof of uniqueness.
+For part 3), suppose that ¢ 4  5 and 4 has annihilator chain
+ann²ºº# »»³  Ä  ann²ºº# »»³
+and 5 has annihilator chain
+ann²ºº" »»³  Ä  ann²ºº" »»³
+Then
+5 ~ 4 ~ ºº# »» l Ä l ºº# »»
+and so  ~  and after a suitable reindexing,
+ann²ºº# »»³ ~ ann²ºº# »»³ ~ ann²ºº"»»³
+Conversely, suppose that
+4 ~ ºº# »» l Ä l ºº# »»
+and
+5 ~ ºº" »» l Ä l ºº" »»
+have the same annihilator chains, that is,  ~  and
+ann²ºº" »»³ ~ ann²ºº# »»³
+Then
+ºº" »» 
+
+9
+9
+~
+ ºº# »»
+ann²ºº" »»³
+ann²ºº# »»³
+
+The Primary Cyclic Decomposition
+Now we can combine the various decompositions.
+Theorem 6.13 (The primary cyclic decomposition theorem) Let 4 be a
+finitely generated torsion module over a principal ideal domain 9 .
+
+154
+
+Advanced Linear Algebra
+
+1) If 4 has order
+ ~  Ä
+where the  's are distinct nonassociate primes in 9 , then 4 can be
+uniquely decomposed (up to the order of the summands) into the direct sum
+4 ~ 4 l Ä l 4  
+where
+4  ~
+
+
+4 ~ ¸#  4   # ~ ¹
+
+
+is a primary submodule with annihilator º ». Finally, each primary
+submodule 4 can be written as a direct sum of cyclic submodules, so that
+4 ~ ´
+ºº#Á »» l Ä l ºº#Á »» µ l Ä l ´ºº#
+Á »» l Ä l ºº#Á »»µ
+
+4 
+
+4 
+
+
+
+where ann²ºº#Á »»³ ~ º Á » and the terms in each cyclic decomposition can
+be arranged so that, for each ,
+ann²ºº#Á »»³  Ä  ann²ºº#Á »»³
+or, equivalently,
+ ~ Á  Á  Ä  Á
+2) As for uniqueness, suppose that
+4 ~ ´ ºº"Á »» l Ä
+l ºº"Á »» µ l Ä l ´ºº"Á »» l Ä
+l ºº"Á »»µ
+
+
+5
+
+5
+
+is also a primary cyclic decomposition of 4 . Then,
+a) The number of summands is the same in both decompositions; in fact,
+ ~  and after possible reindexing, " ~ " for all ".
+b) The primary submodules are the same; that is, after possible
+reindexing,    and 5 ~ 4
+c) For each primary submodule pair 5 ~ 4 , the cyclic submodules
+have the same annihilator chains; that is, after possible reindexing,
+ann²ºº"Á »»³ ~ ann²ºº#Á »»³
+for all Á .
+In summary, the primary submodules and annihilator chains are uniquely
+determined by the module 4 .
+3) Two 9 -modules 4 and 5 are isomorphic if and only if they have the same
+annihilator chains.
+
+Modules Over a Principal Ideal Domain
+
+155
+
+Elementary Divisors
+Since the chain of annihilators
+
+
+ann²ºº#Á »»³ ~ º Á »
+
+
+is unique except for order, the multiset ¸ Á ¹ of generators is uniquely
+
+determined up to associate. The generators  Á are called the elementary
+
+divisors of 4 . Note that for each prime  , the elementary divisor  Á of largest
+exponent is precisely the factor of ²4 ³ associated to  .
+Let us write ElemDiv²4 ³ to denote the multiset of all elementary divisors of
+4 . Thus, if   ElemDiv²4 ³, then any associate of  is also in ElemDiv²4 ³.
+We can now say that ElemDiv²4 ³ is a complete invariant for isomorphism.
+Technically, the function 4 ª ElemDiv²4 ³ is the complete invariant, but this
+hair is not worth splitting. Also, we could work with a system of distinct
+representatives for the associate classes of the elementary divisors, but in
+general, there is no way to single out a special representative.
+Theorem 6.14 Let 9 be a principal ideal domain. The multiset ElemDiv²4 ³ is
+a complete invariant for isomorphism of finitely generated torsion 9 -modules,
+that is,
+4 5
+
+¯
+
+ElemDiv²4 ³ ~ ElemDiv²5 ³
+
+We have seen (Theorem 6.2) that if
+4 ~(l)
+then
+²4 ³ ~ lcm²²(³Á ²)³³
+Let us now compare the elementary divisors of 4 to those of ( and ) .
+Theorem 6.15 Let 4 be a finitely generated torsion module over a principal
+ideal domain and suppose that
+4 ~(l)
+1) The primary cyclic decomposition of 4 is the direct sum of the primary
+cyclic decompositons of ( and ) ; that is, if
+( ~ ººÁ »»
+
+and
+
+) ~ ººÁ »»
+
+are the primary cyclic decompositions of ( and ) , respectively, then
+M ~ 4ººÁ »»5 l 4ººÁ »»5
+is the primary cyclic decomposition of M.
+
+156
+
+Advanced Linear Algebra
+
+2) The elementary divisors of 4 are
+ElemDiv²4 ³ ~ ElemDiv²(³ r ElemDiv²)³
+where the union is a multiset union; that is, we keep all duplicate
+members.
+
+The Invariant Factor Decomposition
+According to Theorem 6.4, if : and ; are cyclic submodules with relatively
+prime orders, then : l ; is a cyclic submodule whose order is the product of
+the orders of : and ; . Accordingly, in the primary cyclic decomposition of 4 ,
+4 ~ ´ ºº#Á »» l Ä
+l ºº#Á »» µ l Ä l ´ºº#Á »» l Ä
+l ºº#Á »»µ
+
+
+4 
+
+4 
+
+
+
+with elementary divisors  Á satisfying
+(6.3)
+
+ ~ Á  Á  Ä  Á
+
+we can combine cyclic summands with relatively prime orders. One judicious
+way to do this is to take the leftmost (highest-order) cyclic submodules from
+each group to get
++ ~ ºº#Á »» l Ä l ºº#Á »»
+and repeat the process
++ ~ ºº#Á »» l Ä l ºº#Á »»
++ ~ ºº#Á »» l Ä l ºº#Á »»
+Å
+Of course, some summands may be missing here since different primary
+modules 4 do not necessarily have the same number of summands. In any
+case, the result of this regrouping and combining is a decomposition of the form
+4 ~ + l Ä l +
+which is called an invariant factor decomposition of 4 .
+For example, suppose that
+4 ~ ´ºº#Á »» l ºº#Á »»µ l ´ºº#Á »»µ l ´ºº#Á »» l ºº#Á»» l ºº#Á»»µ
+Then the resulting regrouping and combining gives
+4 ~ ´ ºº#Á »» l ºº#
+ºº#Á»» µ l ´ ºº#
+Á »» l ºº#Á »» µ l ´ ºº#Á »» l
+Á »» µ
+
+
+
++
+
++
+
++
+
+As to the orders of the summands, referring to (6.3), if + has order  , then
+since the highest powers of each prime  are taken for  , the second–highest
+for  and so on, we conclude that
+
+Modules Over a Principal Ideal Domain
+
+157
+
+(6.4)
+
+  c  Ä    
+or equivalently,
+ann²+ ³  ann²+ ³  Ä
+The numbers  are called invariant factors of the decomposition.
+For instance, in the example above suppose that the elementary divisors are
+ Á  Á  Á  Á  Á 
+Then the invariant factors are
+ ~   
+ ~  
+ ~  
+
+
+The process described above that passes from a sequence  Á of elementary
+divisors in order (6.3) to a sequence of invariant factors in order (6.4) is
+reversible. The inverse process takes a sequence  Á Ã Á  satisfying (6.4),
+factors each  into a product of distinct nonassociate prime powers with the
+primes in the same order and then “peels off” like prime powers from the left.
+(The reader may wish to try it on the example above.)
+This fact, together with Theorem 6.4, implies that primary cyclic
+decompositions and invariant factor decompositions are essentially equivalent.
+Therefore, since the multiset of elementary divisors of 4 is unique up to
+associate, the multiset of invariant factors of 4 is also unique up to associate.
+Furthermore, the multiset of invariant factors is a complete invariant for
+isomorphism.
+Theorem 6.16 (The invariant factor decomposition theorem) Let 4 be a
+finitely generated torsion module over a principal ideal domain 9 . Then
+4 ~ + l Ä l +
+where D is a cyclic submodule of 4 , with order  , where
+  c  Ä    
+This decomposition is called an invariant factor decomposition of 4 and the
+scalars  are called the invariant factors of 4 .
+1) The multiset of invariant factors is uniquely determined up to associate by
+the module 4 .
+2) The multiset of invariant factors is a complete invariant for isomorphism.
+The annihilators of an invariant factor decomposition are called the invariant
+ideals of 4 . The chain of invariant ideals is unique, as is the chain of
+
+158
+
+Advanced Linear Algebra
+
+annihilators in the primary cyclic decomposition. Note that  is an order of 4 ,
+that is,
+ann²4 ³ ~ º »
+Note also that the product
+ ~  Ä
+of the invariant factors of 4 has some nice properties. For example,  is the
+product of all the elementary divisors of 4 . We will see in a later chapter that
+in the context of a linear operator  on a vector space,  is the characteristic
+polynomial of  .
+
+Characterizing Cyclic Modules
+The primary cyclic decomposition can be used to characterize cyclic modules
+via their elementary divisors.
+Theorem 6.17 Let 4 be a finitely generated torsion module over a principal
+ideal domain, with order
+ ~  Ä
+The following are equivalent:
+1) 4 is cyclic.
+2) 4 is the direct sum
+4 ~ ºº# »» l Ä l ºº# »»
+of primary cyclic submodules ºº# »» of order  .
+3) The elementary divisors of 4 are precisely the prime power factors of :
+ElemDiv²4 ³ ~ ¸ Á Ã Á  ¹
+Proof. Suppose that 4 is cyclic. Then the primary decomposition of 4 is a
+primary cyclic decomposition, since any submodule of a cyclic module is cyclic.
+Hence, 1) implies 2). Conversely, if 2) holds, then since the orders are relatively
+prime, Theorem 6.4 implies that 4 is cyclic. We leave the rest of the proof to
+the reader.
+
+Indecomposable Modules
+The primary cyclic decomposition of 4 is a decomposition of 4 into a direct
+sum of submodules that cannot be further decomposed. In fact, this
+characterizes the primary cyclic decomposition of 4 . Before justifying these
+statements, we make the following definition.
+Definition A module 4 is indecomposable if it cannot be written as a direct
+sum of proper submodules.
+
+Modules Over a Principal Ideal Domain
+
+159
+
+We leave proof of the following as an exercise.
+Theorem 6.18 Let 4 be a finitely generated torsion module over a principal
+ideal domain. The following are equivalent:
+1) 4 is indecomposable
+2) 4 is primary cyclic
+3) 4 has only one elementary divisor:
+ElemDiv²4 ³ ~ ¸ ¹
+Thus, the primary cyclic decomposition of 4 is a decomposition of 4 into a
+direct sum of indecomposable modules. Conversely, if
+4 ~ ( l Ä l (
+is a decomposition of 4 into a direct sum of indecomposable submodules, then
+each submodule ( is primary cyclic and so this is the primary cyclic
+decomposition of 4 .
+
+Indecomposable Submodules of Prime Order
+Readers acquainted with group theory know that any group of prime order is
+cyclic. However, as mentioned earlier, the order of a module corresponds to the
+smallest exponent of a group, not to the order of a group. Indeed, there are
+modules of prime order that are not cyclic. Nevertheless, cyclic modules of
+prime order are important.
+Indeed, if 4 is a finitely generated torsion module over a principal ideal
+domain, with order , then each prime factor  of  gives rise to a cyclic
+submodule > of 4 whose order is  and so > is also indecomposable.
+Unfortunately, > need not be complemented and so we cannot use it to
+decompose 4 . Nevertheless, the theorem is still useful, as we will see in a later
+chapter.
+Theorem 6.19 Let 4 be a finitely generated torsion module over a principal
+ideal domain, with order . If  is a prime divisor of , then 4 has a cyclic
+(equivalently, indecomposable) submodule > of prime order .
+Proof. If  ~  , then there is a #  4 for which $ ~ # £  but $ ~ .
+Then > ~ ºº$»» is annihilated by  and so ²$³  . But  is prime and
+²$³ £  and so ²$³ ~ . Since > has prime order, Theorem 6.18 implies
+that > is cyclic if and only if it is indecomposable.
+
+Exercises
+1.
+2.
+
+Show that any free module over an integral domain is torsion-free.
+Let 4 be a finitely generated torsion module over a principal ideal domain.
+Prove that the following are equivalent:
+a) 4 is indecomposable
+b) 4 has only one elementary divisor (including multiplicity)
+
+160
+
+3.
+4.
+
+5.
+6.
+7.
+
+Advanced Linear Algebra
+c) 4 is cyclic of prime power order.
+Let 9 be a principal ideal domain and 9 b the field of quotients. Then 9 b is
+an 9 -module. Prove that any nonzero finitely generated submodule of 9 b
+is a free module of rank .
+Let 9 be a principal ideal domain. Let 4 be a finitely generated torsionfree 9 -module. Suppose that 5 is a submodule of 4 for which 5 is a free
+9 -module of rank  and 4 °5 is a torsion module. Prove that 4 is a free
+9 -module of rank .
+Show that the primary cyclic decomposition of a torsion module over a
+principal ideal domain is not unique (even though the elementary divisors
+are).
+Show that if 4 is a finitely generated 9 -module where 9 is a principal
+ideal domain, then the free summand in the decomposition 4 ~ - l 4tor
+need not be unique.
+If ºº#»» is a cyclic 9 -module of order  show that the map  ¢ 9 ¦ ºº#»»
+defined by  ~ # is a surjective 9 -homomorphism with kernel º» and so
+ºº#»» 
+
+9
+º»
+
+8.
+
+If 9 is an integral domain with the property that all submodules of cyclic
+9 -modules are cyclic, show that 9 is a principal ideal domain.
+9. Suppose that - is a finite field and let - i be the set of all nonzero elements
+of - .
+a) Show that if ²%³  - ´%µ is a nonconstant polynomial over - and if
+  - is a root of ²%³, then % c  is a factor of ²%³.
+b) Prove that a nonconstant polynomial ²%³  - ´%µ of degree  can have
+at most  distinct roots in - .
+c) Use the invariant factor or primary cyclic decomposition of a finite {module to prove that - i is cyclic.
+10. Let 9 be a principal ideal domain. Let 4 ~ ºº#»» be a cyclic 9 -module
+with order . We have seen that any submodule of 4 is cyclic. Prove that
+for each   9 such that    there is a unique submodule of 4 of order
+.
+11. Suppose that 4 is a free module of finite rank over a principal ideal
+domain 9 . Let 5 be a submodule of 4 . If 4 °5 is torsion, prove that
+rk²5 ³ ~ rk²4 ³.
+12. Let - ´%µ be the ring of polynomials over a field - and let - Z ´%µ be the ring
+of all polynomials in - ´%µ that have coefficient of % equal to . Then - ´%µ
+is an - Z ´%µ-module. Show that - ´%µ is finitely generated and torsion-free
+but not free. Is - Z ´%µ a principal ideal domain?
+13. Show that the rational numbers r form a torsion-free {-module that is not
+free.
+
+More on Complemented Submodules
+14. Let 9 be a principal ideal domain and let 4 be a free 9 -module.
+
+Modules Over a Principal Ideal Domain
+
+161
+
+a)
+
+Prove that a submodule 5 of 4 is complemented if and only if 4 °5
+is free.
+b) If 4 is also finitely generated, prove that 5 is complemented if and
+only if 4 °5 is torsion-free.
+15. Let 4 be a free module of finite rank over a principal ideal domain 9 .
+a) Prove that if 5 is a complemented submodule of 4 , then
+rk²5 ³ ~ rk²4 ³ if and only if 5 ~ 4 .
+b) Show that this need not hold if 5 is not complemented.
+c) Prove that 5 is complemented if and only if any basis for 5 can be
+extended to a basis for 4 .
+16. Let 4 and 5 be free modules of finite rank over a principal ideal domain
+9 . Let  ¢ 4 ¦ 5 be an 9 -homomorphism.
+a) Prove that ker² ³ is complemented.
+b) What about im² ³?
+c) Prove that
+rk²4 ³ ~ rk²ker² ³³ b rk²im² ³³ ~ rk²ker² ³³ b rk6
+
+4
+7
+ker² ³
+
+d) If  is surjective, then  is an isomorphism if and only if
+rk²4 ³ ~ rk²5 ³.
+e) If 3 is a submodule of 4 and if 4 °3 is free, then
+rk6
+
+4
+7 ~ rk²4 ³ c rk²3³
+3
+
+17. A submodule 5 of a module 4 is said to be pure in 4 if whenever
+# ¤ 4 ± 5 , then # ¤ 5 for all nonzero   9 .
+a) Show that 5 is pure if and only if #  5 and # ~ $ for   9 implies
+$  5.
+b) Show that 5 is pure if and only if 4 °5 is torsion-free.
+c) If 9 is a principal ideal domain and 4 is finitely generated, prove that
+5 is pure if and only if 4 °5 is free.
+d) If 3 and 5 are pure submodules of 4 , then so are 3 q 5 and 3 r 5 .
+What about 3 b 5 ?
+e) If 5 is pure in 4 , then show that 3 q 5 is pure in 3 for any
+submodule 3 of 4 .
+18. Let 4 be a free module of finite rank over a principal ideal domain 9 . Let
+3 and 5 be submodules of 4 with 3 complemented in 4 . Prove that
+rk²3 b 5 ³ b rk²3 q 5 ³ ~ rk²3³ b rk²5 ³
+
+Chapter 7
+
+The Structure of a Linear Operator
+
+In this chapter, we study the structure of a linear operator on a finitedimensional vector space, using the powerful module decomposition theorems
+of the previous chapter. Unless otherwise noted, all vector spaces will be
+assumed to be finite-dimensional.
+Let = be a finite-dimensional vector space. Let us recall two earler theorems
+(Theorem 2.19 and Theorem 2.20).
+Theorem 7.1 Let = be a vector space of dimension .
+1) Two  d  matrices ( and ) are similar (written (  ) ) if and only if
+they represent the same linear operator   B²= ³, but possibly with
+respect to different ordered bases. In this case, the matrices ( and )
+represent exactly the same set of linear operators in B²= ³.
+2) Then two linear operators  and  on = are similar (written   ) if and
+only if there is a matrix (  C that represents both operators, but with
+respect to possibly different ordered bases. In this case,  and  are
+represented by exactly the same set of matrices in C .
+Theorem 7.1 implies that the matrices that represent a given linear operator are
+precisely the matrices that lie in one similarity class. Hence, in order to uniquely
+represent all linear operators on = , we would like to find a set consisting of one
+simple representative of each similarity class, that is, a set of simple canonical
+forms for similarity.
+One of the simplest types of matrix is the diagonal matrix. However, these are
+too simple, since some operators cannot be represented by a diagonal matrix. A
+less simple type of matrix is the upper triangular matrix. However, these are not
+simple enough: Every operator (over an algebraically closed field) can be
+represented by an upper triangular matrix but some operators can be represented
+by more than one upper triangular matrix.
+
+164
+
+Advanced Linear Algebra
+
+This gives rise to two different directions for further study. First, we can search
+for a characterization of those linear operators that can be represented by
+diagonal matrices. Such operators are called diagonalizable. Second, we can
+search for a different type of “simple” matrix that does provide a set of
+canonical forms for similarity. We will pursue both of these directions.
+
+The Module Associated with a Linear Operator
+If   B²= ³, we will think of = not only as a vector space over a field - but
+also as a module over - ´%µ, with scalar multiplication defined by
+²%³# ~ ² ³²#³
+We will write = to indicate the dependence on  . Thus, = and = are modules
+with the same ring of scalars - ´%µ, although with different scalar multiplication
+if  £ .
+Our plan is to interpret the concepts of the previous chapter for the module = .
+First, if dim²= ³ ~ , then dim²B²= ³³ ~  . This implies that = is a torsion
+module. In fact, the  b  vectors
+
+
+Á  Á   Á Ã Á  
+
+are linearly dependent in B²= ³, which implies that ² ³ ~  for some nonzero
+polynomial ²%³  - ´%µ. Hence, ²%³  ann²= ³ and so ann²= ³ is a nonzero
+principal ideal of - ´%µ.
+Also, since = is finitely generated as a vector space, it is, a fortiori, finitely
+generated as an - ´%µ-module. Thus, = is a finitely generated torsion module
+over a principal ideal domain - ´%µ and so we may apply the decomposition
+theorems of the previous chapter. In the first part of this chapter, we embark on
+a “translation project” to translate the powerful results of the previous chapter
+into the language of the modules = .
+Let us first characterize when two modules = and = are isomorphic.
+Theorem 7.2 If  Á   B²= ³, then
+=  =
+
+¯
+
+ 
+
+In particular, ¢ = ¦ = is a module isomorphism if and only if  is a vector
+space automorphism of = satisfying
+ ~ c
+Proof. Suppose that ¢ = ¦ = is a module isomorphism. Then for #  = ,
+²%#³ ~ %²#³
+which is equivalent to
+
+The Structure of a Linear Operator
+
+165
+
+² #³ ~ ²#³
+and since  is bijective, this is equivalent to
+²c ³# ~ #
+that is,  ~ c . Since a module isomorphism from = to = is a vector space
+isomorphism as well, the result follows.
+For the converse, suppose that  is a vector space automorphism of = and
+ ~ c , that is,  ~ . Then
+²% #³ ~ ²  #³ ~  ²#³ ~ % ²#³
+and the - -linearity of  implies that for any polynomial ²%³  - ´%µ,
+²² ³#³ ~ ²³#
+Hence,  is a module isomorphism from = to = .
+
+Submodules and Invariant Subspaces
+There is a simple connection between the submodules of the - ´%µ-module =
+and the subspaces of the vector space = . Recall that a subspace : of = is  invariant if :  : .
+Theorem 7.3 A subset :  = is a submodule of = if and only if : is a  invariant subspace of = .
+
+Orders and the Minimal Polynomial
+We have seen that the annihilator of = ,
+ann²= ³ ~ ¸²%³  - ´%µ  ²%³= ~ ¸¹¹
+is a nonzero principal ideal of - ´%µ, say
+ann²= ³ ~ º²%³»
+Since the elements of the base ring - ´%µ of = are polynomials, for the first time
+in our study of modules there is a logical choice among all scalars in a given
+associate class: Each associate class contains exactly one monic polynomial.
+Definition Let   B²= ³. The unique monic order of = is called the minimal
+polynomial for  and is denoted by  ²%³ or min² ³. Thus,
+ann²= ³ ~ º ²%³»
+In treatments of linear algebra that do not emphasize the role of the module = ,
+the minimal polynomial of a linear operator  is simply defined as the unique
+
+166
+
+Advanced Linear Algebra
+
+monic polynomial  ²%³ of smallest degree for which  ² ³ ~ . This
+definition is equivalent to our definition.
+The concept of minimal polynomial is also defined for matrices. The minimal
+polynomial A ²%³ of matrix (  C ²- ³ is defined as the minimal polynomial
+of the multiplication operator ( . Equivalently, ( ²%³ is the unique monic
+polynomial ²%³  - ´%µ of smallest degree for which ²(³ ~ .
+Theorem 7.4
+1) If    are similar linear operators on = , then  ²%³ ~  ²%³. Thus, the
+minimal polynomial is an invariant under similarity of operators.
+2) If (  ) are similar matrices, then ( ²%³ ~ ) ²%³. Thus, the minimal
+polynomial is an invariant under similarity of matrices.
+3) The minimal polynomial of   B²= ³ is the same as the minimal
+polynomial of any matrix that represents  .
+
+Cyclic Submodules and Cyclic Subspaces
+Let us now look at the cyclic submodules of = :
+ºº#»» ~ - ´%µ# ~ ¸² ³²#³  ²%³  - ´%µ¹
+which are  -invariant subspaces of = . Let ²%³ be the minimal polynomial of
+Oºº#»» and suppose that deg²²%³³ ~ . If ²%³#  ºº#»», then writing
+²%³ ~ ²%³²%³ b ²%³
+where deg ²%³  deg ²%³ gives
+²%³# ~ ´²%³²%³ b ²%³µ# ~ ²%³#
+and so
+ºº#»» ~ ¸²%³#  deg ²%³  ¹
+Hence, the set
+8 ~ ¸#Á %#Á Ã Á %c #¹ ~ ¸#Á  #Á Ã Á  c #¹
+spans the vector space ºº#»». To see that 8 is a basis for ºº#»», note that any linear
+combination of the vectors in 8 has the form ²%³# for deg²²%³³   and so is
+equal to  if and only if ²%³ ~ . Thus, 8 is an ordered basis for ºº#»».
+Definition Let   B²= ³. A  -invariant subspace : of = is  -cyclic if : has a
+basis of the form
+8 ~ ¸#Á  #Á Ã Á  c #¹
+for some #  = and   . The basis 8 is called a  -cyclic basis for = .
+
+

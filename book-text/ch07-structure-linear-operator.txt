@@ -1,0 +1,1193 @@
+168
+
+Advanced Linear Algebra
+
+2) The elementary divisors and invariant factors of a matrix ( are the
+elementary divisors and invariant factors, respectively, of the multiplication
+operator ( :
+ElemDiv²(³ ~ ElemDiv²( ³
+
+and
+
+InvFact²(³ ~ InvFact²( ³
+
+We emphasize that the elementary divisors and invariant factors of an operator
+or matrix are monic by definition. Thus, we no longer need to worry about
+uniqueness up to associate.
+Theorem 7.6 (The primary cyclic decomposition theorem for = ³ Let = be
+finite-dimensional and let   B²= ³ have minimal polynomial
+ ²%³ ~  ²%³Ä ²%³
+where the polynomials  ²%³ are distinct monic primes.
+1) (Primary decomposition) The - ´%µ-module = is the direct sum
+= ~ = l Ä l =
+where
+= ~
+
+ ²%³
+= ~ ¸#  =   ² ³²#³ ~ ¹
+ ²%³
+
+is a primary submodule of = of order  ²%³. In vector space terms, = is a
+ -invariant subspace of = and the minimal polynomial of  O= is
+min² O= ³ ~  ²%³
+2) (Cyclic decomposition) Each primary summand = can be decomposed
+into a direct sum
+= ~ ºº#Á »» l Ä l ºº#Á »»
+
+
+of  -cyclic submodules ºº#Á »» of order  Á ²%³ with
+ ~ Á  Á  Ä  Á
+In vector space terms, ºº#Á »» is a  -cyclic subspace of = and the minimal
+polynomial of Oºº#Á »» is
+
+
+min² Oºº#Á »» ³ ~  Á ²%³
+3) (The complete decomposition) This yields the decomposition of = into a
+direct sum of  -cyclic subspaces
+= ~ ²ºº#Á »» l Ä l ºº#Á »»³ l Ä l ²ºº#Á »» l Ä l ºº#Á »»³
+4) (Elementary divisors and dimensions) The multiset of elementary divisors
+
+
+¸ Á ²%³¹ is uniquely determined by  . If deg² Á ²%³³ ~ Á , then the  -
+
+The Structure of a Linear Operator
+
+169
+
+cyclic subspace ºº#Á »» has  -cyclic basis
+8Á ~ 2#Á Á  #Á Á Ã Á  Á c #Á 3
+
+
+and dim²ºº#Á »»³ ~ deg² Á ³. Hence,
+
+
+
+
+dim²= ³ ~  deg² Á ³
+~
+
+We will call the basis
+H ~  8Á
+Á
+
+for = the elementary divisor basis for = .
+Recall that if = ~ ( l ) and if both ( and ) are  -invariant subspaces of = ,
+the pair ²(Á )³ is said to reduce  . In module language, the pair ²(Á )³ reduces
+ if ( and ) are submodules of = and
+= ~ ( l )
+We can now translate Theorem 6.15 into the current context.
+Theorem 7.7 Let   B²= ³ and let
+= ~ ( l )
+1) The minimal polynomial of  is
+ ²%³ ~ lcm² O( ²%³Á  O) ²%³³
+2) The primary cyclic decomposition of = is the direct sum of the primary
+cyclic decompositons of ( and ) ; that is, if
+( ~ ººÁ »»
+
+and ) ~ ººÁ »»
+
+are the primary cyclic decompositions of ( and ) , respectively, then
+= ~ 4ººÁ »»5 l 4ººÁ »»5
+is the primary cyclic decomposition of = .
+3) The elementary divisors of  are
+ElemDiv² ³ ~ ElemDiv² O( ³ r ElemDiv² O) ³
+where the union is a multiset union; that is, we keep all duplicate
+members.
+
+170
+
+Advanced Linear Algebra
+
+The Characteristic Polynomial
+To continue our translation project, we need a definition. Recall that in the
+characterization of cyclic modules in Theorem 6.17, we made reference to the
+product of the elementary divisors, one from each associate class. Now that we
+have singled out a special representative from each associate class, we can make
+a useful definition.
+Definition Let   B²= ³. The characteristic polynomial  ²%³ of  is the
+product of all of the elementary divisors of  :
+
+
+ ²%³ ~   Á ²%³
+Á
+
+Hence,
+deg² ²%³³ ~ dim²= ³
+Similarly, the characteristic polynomial 4 ²%³ of a matrix 4 is the product of
+the elementary divisors of 4 .
+The following theorem describes the relationship between the minimal and
+characteristic polynomials.
+Theorem 7.8 Let   B²= ³.
+1) (The Cayley–Hamilton theorem) The minimal polynomial of  divides the
+characteristic polynomial of  :
+ ²%³   ²%³
+Equivalently,  satisfies its own characteristic polynomial, that is,
+ ² ³ ~ 
+2) The minimal polynomial
+
+
+
+
+ ²%³ ~ Á ²%³ÄÁ ²%³
+and characteristic polynomial
+
+
+ ²%³ ~   Á ²%³
+Á
+
+of  have the same set of prime factors  ²%³ and hence the same set of
+roots (not counting multiplicity).
+We have seen that the multiset of elementary divisors forms a complete
+invariant for similarity. The reader should construct an example to show that the
+pair ² ²%³Á  ²%³³ is not a complete invariant for similarity, that is, this pair of
+
+The Structure of a Linear Operator
+
+171
+
+polynomials does not uniquely determine the multiset of elementary divisors of
+the operator  .
+In general, the minimal polynomial of a linear operator is hard to find. One of
+the virtues of the characteristic polynomial is that it is comparatively easy to
+find and we will discuss this in detail a bit later in the chapter.
+Note that since  ²%³   ²%³ and both polynomials are monic, it follows that
+ ²%³ ~  ²%³
+
+¯
+
+deg² ²%³³ ~ deg² ²%³³
+
+Definition A linear operator   B²= ³ is nonderogatory if its minimal
+polynomial is equal to its characteristic polynomial:
+ ²%³ ~  ²%³
+or equivalently, if
+deg² ²%³³ ~ deg² ²%³³
+or if
+deg² ²%³³ ~ dim²= ³
+Similar statements hold for matrices.
+
+Cyclic and Indecomposable Modules
+We have seen (Theorem 6.17) that cyclic submodules can be characterized by
+their elementary divisors. Let us translate this theorem into the language of =
+(and add one more equivalence related to the characteristic polynomial).
+Theorem 7.9 Let   B²= ³ have minimal polynomial
+ ²%³ ~  ²%³Ä ²%³
+where  ²%³ are distinct monic primes. The following are equivalent:
+1) = is cyclic.
+2) = is the direct sum
+= ~ ºº# »» l Ä l ºº# »»
+of  -cyclic submodules ºº# »» of order  ²%³.
+3) The elementary divisors of  are
+ElemDiv² ³ ~ ¸ ²%³Á Ã Á  ²%³¹
+4)  is nonderogatory, that is,
+ ²%³ ~  ²%³
+
+172
+
+Advanced Linear Algebra
+
+Indecomposable Modules
+We have also seen (Theorem 6.19) that, in the language of = , each prime factor
+²%³ of the minimal polynomial  ²%³ gives rise to a cyclic submodule > of =
+of prime order ²%³.
+Theorem 7.10 Let   B²= ³ and let ²%³ be a prime factor of  ²%³. Then =
+has a cyclic submodule > of prime order ²%³.
+For a module of prime order, we have the following.
+Theorem 7.11 For a module > of prime order  ²%³, the following are
+equivalent:
+1) > is cyclic
+2) > is indecomposable
+3)  ²%³ is irreducible
+4)  is nonderogatory, that is,  ²%³ ~  ²%³
+5) dim²> ³ ~ deg²²%³³.
+Our translation project is now complete and we can begin to look at issues that
+are specific to the modules = .
+
+Companion Matrices
+We can also characterize the cyclic modules = via the matrix representations of
+the operator  , which is obviously something that we could not do for arbitrary
+modules. Let = ~ ºº#»» be a cyclic module, with order
+ ²%³ ~  b  % b Ä b c %c b %
+and ordered  -cyclic basis
+8 ~ 2#Á  #Á Ã Á  c #3
+Then
+ ²  #³ ~  b #
+for      c  and
+ ² c #³ ~   #
+~ c² b   b Ä b c  c ³#
+~ c # c   # c Ä c c  c #
+and so
+
+The Structure of a Linear Operator
+
+v
+x
+x
+´ µ8 ~ x 
+x
+Å
+w
+
+173
+
+ Ä  c y
+ Ä  c {
+{
+ Æ
+Å {
+{
+Å Æ  cc2
+ Ä  cc z
+
+This matrix is known as the companion matrix for the polynomial  ²%³.
+Definition The companion matrix of a monic polyomial
+²%³ ~  b  % b Ä b c %c b %
+is the matrix
+v
+x
+x
+*´²%³µ ~ x 
+x
+Å
+w
+
+ Ä  c y
+ Ä  c {
+{
+ Æ
+Å {
+{
+Å Æ  cc2
+ Ä  cc z
+
+Note that companion matrices are defined only for monic polynomials.
+Companion matrices are nonderogatory. Also, companion matrices are precisely
+the matrices that represent operators on  -cyclic subspaces.
+Theorem 7.12 Let ²%³  - ´%µ.
+1) A companion matrix ( ~ *´²%³µ is nonderogatory; in fact,
+( ²%³ ~ ( ²%³ ~ ²%³
+2) = is cyclic if and only if  can be represented by a companion matrix, in
+which case the representing basis is  -cyclic.
+Proof. For part 1), let ; ~ ² Á Ã Á  ³ be the standard basis for -  . Since
+ ~ (c  for   , it follows that for any polynomial  ²%³,
+ ²(³ ~ 
+
+¯
+
+ ²(³ ~  for all 
+
+¯
+
+ ²(³ ~ 
+
+If ²%³ ~  b  % b Ä b c %c b % , then
+c
+
+c
+
+c
+
+²(³ ~   (  b (  ~   b c   b ~ 
+~
+
+~
+
+~
+
+and so ²(³ ~ , whence ²(³ ~ . Also, if
+²%³ ~  b  % b Ä b c %c b  %
+is nonzero and has degree   , then
+²(³ ~   b   b Ä b c  b  b £ 
+
+174
+
+Advanced Linear Algebra
+
+since ; is linearly independent. Hence, ²%³ has smallest degree among all
+polynomials satisfied by ( and so ²%³ ~ ( ²%³. Finally,
+deg²( ²%³³ ~ deg²²%³³ ~ deg²( ²%³³
+For part 2), we have already proved that if = is cyclic with  -cyclic basis 8 ,
+then ´ µ8 ~ *´²%³µ. For the converse, if ´ µ8 ~ *´²%³µ, then part 1) implies
+that  is nonderogatory. Hence, Theorem 7.11 implies that = is cyclic. It is
+clear from the form of *´²%³µ that 8 is a  -cyclic basis for = .
+
+The Big Picture
+If Á   B²= ³, then Theorem 7.2 and the fact that the elementary divisors form
+a complete invariant for isomorphism imply that
+
+
+¯
+
+=  =
+
+¯
+
+ElemDiv² ³ ~ ElemDiv²³
+
+Hence, the multiset of elementary divisors is a complete invariant for similarity
+of operators. Of course, the same is true for matrices:
+()
+
+¯
+
+-(  -)
+
+¯
+
+ElemDiv²(³ ~ ElemDiv²)³
+
+where we write -( in place of -( .
+The connection between the elementary divisors of an operator  and the
+elementary divisors of the matrix representations of  is described as follows. If
+( ~ ´ µ8 , then the coordinate map 8 ¢ =  -  is also a module isomorphism
+8 ¢ = ¦ -( . Specifically, we have
+8 ²² ³#³ ~ ´² ³#µ8 ~ ²´ µ8 ³´#µ8 ~ ²(³8 ²#³
+and so 8 preserves - ´%µ-scalar multiplication. Hence,
+( ~ ´ µ8 for some 8
+
+¬
+
+=  -(
+
+For the converse, suppose that ¢ =  -( . If we define   = by  ~  ,
+where  is the th standard basis vector, then 8 ~ ² Á Ã Á  ³ is an ordered
+basis for = and  ~ 8 is the coordinate map for 8 . Hence, 8 is a module
+isomorphism and so
+8 ² #³ ~ ( ²8 #³
+for all #  = , that is,
+´ #µ8 ~ ( ²´#µ8 ³
+which shows that ( ~ ´ µ8 .
+Theorem 7.13 Let = be a finite-dimensional vector space over - . Let
+Á   B²= ³ and let (Á )  C ²- ³.
+
+The Structure of a Linear Operator
+
+175
+
+1) The multiset of elementary divisors (or invariant factors) is a complete
+invariant for similarity of operators, that is,
+   ¯ =  =
+¯ ElemDiv² ³ ~ ElemDiv²³
+¯ InvFact² ³ ~ InvFact²³
+A similar statement holds for matrices:
+(  ) ¯ -(  -)
+¯ ElemDiv²(³ ~ ElemDiv²)³
+¯ InvFact²(³ ~ InvFact²)³
+2) The connection between operators and their representing matrices is
+( ~ ´ µ8 for some 8 ¯ =  -(
+¯ ElemDiv² ³ ~ ElemDiv²(³
+¯ InvFact² ³ ~ InvFact²(³
+Theorem 7.13 can be summarized in Figure 7.1, which shows the big picture.
+
+W
+
+V
+
+similarity classes
+of L(V)
+
+VW
+
+VV
+
+isomorphism classes
+of F[x]-modules
+
+{ED1} {ED2}
+
+Multisets of
+elementary divisors
+
+[W]B [V]B
+[W]R [V]R
+
+Similarity classes
+of matrices
+Figure 7.1
+
+Figure 7.1 shows that the similarity classes of B²= ³ are in one-to-one
+correspondence with the isomorphism classes of - ´%µ-modules = and that these
+are in one-to-one correspondence with the multisets of elementary divisors,
+which, in turn, are in one-to-one correspondence with the similarity classes of
+matrices.
+We will see shortly that any multiset of prime power polynomials is the multiset
+of elementary divisors for some operator (or matrix) and so the third family in
+
+176
+
+Advanced Linear Algebra
+
+the figure could be replaced by the family of all multisets of prime power
+polynomials.
+
+The Rational Canonical Form
+We are now ready to determine a set of canonical forms for similarity. Let
+  B²= ³. The elementary divisor basis H for = that gives the primary cyclic
+decomposition of = ,
+= ~ ²ºº#Á »» l Ä l ºº#Á »»³ l Ä l ²ºº#Á »» l Ä l ºº#Á »»³
+is the union of the bases
+8Á ~ ²#Á Á  #Á Á Ã Á  Á c #Á ³
+and so the matrix of  with respect to H is the block diagonal matrix
+
+
+Á
+
+
+
+
+
+´ µH ~ diag²*´Á ²%³µÁ Ã Á *´  ²%³µÁ Ã Á *´Á ²%³µÁ Ã Á *´Á ²%³µ³
+with companion matrices on the block diagonal. This matrix has the following
+form.
+Definition A matrix ( is in the elementary divisor form of rational canonical
+form if
+( ~ diag4*´ ²%³µÁ Ã Á *´ ²%³µ5
+where the  ²%³ are monic prime polynomials.
+Thus, as shown in Figure 7.1, each similarity class I contains at least one matrix
+in the elementary divisor form of rational canonical form.
+On the other hand, suppose that 4 is a rational canonical matrix
+
+
+Á
+
+
+
+
+
+4 ~ diag²*´Á ²%³µÁ Ã Á *´  ²%³µÁ Ã Á *´Á ²%³µÁ Ã Á *´Á ²%³µ³
+of size  d  . Then 4 represents the matrix multiplication operator 4 under
+the standard basis ; on -  . The basis ; can be partitioned into blocks ;Á
+corresponding to the position of each of the companion matrices on the block
+diagonal of 4 . Since
+
+
+´4 Oº;Á » µ;Á ~ *´ Á ²%³µ
+it follows from Theorem 7.12 that each subspace º;Á » is 4 -cyclic with monic
+
+order  Á ²%³ and so Theorem 7.9 implies that the multiset of elementary
+
+divisors of 4 is ¸ Á ²%³¹.
+This shows two important things. First, any multiset of prime power
+polynomials is the multiset of elementary divisors for some matrix. Second, 4
+
+The Structure of a Linear Operator
+
+177
+
+lies in the similarity class that is associated with the elementary divisors
+
+¸ Á ²%³¹. Hence, two matrices in the elementary divisor form of rational
+canonical form lie in the same similarity class if and only if they have the same
+multiset of elementary divisors. In other words, the elementary divisor form of
+rational canonical form is a set of canonical forms for similarity, up to order of
+blocks on the block diagonal.
+Theorem 7.14 (The rational canonical form: elementary divisor version) Let
+= be a finite-dimensional vector space and let   B²= ³ have minimal
+polynomial
+ ²%³ ~  ²%³Ä ²%³
+where the  ²%³'s are distinct monic prime polynomials.
+1) If H is an elementary divisor basis for = , then ´ µH is in the elementary
+divisor form of rational canonical form:
+Á
+
+
+
+
+
+
+
+´ µH ~ diag4*´Á ²%³µÁ Ã Á *´  ²%³µÁ Ã Á *´Á ²%³µÁ Ã Á *´Á ²%³µ 5
+
+
+where Á ²%³ are the elementary divisors of  . This block diagonal matrix
+is called an elementary divisor version of a rational canonical form of  .
+2) Each similarity class I of matrices contains a matrix 9 in the elementary
+divisor form of rational canonical form. Moreover, the set of matrices in I
+that have this form is the set of matrices obtained from 4 by reordering the
+block diagonal matrices. Any such matrix is called an elementary divisor
+verison of a rational canonical form of (.
+3) The dimension of = is the sum of the degrees of the elementary divisors of
+, that is,
+
+
+
+
+
+
+dim²= ³ ~  deg² Á ³
+~ ~
+
+Example 7.1 Let  be a linear operator on the vector space s7 and suppose that
+ has minimal polynomial
+ ²%³ ~ ²% c ³²% b ³
+Noting that % c  and ²% b ³ are elementary divisors and that the sum of the
+degrees of all elementary divisors must equal , we have two possibilities:
+1) % c Á ²% b 1³ Á % b 
+2) % c Á % c Á % c Á ²% b 1³
+These correspond to the following rational canonical forms:
+
+178
+
+Advanced Linear Algebra
+
+v
+x
+x
+x
+x
+1) x 
+x
+x
+x
+
+w
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+c
+
+c
+
+
+
+
+v
+x
+x
+x
+x
+2) x 
+x
+x
+x
+
+w
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+y
+{
+{
+{
+{
+{
+{
+{
+{
+c
+z
+y
+{
+{
+{
+{
+c {
+{
+{
+{
+c
+z
+
+The rational canonical form may be far from the ideal of simplicity that we had
+in mind for a set of simple canonical forms. Indeed, the rational canonical form
+can be important as a theoretical tool, more so than a practical one.
+
+The Invariant Factor Version
+There is also an invariant factor version of the rational canonical form. We
+begin with the following simple result.
+Theorem 7.15 If ²%³Á ²%³  - ´%µ are relatively prime polynomials, then
+*´²%³²%³µ  6
+
+*´²%³µ
+
+
+
+*´²%³µ 7block
+
+Proof. Speaking in general terms, if an  d  matrix ( has minimal
+polynomial
+ ²%³ ~  ²%³Ä ²%³
+of degree equal to the size  of the matrix, then Theorem 7.14 implies that the
+elementary divisors of ( are precisely
+ ²%³Á Ã Á  ²%³
+Since the matrices *´²%³²%³µ and diag²*´²%³µÁ *´²%³µ³ have the same size
+ d  and the same minimal polynomial ²%³²%³ of degree , it follows that
+they have the same multiset of elementary divisors and so are similar.
+Definition A matrix ( is in the invariant factor form of rational canonical
+form if
+
+The Structure of a Linear Operator
+
+179
+
+( ~ diag4*´  ²%³µÁ Ã Á *´  ²%³µ5
+where
+
+b ²%³ 
+
+ ²%³ for  ~ Á Ã Á  c .
+
+Theorem 7.15 can be used to rearrange and combine the companion matrices in
+an elementary divisor version of a rational canonical form 9 to produce an
+invariant factor version of rational canonical form that is similar to 9 . Also, this
+process is reversible.
+Theorem 7.16 (The rational canonical form: invariant factor version) Let
+dim²= ³  B and suppose that   B²= ³ has minimal polynomial
+ ²%³ ~  ²%³Ä ²%³
+where the monic polynomials  ²%³ are distinct prime (irreducible) polynomials
+1) = has an invariant factor basis 8 , that is, a basis for which
+´ µ8 ~ diag4*´  ²%³µÁ Ã Á *´  ²%³µ5
+where the polynomials  ²%³ are the invariant factors of  and
+b ²%³   ²%³. This block diagonal matrix is called an invariant factor
+version of a rational canonical form of  .
+2) Each similarity class I of matrices contains a matrix 9 in the invariant
+factor form of rational canonical form. Moreover, the set of matrices in I
+that have this form is the set of matrices obtained from 4 by reordering the
+block diagonal matrices. Any such matrix is called an invariant factor
+verison of a rational canonical form of (.
+3) The dimension of = is the sum of the degrees of the invariant factors of  ,
+that is,
+
+
+dim²= ³ ~ deg²  ³
+~
+
+The Determinant Form of the Characteristic Polynomial
+In general, the minimal polynomial of an operator  is hard to find. One of the
+virtues of the characteristic polynomial is that it is comparatively easy to find.
+This also provides a nice example of the theoretical value of the rational
+canonical form.
+Let us first take the case of a companion matrix. If ( ~ *´ ²%³µ is the
+companion matrix of a monic polynomial
+ ²%Â  Á Ã Á c ³ ~  b  % b Ä b c %c b %
+then how can we recover ²%³ ~ ( ²%³ from *´²%³µ by arithmetic operations?
+
+180
+
+Advanced Linear Algebra
+
+When  ~ , we can write  ²%³ as
+ ²%Â  Á  ³ ~  b  % b % ~ %²% b  ³ b 
+which looks suspiciously like a determinant:
+
+% b  ?
+ c
+~ det6%0 c >
+ c ?7
+~ det²%0 c *´ ²%³µ³
+
+ ²%Â  Á  ³ ~ det>
+
+%
+c
+
+So, let us define
+(²%Â  Á Ã Á c ³ ~ %0 c *´ ²%³µ
+ Ä 
+v %
+x c % Ä 
+x
+~ x  c Æ
+x
+Å
+Å
+Æ %
+w 
+ Ä c
+
+
+y
+{
+
+{
+Å
+{
+{
+c
+% b c z
+
+where % is an independent variable. The determinant of this matrix is a
+polynomial in % whose degree equals the number of parameters  Á Ã Á c .
+We have just seen that
+det²(²%Â  Á  ³³ ~  ²%Â  Á  ³
+and this is also true for  ~ . As a basis for induction, if
+det²(²%Â  Á Ã Á c ³³ ~  ²%Â  Á Ã Á c ³
+then expanding along the first row gives
+det²(²%Á  Á Ã Á  ³³
+v c
+x 
+~ % det²(²%Á  Á Ã Á  ³³ b ²c³  detx
+Å
+w 
+~ % det²(²%Á  Á Ã Á  ³³ b 
+~ %  ²%Â  Á Ã Á  ³ b 
+~  % b  % b Ä b  % b %b b 
+~ b ²%Â  Á Ã Á  ³
+We have proved the following.
+
+%
+c
+Å
+
+
+Ä  y
+Æ
+{
+{
+Æ %
+Ä c zd
+
+The Structure of a Linear Operator
+
+181
+
+Lemma 7.17 For any ²%³  - ´%µ,
+det²%0 c *´²%³µ³ ~ ²%³
+Now suppose that 9 is a matrix in the elementary divisor form of rational
+canonical form. Since the determinant of a block diagonal matrix is the product
+of the determinants of the blocks on the diagonal, it follows that
+
+
+det²%0 c 9³ ~   Á ²%³ ~ 9 ²%³
+Á
+
+Moreover, if (  9, say ( ~ 7 97 c , then
+det²%0 c (³ ~ det²%0 c 7 97 c ³
+~ det ´7 ²%0 c 9³7 c µ
+~ det²7 ³det²%0 c 9³det²7 c ³
+~ det²%0 c 9³
+and so
+det²%0 c (³ ~ det²%0 c 9³ ~ 9 ²%³ ~ ( ²%³
+Hence, the fact that all matrices have a rational canonical form allows us to
+deduce the following theorem.
+Theorem 7.18 Let   B²= ³. If ( is any matrix that represents  , then
+ ²%³ ~ ( ²%³ ~ det²%0 c (³
+
+Changing the Base Field
+A change in the base field will generally change the primeness of polynomials
+and therefore has an effect on the multiset of elementary divisors. It is perhaps a
+surprising fact that a change of base field has no effect on the invariant factors—
+hence the adjective invariant.
+Theorem 7.19 Let - and 2 be fields with -  2 . Suppose that the elementary
+divisors of a matrix (  C ²- ³ are
+Á
+
+
+
+
+
+
+
+7 ~ ¸Á Á Ã Á   Á Ã Á Á Á Ã Á Á ¹
+Suppose also that the polynomials  can be further factored over 2 , say
+
+
+Á
+
+ ~ ÁÁ ÄÁ
+where Á is prime over 2 . Then the prime powers
+ 
+
+Á Á
+
+Á Á
+8 ~ ¸Á
+Á Ã Á Á
+
+
+
+
+
+
+
+
+
+Á Á
+Á Á
+Á Ã Á Ã Á Á
+Á Ã Á Á
+¹
+
+
+are the elementary divisors of ( over 2 .
+
+182
+
+Advanced Linear Algebra
+
+
+Proof. Consider the companion matrix *´ Á ²%³µ in the rational canonical form
+of ( over - . This is a matrix over 2 as well and Theorem 7.15 implies that
+
+
+Á Á
+
+ 
+
+*´ Á ²%³µ  diag²*´ÁÁ Á µÁ Ã Á *´Á µ³
+Hence, 8 is an elementary divisor basis for ( over 2 .
+As mentioned, unlike the elementary divisors, the invariant factors are field
+independent. This is equivalent to saying that the invariant factors of a matrix
+(  4 ²- ³ are polynomials over the smallest subfield of - that contains the
+entries of (À
+Theorem 7.20 Let (  C ²- ³ and let ,  - be the smallest subfield of that contains the entries of (.
+1) The invariant factors of ( are polynomials over , .
+2) Two matrices (Á )  C ²- ³ are similar over - if and only if they are
+similar over , .
+Proof. Part 1) follows immediately from Theorem 7.19, since using either 7 or
+8 to compute invariant factors gives the same result. Part 2) follows from the
+fact that two matrices are similar over a given field if and only if they have the
+same multiset of invariant factors over that field.
+Example 7.2 Over the real field, the matrix
+(~6
+
+
+
+
+c
+7
+
+is the companion matrix for the polynomial % b , and so
+ElemDivs ²(³ ~ ¸% b ¹ ~ InvFacts ²(³
+However, as a complex matrix, the rational canonical form for ( is
+(~6
+
+
+
+
+
+c 7
+
+and so
+ElemDivd ²(³ ~ ¸% c Á % b ¹
+
+and
+
+InvFactd ²(³ ~ ¸% b ¹
+
+Exercises
+1.
+2.
+
+We have seen that any   B²= ³ can be used to make = into an - ´%µmodule. Does every module = over - ´%µ come from some   B²= ³?
+Explain.
+Let   B²= ³ have minimal polynomial
+ ²%³ ~  ²%³Ä ²%³
+
+The Structure of a Linear Operator
+
+183
+
+where  ²%³ are distinct monic primes. Prove that the following are
+equivalent:
+a) = is  -cyclic.
+b) deg² ²%³³ ~ dim²= ³.
+c) The elementary divisors of  are the prime power factors  ²%³ and so
+= ~ ºº# »» l Ä l ºº# »»
+is a direct sum of  -cyclic submodules ºº# »» of order  ²%³.
+3. Prove that a matrix (  C ²- ³ is nonderogatory if and only if it is similar
+to a companion matrix.
+4. Show that if ( and ) are block diagonal matrices with the same blocks, but
+in possibly different order, then ( and ) are similar.
+5. Let (  C ²- ³. Justify the statement that the entries of any invariant
+factor version of a rational canonical form for ( are “rational” expressions
+in the coefficients of (, hence the origin of the term rational canonical
+form. Is the same true for the elementary divisor version?
+6. Let   B²= ³ where = is finite-dimensional. If ²%³  - ´%µ is irreducible
+and if ² ³ is not one-to-one, prove that ²%³ divides the minimal
+polynomial of  .
+7. Prove that the minimal polynomial of   B²= ³ is the least common
+multiple of its elementary divisors.
+8. Let   B²= ³ where = is finite-dimensional. Describe conditions on the
+minimal polynomial of  that are equivalent to the fact that the elementary
+divisor version of the rational canonical form of  is diagonal. What can
+you say about the elementary divisors?
+9. Verify the statement that the multiset of elementary divisors (or invariant
+factors) is a complete invariant for similarity of matrices.
+10. Prove that given any multiset of monic prime power polynomials
+
+
+Á
+
+
+
+
+
+4 ~ ¸Á ²%³Á Ã Á   ²%³Á Ã Á Ã Á Á ²%³Á Ã Á Á ²%³¹
+and given any vector space = of dimension equal to the sum of the degrees
+of these polynomials, there is an operator   B²= ³ whose multiset of
+elementary divisors is 4 .
+11. Find all rational canonical forms ²up to the order of the blocks on the
+diagonal) for a linear operator on s6 having minimal polynomial
+²% c 1³ ²% b 1³ .
+12. How many possible rational canonical forms (up to order of blocks) are
+there for linear operators on s6 with minimal polynomial ²% c 1³²% b 1³ ?
+13. a) Show that if ( and ) are  d  matrices, at least one of which is
+invertible, then () and )( are similar.
+
+184
+
+Advanced Linear Algebra
+b) What do the matrices
+(~>
+
+c)
+
+
+
+
+
+and
+?
+
+)~>
+
+
+
+
+
+?
+
+have to do with this issue?
+Show that even without the assumption on invertibility the matrices
+() and )( have the same characteristic polynomial. Hint: Write
+( ~ 7 0Á 8
+
+where 7 and 8 are invertible and 0Á is an  d  matrix that has the
+ d  identity in the upper left-hand corner and 's elsewhere. Write
+) Z ~ 8)7 . Compute () and )( and find their characteristic
+polynomials.
+14. Let  be a linear operator on -  with minimal polynomial
+ ²%³ ~ ²% b 1³²% c 2³. Find the rational canonical form for  if
+- ~ r, - ~ s or - ~ d.
+15. Suppose that the minimal polynomial of   B²= ³ is irreducible. What can
+you say about the dimension of = ?
+16. Let   B²= ³ where = is finite-dimensional. Suppose that ²%³ is an
+irreducible factor of the minimal polynomial ²%³ of  . Suppose further
+that "Á #  = have the property that ²"³ ~ ²#³ ~ ²%³. Prove that
+" ~  ² ³# for some polyjomial  ²%³ if and only if # ~ ² ³" for some
+polynomial ²%³.
+
+Chapter 8
+
+Eigenvalues and Eigenvectors
+
+Unless otherwise noted, we will assume throughout this chapter that all vector
+spaces are finite-dimensional.
+
+Eigenvalues and Eigenvectors
+We have seen that for any   B²= ³, the minimal and characteristic
+polynomials have the same set of roots (but not generally the same multiset of
+roots). These roots are of vital importance.
+Let ( ~ ´ µ8 be a matrix that represents  . A scalar   - is a root of the
+characteristic polynomial  ²%³ ~ ( ²%³ ~ det²%0 c (³ if and only if
+det²0 c (³ ~ 
+
+(8.1)
+
+that is, if and only if the matrix 0 c ( is singular. In particular, if dim²= ³ ~ ,
+then (8.1) holds if and only if there exists a nonzero vector %  -  for which
+²0 c (³% ~ 
+or equivalently,
+( % ~  %
+If ´#µ8 ~ %, then this is equivalent to
+´ µ8 ´#µ8 ~ ´#µ8
+or in operator language,
+ # ~ #
+This prompts the following definition.
+Definition Let = be a vector space over a field - and let   B²= ³.
+1) A scalar   - is an eigenvalue (or characteristic value) of  if there
+exists a nonzero vector #  = for which
+
+186
+
+Advanced Linear Algebra
+
+ # ~ #
+In this case, # is called an eigenvector (or characteristic vector) of 
+associated with .
+2) A scalar   - is an eigenvalue for a matrix ( if there exists a nonzero
+column vector % for which
+(% ~ %
+In this case, % is called an eigenvector (or characteristic vector) for (
+associated with .
+3) The set of all eigenvectors associated with a given eigenvalue  , together
+with the zero vector, forms a subspace of = , called the eigenspace of  and
+denoted by ; . This applies to both linear operators and matrices.
+4) The set of all eigenvalues of an operator or matrix is called the spectrum
+of the operator or matrix. We denote the spectrum of  by Spec² ³.
+Theorem 8.1 Let   B²= ³ have minimal polynomial  ²%³ and characteristic
+polynomial  ²%³.
+1) The spectrum of  is the set of all roots of  ²%³ or of  ²%³, not counting
+multiplicity.
+2) The eigenvalues of a matrix are invariants under similarity.
+3) The eigenspace ; of the matrix ( is the solution space to the homogeneous
+system of equations
+²0 c (³²%³ ~ 
+One way to compute the eigenvalues of a linear operator  is to first represent 
+by a matrix ( and then solve the characteristic equation
+det²%0 c (³ ~ 
+Unfortunately, it is quite likely that this equation cannot be solved when
+dim²= ³  . As a result, the art of approximating the eigenvalues of a matrix is
+a very important area of applied linear algebra.
+The following theorem describes the relationship between eigenspaces and
+eigenvectors of distinct eigenvalues.
+Theorem 8.2 Suppose that  Á Ã Á  are distinct eigenvalues of a linear
+operator   B²= ³.
+1) Eigenvectors associated with distinct eigenvalues are linearly independent;
+that is, if #  ; , then the set ¸# Á Ã Á # ¹ is linearly independent.
+2) The sum ; b Ä b ; is direct; that is, ; l Ä l ; exists.
+Proof. For part 1), if ¸# Á Ã Á # ¹ is linearly dependent, then by renumbering if
+necessary, we may assume that among all nontrivial linear combinations of
+
+Eigenvalues and Eigenvectors
+
+187
+
+these vectors that equal , the equation
+ # b Ä b  # ~ 
+
+(8.2)
+
+has the fewest number of terms. Applying  gives
+  # b Ä b   # ~ 
+
+(8.3)
+
+Multiplying (8.2) by  and subtracting from (8.3) gives
+ ² c  ³# b Ä b  ² c  ³# ~ 
+But this equation has fewer terms than (8.2) and so all of its coefficients must
+equal . Since the  's are distinct,  ~  for    and so  ~  as well. This
+contradiction implies that the # 's are linearly independent.
+The next theorem describes the spectrum of a polynomial ² ³ in  .
+Theorem 8.3 (The spectral mapping theorem) Let = be a vector space over
+an algebraically closed field - . Let   B²= ³ and let ²%³  - ´%µ. Then
+Spec²² ³³ ~ ²Spec² ³³ ~ ¸²³    Spec² ³¹
+Proof. We leave it as an exercise to show that if  is an eigenvalue of  , then
+²³ is an eigenvalue of ² ³. Hence, ²Spec² ³³  Spec²² ³³. For the reverse
+inclusion, let   Spec²² ³³, that is,
+²² ³ c ³# ~ 
+for # £ . If
+²%³ c  ~ ²% c  ³ Ä²% c  ³
+where   - , then writing this as a product of (not necessarily distinct) linear
+factors, we have
+² c  ³Ä² c  ³Ä² c  ³Ä² c  ³# ~ 
+(The operator   is written  for convenience.) We can remove factors from
+the left end of this equation one by one until we arrive at an operator  (perhaps
+the identity) for which # £  but ² c  ³# ~ . Then # is an eigenvector
+for  with eigenvalue  . But since ² ³ c  ~ , it follows that
+ ~ ² ³  ²Spec² ³³. Hence, Spec²² ³³  ²Spec² ³³.
+
+The Trace and the Determinant
+Let - be algebraically closed and let (  C ²- ³ have characteristic
+polynomial
+( ²%³ ~ % b c %c b Ä b  % b 
+~ ²% c  ³Ä²% c  ³
+
+188
+
+Advanced Linear Algebra
+
+where  Á Ã Á  are the eigenvalues of (. Then
+( ²%³ ~ det²%0 c (³
+and setting % ~  gives
+det²(³ ~ c ~ ²c³c  Ä
+Hence, if - is algebraically closed then, up to sign, det²(³ is the constant term
+of ( ²%³ and the product of the eigenvalues of (, including multiplicity.
+The sum of the eigenvalues of a matrix over an algebraically closed field is also
+an interesting quantity. Like the determinant, this quantity is one of the
+coefficients of the characteristic polynomial (up to sign) and can also be
+computed directly from the entries of the matrix, without knowing the
+eigenvalues explicitly.
+Definition The trace of a matrix (  C ²- ³, denoted by tr²(³, is the sum of
+the elements on the main diagonal of (.
+Here are the basic propeties of the trace. Proof is left as an exercise.
+Theorem 8.4 Let (Á )  C ²- ³.
+1) tr²A³ ~  tr²(³, for   - .
+2) tr²( b )³ ~ tr²(³ b tr²)³.
+3) tr²()³ ~ tr²)(³.
+4) tr²()*³ ~ tr²*()³ ~ tr²)*(³. However, tr²()*³ may not equal
+tr²(*)³.
+5) The trace is an invariant under similarity.
+6) If - is algebraically closed, then tr²(³ is the sum of the eigenvalues of (,
+including multiplicity, and so
+tr²(³ ~ cc
+where ( ²%³ ~ % b c %c b Ä b  % b  .
+Since the trace is invariant under similarity, we can make the following
+definition.
+Definition The trace of a linear operator   B²= ³ is the trace of any matrix
+that represents  .
+As an aside, the reader who is familar with symmetric polynomials knows that
+the coefficients of any polynomial
+²%³ ~ % b c %c b Ä b  % b 
+~ ²% c  ³Ä²% c  ³
+
+

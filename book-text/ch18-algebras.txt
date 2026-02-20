@@ -1,0 +1,1109 @@
+An Introduction to Algebras
+
+463
+
+Note that 3) can be stated as follows: The product of two consecutive elements
+Á Á  is the next element (with wraparound). Also, 4) says that &% ~ c%& for
+%Á &  ¸Á Á ¹. This product is extended to all of i by distributivity.
+We leave it to the reader to verify that i is a division algebra, called Hamilton's
+quaternions, after their discoverer William Rowan Hamilton (1805-1865).
+(Readers familiar with group theory will recognize the quaternion group 8 ~
+¸fÁ fÁ fÁ f¹.) The quaternions have applications in geometry, computer
+science and physics.
+
+Finite-Dimensional Division Algebras over an Algebraically Closed
+Field
+It happens that there are no interesting finite-dimensional division algebras over
+an algebraically closed field.
+Theorem 18.10 If + is a finite-dimensional division algebra over an
+algebraically closed field - then + ~ - .
+Proof. Let   + have minimal polynomial  ²%³. Since a division algebra has
+no zero divisors,  ²%³ must be irreducible over - and so must be linear.
+Hence,  ²%³ ~ % c  and so  ~   - .
+
+Finite-Dimensional Division Algebras over a Finite Field
+The finite-dimensional division algebras over a finite field are also easily
+described: they are all commutative and so are finite fields. The proof, however,
+is a bit more challenging. To understand the proof, we need two facts: the class
+equation and some information about the complex roots of unity. So let us
+briefly describe what we need.
+The Class Equation
+Those who have studied group theory have no doubt encountered the famous
+class equation. Let . be a finite group. Each   . can be thought of as a
+permutation  of . defined by
+ % ~ %c
+for all %  .. The set of all conjugates %c of % is denoted by ¸%¹. and so
+¸%¹. ~ ¸ %    .¹
+This set is also called a conjugacy class in . . Now, the following are
+equivalent:
+
+464
+
+Advanced Linear Algebra
+
+ % ~  %
+%c ~ % c
+ c % c ~ %
+ c   *. ²%³
+where
+*. ²%³ ~ ¸  .  % ~ %¹
+is the centralizer of %. But  c   *. ²%³ if and only if  and  are in the same
+coset of *. ²%³. Thus, there is a one-to-one correspondence between the
+conjugates of % and the cosets of *. ²%³. Hence,
+b¸%¹. b ~ ². ¢ *. ²%³³
+Since the distinct conjugacy classes form a partition of . (because conjugacy is
+an equivalence relation), we have
+(.( ~ b¸%¹. b ~ ². ¢ *. ²%³³
+%:
+
+%:
+
+where : is a set consisting of exactly one element from each conjugacy class
+¸%¹. . Note that a conjugacy class ¸%¹. has size  if and only if %c ~ % for
+all   ., that is, % ~ % for all   . and these are precisely the elements in
+the center A².³ of .. Hence, the previous equation can be written in the form
+(.( ~ (A².³( b  ². ¢ *. ²%³³
+%: Z
+
+where : Z is a set consisting of exactly one element from each conjugacy class
+¸%¹. of size greater than . This is the class equation for . .
+The Complex Roots of Unity
+If  is a positive integer, then the complex th roots of unity are the complex
+solutions to the equation
+% c  ~ 
+The set < of complex th roots of unity is a cyclic group of order . To see
+this, note first that < is an abelian group since Á   < implies that   <
+and c  < . Also, since % c  has no multiple roots, < has order .
+Now, in any finite abelian group ., if  is the maximum order of all elements
+of ., then  ~  for all   .. Thus, if no element of < has order , then
+   and every   . satisfies the equation % c  ~ , which has fewer
+than  solutions. This contradiction implies that some element of < must have
+order  and so < is cyclic.
+
+An Introduction to Algebras
+
+465
+
+The elements of < that generate < , that is, the elements of order  are called
+the primitive th roots of unity. We denote the set of primitive th roots of
+unity by + . Hence, if   + , then
++ ~ ¸  ²Á ³ ~ ¹
+has size ²³, where  is the Euler phi function. (The value ²³ is defined to
+be the number of positive integers less than or equal to  and relatively prime to
+.)
+The th cyclotomic polynomial is defined by
+8 ²%³ ~  ²% c $³
+$+
+
+Thus,
+deg²8 ²%³³ ~ ²³
+Since every th root of unity is a primitive  th root of unity for some    and
+since every primitive  th root of unity for    is also an th root of unity, we
+deduce that
+< ~  +
+
+
+where the union is a disjoint one. It follows that
+% c  ~ 8 ²%³
+
+
+Finally, we show that 8 ²%³ is monic and has integer coefficients by induction
+on . It is clear from the definition that 8 ²%³ is monic. Since 8 ²%³ ~ % c ,
+the result is true for  ~ . If  is a prime, then all nonidentity th roots of unity
+are primitive and so
+8 ²%³ ~
+
+% c 
+~ %c b %c2 b Ä b % b 
+%c
+
+and the result holds for  ~ . Assume the result holds for all proper divisors of
+. Then
+% c  ~ 8 ²%³8 ²%³ ~ 8 ²%³9²%³
+
+
+
+By the induction hypothesis, 9²%³ has integer coefficients and it follows that
+8 ²%³ must also have integer coefficients.
+Wedderburn's Theorem
+Now we can prove Wedderburn's theorem.
+
+466
+
+Advanced Linear Algebra
+
+Theorem 18.11 (Wedderburn's theorem) If + is a finite division algebra, then
++ is a field.
+Proof. We must show that + is commutative. Let . ~ +i be the multiplicative
+group of all nonzero elements of +. The class equation is
+(+i ( ~ (A²+i ³( b ²+i ¢ *² ³³
+where the sum is taken over one representative  from each conjugacy class of
+size greater than . If we assume for the purposes of contradiction that + is not
+commutative, that is, that A²+i ³ £ +i , then the sum on the far right is not an
+empty sum and so (* i ² ³(  (+i ( for some   +i .
+The sets A²+³ and *² ³ are subalgebras of + and, in fact, A²+³ is a
+commutative division algebra; that is, a field. Let (A²+³( ~ '  . Since
+A²+³  *² ³, we may view *² ³ and + as vector spaces over A²+³ and so
+(*² ³( ~ ' ² ³
+
+and
+
+(+( ~ ' 
+
+for integers   ² ³  . The class equation now gives
+' c 
+' ² ³ c 
+² ³
+
+' c  ~ ' c  b 
+
+and since ' ² ³ c   '  c , it follows that ² ³  .
+If 8 ²%³ is the th cyclotomic polynomial, then 8 ²'³ divides '  c . But
+8 ²'³ also divides each summand on the far right above, since its roots are not
+roots of ' ² ³ c . It follows that 8 ²'³  ' c . On the other hand,
+8 ²'³ ~  ²' c ³
++
+
+and since  + implies that (' c (  ' c , we have a contradiction. Hence
+A²+i ³ ~ +i and + is commutative, that is, + is a field.
+
+Finite-Dimensional Real Division Algebras
+We now consider the finite-dimensional division algebras over the real field s.
+In 1877, Frobenius proved that there are only three such division algebras.
+Theorem 18.12 (Frobenius, 1877) If + is a finite-dimensional division algbera
+over s, then
++ ~ sÁ
+
++~d
+
+or + ~ i
+
+Proof. Note first that the minimal polynomial  ²%³ of any   + is either
+linear, in which case   s or irreducible quadratic  ²%³ ~ % b % b with
+ c   . Completing the square gives
+
+An Introduction to Algebras
+
+467
+
+
+
+
+
+ ~  ²³ ~  b  b ~ 6 b 7 b ² c  ³
+
+
+Hence, any   + has the form
+
+
+ ~ 6 b 7 c  ~  b !
+
+
+where !  s and either  ~  or   . Hence,   s but  ¤ s. Thus, every
+element of + is the sum of an element of s and an element of the set
++Z ~ ¸  +    ¹
+that is, as sets:
++ ~ s b +Z
+Also, s q +Z ~ ¸¹. To see that +Z is a subspace of +, let "Á #  +Z . We wish
+to show that " b #  +Z . If # ~ " for some   s, then
+" b # ~ ² b ³"  +Z . So assume that " and # are linearly independent. Then
+" and # are nonzero and so also nonreal.
+Now, " b # and " c # cannot both be real, since then " and # would be real. We
+have seen that
+"b#~b
+and
+"c#~ b
+where Á  s, at least one of  or  is nonzero and  Á    . Then
+²" b #³ b ²" c #³ ~ ² b ³ b ² b  ³
+and so
+" b # ~  b  b  b  b   b  
+Collecting the real part on one side gives
+ b   ~ " b # c ² b  b  b   ³
+Now, if we knew that Á  and  were linearly independent over s we could
+conclude that  ~ ~  and so
+²" b #³ ~   
+
+and
+
+²" c #³ ~    
+
+which shows that " b # and " c # are in +Z .
+To see that ¸Á  Á ¹ is linearly independent, it is equivalent to show that
+¸"Á #Á ¹ is linearly independent. But if
+
+468
+
+Advanced Linear Algebra
+
+# ~ " b 
+for Á   s, then
+# ~  " b " b  
+and since " ¤ s, it follows that  ~  and so  ~  or  ~ . But  £  since
+# ¤ s and  £  since ¸"Á #¹ are linearly independent.
+Thus, +Z is a subspace of + and
++ ~ s l +Z
+We now look at +Z , which is a real vector space. If +Z ~ ¸¹, then + ~ s and
+we are done, so assume otherwise. If   +Z is nonzero, then  ~ c where
+  s. Hence,  ~ c  +Z satisfies  ~ c. If
++Z ~ s ~ ¸    s¹
+then + ~ s l s ~ d and we are done. If not, then s is a proper subspace of
++Z .
+In the quaternion field, there is an element  for which  b  ~ . So we seek a
+  +Z ± s with this property. To this end, define a bilinear form on +Z by
+º"Á #» ~ c²"# b #"³
+Then it is easy to see that this form is a real inner product on +Z (positive
+definite, symmetric and bilinear). Hence, if s is a proper subspace of +Z , then
++ Z ~ s p :
+where p denotes the orthogonal direct sum. If "  : is nonzero, then
+" ~ c for   s and so if  ~ "c , then
+ ~ c
+
+and
+
+ b  ~ 
+
+Now, s is a subspace of : and so
++ Z ~ s  p s p ;
+Setting  ~ , we have
+cºÁ » ~  b  ~  b  ~ 
+and
+cºÁ » ~  b  ~  b  ~ 
+and so   ; and we can write
++Z ~ s p s p s p <
+
+An Introduction to Algebras
+
+469
+
+Now, if < £ ¸¹, then there is a "  < for which " ~ c and
+" ~ c"
+" ~ c"
+" ~ c"
+The third equation is "²³ ~ c²³" and so
+"²³ ~ c²³" ~ " ~ c"
+whence " ~ , which is false. Hence, < ~ ¸¹ and
++ ~ s l s l s l s ~ i
+This completes the proof.
+
+Exercises
+1.
+
+Prove that the subalgebra generated by a nonempty subset ? of an algebra
+( is the subspace spanned by the products of finite subsets of elements of
+?:
+º?»alg ~ º% Ä%  %  ?»
+
+2.
+3.
+4.
+5.
+6.
+7.
+
+8.
+
+Verify that the group algebra - ´.µ is indeed an associative algebra over - .
+Show that the kernel of an algebra homomorphism is an ideal.
+Let ( be a finite-dimensional algebra over - and let ) be a subalgebra.
+Show that if   ) is invertible, then  c  ) .
+If ( is an algebra and :  ( is nonempty, define the centralizer *( ²:³ of
+: to be the set of elements of ( that commute with all elements of : . Prove
+that *( ²:³ is a subalgebra of (.
+Show that { is not an algebra over any field.
+Let ( ~ - ´µ be the algebra generated over - by a single algebraic element
+. Show that ( is isomorphic to the quotient algebra - ´%µ°º ²%³», where
+º ²%³» is the ideal generated by  ²%³  - ´%µ. What can you say about
+ ²%³? What is the dimension of (? What happens if  is not algebraic?
+Let . ~ ¸ ~  Á Ã Á  ¹ be a finite group. For %  - ´.µ of the form
+% ~   b Ä b  
+
+let ; ²%³ ~  b Ä b  . Prove that ; ¢ - ´.µ ¦ - is an algebra
+homomorphism, where - is an algebra over itself.
+9. Prove the first isomorphism theorem of algebras: A homomorphism
+¢ ( ¦ ) of - -algebras induces an isomorphism ¢ (°ker²³  im²³
+defined by ²ker²³³ ~ .
+10. Prove that the quaternion field is an - -algebra and a field. Hint: For
+% ~  b   b   b   £ 
+
+470
+
+Advanced Linear Algebra
+( ~  ) consider
+% ~  c    c    c   
+
+11. Describe the left regular representation of the quaternions using the ordered
+basis 8 ~ ²Á Á Á ³.
+12. Let : be the group of permutations (bijective functions) of the ordered set
+? ~ ²% Á Ã Á % ³, under composition. Verify the following statements.
+Each   : defines a linear isomorphism  on the vector space = with
+basis ? over a field - . This defines an algebra homomorphism
+ ¢ - ´: µ ¦ B- ²= ³ with the property that  ²³ ~  . What does the matrix
+representation of a   : look like? Is the representation  faithful?
+13. Show that the center of the algebra B- ²= ³ is
+A ~ ¸    - ¹
+14. Show that B- ²= ³ is simple if and only if dim²= ³  B.
+15. Prove that for   , the matrix algebras C ²- ³ are central and simple.
+16. An element   ( is left-invertible if there is a   ( for which  ~ , in
+which case  is called a left inverse of . Similarly,   ( is rightinvertible if there is a   ( for which  ~ , in which case  is called a
+right inverse of . Left and right inverses are called one-sided inverses
+and an ordinary inverse is called a two-sided inverse. Let   ( be
+algebraic over - .
+a) Prove that  ~  for some  £  if and only if  ~  for some  £  .
+Does  necessarily equal  ?
+b) Prove that if  has a one-sided inverse  , then  is a two-sided inverse.
+Does this hold if  is not algebraic? Hint: Consider the algebra
+( ~ B- ²- ´%µ³.
+c) Let Á   ( be algebraic. Show that  is invertible if and only if 
+and  are invertible, in which case  is also invertible.
+
+Chapter 19
+
+The Umbral Calculus
+
+In this chapter, we give a brief introduction to an area called the umbral
+calculus. This is a linear-algebraic theory used to study certain types of
+polynomial functions that play an important role in applied mathematics. We
+give only a brief introduction to the subject, emphasizing the algebraic aspects
+rather than the applications. For more on the umbral calculus, may we suggest
+The Umbral Calculus, by Roman ´1984µ?
+One bit of notation: The lower factorial numbers are defined by
+²³ ~ ² c ³Ä² c  b ³
+
+Formal Power Series
+We begin with a few remarks concerning formal power series. Let < denote the
+algebra of formal power series in the variable !, with complex coefficients.
+Thus, < is the set of all formal sums of the form
+B
+
+ ²!³ ~   !
+
+(19.1)
+
+~
+
+where   d (the complex numbers). Addition and multiplication are purely
+formal:
+B
+
+B
+
+B
+
+  ! b   ! ~  ² b  ³!
+~
+
+~
+
+~
+
+B
+
+B
+
+B
+
+and
+
+
+4  ! 54  ! 5 ~ 4  c 5 !
+~
+
+~
+
+~
+
+~
+
+The order ² ³ of  is the smallest exponent of ! that appears with a nonzero
+coefficient. The order of the zero series is defined to be b B. Note that a series
+
+472
+
+Advanced Linear Algebra
+
+ has a multiplicative inverse, denoted by  c , if and only if ² ³ ~ . We
+leave it to the reader to show that
+² ³ ~ ² ³ b ²³
+and
+² b ³  min¸² ³Á ²³¹
+If  is a sequence in < with ² ³ ¦ B as  ¦ , then for any series
+B
+
+²!³ ~   !
+~
+
+
+we may substitute  for ! to get the series
+B
+
+²!³ ~    ²!³
+~
+
+which is well-defined since the coefficient of each power of ! is a finite sum. In
+particular, if ² ³  , then ²  ³ ¦ B and so the composition
+B
+
+² k  ³²!³ ~ ² ²!³³ ~     ²!³
+~
+
+is well-defined. It is easy to see that ² k  ³ ~ ²³² ³.
+If ² ³ ~ , then  has a compositional inverse, denoted by  and satisfying
+² k  ³²!³ ~ ² k  ³²!³ ~ !
+A series  with ² ³ ~  is called a delta series.
+The sequence of powers   of a delta series  forms a pseudobasis for < , in the
+sense that for any   < , there exists a unique sequence of constants  for
+which
+B
+
+²!³ ~     ²!³
+~
+
+Finally, we note that the formal derivative of the series (19.1) is given by
+B
+
+C!  ²!³ ~  Z ²!³ ~   !c
+~
+
+The operator C! is a derivation, that is,
+C! ² ³ ~ C! ² ³ b  C! ²³
+
+The Umbral Calculus
+
+473
+
+The Umbral Algebra
+Let F ~ d´%µ denote the algebra of polynomials in a single variable % over the
+complex field. One of the starting points of the umbral calculus is the fact that
+any formal power series in < can play three different roles: as a formal power
+series, as a linear functional on F and as a linear operator on F . Let us first
+explore the connection between formal power series and linear functionals.
+Let F i denote the vector space of all linear functionals on F . Note that F i is the
+algebraic dual space of F , as defined in Chapter 2. It will be convenient to
+denote the action of 3  F i on ²%³  F by
+º3  ²%³»
+(This is the “bra-ket” notation of Paul Dirac.) The vector space operations on F i
+then take the form
+º3 b 4  ²%³» ~ º3  ²%³» b º4  ²%³»
+and
+º3  ²%³» ~ º3  ²%³»Á   d
+Note also that since any linear functional on F is uniquely determined by its
+values on a basis for F Á the functional 3  F i is uniquely determined by the
+values º3  % » for   .
+Now, any formal series in < can be written in the form
+B
+
+ 
+!
+!
+~
+
+ ²!³ ~ 
+
+and we can use this to define a linear functional  ²!³ by setting
+º ²!³  % » ~ 
+for   . In other words, the linear functional  ²!³ is defined by
+B
+
+º ²!³  % » 
+!
+!
+~
+
+ ²!³ ~ 
+
+where the expression  ²!³ on the left is just a formal power series. Note in
+particular that
+º!  % » ~ !Á
+where Á is the Kronecker delta function. This implies that
+º!  ²%³» ~ ²³ ²³
+and so ! is the functional “ th derivative at .” Also, ! is evaluation at .
+
+474
+
+Advanced Linear Algebra
+
+As it happens, any linear functional 3 on F has the form  ²!³. To see this, we
+simply note that if
+B
+
+º3  % » 
+!
+!
+~
+
+3 ²!³ ~ 
+then
+
+º3 ²!³  % » ~ º3  % »
+for all    and so as linear functionals, 3 ~ 3 ²!³.
+Thus, we can define a map ¢ F i ¦ < by ²3³ ~ 3 ²!³.
+Theorem 19.1 The map ¢ F i ¦ < defined by ²3³ ~ 3 ²!³ is a vector space
+isomorphism from F i onto < .
+Proof. To see that  is injective, note that
+3 ²!³ ~ 4 ²!³ ¬ º3  % » ~ º4  % » for all    ¬ 3 ~ 4
+Moreover, the map  is surjective, since for any   < , the linear functional
+3 ~  ²!³ has the property that ²3³ ~ 3 ²!³ ~  ²!³. Finally,
+B
+
+º3 b 4  % » 
+!
+!
+~
+
+²3 b 4 ³ ~ 
+
+B
+
+B
+º3  % » 
+º4  % » 
+! b 
+!
+!
+!
+~
+~
+
+~ 
+
+~ ²3³ b ²4 ³
+From now on, we shall identify the vector space F i with the vector space < ,
+using the isomorphism ¢ F i ¦ < . Thus, we think of linear functionals on F
+simply as formal power series. The advantage of this approach is that < is more
+than just a vector space—it is an algebra. Hence, we have automatically defined
+a multiplication of linear functionals, namely, the product of formal power
+series. The algebra < , when thought of as both the algebra of formal power
+series and the algebra of linear functionals on F , is called the umbral algebra.
+Let us consider an example.
+Example 19.1 For   d, the evaluation functional   F i is defined by
+º  ²%³» ~ ²³
+
+The Umbral Calculus
+
+475
+
+In particular, º  % » ~  and so the formal power series representation for
+this functional is
+B
+
+B
+º  % » 
+ 
+! ~
+! ~ !
+
+
+!
+!
+~
+~
+
+ ²!³ ~ 
+
+which is the exponential series. If ! is evaluation at  , then
+! ! ~ ²b³!
+and so the product of evaluation at  and evaluation at  is evaluation at
+ b .
+When we are thinking of a delta series   < as a linear functional, we refer to
+it as a delta functional. Similarly, an invertible series   < is referred to as an
+invertible functional. Here are some simple consequences of the development
+so far.
+Theorem 19.2
+1) For any   < ,
+B
+
+º ²!³  % » 
+!
+[
+~
+
+ ²!³ ~ 
+2) For any   F ,
+
+º!  ²%³» 
+%
+[
+
+
+²%³ ~ 
+3) For any  Á   < ,
+
+
+
+º ²!³²!³  % » ~  4 5 º ²!³  % »º²!³  %c »
+
+~
+
+4) ² ²!³³  deg ²%³ ¬ º ²!³  ²%³» ~ 
+5) If ² ³ ~  for all   , then
+B
+
+L   ²!³c²%³M ~   º ²!³  ²%³»
+~
+
+
+
+where the sum on the right is a finite one.
+6) If ² ³ ~  for all   , then
+º ²!³  ²%³» ~ º ²!³  ²%³» for all    ¬ ²%³ ~ ²%³
+7) If deg  ²%³ ~  for all   , then
+º ²!³   ²%³» ~ º²!³   ²%³» for all    ¬  ²!³ ~ ²!³
+
+476
+
+Advanced Linear Algebra
+
+Proof. We prove only part 3). Let
+B
+
+B
+
+ 
+! and ²!³ ~  !
+!
+!
+~
+~
+
+ ²!³ ~ 
+Then
+
+B
+
+ ²!³²!³ ~  4
+~
+
+  
+4 5 c 5!
+! ~ 
+
+and applying both sides of this ²as linear functionals) to % gives
+
+
+º ²!³²!³  % » ~ 4 5 c
+
+~
+
+The result now follows from the fact that part 1) implies  ~ º ²!³  % » and
+c ~ º²!³  %c ».
+We can now present our first “umbral” result.
+Theorem 19.3 For any  ²!³  < and ²%³  F ,
+º ²!³  %²%³» ~ ºC!  ²!³  ²%³»
+Proof. By linearity, we need only establish this for ²%³ ~ % . But if
+B
+
+ 
+!
+!
+~
+
+ ²!³ ~ 
+then
+B
+
+
+!c c% M
+²
+c
+³
+!
+~
+
+ºC!  ²!³  % » ~ L 
+B
+
+
+cÁ
+² c ³!
+~
+
+~
+
+~ b
+~ º ²!³  %b »
+Let us consider a few examples of important linear functionals and their power
+series representations.
+Example 19.2
+1) We have already encountered the evaluation functional ! , satisfying
+º!  ²%³» ~ ²³
+
+The Umbral Calculus
+
+477
+
+2) The forward difference functional is the delta functional ! c ,
+satisfying
+º! c   ²%³» ~ ²³ c ²³
+3) The Abel functional is the delta functional !e! , satisfying
+º!e!  ²%³» ~ Z ²³
+4) The invertible functional ² c !³c satisfies
+B
+
+º² c !³c  ²%³» ~
+
+²"³ c" "
+
+
+
+as can be seen by setting ²%³ ~ % and expanding the expression
+² c !³c .
+5) To determine the linear functional  satisfying
+
+
+º ²!³  ²%³» ~
+
+²"³ "
+
+
+we observe that
+B
+
+B
+º ²!³  % » 
+b 
+!! c 
+! ~
+! ~
+!
+² b ³[
+!
+~
+~
+
+ ²!³ ~ 
+
+The inverse !°²! c ³ of this functional is associated with the Bernoulli
+polynomials, which play a very important role in mathematics and its
+applications. In fact, the numbers
+) ~ L
+
+!
+! c 
+
+c%  M
+
+are known as the Bernoulli numbers.
+
+Formal Power Series as Linear Operators
+We now turn to the connection between formal power series and linear
+operators on F . Let us denote the  th derivative operator on F by ! . Thus,
+! ²%³ ~ ²³ ²%³
+We can then extend this to formal series in !,
+B
+
+ 
+!
+!
+~
+
+ ²!³ ~ 
+
+(19.2)
+
+478
+
+Advanced Linear Algebra
+
+by defining the linear operator  ²!³¢ F ¦ F by
+B
+
+ 
+
+´! ²%³µ ~  ²³ ²%³
+!
+!
+~
+
+
+ ²!³²%³ ~ 
+
+the latter sum being a finite one. Note in particular that
+
+
+ ²!³% ~ 4 5 %c
+
+~
+
+(19.3)
+
+With this definition, we see that each formal power series   < plays three
+roles in the umbral calculus, namely, as a formal power series, as a linear
+functional and as a linear operator. The two notations º ²!³  ²%³» and
+ ²!³²%³ will make it clear whether we are thinking of  as a functional or as an
+operator.
+It is important to note that  ~  in < if and only if  ~  as linear functionals,
+which holds if and only if  ~  as linear operators. It is also worth noting that
+´ ²!³²!³µ²%³ ~  ²!³´²!³²%³µ
+and so we may write  ²!³²!³²%³ without ambiguity. In addition,
+ ²!³²!³²%³ ~ ²!³ ²!³²%³
+for all  Á   < and   F .
+When we are thinking of a delta series  as an operator, we call it a delta
+operator. The following theorem describes the key relationship between linear
+functionals and linear operators of the form  ²!³.
+Theorem 19.4 If  Á   < , then
+º ²!³²!³  ²%³» ~ º ²!³  ²!³²%³»
+for all polynomials ²%³  F .
+Proof. If  has the form (19.2), then by (19.3),
+
+
+º!   (!³% » ~ L! c4 5 %c M ~  ~ º ²!³  % »
+
+~
+
+²19.4)
+
+By linearity, this holds for % replaced by any polynomial ²%³. Hence,
+applying this to the product   gives
+º ²!³²!³  ²%³» ~ º!   ²!³²!³²%³»
+~ º!   ²!³´²!³²%³µ» ~ º ²!³  ²!³²%³»
+Equation (19.4) shows that applying the linear functional  (!³ is equivalent to
+applying the operator  ²!³ and then following by evaluation at % ~ .
+
+The Umbral Calculus
+
+479
+
+Here are the operator versions of the functionals in Example 19.2.
+Example 19.3
+1) The operator ! satisfies
+B
+
+
+  
+
+! % ~ 4 5 %c ~ ²% b ³
+
+
+!
+~
+~
+
+! % ~ 
+and so
+
+! ²%³ ~ ²% b ³
+for all   F . Thus ! is a translation operator.
+2) The forward difference operator is the delta operator ! c , where
+²! c )²%³ ~ ²% b ³ c ²³
+3) The Abel operator is the delta operator !e! , where
+!e! ²%³ ~ Z ²% b ³
+4) The invertible operator ² c !³c satisfies
+B
+
+² c !³c ²%³ ~
+
+²% b "³c" "
+
+
+!
+
+5) The operator ² c )°! is easily seen to satisfy
+! c 
+²%³ ~
+!
+
+%b
+
+²"³ "
+%
+
+We have seen that all linear functionals on F have the form  ²!³, for   < .
+However, not all linear operators on F have this form. To see this, observe that
+deg ´ ²!³²%³µ  deg ²%³
+but the linear operator ¢ F ¦ F defined by ²²%³³ ~ %²%³ does not have
+this property.
+Let us characterize the linear operators of the form  ²!³. First, we need a lemma.
+Lemma 19.5 If ; is a linear operator on 7 and ;  ²!³ ~  ²!³; for some delta
+series  ²!³, then deg²; ²%³³  deg²²%³³.
+Proof. For any   ,
+deg²; % ³ c  ~ deg² ²!³; % ³ ~ deg²;  ²!³% ³
+and so
+
+480
+
+Advanced Linear Algebra
+
+deg²; % ³ ~ deg²;  ²!³% ³ b 
+Since deg² ²!³% ³ ~  c  we have the basis for an induction. When  ~ 
+we get deg²; ³ ~ . Assume that the result is true for  c . Then
+deg²; % ³ ~ deg²;  ²!³% ³ b    c  b  ~ 
+Theorem 19.6 The following are equivalent for a linear operator ; ¢ F ¦ F .
+1) ; has the form  ²!³, that is, there exists an   < for which ; ~  ²!³, as
+linear operators.
+2) ; commutes with the derivative operator, that is, ; ! ~ !; .
+3) ; commutes with any delta operator ²!³, that is, ; ²!³ ~ ²!³; .
+4) ; commutes with any translation operator, that is, ; ! ~ ! ; .
+Proof. It is clear that 1) implies 2). For the converse, let
+B
+
+º!  ; % » 
+!
+!
+~
+
+²!³ ~ 
+Then
+
+º²!³  % » ~ º!  ; % »
+Now, since ; commutes with !, we have
+º!  ; % » ~ º!  ! ; % »
+~ º!  ; ! % »
+~ ²³ º!  ; %c »
+~ ²³ º!  ²!³%c »
+~ º!  ²!³% »
+and since this holds for all  and  we get ; ~ ²!³. We leave the rest of the
+proof as an exercise.
+
+Sheffer Sequences
+We can now define the principal object of study in the umbral calculus. When
+referring to a sequence  ²%³ in F , we shall always assume that deg  ²%³ ~ 
+for all   .
+Theorem 19.7 Let  be a delta series, let  be an invertible series and consider
+the geometric sequence
+Á  Á   Á   Á Ã
+in < . Then there is a unique sequence
+conditions
+
+ ²%³ in F satisfying the orthogonality
+
+The Umbral Calculus
+
+º²!³  ²!³ 
+
+ ²%³» ~ [Á
+
+481
+
+(19.5)
+
+for all Á   .
+Proof. The uniqueness follows from Theorem 19.2. For the existence, if we set
+
+ ²%³ ~  Á %
+~
+
+and
+B
+
+²!³  ²!³ ~  Á !
+~
+
+where Á £ , then (19.5) is
+B
+
+
+
+[Á ~ L Á ! c Á % M
+~
+B 
+
+~
+
+~   Á Á º! c% »
+~ ~
+
+
+~  Á Á [
+~
+
+Taking  ~  we get
+Á ~
+
+
+Á
+
+For  ~  c  we have
+ ~ cÁc Ác ² c ³[ b cÁ Á [
+and using the fact that Á ~ °Á we can solve this for Ác . By
+successively taking  ~ Á  c Á  c Á Ã we can solve the resulting
+equations for the coefficients Á of the sequence  ²%³.
+Definition The sequence  ²%³ in (19.5) is called the Sheffer sequence for the
+ordered pair ²²!³Á  ²!³³. We shorten this by saying that  ²%³ is Sheffer for
+²²!³Á  ²!³³.
+Two special types of Sheffer sequences deserve explicit mention.
+Definition The Sheffer sequence for a pair of the form ²Á  ²!³³ is called the
+associated sequence for  ²!³. The Sheffer sequence for a pair of the form
+²²!³Á !³ is called the Appell sequence for ²!³.
+
+482
+
+Advanced Linear Algebra
+
+Note that the sequence
+
+ ²%³ is Sheffer for ²²!³Á  ²!³³ if and only if
+
+º²!³  ²!³ 
+
+ ²%³» ~ [Á
+
+which is equivalent to
+º  ²!³  ²!³  ²%³» ~ [Á
+which, in turn, is equivalent to saying that the sequence  ²%³ ~ ²!³  ²%³ is
+the associated sequence for  ²!³.
+Theorem 19.8 The sequence  ²%³ is Sheffer for ²²!³Á  ²!³³ if and only if the
+sequence  ²%³ ~ ²!³  ²%³ is the associated sequence for  ²!³.
+Before considering examples, we wish to describe several characterizations of
+Sheffer sequences. First, we require a key result.
+Theorem 19.9 (The expansion theorems) Let
+1) For any   < ,
+
+ ²%³ be Sheffer for ²²!³Á  ²!³³.
+
+B
+
+º²!³   ²%³»
+²!³  ²!³
+
+!
+~
+
+²!³ ~ 
+2) For any   F ,
+
+º²!³  ²!³  ²%³
+ ²%³
+!
+
+
+²%³ ~ 
+
+Proof. Part 1) follows from Theorem 19.2, since
+B
+
+B
+º²!³   ²%³»
+º²!³   ²%³»
+²!³  ²!³c  ²%³M ~ 
+!Á
+
+!
+!
+~
+~
+
+L
+
+~ º²!³ 
+
+ ²%³»
+
+Part 2) follows in a similar way from Theorem 19.2.
+We can now begin our characterization of Sheffer sequences, starting with the
+generating function. The idea of a generating function is quite simple. If  ²%³ is
+a sequence of polynomials, we may define a formal power series of the form
+B
+
+ ²%³ 
+!
+!
+~
+
+²!Á %³ ~ 
+
+This is referred to as the (exponential) generating function for the sequence
+ ²%³. (The term exponential refers to the presence of  ! in this series. When
+this is not present, we have an ordinary generating function.³ Since the series is
+a formal one, knowing ²!Á %³ is equivalent (in theory, if not always in practice)
+
+

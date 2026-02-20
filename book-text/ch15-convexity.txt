@@ -1,0 +1,685 @@
+Positive Solutions to Linear Systems: Convexity and Separation
+
+421
+
+º5 Á » b º5 Á » ~ º5 Á b »  )5 )
+for all  : and   * . But if º5 Á » £  for some  : , then we can replace
+by an appropriate scalar multiple of in order to make the left side of this
+inequality negative, which is impossible. Hence, º5 Á » ~  for all  : , that
+is, 5  :  and
+º5 Á *»  )5 )
+We can now prove (15.1) and (15.2).
+Theorem 15.7 Let : be a subspace of s .
+1) : q sb ~ J if and only if :  q sbb £ J
+
+2) : q sbb ~ J if and only if :  q sb
+£J
+Proof. In both cases, one direction is easy. It is clear that there cannot exist
+
+
+vectors "  sbb and #  sb
+that are orthogonal. Hence, : q sb
+and
+
+
+
+
+: q sbb cannot both be nonempty and so : q sbb £ J implies
+
+: q sb ~ J. Also, : q sbb and :  q sb
+cannot both be nonempty and so
+
+
+
+: q sb £ J implies that : q sbb ~ J.
+For the converse in part 1), to prove that
+: q sb ~ J
+
+¬
+
+:  q sbb £ J
+
+a good candidate for an element of :  q sbb would be a normal to a
+hyperplane that separates : from a subset of sb . Note that our separation
+
+theorems do not allow us to separate : from sb , because sb
+is not compact. So
+consider instead the convex hull " of the standard basis vectors  Á Ã Á  in
+sb :
+" ~ ¸!  b Ä b !     !  Á '! ~ ¹
+which is compact. Moreover, "  sb implies that " q : ~ J and so Theorem
+15.6 implies that there is a nonzero vector 5 ~ ² Á Ã Á  ³  :  such that
+º5 Á  »  )5 )
+for all   "À Taking  ~  gives
+ ~ º5 Á  »  )5 )  
+and so 5  :  q sbb , which is therefore nonempty.
+To prove part 2), again we note that there cannot exist orthogonal vectors
+
+
+
+and so : q sbb
+and :  q sb
+cannot both be nonempty.
+"  sbb and #  sb
+
+
+
+Thus, : q sb £ J implies that : q sbb ~ J.
+
+422
+
+Advanced Linear Algebra
+
+To finish the proof of part 2), we must prove that
+: q sbb ~ J
+
+
+:  q sb
+£J
+
+¬
+
+Let 8 ~ ¸) Á Ã Á ) ¹ be a basis for : . Then 5 ~ ² Á Ã Á  ³  :  if and
+only if 5  ) for all . In matrix terms, if
+4 ~ ²Á ³ ~ ²)  )  Ä  ) ³
+has rows 9 Á Ã Á 9 , then 5  :  if and only if 5 4 ~ , that is,
+ 9 b Ä b  9 ~ 
+Now, :  contains a strictly positive vector 5 ~ ² Á Ã Á  ³ if and only if this
+equation holds, where    for all  and    for some . Moreover, we may
+assume without loss of generality that ' ~ , or equivalently, that  is in the
+convex hull 9 of the row space of 4 . Hence,
+:  q sb £ J
+
+¯
+
+9
+
+¬
+
+9
+
+Thus, we wish to prove that
+: q sbb ~ J
+or equivalently,
+¤9
+
+¬
+
+: q sbb £ J
+
+Now we have something to separate. Since 9 is closed and convex, Theorem
+15.5 implies that there is a nonzero vector ) ~ ² Á Ã Á  ³  s for which
+º)Á 9»  )) )  
+Consider the vector
+# ~  )  b Ä b   )   :
+The th coordinate of # is
+ Á b Ä b  Á ~ º)Á 9 »  )) )  
+and so # is strongly positive. Hence, #  : q sbb , which is therefore
+nonempty.
+
+Inhomogeneous Systems
+We now turn our attention to inhomogeneous systems
+(% ~ 
+The following lemma is required.
+
+Positive Solutions to Linear Systems: Convexity and Separation
+
+423
+
+Lemma 15.8 Let (  CÁ ²s³. Then the set
+9 ~ ¸(&  &  s Á &  ¹
+is a closed, convex cone.
+Proof. We leave it as an exercise to prove that 9 is a convex cone and omit the
+proof that 9 is closed.
+Theorem 15.9 (Farkas's lemma) Let (  CÁ ²s³ and let   s be
+nonzero. Then exactly one of the following holds:
+1) There is a strictly positive solution "  s to the system (% ~  .
+2) There is a vector #  s for which #(   and º#Á »  .
+Proof. Suppose first that 1) holds. If 2) also holds, then
+²#(³" ~ #²("³ ~ º#Á »  
+However, #(   and "   imply that ²#(³"  . This contradiction implies
+that 2) cannot hold.
+Assume now that 1) fails to hold. By Lemma 15.8, the set
+* ~ ¸(&  &  s Á &  ¹  s
+is closed and convex. The fact that 1) fails to hold is equivalent to  ¤ * .
+Hence, there is a hyperplane that strongly separates  and * . All we require is
+that  and * be strictly separated, that is, for some   s and #  s ,
+º#Á %»    º#Á » for all %  *
+Since   * , it follows that    and so º#Á »  . Also, the first inequality is
+equivalent to º#Á (&»  , that is,
+º(! #Á &»  
+for all &  s Á &  . We claim that this implies that (! # cannot have any
+positive coordinates and thus #(  . For if the th coordinate ²(! #³ is
+positive, then taking & ~  for    we get
+²(! #³  
+which does not hold for large . Thus, 2) holds.
+In the exercises, we ask the reader to show that the previous result cannot be
+improved by replacing #(   in statement 2) with #(  .
+
+Exercises
+1.
+
+Show that any hyperplane has the form >²5 Á )5 ) ³ for an appropriate
+vector 5 .
+
+424
+2.
+3.
+4.
+
+Advanced Linear Algebra
+If ( is an  d  matrix prove that the set ¸(%  %  s Á %  ¹ is a
+convex cone in s .
+If ( and ) are strictly separated subsets of s and if ( is finite, prove that
+( and ) are strongly separated as well.
+Let = be a vector space over a field - with char²- ³ £ . Show that a
+subset ? of = is closed under the taking of convex combinations of any
+two of its points if and only if ? is closed under the taking of arbitrary
+convex combinations, that is, for all   ,
+
+
+
+
+% Á Ã Á %  ?Á  ~ Á      ¬  %  ?
+~
+
+5.
+6À
+
+~
+
+Explain why an ² c ³-dimensional subspace of s is the solution set of a
+linear equation of the form  % b Ä b  % ~ .
+Show that
+>b ²5 Á ³ q >c ²5 Á ³ ~ >²5 Á ³
+k
+and that >kb ²5 Á ³, >c
+²5 Á ³ and >²5 Á ³ are pairwise disjoint and
+k
+>kb ²5 Á ³ r >c
+²5 Á ³ r >²5 Á ³ ~ s
+
+A function ; ¢ s ¦ s is affine if it has the form ; ²#³ ~  # b  for
+  s , where   B²s Á s ³. Prove that if *  s is convex, then so is
+; ²*³  s .
+8. Find a cone in s that is not convex. Prove that a subset ? of s is a
+convex cone if and only if %Á &  ? implies that % b &  ? for all
+Á   .
+9. Prove that the convex hull of a set ¸% Á Ã Á % ¹ in s is bounded, without
+using the fact that it is compact.
+10. Suppose that a vector %  s has two distinct representations as convex
+combinations of the vectors # Á Ã Á # . Prove that the vectors
+# c # Á Ã Á # c # are linearly dependent.
+11. Suppose that * is a nonempty convex subset of s and that >²5 Á ³ is a
+hyperplane disjoint from * . Prove that * lies in one of the open half-spaces
+determined by >²5 Á ³.
+12. Prove that the conclusion of Theorem 15.6 may fail if we assume only that
+* is closed and convex.
+13. Find two nonempty convex subsets of s that are strictly separated but not
+strongly separated.
+14. Prove that ? and @ are strongly separated by >²5 Á ³ if and only if
+7.
+
+º5 Á %Z »   for all %Z  ? and º5 Á &Z »   for all &Z  @
+where ? ~ ? b )²Á ³ and @ ~ @ b )²Á ³ and where )²Á ³ is the
+closed unit ball.
+
+Positive Solutions to Linear Systems: Convexity and Separation
+
+425
+
+15. Show that Farkas's lemma cannot be improved by replacing #(   in
+statement 2) with #(  . Hint: A nice counterexample exists for
+ ~ Á  ~ .
+
+Chapter 16
+
+Affine Geometry
+
+In this chapter, we will study the geometry of a finite-dimensional vector space
+= , along with its structure-preserving maps. Throughout this chapter, all vector
+spaces are assumed to be finite-dimensional.
+
+Affine Geometry
+The cosets of a quotient space have a special geometric name.
+Definition Let : be a subspace of a vector space = . The coset
+# b : ~ ¸# b 
+
+ :¹
+
+is called a flat in = with base : and flat representative #. We also refer to
+# b : as a translate of : . The set 7²= ³ of all flats in = is called the affine
+geometry of = . The dimension dim²7²= ³³ of 7²= ³ is defined to be dim²= ³.
+While a flat may have many flat representatives, it only has one base since
+% b : ~ & b ; implies that %  & b ; and so % b : ~ & b ; ~ % b ; ,
+whence : ~ ; .
+Definition The dimension of a flat % b : is dim²:³. A flat of dimension  is
+called a  -flat. A -flat is a point, a -flat is a line and a -flat is a plane. A flat
+of dimension dim²7²= ³³ c  is called a hyperplane.
+Definition Two flats ? ~ % b : and @ ~ & b ; are said to be parallel if
+:  ; or ;  : . This is denoted by ?  @ .
+We will denote subspaces of = by the letters :Á ; Á Ã and flats in = by
+?Á @ Á Ã .
+Here are some of the basic intersection properties of flats.
+
+428
+
+Advanced Linear Algebra
+
+Theorem 16.1 Let : and ; be subspaces of = and let ? ~ % b : and
+@ ~ & b ; be flats in = .
+1) The following are equivalent:
+a) some translate of ? is in @ : $ b ?  @ for some $  =
+b) some translate of : is in ; : # b :  ; for some #  =
+c) :  ;
+2) The following are equivalent:
+a) ? and @ are translates: $ b ? ~ @ for some $  =
+b) : and ; are translates: # b : ~ ; for some #  =
+c) : ~ ;
+3) ? q @ £ JÁ :  ; ¯ ?  @
+4) ? q @ £ JÁ : ~ ; ¯ ? ~ @
+5) If ?  @ then ?  @ , @  ? or ? q @ ~ J
+6) ?  @ if and only if some translation of one of these flats is contained in
+the other.
+Proof. If 1a) holds, then c& b $ b % b :  ; and so 1b) holds. If 1b) holds,
+then #  ; and so : ~ ²# b :³ c #  ; and so 1c) holds. If 1c) holds, then
+& c % b ? ~ & b :  & b ; ~ @ and so 1a) holds. Part 2) is proved in a
+similar manner.
+For part 3), :  ; implies that # b ?  @ for some #  = and so if
+'  ? q @ then # b '  @ and so #  @ , which implies that ?  @ .
+Conversely, if ?  @ then part 1) implies that :  ; . Part 4) follows similarly.
+We leave proof of 5) and 6) to the reader.
+
+Affine Combinations
+Let ? be a nonempty subset of = . It is well known that
+1) ? is a subspace of = if and only if ? is closed under linear combinations,
+or equivalently, ? is closed under linear combinations of any two vectors
+in ? .
+2) The smallest subspace of = containing ? is the set of all linear
+combinations of elements of ? . In different language, the linear hull of ?
+is equal to the linear span of ? .
+We wish to establish the corresponding properties of affine subspaces of = ,
+beginning with the counterpart of a linear combination.
+Definition Let = be a vector space and let %  = . A linear combination
+ % b Ä b  %
+where   - and  ~  is called an affine combination of the vectors % .
+Let us refer to a nonempty subset ? of = as affine closed if ? is closed under
+any affine combination of vectors in ? and two-affine closed if ? is closed
+
+Affine Geometry
+
+429
+
+under affine combinations of any two vectors in ? . These are not standard
+terms.
+The line containing two distinct vectors %Á &  = is the set
+%& ~ ¸% b ² c ³&    - ¹ ~ & b º% c &»
+of all affine combinations of % and &. Thus, a subset ? of = is two-affine closed
+if and only if ? contains the line through any two of its points.
+Theorem 16.2 Let = be a vector space over a field - with char²- ³ £ . Then a
+subset ? of = is affine closed if and only if it is two-affine closed.
+Proof. The theorem is proved by induction on the number  of terms in an
+affine combination. The case  ~  holds by assumption. Assume the result true
+for affine combinations with fewer than    terms and consider the affine
+combination
+' ~  %  b Ä b   % 
+where   . There are two cases to consider. If either of  and  is not equal
+to , say  £ , write
+' ~  % b ² c  ³>
+
+
+
+% b Ä b
+% ?
+ c 
+ c 
+
+and if  ~  ~ , then since char²- ³ £ 2, we may write
+
+
+' ~  > %  b %  ? b 3 % 3 b Ä b   % 
+
+
+In either case, the inductive hypothesis applies to the expression inside the
+square brackets and then to ' .
+The requirement char²- ³ £  is necessary, for if - ~ { , then the subset
+? ~ ¸²Á ³Á ²Á ³Á ²Á ³¹
+of -  is two-affine closed but not affine closed. We can now characterize flats.
+Theorem 16.3 A nonempty subset ? of a vector space = is a flat if and only if
+? is affine closed. Moreover, if char²- ³ £ , then ? is a flat if and only if ? is
+two-affine closed.
+Proof. Let ? ~ % b : be a flat and let % ~ % b   ? , where   : . If
+' ~ , then
+  % ~   ²% b  ³ ~ % b     % b :
+
+
+
+
+
+
+and so ? is affine closed. Conversely, suppose that ? is affine closed, let
+%  ? and let : ~ ? c %. If   - and   : then
+
+430
+
+Advanced Linear Algebra
+
+  b   ~  ²% c %³ b  ²% c %³ ~  % b  % c ² b  ³%
+for %  ? . Since the sum of the coefficients of % , % and % in the last
+expression is , it follows that
+  b   b % ~  % b  % c ² b  c ³%  ?
+and so   b    ? c % ~ : . Thus, : is a subspace of = and ? ~ % b : is
+a flat. The rest follows from Theorem 16.2.
+
+Affine Hulls
+The following definition is the analog of the subspace spanned by a collection
+of vectors.
+Definition Let ? be a nonempty set of vectors in = .
+1) The affine hull of ? , denoted by affhull²?³, is the smallest flat containing
+?.
+2) The affine span of ? , denoted by affspan²?³, is the set of all affine
+combinations of vectors in ? .
+Theorem 16.4 Let ? be a nonempty subset of = . Then
+affhull²?³ ~ affspan²?³ ~ % b span²? c %³
+or equivalently, for a subspace : of = ,
+% b : ~ affspan²?³
+
+¯
+
+: ~ span²? c %³
+
+Also,
+dim²affspan²?³³ ~ dim²span²? c %³³
+Proof. Theorem 16.3 implies that affspan²?³  affhull²?³ and so it is
+sufficient to show that ( ~ affspan²?³ is a flat, or equivalently, that for any
+&  (, the set : ~ ( c & is a subspace of = . To this end, let
+
+
+& ~  Á %
+~
+
+Then any two elements of : have the form & c & and & c & , where
+
+
+& ~  Á %
+~
+
+are in (. But if Á !  - , then
+
+
+
+and & ~  2Á %
+~
+
+Affine Geometry
+
+431
+
+'  ²& c &³ b !²& c &³
+
+
+~ 4 Á b !2Á c ² b !³Á 5%
+~
+
+
+~ 4 Á b !2Á c ² b ! c ³Á 5% c &
+~
+
+which is in ( c & ~ : , since the last sum is an affine sum. Hence, : is a
+subspace of = . We leave the rest of the proof to the reader.
+
+The Lattice of Flats
+The intersection of subspaces is a subspace, although it may be trivial. For flats,
+if the intersection is not empty, then it is also a flat. However, since the
+intersection of flats may be empty, the set 7²= ³ does not form a lattice under
+intersection. However, we can easily fix this.
+Theorem 16.5 Let = be a vector space. The set
+7 ²= ³ ~ 7²= ³ r ¸J¹
+of all flats in = , together with the empty set, is a complete lattice in which meet
+is intersection. In particular:
+1) 7 ²= ³ is closed under arbitrary intersection. In fact, if
+< ~ ¸% b :    2¹ has nonempty intersection, then
+<~
+2
+
+²% b : ³ ~ % b
+2
+
+:
+2
+
+for some %  < . In other words, the base of the intersection is the
+intersection of the bases.
+2) The join < of the family < ~ ¸% b :    2¹ is the intersection of all
+flats containing the members of < . Also,
+< ~ affhull4 < 5
+3) If ? ~ % b : and @ ~ & b ; are flats in = , then
+? v @ ~ % b ²º% c &» b : b ; ³
+If ? q @ £ J, then
+? v @ ~ % b ²: b ; ³
+Proof. For part 1), if
+%
+
+²% b : ³
+2
+
+then % b : ~ % b : for all   2 and so
+
+432
+
+Advanced Linear Algebra
+
+²% b : ³ ~
+2
+
+²% b : ³ ~ % b
+2
+
+:
+2
+
+We leave proof of part 2) to the reader.
+For part 3), since %Á &  ? v @ , it follows that
+?v@ ~%b< ~&b<
+for some subspace < of = . Thus, % c &  < . Also, % b :  % b < implies that
+:  < and similarly ;  < , whence : b ;  < and so if > ~
+º% c &» b : b ; , then >  < . Hence, % b >  % b < ~ ? v @ . On the
+other hand,
+? ~%b: %b>
+and
+@ ~ & b ; ~ % c ²% c &³ b ;  % b >
+and so ? v @  % b > . Thus, ? v @ ~ % b > .
+If ? q @ £ J, then we may take the flat representatives for ? and @ to be any
+element '  ? q @ , in which case part 1) gives
+? v @ ~ ' b ²º' c '» b : b ; ³ ~ ' b : b ;
+and since %  ? v @ , we also have ? v @ ~ % b : b ; .
+We can now describe the dimension of the join of two flats.
+Theorem 16.6 Let ? ~ % b : and @ ~ & b ; be flats in = .
+1) If ? q @ £ J, then
+dim²? v @ ³ ~ dim²: b ; ³ ~ dim²?³ b dim²@ ³ c dim²? q @ ³
+2) If ? q @ ~ J, then
+dim²? v @ ³ ~ dim²: b ; ³ b 
+Proof. We have seen that if ? q @ £ J, then
+?v@ ~%b: b;
+and so
+dim²? v @ ³ ~ dim²: b ; ³
+On the other hand, if ? q @ ~ J, then
+? v @ ~ % b ²º% c &» b : b ; ³
+and since dim²º% c &»³ ~ , we get
+
+Affine Geometry
+
+433
+
+dim²? v @ ³ ~ dim²: b ; ³ b 
+Finally, we have
+dim²: b ; ³ ~ dim²:³ b dim²; ³ c dim²: q ; ³
+and Theorem 16.5 implies that
+dim²? q @ ³ ~ dim²: q ; ³
+
+Affine Independence
+We now discuss the affine counterpart of linear independence.
+Theorem 16.7 Let ? be a nonempty set of vectors in = . The following are
+equivalent:
+1) For all %  ? , the set
+²? c %³ ± ¸¹
+is linearly independent.
+2) For all %  ? ,
+% ¤ affhull²? ± ¸%¹³
+3) For any vectors %  ? ,
+  % ~ Á   ~ 
+
+
+ ~  for all 
+
+¬
+
+
+
+4) For affine combinations of vectors in ? ,
+  % ~   %
+
+
+¬
+
+ ~
+
+ for all 
+
+
+
+5) When ? ~ ¸% Á Ã Á % ¹ is finite,
+dim²affhull²?³³ ~  c 
+A set ? of vectors satisfying any (any hence all) of these conditions is said to be
+affinely independent.
+Proof. If 1) holds but there is an affine combination equal to %,
+
+
+% ~   %
+~
+
+where % £ % for all , then
+
+
+  ²% c %³ ~ 
+~
+
+434
+
+Advanced Linear Algebra
+
+Since  is nonzero for some , this contradicts 1). Hence, 1) implies 2). Suppose
+that 2) holds and
+  % ~ 
+where  ~ . If some  , say  , is nonzero then
+% ~ c ² ° ³%  affhull²? ± ¸% ¹³
+
+
+which contradicts 2) and so  ~  for all . Hence, 2) implies 3).
+If 3) holds and the affine combinations satisfy
+  % ~   %
+then
+ ² c  ³% ~ 
+and since ² c  ³ ~  c  ~ , it follows that  ~  for all . Hence, 4)
+holds. Thus, it is clear that 3) and 4) are equivalent. If 3) holds and
+  ²% c %³ ~ 
+for % £ % , then
+  % c 4 5% ~ 
+and so 3) implies that  ~  for all .
+Finally, suppose that ? ~ ¸% Á Ã Á % ¹. Since
+dim²affhull²?³³ ~ dim²º? c % »³
+it follows that 5) holds if and only if ²? c % ³ ± ¸¹, which has size  c , is
+linearly independent.
+Affinely independent sets enjoy some of the basic properties of linearly
+independent sets. For example, a nonempty subset of an affinely independent set
+is affinely independent. Also, any nonempty set ? contains an affinely
+independent set.
+Since the affine hull / ~ affhull²?³ of an affinely independent set ? is not the
+affine hull of any proper subset of ? , we deduce that ? is a minimal affine
+spanning set of its affine hull.
+
+Affine Geometry
+
+435
+
+Affine Bases and Barycentric Coordinates
+We have seen that a set ? is affinely independent if and only if the set
+?% ~ ²? c %³ ± ¸¹
+is linearly independent. We have also seen that for a subsapce : of = ,
+% b : ~ affspan²?³
+
+¯
+
+: ~ span²?% ³
+
+Therefore, if by analogy, we define a subset 8 of a flat ( ~ % b : to be an
+affine basis for ( if 8 is affinely independent and affspan²8 ³ ~ (, then 8 is an
+affine basis for % b : if and only if 8% is a basis for : .
+Theorem 16.8 Let ( ~ % b : be a flat of dimension . Let 8 ~ ²% Á Ã Á % ³ be
+an ordered basis for : and let ²8 b %³ r ¸%¹ ~ ²% b %Á Ã Á % b %Á %³ be an
+ordered affine basis for (. Then every #  ( has a unique expression as an
+affine combination
+# ~  % b Ä b  % b b %
+The coefficients  are called the barycentric coordinates of # with respect to
+the ordered affine basis 8 b %.
+For example, in s , a plane is a flat of the form ( ~ % b º# Á # » where
+8 ~ ²# Á # ³ is an ordered basis for a two-dimensional subspace of s . Then
+²8 b %³ r ¸%¹ ~ ²# b %Á # b %Á %³ ~ ² Á  Á  ³
+are barycentric coordinates for the plane, that is, any #  ( has the form
+  b   b  
+where  b  b  ~ .
+
+Affine Transformations
+Now let us discuss some properties of maps that preserve affine structure.
+Definition A function  ¢ = ¦ = that preserves affine combinations, that is, for
+which
+  ~  ¬  4  % 5 ~    ²% ³
+
+
+
+
+
+
+is called an affine transformation (or affine map, or affinity).
+We should mention that some authors require that  be bijective in order to be
+an affine map. The following theorem is the analog of Theorem 16.2.
+
+436
+
+Advanced Linear Algebra
+
+Theorem 16.9 If char²- ³ £ , then a function  ¢ = ¦ = is an affine
+transformation if and only if it preserves affine combinations of every pair of its
+points, that is, if and only if
+ ²% b ² c ³&³ ~  ²%³ b ² c ³ ²&³
+Thus, if char²- ³ £ , then a map  is an affine transformation if and only if it
+sends the line through % and & to the line through  ²%³ and  ²&³. It is clear that
+linear transformations are affine transformations. So are the following maps.
+Definition Let #  = . The affine map ;# ¢ = ¦ = defined by
+;# ²%³ ~ % b #
+for all %  = , is called translation by #.
+It is not hard to see that any composition ;# k  , where   B²= ³, is affine.
+Conversely, any affine map must have this form.
+Theorem 16.10 A function  ¢ = ¦ = is an affine transformation if and only if
+it is a linear operator followed by a translation,
+ ~ ;# k 
+where #  = and   B²= ³.
+Proof. We leave proof that ;# k  is an affine transformation to the reader. Let 
+be an affine map and suppose that   ~ c' . Then ;' k   ~ . Moreover,
+letting  ~ ;' k  , we have
+ ²" b #³ ~  ²" b #³ b '
+~  ²" b # b ² c  c ³³ b '
+~  " b  # c ² c  c ³' b '
+~  " b  #
+and so  is linear.
+Corollary 16.11
+1) The composition of two affine transformations is an affine transformation.
+2) An affine transformation  ~ ;# k  is bijective if and only if  is bijective.
+3) The set aff²= ³ of all bijective affine transformations on = is a group under
+composition of maps, called the affine group of = .
+Let us make a few group-theoretic remarks about aff²= ³. The set trans²= ³ of all
+translations of = is a subgroup of aff²= ³. We can define a function
+¢ aff²= ³ ¦ B²= ³ by
+²;# k  ³ ~ 
+
+

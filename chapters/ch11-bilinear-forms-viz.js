@@ -1,110 +1,8 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch11'] = window.EXTRA_VIZ['ch11'] || {};
 
-// Section 1: Bilinear Forms and Quadratic Forms
+// Section 1: Bilinear Forms and Metric Vector Spaces
 window.EXTRA_VIZ['ch11']['ch11-sec01'] = [
-    {
-        id: 'ch11-extra-viz-1',
-        title: 'Interactive Quadratic Form Contour Plot',
-        description: 'Drag matrix entries to see how Q(x,y) = ax² + bxy + cy² changes. Watch level curves transform in real-time.',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            // Matrix entries (for symmetric matrix [[a, b/2], [b/2, c]])
-            let a = 1, b = 0, c = 1;  // starts as x² + y² (elliptic)
-
-            const sliderA = VizEngine.createSlider(controls, 'a (x² coeff)', -3, 3, a, 0.1, (val) => {
-                a = val;
-                draw();
-            });
-
-            const sliderB = VizEngine.createSlider(controls, 'b (xy coeff)', -3, 3, b, 0.1, (val) => {
-                b = val;
-                draw();
-            });
-
-            const sliderC = VizEngine.createSlider(controls, 'c (y² coeff)', -3, 3, c, 0.1, (val) => {
-                c = val;
-                draw();
-            });
-
-            function quadraticForm(x, y) {
-                return a * x * x + b * x * y + c * y * y;
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Draw contour lines for Q(x,y) = k
-                const levels = [-6, -4, -2, -1, -0.5, 0.5, 1, 2, 4, 6];
-                const resolution = 100;
-
-                for (let level of levels) {
-                    const points = [];
-                    // Use marching squares-like approach
-                    for (let i = 0; i < resolution; i++) {
-                        const angle = (i / resolution) * 2 * Math.PI;
-                        // Try to find points on the contour
-                        for (let r = 0.1; r < 8; r += 0.1) {
-                            const x = r * Math.cos(angle);
-                            const y = r * Math.sin(angle);
-                            const val = quadraticForm(x, y);
-                            if (Math.abs(val - level) < 0.15) {
-                                points.push([x, y]);
-                                break;
-                            }
-                        }
-                    }
-
-                    if (points.length > 3) {
-                        const color = level === 0 ? viz.colors.yellow :
-                                    (level > 0 ? viz.colors.blue : viz.colors.red);
-                        for (let i = 0; i < points.length - 1; i++) {
-                            viz.drawSegment(points[i][0], points[i][1],
-                                          points[i+1][0], points[i+1][1],
-                                          color + '88', 1.5);
-                        }
-                    }
-                }
-
-                // Show gradient direction at a sample point
-                const px = 2, py = 1;
-                const gradX = 2 * a * px + b * py;
-                const gradY = b * px + 2 * c * py;
-                const gradLen = Math.sqrt(gradX * gradX + gradY * gradY);
-                if (gradLen > 0.01) {
-                    viz.drawVector(px, py, px + gradX/gradLen * 0.8, py + gradY/gradLen * 0.8,
-                                 viz.colors.orange, '∇Q');
-                }
-
-                // Compute signature
-                const det = a * c - (b/2) * (b/2);
-                const trace = a + c;
-                let signature = '';
-                if (Math.abs(det) < 0.01) {
-                    signature = 'Degenerate (det≈0)';
-                } else if (det > 0 && trace > 0) {
-                    signature = 'Positive definite (p=2,q=0)';
-                } else if (det > 0 && trace < 0) {
-                    signature = 'Negative definite (p=0,q=2)';
-                } else if (det < 0) {
-                    signature = 'Indefinite (p=1,q=1)';
-                } else {
-                    signature = 'Semidefinite';
-                }
-
-                viz.drawText(`Q(x,y) = ${a.toFixed(1)}x² + ${b.toFixed(1)}xy + ${c.toFixed(1)}y²`,
-                           -6.5, 4.8, viz.colors.white, 13);
-                viz.drawText(signature, -6.5, 4.2, viz.colors.teal, 13);
-                viz.drawText(`det = ${det.toFixed(2)}`, -6.5, 3.6, viz.colors.text, 11);
-            }
-
-            draw();
-            return viz;
-        }
-    },
     {
         id: 'ch11-extra-viz-2',
         title: 'Bilinear Form as Oriented Area',
@@ -185,457 +83,8 @@ window.EXTRA_VIZ['ch11']['ch11-sec01'] = [
     }
 ];
 
-// Section 2: Signature and Congruence
-window.EXTRA_VIZ['ch11']['ch11-sec02'] = [
-    {
-        id: 'ch11-extra-viz-3',
-        title: 'Signature (p,q,r) Explorer',
-        description: 'Explore Sylvester\'s Law: see how signature (p positive, q negative, r zero) characterizes a symmetric bilinear form',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 35});
-
-            let p = 2, q = 1, r = 0; // signature (positive, negative, zero)
-            const maxDim = 4;
-
-            const sliderP = VizEngine.createSlider(controls, 'p (positive)', 0, maxDim, p, 1, (val) => {
-                p = Math.floor(val);
-                updateConstraints();
-                draw();
-            });
-
-            const sliderQ = VizEngine.createSlider(controls, 'q (negative)', 0, maxDim, q, 1, (val) => {
-                q = Math.floor(val);
-                updateConstraints();
-                draw();
-            });
-
-            const sliderR = VizEngine.createSlider(controls, 'r (null)', 0, maxDim, r, 1, (val) => {
-                r = Math.floor(val);
-                updateConstraints();
-                draw();
-            });
-
-            function updateConstraints() {
-                const total = p + q + r;
-                if (total > maxDim) {
-                    if (r > 0) r = Math.max(0, maxDim - p - q);
-                }
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid(0.5);
-                viz.drawAxes();
-
-                const dim = p + q + r;
-                const angleStep = Math.PI * 2 / Math.max(dim, 1);
-                const radius = 3;
-
-                // Draw basis vectors in different colors/styles
-                let angle = 0;
-
-                // Positive eigenvectors (blue)
-                for (let i = 0; i < p; i++) {
-                    const x = radius * Math.cos(angle);
-                    const y = radius * Math.sin(angle);
-                    viz.drawVector(0, 0, x, y, viz.colors.blue, `e₊${i+1}`, 3);
-
-                    // Draw positive cone
-                    for (let t = 0.2; t <= 1; t += 0.2) {
-                        viz.drawCircle(0, 0, t * Math.sqrt(x*x + y*y),
-                                      viz.colors.blue + '11', viz.colors.blue + '44');
-                    }
-                    angle += angleStep;
-                }
-
-                // Negative eigenvectors (red)
-                for (let i = 0; i < q; i++) {
-                    const x = radius * Math.cos(angle);
-                    const y = radius * Math.sin(angle);
-                    viz.drawVector(0, 0, x, y, viz.colors.red, `e₋${i+1}`, 3);
-
-                    // Draw negative cone (dashed)
-                    for (let t = 0.2; t <= 1; t += 0.2) {
-                        viz.drawCircle(0, 0, t * Math.sqrt(x*x + y*y),
-                                      null, viz.colors.red + '44');
-                    }
-                    angle += angleStep;
-                }
-
-                // Null/radical eigenvectors (gray)
-                for (let i = 0; i < r; i++) {
-                    const x = radius * Math.cos(angle);
-                    const y = radius * Math.sin(angle);
-                    viz.drawVector(0, 0, x, y, viz.colors.text, `e₀${i+1}`, 2);
-
-                    // Draw null direction
-                    viz.drawLine(0, 0, x, y, viz.colors.text + '33', 1, true);
-                    angle += angleStep;
-                }
-
-                // Draw light cone (for Lorentzian signature like (1,1,0))
-                if (p === 1 && q === 1 && r === 0) {
-                    viz.drawText('Light Cone (Minkowski)', -6, 5, viz.colors.yellow, 12);
-                    // Draw null directions
-                    viz.drawLine(-5, -5, 5, 5, viz.colors.yellow + '66', 2);
-                    viz.drawLine(-5, 5, 5, -5, viz.colors.yellow + '66', 2);
-                }
-
-                // Information display
-                viz.drawText(`Signature: (${p}, ${q}, ${r})`, -6.5, -4.5, viz.colors.white, 14);
-                viz.drawText(`Dimension: ${dim}`, -6.5, -5, viz.colors.text, 12);
-
-                let type = '';
-                if (r > 0) {
-                    type = 'Degenerate';
-                } else if (q === 0) {
-                    type = 'Positive definite';
-                } else if (p === 0) {
-                    type = 'Negative definite';
-                } else {
-                    type = 'Indefinite';
-                }
-                viz.drawText(`Type: ${type}`, -6.5, -5.5, viz.colors.teal, 12);
-
-                // Canonical form
-                let canonical = 'Q = ';
-                for (let i = 0; i < p; i++) canonical += `x₊${i+1}² + `;
-                for (let i = 0; i < q; i++) canonical += `-x₋${i+1}² + `;
-                canonical = canonical.slice(0, -3); // remove last ' + '
-                if (dim === 0) canonical = 'Q = 0';
-
-                viz.drawText(canonical, -6.5, 4.5, viz.colors.orange, 11);
-            }
-
-            draw();
-            return viz;
-        }
-    },
-    {
-        id: 'ch11-extra-viz-4',
-        title: 'Congruence Transformation Animation',
-        description: 'Watch how congruence B\'(x,y) = B(Px, Py) preserves signature but changes the matrix representation',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 45});
-
-            let t = 0; // animation parameter
-            let animating = false;
-
-            const playBtn = VizEngine.createButton(controls, 'Play/Pause', () => {
-                animating = !animating;
-                if (animating) {
-                    viz.animate((timestamp) => {
-                        t = (timestamp / 2000) % (Math.PI * 2);
-                        draw();
-                        return animating;
-                    });
-                } else {
-                    viz.stopAnimation();
-                }
-            });
-
-            const resetBtn = VizEngine.createButton(controls, 'Reset', () => {
-                t = 0;
-                animating = false;
-                viz.stopAnimation();
-                draw();
-            });
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Original basis
-                const e1 = [1, 0];
-                const e2 = [0, 1];
-
-                // Change of basis matrix P(t) (rotation + scaling)
-                const angle = t * 0.5;
-                const scale = 1 + 0.3 * Math.sin(t);
-                const P = [
-                    [scale * Math.cos(angle), -Math.sin(angle)],
-                    [scale * Math.sin(angle), Math.cos(angle)]
-                ];
-
-                // Transformed basis
-                const Pe1 = VizEngine.matVec(P, e1);
-                const Pe2 = VizEngine.matVec(P, e2);
-
-                // Original form matrix (indefinite: signature (1,1))
-                const B = [[1, 0], [0, -1]];
-
-                // Transformed form matrix B' = P^T B P
-                const PT = [[P[0][0], P[1][0]], [P[0][1], P[1][1]]];
-                const BP = VizEngine.matMul(B, P);
-                const BPrime = VizEngine.matMul(PT, BP);
-
-                // Draw original unit circle under B (hyperbola x² - y² = 1)
-                for (let i = 0; i < 100; i++) {
-                    const s = -3 + i * 6 / 100;
-                    const y1 = Math.sqrt(1 + s * s);
-                    const y2 = -Math.sqrt(1 + s * s);
-                    if (i > 0) {
-                        viz.drawPoint(s, y1, viz.colors.blue + '44', null, 2);
-                        viz.drawPoint(s, y2, viz.colors.blue + '44', null, 2);
-                    }
-                }
-
-                // Draw transformed hyperbola (approximately)
-                for (let i = 0; i < 100; i++) {
-                    const s = -3 + i * 6 / 100;
-                    const y1 = Math.sqrt(1 + s * s);
-                    const y2 = -Math.sqrt(1 + s * s);
-
-                    const p1 = VizEngine.matVec(P, [s, y1]);
-                    const p2 = VizEngine.matVec(P, [s, y2]);
-
-                    if (i > 0) {
-                        viz.drawPoint(p1[0], p1[1], viz.colors.orange + '88', null, 2);
-                        viz.drawPoint(p2[0], p2[1], viz.colors.orange + '88', null, 2);
-                    }
-                }
-
-                // Draw basis vectors
-                viz.drawVector(0, 0, e1[0], e1[1], viz.colors.blue + '66', 'e₁', 2);
-                viz.drawVector(0, 0, e2[0], e2[1], viz.colors.blue + '66', 'e₂', 2);
-
-                viz.drawVector(0, 0, Pe1[0], Pe1[1], viz.colors.orange, 'Pe₁', 3);
-                viz.drawVector(0, 0, Pe2[0], Pe2[1], viz.colors.orange, 'Pe₂', 3);
-
-                // Display matrices
-                viz.drawText(`Original: B = [[1,0],[0,-1]]`, -6, 4.8, viz.colors.blue, 11);
-                viz.drawText(`Transformed: B' = P^T B P`, -6, 4.3, viz.colors.orange, 11);
-                viz.drawText(`B'₁₁ = ${BPrime[0][0].toFixed(2)}, B'₁₂ = ${BPrime[0][1].toFixed(2)}`,
-                           -6, 3.8, viz.colors.text, 10);
-                viz.drawText(`B'₂₁ = ${BPrime[1][0].toFixed(2)}, B'₂₂ = ${BPrime[1][1].toFixed(2)}`,
-                           -6, 3.4, viz.colors.text, 10);
-                viz.drawText('Signature (1,1) preserved!', -6, 2.9, viz.colors.teal, 11);
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 3: Symplectic Geometry
+// Section 3: Orthogonality and the Radical
 window.EXTRA_VIZ['ch11']['ch11-sec03'] = [
-    {
-        id: 'ch11-extra-viz-5',
-        title: 'Symplectic Form Visualization',
-        description: 'Explore the standard symplectic form ω(u,v) on R²ⁿ. Drag vectors to see skew-symmetry and non-degeneracy.',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 50});
-
-            const u = viz.addDraggable('u', 2, 1, viz.colors.blue, 8, () => draw());
-            const v = viz.addDraggable('v', -1, 2, viz.colors.orange, 8, () => draw());
-
-            let showDual = false;
-
-            const dualBtn = VizEngine.createButton(controls, 'Toggle Dual Vectors', () => {
-                showDual = !showDual;
-                draw();
-            });
-
-            function symplecticForm(u, v) {
-                // Standard symplectic form: ω(u,v) = u₁v₂ - u₂v₁
-                return u.x * v.y - u.y * v.x;
-            }
-
-            function symplecticDual(u) {
-                // J(u) where J = [[0, -1], [1, 0]]
-                return [-u.y, u.x];
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const omega_uv = symplecticForm(u, v);
-                const omega_vu = symplecticForm(v, u);
-
-                // Draw parallelogram showing oriented area
-                const parallelogram = [
-                    [0, 0],
-                    [u.x, u.y],
-                    [u.x + v.x, u.y + v.y],
-                    [v.x, v.y]
-                ];
-                const fillColor = omega_uv >= 0 ? viz.colors.teal + '22' : viz.colors.red + '22';
-                viz.drawPolygon(parallelogram, fillColor, viz.colors.white + '44', 1.5);
-
-                // Draw vectors
-                viz.drawVector(0, 0, u.x, u.y, viz.colors.blue, 'u', 3);
-                viz.drawVector(0, 0, v.x, v.y, viz.colors.orange, 'v', 3);
-
-                // Draw symplectic dual (orthogonal complement in symplectic sense)
-                if (showDual) {
-                    const Ju = symplecticDual(u);
-                    const Jv = symplecticDual(v);
-                    viz.drawVector(0, 0, Ju[0], Ju[1], viz.colors.purple, 'Ju', 2);
-                    viz.drawVector(0, 0, Jv[0], Jv[1], viz.colors.pink, 'Jv', 2);
-
-                    // Show that ω(u, Ju) = 0
-                    const omega_uJu = u.x * Ju[1] - u.y * Ju[0];
-                    viz.drawText(`ω(u, Ju) = ${omega_uJu.toFixed(3)} (should be 0)`,
-                               -5, -4, viz.colors.purple, 10);
-                }
-
-                // Display symplectic properties
-                viz.drawText(`ω(u,v) = ${omega_uv.toFixed(3)}`, -5, 4.8, viz.colors.white, 14);
-                viz.drawText(`ω(v,u) = ${omega_vu.toFixed(3)}`, -5, 4.3, viz.colors.white, 14);
-                viz.drawText(`Skew-symmetric: ω(v,u) = -ω(u,v) ✓`, -5, 3.6, viz.colors.teal, 11);
-
-                // Check if u, v form a symplectic basis
-                if (Math.abs(omega_uv - 1) < 0.1) {
-                    viz.drawText(`Symplectic basis! ω(u,v) ≈ 1`, -5, 3, viz.colors.green, 12);
-                } else if (Math.abs(omega_uv) < 0.1) {
-                    viz.drawText(`u,v are symplectically orthogonal`, -5, 3, viz.colors.yellow, 11);
-                }
-
-                // Show matrix form
-                viz.drawText(`Matrix: J = [[0, -1], [1, 0]]`, -5, 2.3, viz.colors.text, 10);
-                viz.drawText(`ω(u,v) = u^T J v`, -5, 1.9, viz.colors.text, 10);
-            }
-
-            draw();
-            return viz;
-        }
-    },
-    {
-        id: 'ch11-extra-viz-6',
-        title: 'Hyperbolic Plane and Symplectic Basis',
-        description: 'Drag to create a symplectic/hyperbolic pair: two vectors with ⟨e,f⟩=0, ⟨e,e⟩=0, ⟨f,f⟩=0, ⟨e,f⟩=1',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 50});
-
-            const e = viz.addDraggable('e', 1.5, 1, viz.colors.blue, 8, () => draw());
-            const f = viz.addDraggable('f', 1, 2, viz.colors.orange, 8, () => draw());
-
-            let mode = 0; // 0: symplectic, 1: hyperbolic (orthogonal)
-
-            const modeBtn = VizEngine.createButton(controls, 'Toggle Symplectic/Hyperbolic', () => {
-                mode = 1 - mode;
-                draw();
-            });
-
-            const normalizeBtn = VizEngine.createButton(controls, 'Auto-Normalize to Basis', () => {
-                if (mode === 0) {
-                    // Create symplectic basis
-                    e.x = 1; e.y = 0;
-                    f.x = 0; f.y = 1;
-                } else {
-                    // Create hyperbolic basis
-                    e.x = 1; e.y = 1;
-                    f.x = 1; f.y = -1;
-                }
-                draw();
-            });
-
-            function computeForm(u, v) {
-                if (mode === 0) {
-                    // Symplectic: ω(u,v) = u₁v₂ - u₂v₁
-                    return u.x * v.y - u.y * v.x;
-                } else {
-                    // Hyperbolic (indefinite orthogonal): B(u,v) = u₁v₁ - u₂v₂
-                    return u.x * v.x - u.y * v.y;
-                }
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const B_ee = computeForm(e, e);
-                const B_ff = computeForm(f, f);
-                const B_ef = computeForm(e, f);
-                const B_fe = computeForm(f, e);
-
-                // Check if it's a valid hyperbolic/symplectic pair
-                const isValidPair = Math.abs(B_ee) < 0.1 &&
-                                   Math.abs(B_ff) < 0.1 &&
-                                   Math.abs(B_ef - 1) < 0.2;
-
-                // Draw the span (2D plane)
-                const span = [];
-                for (let a = -2; a <= 2; a += 0.5) {
-                    for (let b = -2; b <= 2; b += 0.5) {
-                        const x = a * e.x + b * f.x;
-                        const y = a * e.y + b * f.y;
-                        viz.drawPoint(x, y, viz.colors.teal + '22', null, 2);
-                    }
-                }
-
-                // Draw level curves of the form
-                if (mode === 0) {
-                    // Symplectic: show area interpretation
-                    const parallelogram = [
-                        [0, 0],
-                        [e.x, e.y],
-                        [e.x + f.x, e.y + f.y],
-                        [f.x, f.y]
-                    ];
-                    viz.drawPolygon(parallelogram, viz.colors.blue + '11', viz.colors.white + '66', 2);
-                } else {
-                    // Hyperbolic: show null cone (light cone)
-                    for (let t = -4; t <= 4; t += 0.05) {
-                        // Null directions: B(x,x) = 0 => x₁² = x₂²
-                        viz.drawPoint(t, t, viz.colors.yellow + '44', null, 1);
-                        viz.drawPoint(t, -t, viz.colors.yellow + '44', null, 1);
-                    }
-                    viz.drawLine(-3, -3, 3, 3, viz.colors.yellow + '88', 2);
-                    viz.drawLine(-3, 3, 3, -3, viz.colors.yellow + '88', 2);
-                }
-
-                // Draw vectors
-                viz.drawVector(0, 0, e.x, e.y, viz.colors.blue, 'e', 3);
-                viz.drawVector(0, 0, f.x, f.y, viz.colors.orange, 'f', 3);
-
-                // Draw perpendicular indicator if orthogonal
-                if (Math.abs(B_ef) < 0.15) {
-                    const len = 0.3;
-                    const ex = e.x / Math.sqrt(e.x*e.x + e.y*e.y) * len;
-                    const ey = e.y / Math.sqrt(e.x*e.x + e.y*e.y) * len;
-                    const fx = f.x / Math.sqrt(f.x*f.x + f.y*f.y) * len;
-                    const fy = f.y / Math.sqrt(f.x*f.x + f.y*f.y) * len;
-
-                    viz.drawSegment(ex, ey, ex + fx, ey + fy, viz.colors.white, 1.5);
-                    viz.drawSegment(fx, fy, ex + fx, ey + fy, viz.colors.white, 1.5);
-                }
-
-                // Information display
-                const modeName = mode === 0 ? 'Symplectic' : 'Hyperbolic (Orthogonal)';
-                viz.drawText(`Mode: ${modeName}`, -5, 4.8, viz.colors.white, 13);
-                viz.drawText(`⟨e,e⟩ = ${B_ee.toFixed(3)}`, -5, 4.2,
-                           Math.abs(B_ee) < 0.1 ? viz.colors.green : viz.colors.white, 11);
-                viz.drawText(`⟨f,f⟩ = ${B_ff.toFixed(3)}`, -5, 3.8,
-                           Math.abs(B_ff) < 0.1 ? viz.colors.green : viz.colors.white, 11);
-                viz.drawText(`⟨e,f⟩ = ${B_ef.toFixed(3)}`, -5, 3.4,
-                           Math.abs(B_ef - 1) < 0.2 ? viz.colors.green : viz.colors.white, 11);
-
-                if (isValidPair) {
-                    viz.drawText(`✓ Valid ${modeName} Pair!`, -5, 2.7, viz.colors.green, 13);
-                    viz.drawText(`Span forms ${modeName} plane`, -5, 2.2, viz.colors.teal, 11);
-                } else {
-                    viz.drawText(`Adjust to make a valid pair`, -5, 2.7, viz.colors.yellow, 11);
-                }
-
-                if (mode === 1) {
-                    viz.drawText(`Yellow lines: null cone (⟨x,x⟩=0)`, -5, -4.5, viz.colors.yellow, 10);
-                }
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 4: Degenerate vs Nondegenerate
-window.EXTRA_VIZ['ch11']['ch11-sec04'] = [
     {
         id: 'ch11-extra-viz-7',
         title: 'Degenerate vs Nondegenerate Forms',
@@ -740,7 +189,7 @@ window.EXTRA_VIZ['ch11']['ch11-sec04'] = [
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch11-extra-viz-8',
         title: 'Orthogonal Complement and Radical',
@@ -881,8 +330,563 @@ window.EXTRA_VIZ['ch11']['ch11-sec04'] = [
     }
 ];
 
-// Section 5: Isometries and Witt's Theorem
+// Section 4: Quadratic Forms and Diagonalization
+window.EXTRA_VIZ['ch11']['ch11-sec04'] = [
+    {
+        id: 'ch11-extra-viz-1',
+        title: 'Interactive Quadratic Form Contour Plot',
+        description: 'Drag matrix entries to see how Q(x,y) = ax² + bxy + cy² changes. Watch level curves transform in real-time.',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            // Matrix entries (for symmetric matrix [[a, b/2], [b/2, c]])
+            let a = 1, b = 0, c = 1;  // starts as x² + y² (elliptic)
+
+            const sliderA = VizEngine.createSlider(controls, 'a (x² coeff)', -3, 3, a, 0.1, (val) => {
+                a = val;
+                draw();
+            });
+
+            const sliderB = VizEngine.createSlider(controls, 'b (xy coeff)', -3, 3, b, 0.1, (val) => {
+                b = val;
+                draw();
+            });
+
+            const sliderC = VizEngine.createSlider(controls, 'c (y² coeff)', -3, 3, c, 0.1, (val) => {
+                c = val;
+                draw();
+            });
+
+            function quadraticForm(x, y) {
+                return a * x * x + b * x * y + c * y * y;
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Draw contour lines for Q(x,y) = k
+                const levels = [-6, -4, -2, -1, -0.5, 0.5, 1, 2, 4, 6];
+                const resolution = 100;
+
+                for (let level of levels) {
+                    const points = [];
+                    // Use marching squares-like approach
+                    for (let i = 0; i < resolution; i++) {
+                        const angle = (i / resolution) * 2 * Math.PI;
+                        // Try to find points on the contour
+                        for (let r = 0.1; r < 8; r += 0.1) {
+                            const x = r * Math.cos(angle);
+                            const y = r * Math.sin(angle);
+                            const val = quadraticForm(x, y);
+                            if (Math.abs(val - level) < 0.15) {
+                                points.push([x, y]);
+                                break;
+                            }
+                        }
+                    }
+
+                    if (points.length > 3) {
+                        const color = level === 0 ? viz.colors.yellow :
+                                    (level > 0 ? viz.colors.blue : viz.colors.red);
+                        for (let i = 0; i < points.length - 1; i++) {
+                            viz.drawSegment(points[i][0], points[i][1],
+                                          points[i+1][0], points[i+1][1],
+                                          color + '88', 1.5);
+                        }
+                    }
+                }
+
+                // Show gradient direction at a sample point
+                const px = 2, py = 1;
+                const gradX = 2 * a * px + b * py;
+                const gradY = b * px + 2 * c * py;
+                const gradLen = Math.sqrt(gradX * gradX + gradY * gradY);
+                if (gradLen > 0.01) {
+                    viz.drawVector(px, py, px + gradX/gradLen * 0.8, py + gradY/gradLen * 0.8,
+                                 viz.colors.orange, '∇Q');
+                }
+
+                // Compute signature
+                const det = a * c - (b/2) * (b/2);
+                const trace = a + c;
+                let signature = '';
+                if (Math.abs(det) < 0.01) {
+                    signature = 'Degenerate (det≈0)';
+                } else if (det > 0 && trace > 0) {
+                    signature = 'Positive definite (p=2,q=0)';
+                } else if (det > 0 && trace < 0) {
+                    signature = 'Negative definite (p=0,q=2)';
+                } else if (det < 0) {
+                    signature = 'Indefinite (p=1,q=1)';
+                } else {
+                    signature = 'Semidefinite';
+                }
+
+                viz.drawText(`Q(x,y) = ${a.toFixed(1)}x² + ${b.toFixed(1)}xy + ${c.toFixed(1)}y²`,
+                           -6.5, 4.8, viz.colors.white, 13);
+                viz.drawText(signature, -6.5, 4.2, viz.colors.teal, 13);
+                viz.drawText(`det = ${det.toFixed(2)}`, -6.5, 3.6, viz.colors.text, 11);
+            }
+
+            draw();
+            return viz;
+        }
+    },
+];
+
+// Section 5: Sylvester's Law of Inertia
 window.EXTRA_VIZ['ch11']['ch11-sec05'] = [
+    {
+        id: 'ch11-extra-viz-3',
+        title: 'Signature (p,q,r) Explorer',
+        description: 'Explore Sylvester\'s Law: see how signature (p positive, q negative, r zero) characterizes a symmetric bilinear form',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 35});
+
+            let p = 2, q = 1, r = 0; // signature (positive, negative, zero)
+            const maxDim = 4;
+
+            const sliderP = VizEngine.createSlider(controls, 'p (positive)', 0, maxDim, p, 1, (val) => {
+                p = Math.floor(val);
+                updateConstraints();
+                draw();
+            });
+
+            const sliderQ = VizEngine.createSlider(controls, 'q (negative)', 0, maxDim, q, 1, (val) => {
+                q = Math.floor(val);
+                updateConstraints();
+                draw();
+            });
+
+            const sliderR = VizEngine.createSlider(controls, 'r (null)', 0, maxDim, r, 1, (val) => {
+                r = Math.floor(val);
+                updateConstraints();
+                draw();
+            });
+
+            function updateConstraints() {
+                const total = p + q + r;
+                if (total > maxDim) {
+                    if (r > 0) r = Math.max(0, maxDim - p - q);
+                }
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid(0.5);
+                viz.drawAxes();
+
+                const dim = p + q + r;
+                const angleStep = Math.PI * 2 / Math.max(dim, 1);
+                const radius = 3;
+
+                // Draw basis vectors in different colors/styles
+                let angle = 0;
+
+                // Positive eigenvectors (blue)
+                for (let i = 0; i < p; i++) {
+                    const x = radius * Math.cos(angle);
+                    const y = radius * Math.sin(angle);
+                    viz.drawVector(0, 0, x, y, viz.colors.blue, `e₊${i+1}`, 3);
+
+                    // Draw positive cone
+                    for (let t = 0.2; t <= 1; t += 0.2) {
+                        viz.drawCircle(0, 0, t * Math.sqrt(x*x + y*y),
+                                      viz.colors.blue + '11', viz.colors.blue + '44');
+                    }
+                    angle += angleStep;
+                }
+
+                // Negative eigenvectors (red)
+                for (let i = 0; i < q; i++) {
+                    const x = radius * Math.cos(angle);
+                    const y = radius * Math.sin(angle);
+                    viz.drawVector(0, 0, x, y, viz.colors.red, `e₋${i+1}`, 3);
+
+                    // Draw negative cone (dashed)
+                    for (let t = 0.2; t <= 1; t += 0.2) {
+                        viz.drawCircle(0, 0, t * Math.sqrt(x*x + y*y),
+                                      null, viz.colors.red + '44');
+                    }
+                    angle += angleStep;
+                }
+
+                // Null/radical eigenvectors (gray)
+                for (let i = 0; i < r; i++) {
+                    const x = radius * Math.cos(angle);
+                    const y = radius * Math.sin(angle);
+                    viz.drawVector(0, 0, x, y, viz.colors.text, `e₀${i+1}`, 2);
+
+                    // Draw null direction
+                    viz.drawLine(0, 0, x, y, viz.colors.text + '33', 1, true);
+                    angle += angleStep;
+                }
+
+                // Draw light cone (for Lorentzian signature like (1,1,0))
+                if (p === 1 && q === 1 && r === 0) {
+                    viz.drawText('Light Cone (Minkowski)', -6, 5, viz.colors.yellow, 12);
+                    // Draw null directions
+                    viz.drawLine(-5, -5, 5, 5, viz.colors.yellow + '66', 2);
+                    viz.drawLine(-5, 5, 5, -5, viz.colors.yellow + '66', 2);
+                }
+
+                // Information display
+                viz.drawText(`Signature: (${p}, ${q}, ${r})`, -6.5, -4.5, viz.colors.white, 14);
+                viz.drawText(`Dimension: ${dim}`, -6.5, -5, viz.colors.text, 12);
+
+                let type = '';
+                if (r > 0) {
+                    type = 'Degenerate';
+                } else if (q === 0) {
+                    type = 'Positive definite';
+                } else if (p === 0) {
+                    type = 'Negative definite';
+                } else {
+                    type = 'Indefinite';
+                }
+                viz.drawText(`Type: ${type}`, -6.5, -5.5, viz.colors.teal, 12);
+
+                // Canonical form
+                let canonical = 'Q = ';
+                for (let i = 0; i < p; i++) canonical += `x₊${i+1}² + `;
+                for (let i = 0; i < q; i++) canonical += `-x₋${i+1}² + `;
+                canonical = canonical.slice(0, -3); // remove last ' + '
+                if (dim === 0) canonical = 'Q = 0';
+
+                viz.drawText(canonical, -6.5, 4.5, viz.colors.orange, 11);
+            }
+
+            draw();
+            return viz;
+        }
+    },,
+    {
+        id: 'ch11-extra-viz-4',
+        title: 'Congruence Transformation Animation',
+        description: 'Watch how congruence B\'(x,y) = B(Px, Py) preserves signature but changes the matrix representation',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 45});
+
+            let t = 0; // animation parameter
+            let animating = false;
+
+            const playBtn = VizEngine.createButton(controls, 'Play/Pause', () => {
+                animating = !animating;
+                if (animating) {
+                    viz.animate((timestamp) => {
+                        t = (timestamp / 2000) % (Math.PI * 2);
+                        draw();
+                        return animating;
+                    });
+                } else {
+                    viz.stopAnimation();
+                }
+            });
+
+            const resetBtn = VizEngine.createButton(controls, 'Reset', () => {
+                t = 0;
+                animating = false;
+                viz.stopAnimation();
+                draw();
+            });
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Original basis
+                const e1 = [1, 0];
+                const e2 = [0, 1];
+
+                // Change of basis matrix P(t) (rotation + scaling)
+                const angle = t * 0.5;
+                const scale = 1 + 0.3 * Math.sin(t);
+                const P = [
+                    [scale * Math.cos(angle), -Math.sin(angle)],
+                    [scale * Math.sin(angle), Math.cos(angle)]
+                ];
+
+                // Transformed basis
+                const Pe1 = VizEngine.matVec(P, e1);
+                const Pe2 = VizEngine.matVec(P, e2);
+
+                // Original form matrix (indefinite: signature (1,1))
+                const B = [[1, 0], [0, -1]];
+
+                // Transformed form matrix B' = P^T B P
+                const PT = [[P[0][0], P[1][0]], [P[0][1], P[1][1]]];
+                const BP = VizEngine.matMul(B, P);
+                const BPrime = VizEngine.matMul(PT, BP);
+
+                // Draw original unit circle under B (hyperbola x² - y² = 1)
+                for (let i = 0; i < 100; i++) {
+                    const s = -3 + i * 6 / 100;
+                    const y1 = Math.sqrt(1 + s * s);
+                    const y2 = -Math.sqrt(1 + s * s);
+                    if (i > 0) {
+                        viz.drawPoint(s, y1, viz.colors.blue + '44', null, 2);
+                        viz.drawPoint(s, y2, viz.colors.blue + '44', null, 2);
+                    }
+                }
+
+                // Draw transformed hyperbola (approximately)
+                for (let i = 0; i < 100; i++) {
+                    const s = -3 + i * 6 / 100;
+                    const y1 = Math.sqrt(1 + s * s);
+                    const y2 = -Math.sqrt(1 + s * s);
+
+                    const p1 = VizEngine.matVec(P, [s, y1]);
+                    const p2 = VizEngine.matVec(P, [s, y2]);
+
+                    if (i > 0) {
+                        viz.drawPoint(p1[0], p1[1], viz.colors.orange + '88', null, 2);
+                        viz.drawPoint(p2[0], p2[1], viz.colors.orange + '88', null, 2);
+                    }
+                }
+
+                // Draw basis vectors
+                viz.drawVector(0, 0, e1[0], e1[1], viz.colors.blue + '66', 'e₁', 2);
+                viz.drawVector(0, 0, e2[0], e2[1], viz.colors.blue + '66', 'e₂', 2);
+
+                viz.drawVector(0, 0, Pe1[0], Pe1[1], viz.colors.orange, 'Pe₁', 3);
+                viz.drawVector(0, 0, Pe2[0], Pe2[1], viz.colors.orange, 'Pe₂', 3);
+
+                // Display matrices
+                viz.drawText(`Original: B = [[1,0],[0,-1]]`, -6, 4.8, viz.colors.blue, 11);
+                viz.drawText(`Transformed: B' = P^T B P`, -6, 4.3, viz.colors.orange, 11);
+                viz.drawText(`B'₁₁ = ${BPrime[0][0].toFixed(2)}, B'₁₂ = ${BPrime[0][1].toFixed(2)}`,
+                           -6, 3.8, viz.colors.text, 10);
+                viz.drawText(`B'₂₁ = ${BPrime[1][0].toFixed(2)}, B'₂₂ = ${BPrime[1][1].toFixed(2)}`,
+                           -6, 3.4, viz.colors.text, 10);
+                viz.drawText('Signature (1,1) preserved!', -6, 2.9, viz.colors.teal, 11);
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 6: Symplectic Geometry and Alternating Forms
+window.EXTRA_VIZ['ch11']['ch11-sec06'] = [
+    {
+        id: 'ch11-extra-viz-5',
+        title: 'Symplectic Form Visualization',
+        description: 'Explore the standard symplectic form ω(u,v) on R²ⁿ. Drag vectors to see skew-symmetry and non-degeneracy.',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 50});
+
+            const u = viz.addDraggable('u', 2, 1, viz.colors.blue, 8, () => draw());
+            const v = viz.addDraggable('v', -1, 2, viz.colors.orange, 8, () => draw());
+
+            let showDual = false;
+
+            const dualBtn = VizEngine.createButton(controls, 'Toggle Dual Vectors', () => {
+                showDual = !showDual;
+                draw();
+            });
+
+            function symplecticForm(u, v) {
+                // Standard symplectic form: ω(u,v) = u₁v₂ - u₂v₁
+                return u.x * v.y - u.y * v.x;
+            }
+
+            function symplecticDual(u) {
+                // J(u) where J = [[0, -1], [1, 0]]
+                return [-u.y, u.x];
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const omega_uv = symplecticForm(u, v);
+                const omega_vu = symplecticForm(v, u);
+
+                // Draw parallelogram showing oriented area
+                const parallelogram = [
+                    [0, 0],
+                    [u.x, u.y],
+                    [u.x + v.x, u.y + v.y],
+                    [v.x, v.y]
+                ];
+                const fillColor = omega_uv >= 0 ? viz.colors.teal + '22' : viz.colors.red + '22';
+                viz.drawPolygon(parallelogram, fillColor, viz.colors.white + '44', 1.5);
+
+                // Draw vectors
+                viz.drawVector(0, 0, u.x, u.y, viz.colors.blue, 'u', 3);
+                viz.drawVector(0, 0, v.x, v.y, viz.colors.orange, 'v', 3);
+
+                // Draw symplectic dual (orthogonal complement in symplectic sense)
+                if (showDual) {
+                    const Ju = symplecticDual(u);
+                    const Jv = symplecticDual(v);
+                    viz.drawVector(0, 0, Ju[0], Ju[1], viz.colors.purple, 'Ju', 2);
+                    viz.drawVector(0, 0, Jv[0], Jv[1], viz.colors.pink, 'Jv', 2);
+
+                    // Show that ω(u, Ju) = 0
+                    const omega_uJu = u.x * Ju[1] - u.y * Ju[0];
+                    viz.drawText(`ω(u, Ju) = ${omega_uJu.toFixed(3)} (should be 0)`,
+                               -5, -4, viz.colors.purple, 10);
+                }
+
+                // Display symplectic properties
+                viz.drawText(`ω(u,v) = ${omega_uv.toFixed(3)}`, -5, 4.8, viz.colors.white, 14);
+                viz.drawText(`ω(v,u) = ${omega_vu.toFixed(3)}`, -5, 4.3, viz.colors.white, 14);
+                viz.drawText(`Skew-symmetric: ω(v,u) = -ω(u,v) ✓`, -5, 3.6, viz.colors.teal, 11);
+
+                // Check if u, v form a symplectic basis
+                if (Math.abs(omega_uv - 1) < 0.1) {
+                    viz.drawText(`Symplectic basis! ω(u,v) ≈ 1`, -5, 3, viz.colors.green, 12);
+                } else if (Math.abs(omega_uv) < 0.1) {
+                    viz.drawText(`u,v are symplectically orthogonal`, -5, 3, viz.colors.yellow, 11);
+                }
+
+                // Show matrix form
+                viz.drawText(`Matrix: J = [[0, -1], [1, 0]]`, -5, 2.3, viz.colors.text, 10);
+                viz.drawText(`ω(u,v) = u^T J v`, -5, 1.9, viz.colors.text, 10);
+            }
+
+            draw();
+            return viz;
+        }
+    },,
+    {
+        id: 'ch11-extra-viz-6',
+        title: 'Hyperbolic Plane and Symplectic Basis',
+        description: 'Drag to create a symplectic/hyperbolic pair: two vectors with ⟨e,f⟩=0, ⟨e,e⟩=0, ⟨f,f⟩=0, ⟨e,f⟩=1',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 50});
+
+            const e = viz.addDraggable('e', 1.5, 1, viz.colors.blue, 8, () => draw());
+            const f = viz.addDraggable('f', 1, 2, viz.colors.orange, 8, () => draw());
+
+            let mode = 0; // 0: symplectic, 1: hyperbolic (orthogonal)
+
+            const modeBtn = VizEngine.createButton(controls, 'Toggle Symplectic/Hyperbolic', () => {
+                mode = 1 - mode;
+                draw();
+            });
+
+            const normalizeBtn = VizEngine.createButton(controls, 'Auto-Normalize to Basis', () => {
+                if (mode === 0) {
+                    // Create symplectic basis
+                    e.x = 1; e.y = 0;
+                    f.x = 0; f.y = 1;
+                } else {
+                    // Create hyperbolic basis
+                    e.x = 1; e.y = 1;
+                    f.x = 1; f.y = -1;
+                }
+                draw();
+            });
+
+            function computeForm(u, v) {
+                if (mode === 0) {
+                    // Symplectic: ω(u,v) = u₁v₂ - u₂v₁
+                    return u.x * v.y - u.y * v.x;
+                } else {
+                    // Hyperbolic (indefinite orthogonal): B(u,v) = u₁v₁ - u₂v₂
+                    return u.x * v.x - u.y * v.y;
+                }
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const B_ee = computeForm(e, e);
+                const B_ff = computeForm(f, f);
+                const B_ef = computeForm(e, f);
+                const B_fe = computeForm(f, e);
+
+                // Check if it's a valid hyperbolic/symplectic pair
+                const isValidPair = Math.abs(B_ee) < 0.1 &&
+                                   Math.abs(B_ff) < 0.1 &&
+                                   Math.abs(B_ef - 1) < 0.2;
+
+                // Draw the span (2D plane)
+                const span = [];
+                for (let a = -2; a <= 2; a += 0.5) {
+                    for (let b = -2; b <= 2; b += 0.5) {
+                        const x = a * e.x + b * f.x;
+                        const y = a * e.y + b * f.y;
+                        viz.drawPoint(x, y, viz.colors.teal + '22', null, 2);
+                    }
+                }
+
+                // Draw level curves of the form
+                if (mode === 0) {
+                    // Symplectic: show area interpretation
+                    const parallelogram = [
+                        [0, 0],
+                        [e.x, e.y],
+                        [e.x + f.x, e.y + f.y],
+                        [f.x, f.y]
+                    ];
+                    viz.drawPolygon(parallelogram, viz.colors.blue + '11', viz.colors.white + '66', 2);
+                } else {
+                    // Hyperbolic: show null cone (light cone)
+                    for (let t = -4; t <= 4; t += 0.05) {
+                        // Null directions: B(x,x) = 0 => x₁² = x₂²
+                        viz.drawPoint(t, t, viz.colors.yellow + '44', null, 1);
+                        viz.drawPoint(t, -t, viz.colors.yellow + '44', null, 1);
+                    }
+                    viz.drawLine(-3, -3, 3, 3, viz.colors.yellow + '88', 2);
+                    viz.drawLine(-3, 3, 3, -3, viz.colors.yellow + '88', 2);
+                }
+
+                // Draw vectors
+                viz.drawVector(0, 0, e.x, e.y, viz.colors.blue, 'e', 3);
+                viz.drawVector(0, 0, f.x, f.y, viz.colors.orange, 'f', 3);
+
+                // Draw perpendicular indicator if orthogonal
+                if (Math.abs(B_ef) < 0.15) {
+                    const len = 0.3;
+                    const ex = e.x / Math.sqrt(e.x*e.x + e.y*e.y) * len;
+                    const ey = e.y / Math.sqrt(e.x*e.x + e.y*e.y) * len;
+                    const fx = f.x / Math.sqrt(f.x*f.x + f.y*f.y) * len;
+                    const fy = f.y / Math.sqrt(f.x*f.x + f.y*f.y) * len;
+
+                    viz.drawSegment(ex, ey, ex + fx, ey + fy, viz.colors.white, 1.5);
+                    viz.drawSegment(fx, fy, ex + fx, ey + fy, viz.colors.white, 1.5);
+                }
+
+                // Information display
+                const modeName = mode === 0 ? 'Symplectic' : 'Hyperbolic (Orthogonal)';
+                viz.drawText(`Mode: ${modeName}`, -5, 4.8, viz.colors.white, 13);
+                viz.drawText(`⟨e,e⟩ = ${B_ee.toFixed(3)}`, -5, 4.2,
+                           Math.abs(B_ee) < 0.1 ? viz.colors.green : viz.colors.white, 11);
+                viz.drawText(`⟨f,f⟩ = ${B_ff.toFixed(3)}`, -5, 3.8,
+                           Math.abs(B_ff) < 0.1 ? viz.colors.green : viz.colors.white, 11);
+                viz.drawText(`⟨e,f⟩ = ${B_ef.toFixed(3)}`, -5, 3.4,
+                           Math.abs(B_ef - 1) < 0.2 ? viz.colors.green : viz.colors.white, 11);
+
+                if (isValidPair) {
+                    viz.drawText(`✓ Valid ${modeName} Pair!`, -5, 2.7, viz.colors.green, 13);
+                    viz.drawText(`Span forms ${modeName} plane`, -5, 2.2, viz.colors.teal, 11);
+                } else {
+                    viz.drawText(`Adjust to make a valid pair`, -5, 2.7, viz.colors.yellow, 11);
+                }
+
+                if (mode === 1) {
+                    viz.drawText(`Yellow lines: null cone (⟨x,x⟩=0)`, -5, -4.5, viz.colors.yellow, 10);
+                }
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 7: Applications and Further Topics
+window.EXTRA_VIZ['ch11']['ch11-sec07'] = [
     {
         id: 'ch11-extra-viz-9',
         title: 'Isometry: Form-Preserving Transformation',
@@ -1016,7 +1020,7 @@ window.EXTRA_VIZ['ch11']['ch11-sec05'] = [
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch11-extra-viz-10',
         title: 'Witt\'s Theorem: Extending Isometries',

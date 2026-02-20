@@ -1,0 +1,2055 @@
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+267
+
+Proof. It is clear that orthogonality is symmetric if the form is symmetric or
+alternate, since in the latter case, the form is also skew-symmetric.
+For the converse, assume that orthogonality is symmetric. For convenience, let
+%  & mean that º%Á &» ~ º&Á %» and let %  = mean that º%Á #» ~ º#Á %» for all
+#  = . If %  = for all %  = , then = is orthogonal and we are done. So let us
+\ =.
+examine vectors % with the property that % 
+We wish to show that
+\=
+%
+
+¬
+
+% is isotropic and ²%  & ¬ %  &³
+
+(11.1)
+
+Note that if the second conclusion holds, then since %  %, it follows that % is
+\ = , there is a '  = for which
+isotropic. So suppose that %  &. Since % 
+º%Á '» £ º'Á %» and so %  & if and only if
+º%Á &»²º%Á '» c º'Á %»³ ~ 
+Now,
+º%Á &»²º%Á '» c º'Á %»³ ~ º%Á &»º%Á '» c º%Á &»º'Á %»
+~ º&Á %»º%Á '» c º%Á &»º'Á %»
+~ º%Á º&Á %»' c &º'Á %»»
+But reversing the coordinates in the last expression gives
+ºº&Á %»' c &º'Á %»Á %» ~ º&Á %»º'Á %» c º&Á %»º'Á %» ~ 
+and so the symmetry of orthogonality implies that the last expression is  and so
+we have proven (11.1).
+Let us assume that = is not orthogonal and show that all vectors in = are
+isotropic, whence = is symplectic. Since = is not orthogonal, there exist
+\ = and # 
+\ = . Hence, the vectors " and #
+"Á #  = for which " \
+ # and so " 
+are isotropic and for all &  = ,
+&"
+&#
+
+¬
+¬
+
+&"
+&#
+
+\ = are isotropic, let $  = . Then $  " and
+Since all vectors $ for which $ 
+$  # and so $  " and $  #. Now write
+$ ~ ²$ c "³ b "
+where $ c "  ", since " is isotropic. Since the sum of two orthogonal
+isotropic vectors is isotropic, it follows that $ is isotropic if $ c " is isotropic.
+But
+º$ b "Á #» ~ º"Á #» £ º#Á "» ~ º#Á $ b "»
+
+268
+
+Advanced Linear Algebra
+
+\ = , which implies that $ b " is isotropic. Thus, $ is also
+and so ²$ b "³ 
+isotropic and so all vectors in = are isotropic.
+
+Orthogonal and Symplectic Geometries
+If a metric vector space is both orthogonal and symplectic, then the form is both
+symmetric and skew-symmetric and so
+º"Á #» ~ º#Á "» ~ cº"Á #»
+Therefore, when char²- ³ £ , = is orthogonal and symplectic if and only if =
+is totally degenerate.
+However, if char²- ³ ~ , then there are orthogonal symplectic geometries that
+are not totally degenerate. For example, let = ~ span²"Á #³ be a twodimensional vector space and define a form on = whose matrix is
+4 ~>
+
+
+
+
+
+?
+
+Since 4 is both symmetric and alternate, so is the form.
+
+Linear Functionals
+The Riesz representation theorem says that every linear functional  on a finitedimensional real or complex inner product space = is represented by a Riesz
+vector 9  = , in the sense that
+ ²#³ ~ º#Á 9 »
+for all #  = . A similar result holds for nonsingular metric vector spaces.
+Let = be a metric vector space over - . Let %  = and define the inner product
+map º h Á %»¢ = ¦ - by
+º h Á %»# ~ º#Á %»
+This is easily seen to be a linear functional and so we can define a linear map
+¢ = ¦ = i by
+% ~ º h Á %»
+The bilinearity of the form ensures that  is linear and the kernel of  is
+ker² ³ ~ ¸%  =  º= Á %» ~ ¸¹¹ ~ =  ~ rad²= ³
+Hence,  is injective (and therefore an isomorphism) if and only if = is
+nonsingular.
+Theorem 11.5 (The Riesz representation theorem) Let = be a finitedimensional nonsingular metric vector space. The map ¢ = ¦ = i defined by
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+269
+
+% ~ º h Á %»
+is an isomorphism from = to = i . It follows that for each   = i there exists a
+unique vector %  = for which
+ # ~ º#Á %»
+for all #  = .
+The requirement that = be nonsingular is necessary. As a simple example, if =
+is totally singular, then no nonzero linear functional could possibly be
+represented by an inner product.
+The Riesz representation theorem applies to nonsingular metric vector spaces.
+However, we can also achieve something useful for singular subspaces : of a
+nonsingular metric vector space. The reason is that any linear functional   : i
+can be extended to a linear functional  on = , where it has a Riesz vector, that
+is,
+ # ~ º#Á 9 » ~ º h Á 9 »#
+Hence,  also has this form, where its “Riesz vector” is an element of = , but is
+not necessarily in : .
+Theorem 11.6 (The Riesz representation theorem for subspaces) Let : be a
+subspace of a metric vector space = . If either = or : is nonsingular, the linear
+map ¢ = ¦ : i defined by
+% ~ º h Á %»O:
+is surjective and has kernel :  . Hence, for any linear functional   : i , there
+is a (not necessarily unique) vector %  = for which  ~ º Á %» for all  : .
+Moreover, if : is nonsingular, then % can be taken from : , in which case it is
+unique.
+
+Orthogonal Complements and Orthogonal Direct Sums
+Definition A metric vector space = is the orthogonal direct sum of the
+subspaces : and ; , written
+= ~: p;
+if = ~ : l ; and :  ; .
+If : is a subspace of a real inner product space, the projection theorem says that
+the orthogonal complement :  of : is a true vector space complement of : ,
+that is,
+= ~ : p :
+
+270
+
+Advanced Linear Algebra
+
+However, in general metric vector spaces, an orthogonal complement may not
+be a vector space complement. In fact, Example 11.3 shows that in some cases
+:  ~ : . In other cases, for example, if # is degenerate, then º#» ~ = .
+However, as we will see, the orthogonal complement of : is a vector space
+complement if and only if either the sum is correct, = ~ : b :  , or the
+intersection is correct, : q :  ~ ¸¹. Note that the latter is equivalent to the
+nonsingularity of : .
+Many nice properties of orthogonality in real inner product spaces do carry over
+to nonsingular metric vector spaces. Moreover, the next result shows that the
+restriction to nonsingular spaces is not that severe.
+Theorem 11.7 Let = be a metric vector space. Then
+= ~ rad²= ³ p :
+where : is nonsingular and rad²= ³ is totally singular.
+Proof. If : is any vector space complement of rad²= ³, then rad²= ³  : and so
+= ~ rad²= ³ p :
+Also, : is nonsingular since rad²:³  rad²= ³.
+Here are some properties of orthogonality in nonsingular metric vector spaces.
+In particular, if either = or : is nonsingular, then the orthogonal complement of
+: always has the expected dimension,
+dim²:  ³ ~ dim²= ³ c dim²:³
+even if :  is not well behaved with respect to its intersection with : .
+Theorem 11.8 Let : be a subspace of a finite-dimensional metric vector space
+=.
+1) If either = or : is nonsingular, then
+dim²:³ b dim²:  ³ ~ dim²= ³
+Hence, the following are equivalent:
+a) = ~ : b : 
+b) : is nonsingular, that is, : q :  ~ ¸¹
+c) = ~ : p :  .
+2) If = is nonsingular, then
+a) :  ~ :
+b) rad²:³ ~ rad²:  ³
+c) : is nonsingular if and only if :  is nonsingular.
+Proof. For part 1), the map ¢ = ¦ : i of Theorem 11.6 is surjective and has
+kernel :  . Thus, the rank-plus-nullity theorem implies that
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+271
+
+dim²: i ³ b dim²:  ³ ~ dim²= ³
+However, dim²: i ³ ~ dim²:³ and so part 1) follows. For part 2), since
+rad²:³ ~ : q :   :  q :  ~ rad²:  ³
+the nonsingularity of :  implies the nonsingularity of : . Then part 1) implies
+that
+dim²:³ b dim²:  ³ ~ dim²= ³
+and
+dim²:  ³ b dim²:  ³ ~ dim²= ³
+Hence, :  ~ : and rad²:³ ~ rad²:  ³.
+The previous theorem cannot in general be strengthened. Consider the twodimensional metric vector space = ~ span²"Á #³ where
+º"Á "» ~ Á º"Á #» ~ Á º#Á #» ~ 
+If : ~ span²"³, then :  ~ span²#³. Now, : is nonsingular but :  is singular
+and so 2c) does not hold. Also, rad²:³ ~ ¸¹ and rad²:  ³ ~ :  and so 2b)
+fails. Finally, :  ~ = £ : and so 2a) fails.
+
+Isometries
+We now turn to a discussion of structure-preserving maps on metric vector
+spaces.
+Definition Let = and > be metric vector spaces. We use the same notation ºÁ »
+for the bilinear form on each space. A bijective linear map ¢ = ¦ > is called
+an isometry if
+º "Á  #» ~ º"Á #»
+for all vectors " and # in = . If an isometry exists from = to > , we say that =
+and > are isometric and write =  > . It is evident that the set of all
+isometries from = to = forms a group under composition.
+If = is a nonsingular orthogonal geometry, an isometry of = is called an
+orthogonal transformation. The set E²= ³ of all orthogonal transformations
+on = is a group under composition, known as the orthogonal group of = .
+If = is a nonsingular symplectic geometry, an isometry of = is called a
+symplectic transformation. The set Sp²= ³ of all symplectic transformations on
+= is a group under composition, known as the symplectic group of = .
+
+272
+
+Advanced Linear Algebra
+
+Note that, in contrast to the case of real inner product spaces, we must include
+the requirement that  be bijective since this does not follow automatically if =
+is singular. Here are a few of the basic properties of isometries.
+Theorem 11.9 Let   B²= Á > ³ be a linear transformation between finitedimensional metric vector spaces = and > .
+1) Let 8 ~ ¸# Á Ã Á # ¹ be a basis for = . Then  is an isometry if and only if 
+is bijective and
+º # Á  # » ~ º# Á # »
+for all Á .
+2) If = is orthogonal and char²- ³ £ , then  is an isometry if and only if it is
+bijective and
+º #Á  #» ~ º#Á #»
+for all #  = .
+3) Suppose that ¢ =  > is an isometry and
+= ~ : p :
+
+and
+
+> ~ ; p ;
+
+If  : ~ ; , then  ²:  ³ ~ ;  .
+Proof. We prove part 3) only. To see that ²:  ³ ~ ;  , if '  :  and !  ; ,
+then since ; ~  : , we can write ! ~  for some  : and so
+º 'Á !» ~ º 'Á  » ~ º'Á » ~ 
+whence ²:  ³  ;  . But since the dimensions are equal, it follows that
+²:  ³ ~ ;  .
+
+Hyperbolic Spaces
+A special type of two-dimensional metric vector space plays an important role in
+the structure theory of metric vector spaces.
+Definition Let = be a metric vector space. A hyperbolic pair is a pair of
+vectors "Á #  = for which
+º"Á "» ~ º#Á #» ~ Á º"Á #» ~ 
+Note that º#Á "» ~  if = is orthogonal and º#Á "» ~ c if = is symplectic. In
+either case, the subspace / ~ span²"Á #³ is called a hyperbolic plane and any
+space of the form
+> ~ / p Ä p / 
+where each / is a hyperbolic plane, is called a hyperbolic space. If ²" Á # ³ is
+a hyperbolic pair for / , then we refer to the basis
+²" Á # Á Ã Á " Á # ³
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+273
+
+for > as a hyperbolic basis. (In the symplectic case, the usual term is
+symplectic basis.)
+Note that any hyperbolic space > is nonsingular.
+In the orthogonal case, hyperbolic planes can be characterized by their degree of
+isotropy, so to speak. (In the symplectic case, all spaces are totally isotropic by
+definition.) Indeed, we leave it as an exercise to prove that a two-dimensional
+nonsingular orthogonal geometry = is a hyperbolic plane if and only if =
+contains exactly two one-dimensional totally isotropic (equivalently, totally
+degenerate) subspaces. Put another way, the cone of isotropic vectors is the
+union of two one-dimensional subspaces of = .
+
+Nonsingular Completions of a Subspace
+Let < be a subspace of a nonsingular metric vector space = . If < is singular, it
+is of interest to find a minimal nonsingular subspace of = containing < .
+Definition Let = be a nonsingular metric vector space and let < be a subspace
+of = . A subspace : of = for which <  : is called an extension of < . A
+nonsingular completion of < is an extension of < that is minimal in the family
+of all nonsingular extensions of < .
+Theorem 11.10 Let = be a nonsingular finite-dimensional metric vector space
+over - . We assume that char²- ³ £  when = is orthogonal.
+1) Let : be a subspace of = . If # is isotropic and the orthogonal direct sum
+span²#³ p :
+exists, then there is a hyperbolic plane / ~ span²#Á '³ for which
+/ p:
+exists. In particular, if # is isotropic, then there is a hyperbolic plane
+containing #.
+2) Let < be a subspace of = and let
+< ~ span²# Á Ã Á # ³ p >
+where > is nonsingular and ¸# Á Ã Á # ¹ are linearly independent in
+rad²< ³. Then there is a hyperbolic space > ~ / p Ä p / with
+hyperbolic basis ²# Á ' Á Ã Á # Á ' ³ for which
+< ~ > p >
+is a nonsingular proper extension of < . If ¸# Á Ã Á # ¹ is a basis for
+rad²< ³, then
+dim²< ³ ~ dim²< ³ b dim²rad²< ³³
+
+274
+
+Advanced Linear Algebra
+
+and we refer to < as a hyperbolic extension of < . If < is nonsingular, we
+say that < is a hyperbolic extension of itself.
+Proof. For part 1), the nonsingularity of = implies that :  ~ : . Hence,
+# ¤ : ~ :  and so there is an %  :  for which º#Á %» £ . If = is
+symplectic, then all vectors are isotropic and so we can take ' ~ ²°º#Á %»³%. If
+= is orthogonal, let ' ~ # b %. The conditions defining ²#Á '³ as a hyperbolic
+pair are (since # is isotropic)
+ ~ º#Á '» ~ º#Á # b %» ~ º#Á %»
+and
+ ~ º'Á '» ~ º# b %Á # b %» ~  º#Á %» b
+
+
+
+º%Á %» ~  b
+
+
+
+º%Á %»
+
+Since º#Á %» £ , the first of these equations can be solved for and since
+char²- ³ £ , the second equation can then be solved for . Thus, in either case,
+there is a vector '  :  for which / ~ span²#Á '³  :  is hyperbolic. Hence,
+:  :   /  and since / is nonsingular, that is, / q /  ~ ¸¹, we have
+/ q : ~ ¸¹ and so / p : exists.
+Part 2) is proved by induction on  . Note first that all of the vectors # are
+isotropic. If  ~ , then span²# ³ p > exists and so part 1) implies that there is
+a hyperbolic plane / ~ span²# Á '³ for which / p > exists.
+Assume that the result is true for independent sets of size less than   . Since
+span²# ³ p span²# Á Ã Á # ³ p > 
+exists, part 1) implies that there exists a hyperbolic plane / ~ span²# Á ' ³ for
+which
+/ p span²# Á Ã Á # ³ p > 
+exists. Since # Á Ã Á # are in the radical of span²# Á Ã Á # ³ p > , the inductive
+hypothesis implies that there is a hyperbolic space / p Ä p / with
+hyperbolic basis ²# Á ' Á Ã Á # Á ' ³ for which the orthogonal direct sum
+/ p Ä p /  p >
+exists. Hence, / p Ä p / p > also exists.
+We can now prove that the hyperbolic extensions of < are precisely the minimal
+nonsingular extensions of < .
+Theorem 11.11 (Nonsingular extension theorem) Let < be a subspace of a
+nonsingular finite-dimensional metric vector space = . The following are
+equivalent:
+1) ; ~ > p > is a hyperbolic extension of <
+2) ; is a minimal nonsingular extension of <
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+275
+
+3) ; is a nonsingular extension of < and
+dim²; ³ ~ dim²< ³ b dim²rad²< ³³
+Thus, any two nonsingular completions of < are isometric.
+Proof. If <  ?  = where ? is nonsingular, then we may apply Theorem
+11.10 to < as a subspace of ? , to obtain a hyperbolic extension A p > of <
+for which
+< Ap> ?
+Thus, every nonsingular extension of < contains a hyperbolic extension of < .
+Moreover, all hyperbolic extensions of < have the same dimension:
+dim²> p > ³ ~ dim²< ³ b dim²rad²< ³³
+and so no hyperbolic extension of < is properly contained in another hyperbolic
+extension of < . This proves that 1)–3) are equivalent. The final statement
+follows from the fact that hyperbolic spaces of the same dimension are
+isometric.
+
+Extending Isometries to Nonsingular Completions
+Let = and = Z be isometric nonsingular metric vector spaces and let
+< ~ rad²< ³ p > be a subspace of = , with nonsingular completion
+< ~ > p >.
+If  ¢ < ¦  < is an isometry, then it is a simple matter to extend  to an
+isometry  from < onto a nonsingular completion of  < . To see this, let
+²" Á ' Á Ã Á " Á ' ³ be a hyperbolic basis for >. Since ²" Á Ã Á " ³ is a basis for
+rad²< ³, it follows that ² " Á Ã Á  " ³ is a basis for rad² < ³.
+Hence, we can hyperbolically extend  < ~ rad² > ³ p  > to get
+ < ~ >Z p  >
+where >Z has hyperbolic basis ² " Á % Á Ã Á  " Á % ³. To extend  , simply set
+' ~ % for all  ~ Á Ã Á  .
+Theorem 11.12 Let = and = Z be isometric nonsingular metric vector spaces
+and let < be a subspace of = , with nonsingular completion < . Any isometry
+ ¢ < ¦  < can be extended to an isometry from < onto a nonsingular
+completion of < .
+
+The Witt Theorems: A Preview
+There are two important theorems that are quite easy to prove in the case of real
+inner product spaces, but require more work in the case of metric vector spaces
+in general. Let = and = Z be isometric nonsingular metric vector spaces over a
+field - . We assume that char²- ³ £  if = is orthogonal.
+
+276
+
+Advanced Linear Algebra
+
+The Witt extension theorem says that if : is a subspace of = , then any isometry
+¢ : ¦ :  = Z
+can be extended to an isometry from = to = Z . The Witt cancellation theorem
+says that if
+= ~ : p :
+
+and = Z ~ ; p ; 
+
+then
+:  ; ¬ :  ; 
+We will prove these theorems in both the orthogonal and symplectic cases a bit
+later in the chapter. For now, we simply want to show that it is easy to prove
+one Witt theorem using the other.
+Suppose that the Witt extension theorem holds and assume that
+= ~ : p :
+
+and = Z ~ ; p ; 
+
+and :  ; . Then any isometry  ¢ : ¦ ; can be extended to an isometry  from
+= to = Z . According to Theorem 11.9, we have  ²:  ³ ~ ;  and so :   ;  .
+Hence, the Witt cancellation theorem holds.
+Conversely, suppose that the Witt cancellation theorem holds and let
+ ¢ : ¦  :  = Z be an isometry. Since  can be extended to a nonsingular
+completion of : , we may assume that : is nonsingular. Then
+= ~ : p :
+Since  is an isometry, : is also nonsingular and we can write
+= Z ~  : p ² :³
+Since :   : , Witt's cancellation theorem implies that :   ² :³ . If
+¢ :  ¦ ² :³ is an isometry, then the map ¢ = ¦ = Z defined by
+²" b #³ ~  " b #
+for "  : and #  :  is an isometry that extends  . Hence Witt's extension
+theorem holds.
+
+The Classification Problem for Metric Vector Spaces
+The classification problem for a class of metric vector spaces (such as the
+orthogonal or symplectic spaces) is the problem of determining when two metric
+vector spaces in the class are isometric. The classification problem is considered
+“solved,” at least in a theoretical sense, by finding a set of canonical forms or a
+complete set of invariants for matrices under congruence.
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+277
+
+To see why, suppose that  ¢ = ¦ > is an isometry and 8 ~ ²# Á Ã Á # ³ is an
+ordered basis for = . Then 9 ~ ² # Á Ã Á  # ³ is an ordered basis for > and
+48 ²= ³ ~ ²º# Á # »³ ~ ²º # Á  # »³ ~ 49 ²> ³
+Thus, the congruence class of matrices representing = is identical to the
+congruence class of matrices representing > .
+Conversely, suppose that = and > are metric vector spaces with the same
+congruence class of representing matrices. Then if 8 ~ ²# Á Ã Á # ³ is an
+ordered basis for = , there is an ordered basis 9 ~ ²$ Á Ã Á $ ³ for > for which
+²º# Á # »³ ~ 48 ²= ³ ~ 49 ²> ³ ~ ²º$ Á $ »³
+Hence, the map  ¢ = ¦ > defined by  # ~ $ is an isometry from = to > .
+We have shown that two metric vector spaces are isometric if and only if they
+have the same congruence class of representing matrices. Thus, we can
+determine whether any two metric vector spaces are isometric by representing
+each space with a matrix and determining whether these matrices are congruent,
+using a set of canonical forms or a set of complete invariants.
+
+Symplectic Geometry
+We now turn to a study of the structure of orthogonal and symplectic geometries
+and their isometries. Since the study of the structure (and the structure itself) of
+symplectic geometries is simpler than that of orthogonal geometries, we begin
+with the symplectic case. The reader who is interested only in the orthogonal
+case may omit this section.
+Throughout this section, let = be a nonsingular symplectic geometry.
+
+The Classification of Symplectic Geometries
+Among the simplest types of metric vector spaces are those that possess an
+orthogonal basis. However, it is easy to see that a symplectic geometry = has an
+orthogonal basis if and only if it is totally degenerate and so no “interesting”
+symplectic geometries have orthogonal bases.
+Thus, in searching for an orthogonal decomposition of = , we turn to twodimensional subspaces and this puts us in mind of hyperbolic spaces. Let < be
+the family of all hyperbolic subspaces of = , which is nonempty since the zero
+subspace ¸¹ is singular and so has a nonzero hyperbolic extension. Since = is
+finite-dimensional, < has a maximal member >. Since > is nonsingular, if
+> £ = , then
+= ~ > p >
+where > £ ¸¹. But then if #  > is nonzero, there is a hyperbolic extension
+
+278
+
+Advanced Linear Algebra
+
+/ p > of > containing #, which contradicts the maximality of >. Hence,
+= ~ >.
+This proves the following structure theorem for symplectic geometries.
+Theorem 11.13
+1) A symplectic geometry has an orthogonal basis if and only if it is totally
+degenerate.
+2) Any nonsingular symplectic geometry = is a hyperbolic space, that is,
+= ~ / p /  p Ä p / 
+where each / is a hyperbolic plane. Thus, there is a hyperbolic basis for
+= , that is, a basis 8 for which the matrix of the form is
+v 
+x c
+x
+x
+x
+@ ~ x
+x
+x
+x
+
+
+
+
+c
+
+
+
+Æ
+
+c
+
+w
+
+y
+{
+{
+{
+{
+{
+{
+{
+{
+
+
+z
+
+In particular, the dimension of = is even.
+3) Any symplectic geometry = has the form
+= ~ rad²= ³ p >
+where > is a hyperbolic space and rad²= ³ is a totally degenerate space.
+The rank of the form is dim²>³ and = is uniquely determined up to
+isometry by its rank and its dimension. Put another way, up to isometry,
+there is precisely one symplectic geometry of each rank and dimension.
+Symplectic forms are represented by alternate matrices, that is, skew-symmetric
+matrices with zero diagonal. Moreover, according to Theorem 11.13, each
+ d  alternate matrix is congruent to a matrix of the form
+?Ác ~ >
+
+@
+
+
+
+c ?block
+
+Since the rank of ?Ác is  , no two such matrices are congruent.
+Theorem 11.14 The set of  d  matrices of the form ?Ác is a set of
+canonical forms for alternate matrices under congruence.
+The previous theorems solve the classification problem for symplectic
+geometries by stating that the rank and dimension of = form a complete set of
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+279
+
+invariants under congruence and that the set of all matrices of the form ?Ác
+is a set of canonical forms.
+
+Witt's Extension and Cancellation Theorems
+We now prove the Witt theorems for symplectic geometries.
+Theorem 11.15 (Witt's extension theorem) Let = and = Z be isometric
+nonsingular symplectic geometries over a field - . Then any isometry
+¢ : ¦ :  = Z
+on a subspace : of = can be extended to an isometry from = to = Z .
+Proof. According to Theorem 11.12, we can extend  to a nonsingular
+completion of : , so we may simply assume that : and  : are nonsingular.
+Hence,
+= ~ : p :
+and
+= Z ~  : p ² :³
+To complete the extension of  to = , we need only choose a hyperbolic basis
+² Á  Á Ã Á  Á  ³
+for :  and a hyperbolic basis
+²Z Á Z Á Ã Á Z Á Z ³
+for ² :³ and define the extension by setting   ~ Z and   ~ Z .
+As a corollary to Witt's extension theorem, we have Witt's cancellation theorem.
+Theorem 11.16 (Witt's cancellation theorem) Let = and = Z be isometric
+nonsingular symplectic geometries over a field - . If
+= ~ : p :
+
+and = Z ~ ; p ; 
+
+then
+:  ; ¬ :  ; 
+
+The Structure of the Symplectic Group: Symplectic Transvections
+Let us examine the nature of symplectic transformations (isometries) on a
+nonsingular symplectic geometry = . Recall that for a real vector space, an
+isometric isomorphism, which corresponds to an isometry in the present context,
+is the same as an orthogonal map and orthogonal maps are products of
+reflections (Theorem 10.17). Recall also that a reflection /# is defined as an
+operator for which
+
+280
+
+Advanced Linear Algebra
+
+/# # ~ c#Á /# $ ~ $ for all $  º#»
+and that
+/# % ~ % c
+
+º%Á #»
+#
+º#Á #»
+
+In the present context, we do not dare divide by º#Á #», since all vectors are
+isotropic. So here is the next-best thing.
+Definition Let = be a nonsingular symplectic geometry over - . Let #  = be
+nonzero and let   - . The map #Á ¢ = ¦ = defined by
+#Á ²%³ ~ % b º%Á #»#
+is called the symplectic transvection determined by # and .
+Note that if  ~ , then #Á ~  and if  £ , then #Á is the identity precisely
+on the subspace span²#³ of codimension . In the case of a reflection, /# is the
+identity precisely on span²#³ and
+= ~ span²#³ p span²#³
+However, for a symplectic transvection, #Á is the identity precisely on
+span²#³ (for  £ ) but span²#³  span²#³ . Here are the basic properties of
+symplectic transvections.
+Theorem 11.17 Let #Á be a symplectic transvection on = . Then
+1) #Á is a symplectic transformation (isometry).
+2) #Á ~  if and only if  ~ .
+3) If %  #, then #Á ²%³ ~ %. For  £ , %  # if and only if #Á ²%³ ~ %.
+4) #Á #Á ~ #Áb .
+c
+5) #Á
+~ #Ác .
+6) For any symplectic transformation  ,
+#Á c ~ #Á
+7) For   - i ,
+#Á ~ #Á
+Note that if < is a subspace of = and if "Á is a symplectic transvection on < ,
+then, by definition, "  < . However, the formula
+"Á ²%³ ~ % b º%Á "»"
+also defines a symplectic transvection on = , where % ranges over = . Moreover,
+for any '  <  , we have "Á ' ~ ' and so "Á is the identity on <  .
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+281
+
+We now wish to prove that any symplectic transformation on a nonsingular
+symplectic geometry = is the product of symplectic transvections. The proof is
+not difficult, but it is a bit lengthy, so we break it up into parts. Our first goal is
+to show that we can get from any hyperbolic pair to any other hyperbolic pair
+using a product of symplectic transvections.
+Let us say that two hyperbolic pairs ²%Á &³ and ²$Á '³ are connected if there is a
+product  of symplectic transvections that carries % to $ and & to ' and write
+¢ ²%Á &³ ª ²$Á '³
+or ²%Á &³ © ²$Á '³. It is clear that connectedness is an equivalence relation on
+the set of hyperbolic pairs.
+Theorem 11.18 In a nonsingular symplectic geometry = , every pair of
+hyperbolic pairs are connected.
+Proof. Note first that if º Á !» £ , then £ ! and so
+ c!Á ~ b º Á c !»² c !³ ~ c º Á !»² c !³
+Taking  ~ °º Á !» gives  c!Á ~ !. Therefore, if ² Á "³ is hyperbolic, then we
+can always find a vector % for which
+² Á "³ © ²!Á %³
+namely, % ~  c!Á ". Also, if both ² Á "³ and ²!Á "³ are hyperbolic, then
+² Á "³ © ²!Á "³
+since º c !Á "» ~  and so  c!Á " ~ ".
+Actually, these statements are still true if º Á !» ~ . For in this case, there is a
+nonzero vector & for which º Á &» £  and º!Á &» £ . This follows from the fact
+that there is an   = i for which  £  and  ! £  and so the Riesz vector 9
+is such a vector. Therefore, if ² Á "³ is hyperbolic, then
+² Á "³ © ²&Á  c&Á "³ © ²!Á &c!ÁZ  c&Á "³
+and if both ² Á "³ and ²!Á "³ are hyperbolic, then
+² Á "³ © ²&Á "³ © ²!Á "³
+Hence, transitivity gives the same result as in the case º Á !» £ .
+Finally, if ²" Á " ³ and ²# Á # ³ are hyperbolic, then there is a & for which
+²" Á " ³ © ²# Á &³ © ²# Á # ³
+and so transitivity shows that ²" Á " ³ © ²# Á # ³.
+
+282
+
+Advanced Linear Algebra
+
+We can now show that the symplectic transvections generate the symplectic
+group.
+Theorem 11.19 Every symplectic transformation on a nonsingular symplectic
+geometry = is the product of symplectic transvections.
+Proof. Let  be a symplectic transformation on = . We proceed by induction on
+ ~ dim²= ³. If  ~ , then = ~ / ~ span²"Á '³ is a hyperbolic plane and
+Theorem 11.18 implies that there is a product  of symplectic transvections on
+= for which
+ ¢ ²"Á '³ ª ²"Á '³
+This proves the result if  ~ . Assume that the result holds for all dimensions
+less than  and let dim²= ³ ~  .
+Now,
+= ~/ pA
+where / ~ span²"Á '³ and A is a symplectic geometry of dimension less than
+that of = . As before, there is a product  of symplectic transvections on = for
+which
+ ¢ ²"Á '³ ª ²"Á '³
+and so
+ O/ ~ O/
+Note that  c / ~ / and so Theorem 11.9 implies that  c ²/  ³ ~ /  .
+Since dim²/  ³  dim²/³, the inductive hypothesis applied to the symplectic
+transformation  c  on /  implies that there is a product  of symplectic
+transvections on /  for which  ~  c . As remarked earlier,  is also a
+product of symplectic transvections on = that is the identity on / and so
+O/ ~ /
+
+and
+
+ ~  on / 
+
+Thus,  ~  on both / and on /  and so  ~  is a product of symplectic
+transvections on = .
+
+The Structure of Orthogonal Geometries: Orthogonal Bases
+We have seen that no interesting (that is, not totally degenerate) symplectic
+geometries have orthogonal bases. By contrast, almost all interesting orthogonal
+geometries = have orthogonal bases.
+To understand why, it is convenient to group the orthogonal geometries into two
+classes: those that are also symplectic and those that are not. The reason is that
+all orthogonal nonsymplectic geometries have orthogonal bases, as we will see.
+However, an orthogonal symplectic geometry has an orthogonal basis if and
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+283
+
+only if it is totally degenerate. Furthermore, we have seen that if char²- ³ £ ,
+then all orthogonal symplectic geometries are totally degenerate and so all such
+geometries have orthogonal bases. But if char²- ³ ~ , then there are orthogonal
+symplectic geometries that are not totally degenerate and therefore do not have
+orthogonal bases.
+Thus, if we exclude orthogonal symplectic geometries when char²- ³ ~ , we
+can say that every orthogonal geometry has an orthogonal basis.
+If a metric vector space = has an orthogonal basis, the natural next step is to
+look for an orthonormal basis. However, if = is singular, then there is a nonzero
+vector #  =  and such a vector can never be a linear combination of vectors
+from an orthonormal basis ¸" Á Ã Á " ¹, since the coefficients in such a linear
+combination are º#Á " » ~ .
+However, even if = is nonsingular, orthonormal bases do not always exist and
+the question of how close we can come to such an orthonormal basis depends on
+the nature of the base field. We will examine this issue in three cases:
+algebraically closed fields, the field of real numbers and finite fields.
+We should also mention that even when = has an orthogonal basis, the Gram–
+Schmidt orthogonalization process may not apply to produce such a basis,
+because even nonsingular orthogonal geometries may have isotropic vectors,
+and so division by º"Á "» is problematic.
+For example, consider an orthogonal hyperbolic plane / ~ span²"Á #³ and
+assume that char²- ³ £ . Thus, " and # are isotropic and º"Á #» ~ . The
+vector " cannot be extended to an orthogonal basis using the Gram–Schmidt
+process, since ¸"Á " b #¹ is orthogonal if and only if  ~ . However, / does
+have an orthogonal basis, namely, ¸" b #Á " c #¹.
+
+Orthogonal Bases
+Let = be an orthogonal geometry. As we have discussed, if = is also
+symplectic, then = has an orthogonal basis if and only if it is totally degenerate.
+Moreover, when char²- ³ £ , all orthogonal symplectic geometries are totally
+degenerate and so all orthogonal symplectic geometries have an orthogonal
+basis.
+If = is orthogonal but not symplectic, then = contains a nonisotropic vector " ,
+the subspace span²" ³ is nonsingular and
+= ~ span²" ³ p =
+where = ~ span²" ³ . If = is not symplectic, then we may decompose it to get
+= ~ span²" ³ p span²" ³ p =
+
+284
+
+Advanced Linear Algebra
+
+This process may be continued until we reach a decomposition
+= ~ span²" ³ p Ä p span²" ³ p <
+where < is symplectic as well as orthogonal. (This includes the case < ~ ¸¹.)
+Let 8 ~ ²" Á Ã Á " ³.
+If char²- ³ £ , then < is totally degenerate. Thus, if 9 is a basis for < , then the
+union 8 r 9 is an orthogonal basis for = . If char²- ³ ~ , then
+< ~ > p rad²< ³, where > is hyperbolic and so
+= ~ span²" ³ p Ä p span²" ³ p > p rad²< ³
+where rad²< ³ is totally degenerate and the " are nonisotropic. If
+9 ~ ²% Á & Á Ã Á % Á & ³ is a hyperbolic basis for > and : ~ ²' Á Ã Á ' ³ is an
+ordered basis for rad²< ³, then the union
+; ~ 8 r 9 r : ~ ²" Á Ã Á " Á % Á & Á Ã Á % Á & Á ' Á Ã Á ' ³
+is an ordered orthogonal basis for = . However, we can do better (in some
+sense).
+The following lemma says that when char²- ³ ~ , a pair of isotropic basis
+vectors, such as % Á & , can be replaced by a pair of nonisotropic basis vectors,
+when coupled with a nonisotropic basis vector, such as " .
+Lemma 11.20 Suppose that char²- ³ ~ . Let > be a three-dimensional
+orthogonal geometry of the form
+> ~ span²#³ p span²%Á &³
+where # is nonisotropic and / ~ span²%Á &³ is a hyperbolic plane. Then
+> ~ span²# ³ p span²# ³ p span²# ³
+where each # is nonisotropic.
+Proof. It is straightforward to check that if º#Á #» ~ , then the vectors
+# ~ " b % b &
+# ~ " b %
+# ~ " b ² c ³% b &
+are linearly independent and mutually orthogonal. Details are left to the
+reader.
+Using the previous lemma, we can replace the vectors ¸" Á % Á & ¹ with the
+nonisotropic vectors ¸# Á #b Á #b ¹, while retaining orthogonality. Moreover,
+the replacement process can continue until the isotropic vectors are absorbed,
+leaving an orthogonal basis of nonisotropic vectors.
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+285
+
+Let us summarize.
+Theorem 11.21 Let = be an orthogonal geometry.
+1) If = is also symplectic, then = has an orthogonal basis if and only if it is
+totally degenerate. When char²- ³ £ , all orthogonal symplectic
+geometries have an orthogonal basis, but this is not the case when
+char²- ³ ~ .
+2) If = is not symplectic, then = has an ordered orthogonal basis
+8 ~ ²" Á Ã Á " Á ' Á Ã Á ' ³ for which º" Á " » ~  £  and º' Á ' » ~ .
+Hence, 48 has the diagonal form
+v 
+x
+x
+x
+48 ~ x
+x
+x
+
+Æ
+
+
+Æ
+
+w
+
+y
+{
+{
+{
+{
+{
+{
+z
+
+with  ~ rk²48 ³ nonzero entries on the diagonal.
+As a corollary, we get a nice theorem about symmetric matrices.
+Corollary 11.22 Let 4 be a symmetric matrix and assume that 4 is not
+alternate if char²- ³ ~ . Then 4 is congruent to a diagonal matrix.
+
+The Classification of Orthogonal Geometries: Canonical
+Forms
+We now want to consider the question of improving upon Theorem 11.21. The
+diagonal matrices of this theorem do not form a set of canonical forms for
+congruence. In fact, if  Á Ã Á  are nonzero scalars, then the matrix of = with
+respect to the basis 9 ~ ² " Á Ã Á  " Á ' Á Ã Á ' ³ is
+
+
+v  
+x
+x
+x
+49 ~ x
+x
+x
+w
+
+Æ
+ 
+
+Æ
+
+y
+{
+{
+{
+{
+{
+{
+
+(11.2)
+
+z
+
+Hence, 48 and 49 are congruent diagonal matrices. Thus, by a simple change
+of basis, we can multiply any diagonal entry by a nonzero square in - .
+The determination of a set of canonical forms for symmetric (nonalternate when
+char²- ³ ~ ) matrices under congruence depends on the properties of the base
+field. Our plan is to consider three types of base fields: algebraically closed
+
+286
+
+Advanced Linear Algebra
+
+fields, the real field s and finite fields. Here is a preview of the forthcoming
+results.
+1) When the base field - is algebraically closed, there is an ordered basis 8
+for which
+v
+x
+x
+x
+48 ~ AÁ ~ x
+x
+x
+
+y
+{
+{
+{
+{
+{
+{
+
+Æ
+
+
+Æ
+
+w
+
+z
+
+If = is nonsingular, then 48 is an identity matrix and = has an
+orthonormal basis.
+2) Over the real base field, there is an ordered basis 8 for which
+v
+x
+x
+x
+x
+x
+x
+48 ~ ZÁÁ ~ x
+x
+x
+x
+x
+x
+
+Æ
+
+c
+Æ
+c
+
+Æ
+
+w
+
+y
+{
+{
+{
+{
+{
+{
+{
+{
+{
+{
+{
+{
+z
+
+3) If - is a finite field, there is an ordered basis 8 for which
+v
+x
+x
+x
+x
+48 ~ ZÁ ²³ ~ x
+x
+x
+x
+w
+
+Æ
+
+
+
+Æ
+
+y
+{
+{
+{
+{
+{
+{
+{
+{
+z
+
+where  is unique up to multiplication by a square and if char²- ³ ~ , then
+we can take  ~ .
+Now let us turn to the details.
+
+Algebraically Closed Fields
+If - is algebraically closed, then for every   - , the polynomial % c  has a
+root in - , that is, every element of - has a square root in - . Therefore, we may
+choose  ~ °j in (11.2), which leads to the following result.
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+287
+
+Theorem 11.23 Let = be an orthogonal geometry over an algebraically closed
+field - . Provided that = is not symplectic as well when char²- ³ ~ , then =
+has an ordered orthogonal basis 8 ~ ²" Á Ã Á " Á ' Á Ã Á ' ³ for which
+º" Á " » ~  and º' Á ' » ~ . Hence, 48 has the diagonal form
+v
+x
+x
+x
+48 ~ AÁ ~ x
+x
+x
+
+Æ
+
+
+w
+
+
+Æ
+
+y
+{
+{
+{
+{
+{
+{
+z
+
+with  ones and  zeros on the diagonal. In particular, if = is nonsingular,
+then = has an orthonormal basis.
+The matrix version of Theorem 11.23 follows.
+Theorem 11.24 Let I be the set of all  d  symmetric matrices over an
+algebraically closed field - . If char²- ³ ~ , we restrict I to the set of all
+symmetric matrices with at least one nonzero entry on the main diagonal.
+1) Any matrix 4 in I is congruent to a unique matrix of the form ZÁ , in
+fact,  ~ rk²4 ³ and  ~  c rk²4 ³.
+2) The set of all matrices of the form ZÁ for  b  ~  is a set of canonical
+forms for congruence on I .
+3) The rank of a matrix is a complete invariant for congruence on I .
+
+The Real Field s
+If - ~ s, we can choose  ~ °j( (, so that all nonzero diagonal elements in
+(11.2) will be either ,  or c.
+Theorem 11.25 (Sylvester's law of inertia) Any real orthogonal geometry =
+has an ordered orthogonal basis
+8 ~ ²" Á Ã Á " Á # Á Ã Á # Á ' Á Ã Á ' ³
+for which º" Á " » ~ , º# Á # » ~ c and º' Á ' » ~ . Hence, the matrix 48 has
+the diagonal form
+
+288
+
+Advanced Linear Algebra
+
+v
+x
+x
+x
+x
+x
+x
+48 ~ ZÁÁ ~ x
+x
+x
+x
+x
+x
+
+Æ
+
+c
+Æ
+c
+
+Æ
+
+w
+
+y
+{
+{
+{
+{
+{
+{
+{
+{
+{
+{
+{
+{
+z
+
+with  ones,  negative ones and  zeros on the diagonal.
+Here is the matrix version of Theorem 11.25.
+Theorem 11.26 Let I be the set of all  d  symmetric matrices over the real
+field s.
+1) Any matrix in I is congruent to a unique matrix of the form ZÁÁ Á for
+some Á  and  ~  c  c .
+2) The set of all matrices of the form ZÁÁ for  b  b  ~  is a set of
+canonical forms for congruence on I .
+3) Let 4  I and let 4 be congruent to AÁÁ . Then  b  is the rank of
+4 and  c  is the signature of 4 and the triple ²Á Á ³ is the inertia
+of 4 . The pair ²Á ³, or equivalently the pair ² b Á  c ³, is a
+complete invariant under congruence on I .
+Proof. We need only prove the uniqueness statement in part 1). Let
+8 ~ ²" Á Ã Á " Á # Á Ã Á # Á ' Á Ã Á ' ³
+and
+9 ~ ²"Z Á Ã Á "ZZ Á #Z Á Ã Á #ZZ 'Z Á Ã Á 'Z Z ³
+be ordered bases for which the matrices 48 and 49 have the form shown in
+Theorem 11.25. Since the rank of these matrices must be equal, we have
+ b  ~ Z b Z and so  ~  Z .
+If %  span²" Á Ã Á " ³ and % £ , then
+º%Á %» ~ L " Á  " M ~   º" Á " » ~   Á ~   
+Á
+
+Á
+
+On the other hand, if &  span²#Z Á Ã Á #ZZ ³ and & £ , then
+º&Á &» ~ L  #Z Á   #Z M ~    º#Z Á #Z » ~ c   Á ~ c   
+Á
+
+Á
+
+Hence, if &  span²#Z Á Ã Á #ZZ Á 'Z Á Ã Á 'Z Z ³ then º&Á &»  . It follows that
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+289
+
+span²" Á Ã Á " ³ q span²#Z Á Ã Á #ZZ Á 'Z Á Ã Á 'Z Z ³ ~ ¸¹
+and so
+ b ² c Z ³  
+that is,   Z . By symmetry, Z   and so  ~ Z . Finally, since  ~  Z , it
+follows that  ~ Z .
+
+Finite Fields
+To deal with the case of finite fields, we must know something about the
+distribution of squares in finite fields, as well as the possible values of the
+scalars º#Á #».
+Theorem 11.27 Let - be a finite field with  elements.
+1) If char²- ³ ~ , then every element of - is a square.
+2) If char²- ³ £ , then exactly half of the nonzero elements of - are
+squares, that is, there are ² c ³° nonzero squares in - . Moreover, if %
+is any nonsquare in - , then all nonsquares have the form  %, for some
+  - .
+Proof. Write - ~ - , let - i be the subgroup of all nonzero elements in - and
+let
+²- i ³ ~ ¸    - i ¹
+be the subgroup of all nonzero squares in - . The Frobenius map
+¢ - i ¦ ²- i ³ defined by ²³ ~  is a surjective group homomorphism, with
+kernel
+ker²³ ~ ¸  -   ~ ¹ ~ ¸cÁ ¹
+If char²- ³ ~ , then ker²³ ~ ¸¹ and so  is bijective and (- i ( ~ (²- i ³ (,
+which proves part 1). If char²- ³ £ , then (ker²³( ~  and so (- i ( ~ (²- i ³ (,
+which proves the first part of part 2). We leave proof of the last statement to the
+reader.
+Definition A bilinear form on = is universal if for any nonzero   - there
+exists a vector #  = for which º#Á #» ~  .
+Theorem 11.28 Let = be an orthogonal geometry over a finite field - with
+char²- ³ £  and assume that = has a nonsingular subspace of dimension at
+least . Then the bilinear form of = is universal.
+Proof. Theorem 11.21 implies that = contains two linearly independent vectors
+" and # for which
+º"Á "» ~  £ Á º#Á #» ~  £ Á º"Á #» ~ 
+
+290
+
+Advanced Linear Algebra
+
+Given any   - , we want to find  and  for which
+ ~ º" b  #Á " b  #» ~  b   
+or
+  ~  c   
+If ( ~ ¸    - ¹, then ((( ~ ² b ³°, since there are ² c ³° nonzero
+squares  , along with  ~ . If ) ~ ¸ c       - ¹, then for the same
+reasons () ( ~ ² b ³°. It follows that ( q ) cannot be the empty set and so
+there exist  and  for which  ~  c    .
+Now we can proceed with the business at hand.
+Theorem 11.29 Let = be an orthogonal geometry over a finite field - and
+assume that = is not symplectic if char²- ³ ~ . If char²- ³ £ , then let  be a
+fixed nonsquare in - . For any nonzero   - , write
+v
+x
+x
+x
+x
+? ²³ ~ x
+x
+x
+x
+
+y
+{
+{
+{
+{
+{
+{
+{
+{
+
+Æ
+
+
+
+Æ
+
+w
+
+z
+
+where rk²? ²³³ ~  .
+1) If char²- ³ ~ , then there is an ordered basis 8 for which 48 ~ ? ²³.
+2) If char²- ³ £ , then there is an ordered basis 8 for which 48 equals
+? ²³ or ? ²³.
+Proof. We can dispose of the case char²- ³ ~  quite easily: Referring to (11.2),
+since every element of - has a square root, we may take  ~ ²j ³c .
+If char²- ³ £ , then Theorem 11.21 implies that there is an ordered orthogonal
+basis
+8 ~ ²" Á Ã Á " Á ' Á Ã Á ' ³
+for which º" Á " » ~  £  and º' Á ' » ~ . Hence, 48 has the diagonal form
+v 
+x
+x
+x
+48 ~ x
+x
+x
+w
+
+Æ
+
+
+Æ
+
+y
+{
+{
+{
+{
+{
+{
+z
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+291
+
+Now consider the nonsingular orthogonal geometry = ~ span²" Á " ³.
+According to Theorem 11.28, the form is universal when restricted to = .
+Hence, there exists a #  = for which º# Á # » ~ .
+Now, # ~ " b " for Á  - not both , and we may swap " and " if
+necessary to ensure that  £ . Hence,
+8 ~ ²# Á " Á Ã Á " Á ' Á Ã Á ' ³
+is an ordered basis for = for which the matrix 48 is diagonal and has a  in the
+upper left entry. We can repeat the process with the subspace = ~ span²# Á # ³.
+Continuing in this way, we can find an ordered basis
+9 ~ ²# Á # Á Ã Á # Á ' Á Ã Á ' ³
+for which 49 ~ ? ²³ for some nonzero   - . Now, if  is a square in - ,
+then we can replace # by ²°j³# to get a basis : for which 4: ~ ? ²³. If
+ is not a square in - , then  ~   for some   - and so replacing # by
+²°³# gives a basis : for which 4: ~ ? ²³.
+Theorem 11.30 Let I be the set of all  d  symmetric matrices over a finite
+field - . If char²- ³ ~ , we restrict I to the set of all symmetric matrices with
+at least one nonzero entry on the main diagonal.
+1) If char²- ³ ~ , then any matrix in I is congruent to a unique matrix of the
+form ? ²³ and the matrices ¸? ²³   ~ Á Ã Á ¹ form a set of
+canonical forms for I under congruence. Also, the rank is a complete
+invariant.
+2) If char²- ³ £ , let  be a fixed nonsquare in - . Then any matrix I is
+congruent to a unique matrix of the form ? ²³ or ? ²³. The set
+¸? ²³Á ? ²³   ~ Á Ã Á ¹ is a set of canonical forms for congruence
+on I . (Thus, there are exactly two congruence classes for each rank  .)
+
+The Orthogonal Group
+Having “settled” the classification question for orthogonal geometries over
+certain types of fields, let us turn to a discussion of the structure-preserving
+maps, that is, the isometries.
+
+Rotations and Reflections
+We begin by examining the matrix of an orthogonal transformation. If 8 is an
+ordered basis for = , then for any %Á &  = ,
+º%Á &» ~ ´%µ!8 48 ´&µ8
+and so if   B²= ³, then
+º %Á  &» ~ ´ %µ!8 48 ´ &µ8 ~ ´%µ!8 ²´ µ!8 48 ´ µ8 ³´&µ8
+Hence,  is an orthogonal transformation if and only if
+
+292
+
+Advanced Linear Algebra
+
+´ µ!8 48 ´ µ8 ~ 48
+Taking determinants gives
+det²48 ³ ~ det²´ µ8 ³ det²48 ³
+Therefore, if = is nonsingular, then
+det²´ µ8 ³ ~ f 
+Since the determinant is an invariant under similarity, we have the following
+theorem.
+Theorem 11.31 Let  be an orthogonal transformation on a nonsingular
+orthogonal geometry = .
+1) det²´ µ8 ³ is the same for all ordered bases 8 for = and
+det²´ µ8 ³ ~ f 
+This determinant is called the determinant of  and denoted by det² ³.
+2) If det² ³ ~ , then  is called a rotation and if det² ³ ~ c, then  is
+called a reflection.
+3) The set Eb ²= ³ of rotations is a subgroup of the orthogonal group E²= ³
+and the determinant map det¢ E²= ³ ¦ ¸cÁ ¹ is an epimorphism with
+kernel Eb ²= ³. Hence, if char²- ³ £ , then Eb ²= ³ is a normal subgroup
+of E²= ³ of index .
+
+Symmetries
+Recall again that for a real inner product space, a reflection /" is defined as an
+operator for which
+/" " ~ c"Á /" $ ~ $ for all $  º"»
+and that
+/" % ~ % c
+
+º%Á "»
+"
+º"Á "»
+
+In particular, if char²- ³ £  and "  = is nonisotropic, then span²"³ is
+nonsingular and so
+= ~ span²"³ p span²"³
+Then the reflection /" is well-defined and, in the context of general orthogonal
+geometries, is called the symmetry determined by " and we will denote it by
+" . We can also write " ~ c p  , that is,
+" ²% b &³ ~ c% b &
+for all %  span²"³ and &  span²"³ .
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+293
+
+For real inner product spaces, Theorem 10.16 says that if )#) ~ )$) £ , then
+/#c$ is the unique reflection sending # to $, that is, /#c$ ²#³ ~ $. In the
+present context, we must be careful, since symmetries are defined for
+nonisotropic vectors only. Here is what we can say.
+Theorem 11.32 Let = be a nonsingular orthogonal geometry over a field - ,
+with char²- ³ £ . If "Á #  = are nonisotropic vectors with the same (nonzero)
+“length,” that is, if
+º"Á "» ~ º#Á #» £ 
+then there exists a symmetry  for which
+" ~ # or " ~ c#
+Proof. Since " and # are nonisotropic, one of " c # or " b # must also be
+nonisotropic, for otherwise, since " c # and " b # are orthogonal, their sum "
+would also be isotropic. If " b # is nonisotropic, then
+"b# ²" b #³ ~ c²" b #³
+and
+"b# ²" c #³ ~ " c #
+and so "b# " ~ c#. On the other hand, if " c # is nonisotropic, then
+"c# ²" c #³ ~ c²" c #³
+and
+"c# ²" b #³ ~ " b #
+and so "c# " ~ #.
+Recall that an operator on a real inner product space is unitary if and only if it is
+a product of reflections. Here is the generalization to nonsingular orthogonal
+geometries.
+Theorem 11.33 Let = be a nonsingular orthogonal geometry over a field with char²- ³ £ . A linear transformation  on = is an orthogonal
+transformation if and only if  is the product of symmetries on = .
+Proof. The proof is by induction on  ~ dim²= ³. If  ~ , then = ~ span²#³
+where º#Á #» £ . Let  # ~ # for   - . Since  is unitary
+ º#Á #» ~ º#Á #» ~ º #Á  #» ~ º#Á #»
+and so  ~ f. If  ~ , then  is the identity, which is equal to # . On the
+other hand, if  ~ c then  ~ # . In either case,  is a product of symmetries.
+
+294
+
+Advanced Linear Algebra
+
+Assume now that the theorem is true for dimensions less than  and let
+dim²= ³ ~  . Let #  = be nonisotropic. Since º #Á  #» ~ º#Á #» £ , Theorem
+11.32 implies the existence of a symmetry  on = for which
+² #³ ~ #
+where  ~ f . Thus,  ~ f on span²#³. Since Theorem 11.9 implies that
+span²#³ is  -invariant, we may apply the induction hypothesis to  on
+span²#³ to get
+ Ospan²#³ ~ $ Ä$ ~ 
+where $  span²#³ and each $ is a symmetry on span²#³ . But each $ can
+be extended to a symmetry on = by setting $ # ~ #. Assume that  is the
+extension of  to = , where  ~  on span²#³. Hence,  ~  on span²#³ and
+ ~  on span²#³.
+If  ~ , then  ~  on = and so  ~ , which completes the proof. If
+ ~ c, then  ~ #  on span²#³ since # is the identity on span²#³ and
+ ~ #  on span²#³. Hence,  ~ #  on = and so  ~ #  on = .
+
+The Witt Theorems for Orthogonal Geometries
+We are now ready to consider the Witt theorems for orthogonal geometries.
+Theorem 11.34 (Witt's cancellation theorem) Let = and > be isometric
+nonsingular orthogonal geometries over a field - with char²- ³ £ . Suppose
+that
+= ~ : p :
+
+and > ~ ; p ; 
+
+Then
+:  ; ¬ :  ; 
+Proof. First, we prove that it is sufficient to consider the case = ~ > . Suppose
+that the result holds when = ~ > and that ¢ = ¦ > is an isometry. Then
+²:³ p ²:  ³ ~ ²: p :  ³ ~ = ~ > ~ ; p ; 
+Furthermore, :  :  ; . We can therefore apply the theorem to > to get
+:   ²:  ³  ; 
+as desired. To prove the theorem when = ~ > , assume that
+= ~ : p : ~ ; p ; 
+where : and ; are nonsingular and :  ; . Let  ¢ : ¦ ; be an isometry. We
+proceed by induction on dim²:³.
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+295
+
+Suppose first that dim²:³ ~  and that : ~ span² ³. Since
+º Á  » ~ º Á » £ 
+Theorem 11.32 implies that there is a symmetry  for which  ~  where
+ ~ f . Hence,  is an isometry of = for which ; ~ : and Theorem 11.9
+implies that ;  ~ ²:  ³. Thus, O:  is the desired isometry.
+Now suppose the theorem is true for dim²:³   and let dim²:³ ~  . Let
+¢ : ¦ ; be an isometry. Since : is nonsingular, we can choose a nonisotropic
+vector  : and write : ~ span² ³ p < , where < is nonsingular. It follows
+that
+= ~ : p :  ~ span² ³ p < p : 
+and
+= ~ ; p ;  ~  ²span² ³³ p  < p ; 
+Now we may apply the one-dimensional case to deduce that
+< p :  < p ; 
+If ¢ < p :  ¦  < p ;  is an isometry, then
+< p ²:  ³ ~ ²< p :  ³ ~  < p ; 
+But <   < and since dim²< ³ ~ dim²< ³   , the induction hypothesis
+implies that :   ²:  ³  ;  .
+As we have seen, Witt's extension theorem is a corollary of Witt's cancellation
+theorem.
+Theorem 11.35 (Witt's extension theorem) Let = and = Z be isometric
+nonsingular orthogonal geometries over a field - , with char²- ³ £ . Suppose
+that < is a subspace of = and
+¢ < ¦ <  = Z
+is an isometry. Then  can be extended to an isometry from = to = Z .
+
+Maximal Hyperbolic Subspaces of an Orthogonal Geometry
+We have seen that any orthogonal geometry = can be written in the form
+= ~ < p rad²= ³
+where < is nonsingular. Nonsingular spaces are better behaved than singular
+ones, but they can still possess isotropic vectors.
+
+296
+
+Advanced Linear Algebra
+
+We can improve upon the preceding decomposition by noticing that if "  < is
+isotropic, then Theorem 11.10 implies that span²"³ can be “captured” in a
+hyperbolic plane / ~ span²"Á %³. Then we can write
+= ~ / p / < p rad²= ³
+where / < is the orthogonal complement of / in < and has “one fewer”
+isotropic vector. In order to generalize this process, we first discuss maximal
+totally degenerate subspaces.
+
+Maximal Totally Degenerate Subspaces
+Let = be a nonsingular orthogonal geometry over a field - , with char²- ³ £ .
+Suppose that < and < Z are maximal totally degenerate subspaces of = . We
+claim that dim²< ³ ~ dim²< Z ³. For if dim²< ³  dim²< Z ³, then there is a vector
+space isomorphism  ¢ < ¦  <  < Z , which is also an isometry, since < and
+< Z are totally degenerate. Thus, Witt's extension theorem implies the existence
+of an isometry  ¢ = ¦ = that extends  . In particular,  c ²< Z ³ is a totally
+degenerate space that contains < and so  c ²< Z ³ ~ < , which shows that
+dim²< ³ ~ dim²< Z ³.
+Theorem 11.36 Let = be a nonsingular orthogonal geometry over a field - ,
+with char²- ³ £ .
+1) All maximal totally degenerate subspaces of = have the same dimension,
+which is called the Witt index of = and is denoted by $²= ³.
+2) Any totally degenerate subspace of = of dimension $²= ³ is maximal.
+
+Maximal Hyperbolic Subspaces
+We can prove by a similar argument that all maximal hyperbolic subspaces of =
+have the same dimension. Let
+> ~ / p Ä p /
+and
+A ~ 2 p Ä p 2
+be maximal hyperbolic subspaces of = and suppose that / ~ span²" Á # ³ and
+2 ~ span²% Á & ³. We may assume that dim²>³  dim²A³.
+The linear map  ¢ > ¦ A defined by
+ "  ~ %  Á  #  ~ &
+is clearly an isometry from > to >. Thus, Witt's extension theorem implies the
+existence of an isometry  ¢ = ¦ = that extends  . In particular,  c ²A³ is a
+hyperbolic space that contains > and so  c ²A³ ~ >. It follows that dim²A³
+~ dim²>³.
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+297
+
+It is not hard to see that the maximum dimension ²= ³ of a hyperbolic subspace
+of = is $²= ³, where $²= ³ is the Witt index of = . First, the nonsingular
+extension of a maximal totally degenerate subspace <$ of = is a hyperbolic
+space of dimension $²= ³ and so ²= ³  $²= ³. On the other hand, there is a
+totally degenerate subspace < contained in any hyperbolic space > and so
+  $²= ³, that is, dim²> ³  $²= ³. Hence ²= ³  $²= ³ and so
+²= ³ ~ $²= ³.
+Theorem 11.37 Let = be a nonsingular orthogonal geometry over a field - ,
+with char²- ³ £ .
+1) All maximal hyperbolic subspaces of = have dimension $²= ³.
+2) Any hyperbolic subspace of dimension $²= ³ must be maximal.
+3) The Witt index of a hyperbolic space > is  .
+
+The Anisotropic Decomposition of an Orthogonal Geometry
+If > is a maximal hyperbolic subspace of = , then
+= ~ > p >
+Since > is maximal, > is anisotropic, for if "  > were isotropic, then the
+nonsingular extension of > p span²"³ would be a hyperbolic space strictly
+larger than >.
+Thus, we arrive at the following decomposition theorem for orthogonal
+geometries.
+Theorem 11.38 (The anisotropic decomposition of an orthogonal geometry)
+Let = ~ < p rad²= ³ be an orthogonal geometry over - , with char²- ³ £ . Let
+> be a maximal hyperbolic subspace of < , where > ~ ¸¹ if < has no
+isotropic vectors. Then
+= ~ : p > p rad²= ³
+where : is anisotropic, > is hyperbolic of dimension $²= ³ and rad²= ³ is
+totally degenerate.
+
+Exercises
+1.
+
+2.
+3.
+
+Let < Á > be subspaces of a metric vector space = . Show that
+a) <  > ¬ >   < 
+b) <  < 
+c) <  ~ < 
+Let < Á > be subspaces of a metric vector space = . Show that
+a) ²< b > ³ ~ <  q > 
+b) ²< q > ³ ~ <  b > 
+Prove that the following are equivalent:
+a) = is nonsingular
+b) º"Á %» ~ º#Á %» for all %  = implies " ~ #
+
+298
+4.
+5.
+
+6.
+
+Advanced Linear Algebra
+Show that a metric vector space = is nonsingular if and only if the matrix
+48 of the form is nonsingular, for every ordered basis 8 .
+Let = be a finite-dimensional vector space with a bilinear form ºÁ ». We do
+not assume that the form is symmetric or alternate. Show that the following
+are equivalent:
+a) ¸#  =  º#Á $» ~  for all $  = ¹ ~ 
+b) ¸#  =  º$Á #» ~  for all $  = ¹ ~ 
+Hint: Consider the singularity of the matrix of the form.
+Find a diagonal matrix congruent to
+v
+
+w
+
+7.
+
+ y
+
+c z
+
+Prove that the matrices
+0 ~ >
+
+8.
+
+
+
+
+
+
+
+
+
+and 4 ~ >
+?
+
+
+
+
+?
+
+are congruent over the base field - ~ r of rational numbers. Find an
+invertible matrix 7 such that 7 ! 0 7 ~ 4 .
+Let = be an orthogonal geometry over a field - with char²- ³ £ . We
+wish to construct an orthogonal basis E ~ ²" Á Ã Á " ³ for = , starting with
+any generating set = ~ ²# Á Ã Á # ³. Justify the following steps, essentially
+due to Lagrange. We may assume that = is not totally degenerate.
+a) If º# Á # » £  for some , then let " ~ # . Otherwise, there are indices
+ £  for which º# Á # » £ . Let " ~ # b # .
+b) Assume we have found an ordered set of vectors E ~ ²" Á Ã Á " ³
+that form an orthogonal basis for a subspace = of = and that none of
+the " 's are isotropic. Then = ~ = p = .
+c) For each #  = , let
+
+
+º# Á " »
+"
+º"
+ Á " »
+~
+
+$  ~ # c 
+
+Then the vectors $ span = . If = is totally degenerate, take any
+basis for = and append it to E . Otherwise, repeat step a) on = to
+get another vector "b and let Eb ~ ²" Á Ã Á "b ³. Eventually, we
+arrive at an orthogonal basis E for = .
+9. Prove that orthogonal hyperbolic planes may be characterized as twodimensional nonsingular orthogonal geometries that have exactly two onedimensional totally isotropic (equivalently: totally degenerate) subspaces.
+10. Prove that a two-dimensional nonsingular orthogonal geometry is a
+hyperbolic plane if and only if its discriminant is -  ² c ³.
+11. Does Minkowski space contain any isotropic vectors? If so, find them.
+12. Is Minkowski space isometric to Euclidean space s ?
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+299
+
+13. If ºÁ » is a symmetric bilinear form on = and char²- ³ £ , show that
+8²%³ ~ º%Á %»° is a quadratic form.
+14. Let = be a vector space over a field - , with ordered basis 8 ~ ²# Á Ã Á # ³.
+Let ²% Á Ã Á % ³ be a homogeneous polynomial of degree  over - , that is,
+a polynomial each of whose terms has degree  . The -form defined by 
+is the function from = to - defined as follows. If # ~ ' # , then
+²#³ ~ ² Á Ã Á  ³
+(We use the same notation for the form and the polynomial.) Prove that forms are the same as quadratic forms.
+15. Show that  is an isometry on = if and only if 8² #³ ~ 8²#³ where 8 is
+the quadratic form associated with the bilinear form on = . (Assume that
+char²- ³ £ .³
+16. Show that a quadratic form 8 on = satisfies the parallelogram law:
+8²% b &³ b 8²% c &³ ~ ´8²%³ b 8²&³µ
+17. Show that if = is a nonsingular orthogonal geometry over a field - , with
+char²- ³ £ , then any totally isotropic subspace of = is also a totally
+degenerate space.
+18. Is it true that = ~ rad²= ³ p rad²= ³ ?
+19. Let = be a nonsingular symplectic geometry and let #Á be a symplectic
+transvection. Prove that
+a) #Á #Á ~ #Áb
+b) For any symplectic transformation  ,
+#Á c ~ #Á
+c)
+
+For   - i ,
+#Á ~ #Á
+
+d) For a fixed # £ , the map  ª #Á is an isomorphism from the
+additive group of - onto the group ¸#Á    - ¹  Sp²= ³.
+20. Prove that if % is any nonsquare in a finite field - , then all nonsquares
+have the form  %, for some   - . Hence, the product of any two
+nonsquares in - is a square.
+21. Formulate Sylvester's law of inertia in terms of quadratic forms on = .
+22. Show that a two-dimensional space is a hyperbolic plane if and only if it is
+nonsingular and contains an isotropic vector. Assume that char²- ³ £ .
+23. Prove directly that a hyperbolic plane in an orthogonal geometry cannot
+have an orthogonal basis when char²- ³ ~ .
+24. a) Let < be a subspace of = . Show that the inner product
+º% b < Á & b < » ~ º%Á &» on the quotient space = °< is well-defined if
+and only if <  rad²= ³.
+b) If <  rad²= ³, when is = °< nonsingular?
+25. Let = ~ 5 p : , where 5 is a totally degenerate space.
+
+300
+
+Advanced Linear Algebra
+
+a) Prove that 5 ~ rad²= ³ if and only if : is nonsingular.
+b) If : is nonsingular, prove that :  = °rad²= ³.
+26. Let dim²= ³ ~ dim²> ³. Prove that = °rad²= ³  > °rad²> ³ implies
+=  >.
+27. Let = ~ : p ; . Prove that
+a) rad²= ³ ~ rad²:³ p rad²; ³
+b) = °rad²= ³  :°rad²:³ p ; °rad²; ³
+c) dim²rad²= ³³ ~ dim²rad²:³³ b dim²rad²; ³³
+d) = is nonsingular if and only if : and ; are both nonsingular.
+28. Let = be a nonsingular metric vector space. Because the Riesz
+representation theorem is valid in = , we can define the adjoint  i of a linear
+map   B²= ³ exactly as in the case of real inner product spaces. Prove
+that  is an isometry if and only if it is bijective and unitary (that is,
+ i ~ ).
+29. If char²- ³ £ , prove that   B²= Á > ³ is an isometry if and only if it is
+bijective and º #Á  #» ~ º#Á #» for all #  = .
+30. Let 8 ~ ¸# Á Ã Á # ¹ be a basis for = . Prove that   B²= Á > ³ is an
+isometry if and only if it is bijective and º # Á  # » ~ º# Á # » for all Á  .
+31. Let  be a linear operator on a metric vector space = . Let 8 ~ ²# Á Ã Á # ³
+be an ordered basis for = and let 48 be the matrix of the form relative to
+8 . Prove that  is an isometry if and only if
+´ µ!8 48 ´ µ8 ~ 48
+32. Let = be a nonsingular orthogonal geometry and let   B²= ³ be an
+isometry.
+a) Show that dim²ker² c  ³³ ~ dim²im² c  ³ ³.
+b) Show that ker² c  ³ ~ im² c  ³ . How would you describe
+ker² c  ³ in words?
+c) If  is a symmetry, what is dim²ker² c  ³³?
+d) Can you characterize symmetries by means of dim²ker² c  ³³?
+33. A linear transformation   B²= ³ is called unipotent if  c  is nilpotent.
+Suppose that = is a nonisotropic metric vector space and that  is unipotent
+and isometric. Show that  ~ .
+34. Let = be a hyperbolic space of dimension  and let < be a hyperbolic
+subspace of = of dimension  . Show that for each     , there is a
+hyperbolic subspace > of = for which <  >  = .
+35. Let char²- ³ £ . Prove that if ? is a totally degenerate subspace of an
+orthogonal geometry = , then dim²?³  dim²= ³°.
+36. Prove that an orthogonal geometry = of dimension  is a hyperbolic space
+if and only if = is nonsingular,  is even and = contains a totally
+degenerate subspace of dimension °.
+37. Prove that a symplectic transformation has determinant equal to .
+
+Chapter 12
+
+Metric Spaces
+
+The Definition
+In Chapter 9, we studied the basic properties of real and complex inner product
+spaces. Much of what we did does not depend on whether the space in question
+is finite-dimensional or infinite-dimensional. However, as we discussed in
+Chapter 9, the presence of an inner product and hence a metric, on a vector
+space, raises a host of new issues related to convergence. In this chapter, we
+discuss briefly the concept of a metric space. This will enable us to study the
+convergence properties of real and complex inner product spaces.
+A metric space is not an algebraic structure. Rather it is designed to model the
+abstract properties of distance.
+Definition A metric space is a pair ²4 Á ³, where 4 is a nonempty set and
+¢ 4 d 4 ¦ s is a real-valued function, called a metric on 4 , with the
+following properties. The expression ²%Á &³ is read “the distance from % to & .”
+1) (Positive definiteness) For all %Á &  4 ,
+²%Á &³  
+and ²%Á &³ ~  if and only if % ~ &.
+2) (Symmetry) For all %Á &  4 ,
+²%Á &³ ~ ²&Á %³
+3) (Triangle inequality) For all %Á &Á '  4 ,
+²%Á &³  ²%Á '³ b ²'Á &³
+As is customary, when there is no cause for confusion, we simply say “let 4 be
+a metric space.”
+
+302
+
+Advanced Linear Algebra
+
+Example 12.1 Any nonempty set 4 is a metric space under the discrete
+metric, defined by
+²%Á &³ ~ F
+
+if % ~ &
+if % £ &
+
+
+
+
+Example 12.2
+1) The set s is a metric space, under the metric defined for % ~ ²% Á Ã Á % ³
+and & ~ ²& Á Ã Á & ³ by
+²%Á &³ ~ j²% c & ³ b Ä b ²% c & ³
+This is called the Euclidean metric on s . We note that s is also a metric
+space under the metric
+ ²%Á &³ ~ (% c & ( b Ä b (% c & (
+Of course, ²s Á ³ and ²s Á  ³ are different metric spaces.
+2) The set d is a metric space under the unitary metric
+²%Á &³ ~ k(% c & ( b Ä b (% c & (
+where % ~ ²% Á Ã Á % ³ and & ~ ²& Á Ã Á & ³ are in d .
+Example 12.3
+1) The set *´Á µ of all real-valued (or complex-valued) continuous functions
+on ´Á µ is a metric space, under the metric
+² Á ³ ~ sup ( ²%³ c ²%³(
+%´Áµ
+
+We refer to this metric as the sup metric.
+2) The set *´Á µ of all real-valued ²or complex-valued) continuous functions
+on ´Á µ is a metric space, under the metric
+
+
+( ²%³ c ²%³( %
+
+ ² ²%³Á ²%³³ ~
+
+
+Example 12.4 Many important sequence spaces are metric spaces. We will
+often use boldface italic letters to denote sequences, as in % ~ ²% ³ and
+& ~ ²& ³.
+1) The set MB
+s of all bounded sequences of real numbers is a metric space
+under the metric defined by
+²%Á &³ ~ sup(% c & (
+
+
+The set MB
+d of all bounded complex sequences, with the same metric, is also
+
+a metric space. As is customary, we will usually denote both of these spaces
+by MB .
+
+Metric Spaces
+
+303
+
+2) For   , let M be the set of all sequences % ~ ²% ³ of real ²or complex)
+numbers for which
+B
+
+ (% (  B
+~
+
+We define the -norm of % by
+°
+
+B
+
+
+
+)%) ~ 8 (% ( 9
+~
+
+
+
+Then M is a metric space, under the metric
+°
+
+B
+
+
+
+²%Á &³ ~ )% c &) ~ 8 (% c & ( 9
+~
+
+The fact that M is a metric follows from some rather famous results about
+sequences of real or complex numbers, whose proofs we leave as (wellhinted) exercises.
+¨
+Holder's inequality Let Á    and  b  ~  . If %  M and &  M ,
+then the product sequence %& ~ ²% & ³ is in M and
+)%&)  )%) )&)
+that is,
+B
+
+°
+
+B
+
+
+
+ (% & (  8 (% ( 9
+~
+
+~
+
+B
+
+°
+
+
+8 (& ( 9
+~
+
+A special case of this (with  ~  ~ 2) is the Cauchy–Schwarz inequality
+B
+
+B
+
+B
+
+~
+
+~
+
+~
+
+ (% & (  m (% ( m (& (
+Minkowski's inequality For   , if %Á &  M then the sum % b &
+~ ²% b & ³ is in M and
+) % b & )   ) %)  b ) & )
+that is,
+B
+
+
+8 (% b & ( 9
+~
+
+°
+
+B
+
+ 8(% ( 9
+~
+
+°
+
+B
+
+b 8 (& ( 9
+~
+
+°
+
+304
+
+Advanced Linear Algebra
+
+If 4 is a metric space under a metric  , then any nonempty subset : of 4 is
+also a metric under the restriction of  to : d : . The metric space : thus
+obtained is called a subspace of 4 .
+
+Open and Closed Sets
+Definition Let 4 be a metric space. Let %  4 and let  be a positive real
+number.
+1) The open ball centered at % , with radius , is
+)²% Á ³ ~ ¸%  4  ²%Á % ³  ¹
+2) The closed ball centered at % , with radius , is
+)²% Á ³ ~ ¸%  4  ²%Á % ³  ¹
+3) The sphere centered at % , with radius , is
+:²% Á ³ ~ ¸%  4  ²%Á % ³ ~ ¹
+Definition A subset : of a metric space 4 is said to be open if each point of :
+is the center of an open ball that is contained completely in : . More
+specifically, : is open if for all %  : , there exists an    such that
+)²%Á ³  : . Note that the empty set is open. A set ;  4 is closed if its
+complement ;  in 4 is open.
+It is easy to show that an open ball is an open set and a closed ball is a closed
+set. If %  4 , we refer to any open set : containing % as an open
+neighborhood of %. It is also easy to see that a set is open if and only if it
+contains an open neighborhood of each of its points.
+The next example shows that it is possible for a set to be both open and closed,
+or neither open nor closed.
+Example 12.5 In the metric space s with the usual Euclidean metric, the open
+balls are just the open intervals
+)²% Á ³ ~ ²% c Á % b ³
+and the closed balls are the closed intervals
+)²% Á ³ ~ ´% c Á % b µ
+Consider the half-open interval : ~ ²Á µ, for    . This set is not open, since
+it contains no open ball centered at   : and it is not closed, since its
+complement :  ~ ²cBÁ µ r ²Á B³ is not open, since it contains no open ball
+about .
+
+Metric Spaces
+
+305
+
+Observe also that the empty set is both open and closed, as is the entire space s.
+(Although we will not do so, it is possible to show that these are the only two
+sets that are both open and closed in s.³
+It is not our intention to enter into a detailed discussion of open and closed sets,
+the subject of which belongs to the branch of mathematics known as topology.
+In order to put these concepts in perspective, however, we have the following
+result, whose proof is left to the reader.
+Theorem 12.1 The collection E of all open subsets of a metric space 4 has the
+following properties:
+1) J  E , 4  E
+2) If : , ;  E then : q ;  E
+3) If ¸:    2¹ is any collection of open sets, then 2 :  E .
+These three properties form the basis for an axiom system that is designed to
+generalize notions such as convergence and continuity and leads to the
+following definition.
+Definition Let ? be a nonempty set. A collection E of subsets of ? is called a
+topology for ? if it has the following properties:
+1) J  EÁ ?  E
+2) If :Á ;  E then : q ;  E
+3) If ¸:    2¹ is any collection of sets in E , then  :  E .
+2
+
+We refer to subsets in E as open sets and the pair ²?Á E³ as a topological
+space.
+According to Theorem 12.1, the open sets (as we defined them earlier) in a
+metric space 4 form a topology for 4 , called the topology induced by the
+metric.
+Topological spaces are the most general setting in which we can define concepts
+such as convergence and continuity, which is why these concepts are called
+topological concepts. However, since the topologies with which we will be
+dealing are induced by a metric, we will generally phrase the definitions of the
+topological properties that we will need directly in terms of the metric.
+
+Convergence in a Metric Space
+Convergence of sequences in a metric space is defined as follows.
+Definition A sequence ²% ³ in a metric space 4 converges to %  4 , written
+²% ³ ¦ %, if
+lim ²% Á %³ ~ 
+
+¦B
+
+Equivalently, ²% ³ ¦ % if for any   , there exists an 5   such that
+
+306
+
+Advanced Linear Algebra
+
+  5 ¬ ²% Á %³  
+or equivalently,
+  5 ¬ %  )²%Á ³
+In this case, % is called the limit of the sequence ²% ³.
+If 4 is a metric space and : is a subset of 4 , by a sequence in : , we mean a
+sequence whose terms all lie in : . We next characterize closed sets and
+therefore also open sets, using convergence.
+Theorem 12.2 Let 4 be a metric space. A subset :  4 is closed if and only if
+whenever ²% ³ is a sequence in : and ²% ³ ¦ %, then %  : . In loose terms, a
+subset : is closed if it is closed under the taking of sequential limits.
+Proof. Suppose that : is closed and let ²% ³ ¦ %, where %  : for all .
+Suppose that % ¤ : . Then since %  :  and :  is open, there exists an    for
+which %  )²%Á ³  :  . But this implies that
+)²%Á ³ q ¸% ¹ ~ J
+which contradicts the fact that ²% ³ ¦ %. Hence, %  : .
+Conversely, suppose that : is closed under the taking of limits. We show that
+:  is open. Let %  :  and suppose to the contrary that no open ball about % is
+contained in :  . Consider the open balls )²%Á °³, for all   . Since none of
+these balls is contained in :  , for each , there is an %  : q )²%Á °³. It is
+clear that ²% ³ ¦ % and so %  : . But % cannot be in both : and :  . This
+contradiction implies that :  is open. Thus, : is closed.
+
+The Closure of a Set
+Definition Let : be any subset of a metric space 4 . The closure of : , denoted
+by cl²:³, is the smallest closed set containing : .
+We should hasten to add that, since the entire space 4 is closed and since the
+intersection of any collection of closed sets is closed (exercise), the closure of
+any set : does exist and is the intersection of all closed sets containing : . The
+following definition will allow us to characterize the closure in another way.
+Definition Let : be a nonempty subset of a metric space 4 . An element %  4
+is said to be a limit point, or accumulation point, of : if every open ball
+centered at % meets : at a point other than % itself. Let us denote the set of all
+limit points of : by M²:³.
+Here are some key facts concerning limit points and closures.
+
+Metric Spaces
+
+307
+
+Theorem 12.3 Let : be a nonempty subset of a metric space 4 .
+1) %  M²:³ if and only if there is a sequence ²% ³ in : for which % £ % for
+all  and ²% ³ ¦ %.
+2) : is closed if and only if M²:³  : . In words, : is closed if and only if it
+contains all of its limit points.
+3) cl²:³ ~ : r M²:³.
+4) %  cl²:³ if and only if there is a sequence ²% ³ in : for which ²% ³ ¦ %.
+Proof. For part 1), assume first that %  M²:³. For each , there exists a point
+% £ % such that %  )²%Á °³ q : . Thus, we have
+²% Á %³  °
+and so ²% ³ ¦ %. For the converse, suppose that ²% ³ ¦ %, where % £ %  : .
+If )²%Á ³ is any ball centered at %, then there is some 5 such that   5
+implies %  )²%Á ³. Hence, for any ball )²%Á ³ centered at %, there is a point
+% £ % such that %  : q )²%Á ³. Thus, % is a limit point of : .
+As for part 2), if : is closed, then by part 1), any %  M²:³ is the limit of a
+sequence ²% ³ in : and so must be in : . Hence, M²:³  : . Conversely, if
+M²:³  : , then : is closed. For if ²% ³ is any sequence in : and ²% ³ ¦ %, then
+there are two possibilities. First, we might have % ~ % for some , in which
+case % ~ %  : . Second, we might have % £ % for all , in which case
+²% ³ ¦ % implies that %  M²:³  : . In either case, %  : and so : is closed
+under the taking of limits, which implies that : is closed.
+For part 3), let ; ~ : r M²:³. Clearly, :  ; . To show that ; is closed, we
+show that it contains all of its limit points. So let %  M²; ³. Hence, there is a
+sequence ²% ³  ; for which % £ % and ²% ³ ¦ %. Of course, each % is
+either in : , or is a limit point of : . We must show that %  ; , that is, that % is
+either in : or is a limit point of : .
+Suppose for the purposes of contradiction that % ¤ : and % ¤ M²:³. Then there
+is a ball )²%Á ³ for which )²%Á ³ q : £ J. However, since ²% ³ ¦ %, there
+must be an %  )²%Á ³. Since % cannot be in : , it must be a limit point of : .
+Referring to Figure 12.1, if ²% Á %³ ~   , then consider the ball
+)²% Á ²c³°³. This ball is completely contained in )²%Á ³ and must contain
+an element & of : , since its center % is a limit point of : . But then
+&  : q )²%Á ³, a contradiction. Hence, %  : or %  M²:³. In either case,
+%  ; ~ : r M²:³ and so ; is closed.
+Thus, ; is closed and contains : and so cl²:³  ; . On the other hand,
+; ~ : r M²:³  cl²:³ and so cl²:³ ~ ; .
+
+

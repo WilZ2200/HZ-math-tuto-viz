@@ -1,0 +1,1255 @@
+Linear Transformations
+
+61
+
+specifying the values of  # arbitrarily for all #  8 and extending  to = by
+linearity, that is,
+ ² # b Ä b  # ³ ~   # b Ä b   #
+This process defines a unique linear transformation, that is, if  Á   B²= Á > ³
+satisfy  # ~ # for all #  8 then  ~  .
+Proof. The crucial point is that the extension by linearity is well-defined, since
+each vector in = has an essentially unique representation as a linear
+combination of a finite number of vectors in 8 . We leave the details to the
+reader.
+Note that if   B²= Á > ³ and if : is a subspace of = , then the restriction  O: of
+ to : is a linear transformation from : to > .
+
+The Kernel and Image of a Linear Transformation
+There are two very important vector spaces associated with a linear
+transformation  from = to > .
+Definition Let   B²= Á > ³. The subspace
+ker² ³ ~ ¸#  =   # ~ ¹
+is called the kernel of  and the subspace
+im² ³ ~ ¸ #  #  = ¹
+is called the image of  . The dimension of ker² ³ is called the nullity of  and is
+denoted by null² ³. The dimension of im² ³ is called the rank of  and is
+denoted by rk² ³.
+It is routine to show that ker² ³ is a subspace of = and im² ³ is a subspace of
+> . Moreover, we have the following.
+Theorem 2.3 Let   B²= Á > ³. Then
+1)  is surjective if and only if im² ³ ~ >
+2)  is injective if and only if ker² ³ ~ ¸¹
+Proof. The first statement is merely a restatement of the definition of
+surjectivity. To see the validity of the second statement, observe that
+ " ~  # ¯  ²" c #³ ~  ¯ " c #  ker² ³
+Hence, if ker² ³ ~ ¸¹, then  " ~  # ¯ " ~ #, which shows that  is injective.
+Conversely, if  is injective and "  ker² ³, then  " ~   and so " ~ . This
+shows that ker² ³ ~ ¸¹.
+
+62
+
+Advanced Linear Algebra
+
+Isomorphisms
+Definition A bijective linear transformation ¢ = ¦ > is called an
+isomorphism from = to > . When an isomorphism from = to > exists, we say
+that = and > are isomorphic and write =  > .
+Example 2.2 Let dim²= ³ ~ . For any ordered basis 8 of = , the coordinate
+map 8 ¢ = ¦ -  that sends each vector #  = to its coordinate matrix
+´#µ8  -  is an isomorphism. Hence, any -dimensional vector space over - is
+isomorphic to -  .
+Isomorphic vector spaces share many properties, as the next theorem shows. If
+  B²= Á > ³ and :  = we write
+ : ~ ¸ 
+
+ :¹
+
+Theorem 2.4 Let   B²= Á > ³ be an isomorphism. Let :  = . Then
+1) : spans = if and only if  : spans > .
+2) : is linearly independent in = if and only if  : is linearly independent in
+>.
+3) : is a basis for = if and only if  : is a basis for > .
+An isomorphism can be characterized as a linear transformation ¢ = ¦ > that
+maps a basis for = to a basis for > .
+Theorem 2.5 A linear transformation   B²= Á > ³ is an isomorphism if and
+only if there is a basis 8 for = for which 8 is a basis for > . In this case, 
+maps any basis of = to a basis of > .
+The following theorem says that, up to isomorphism, there is only one vector
+space of any given dimension over a given field.
+Theorem 2.6 Let = and > be vector spaces over - . Then =  > if and only
+if dim²= ³ ~ dim²> ³.
+In Example 2.2, we saw that any -dimensional vector space is isomorphic to
+-  . Now suppose that ) is a set of cardinality  and let ²- ) ³ be the vector
+space of all functions from ) to - with finite support. We leave it to the reader
+to show that the functions   ²- ) ³ defined for all   ) by
+ ²%³ ~ F
+
+
+
+
+if % ~ 
+if % £ 
+
+form a basis for ²- ) ³ , called the standard basis. Hence, dim²²- ) ³ ³ ~ () (.
+It follows that for any cardinal number , there is a vector space of dimension  .
+Also, any vector space of dimension  is isomorphic to ²- ) ³ .
+
+Linear Transformations
+
+63
+
+Theorem 2.7 If  is a natural number, then any -dimensional vector space
+over - is isomorphic to -  . If  is any cardinal number and if ) is a set of
+cardinality  , then any -dimensional vector space over - is isomorphic to the
+vector space ²- ) ³ of all functions from ) to - with finite support.
+
+The Rank Plus Nullity Theorem
+Let   B²= Á > ³. Since any subspace of = has a complement, we can write
+= ~ ker² ³ l ker² ³
+where ker² ³ is a complement of ker² ³ in = . It follows that
+dim²= ³ ~ dim²ker² ³³ b dim²ker² ³ ³
+Now, the restriction of  to ker² ³ ,
+  ¢ ker² ³ ¦ >
+is injective, since
+ker²  ³ ~ ker² ³ q ker² ³ ~ ¸¹
+Also, im²  ³  im² ³. For the reverse inclusion, if  #  im² ³, then since
+# ~ " b $ for "  ker² ³ and $  ker² ³ , we have
+ # ~  " b  $ ~  $ ~   $  im²  ³
+Thus im²  ³ ~ im² ³. It follows that
+ker² ³  im² ³
+From this, we deduce the following theorem.
+Theorem 2.8 Let   B²= Á > ³.
+1) Any complement of ker² ³ is isomorphic to im² ³
+2) (The rank plus nullity theorem)
+dim²ker² ³³ b dim²im² ³³ ~ dim²= ³
+or, in other notation,
+rk² ³ b null² ³ ~ dim²= ³
+Theorem 2.8 has an important corollary.
+Corollary 2.9 Let   B²= Á > ³, where dim²= ³ ~ dim²> ³  B. Then  is
+injective if and only if it is surjective.
+Note that this result fails if the vector spaces are not finite-dimensional. The
+reader is encouraged to find an example to support this statement.
+
+64
+
+Advanced Linear Algebra
+
+Linear Transformations from -  to - 
+Recall that for any  d  matrix ( over - the multiplication map
+( ²#³ ~ (#
+is a linear transformation. In fact, any linear transformation   B²-  Á -  ³ has
+this form, that is,  is just multiplication by a matrix, for we have
+2   Ä    3 ~ 2   Ä    3²³ ~  
+and so  ~ ( , where
+( ~ 2   Ä    3
+Theorem 2.10
+1) If ( is an  d  matrix over - then (  B²-  Á -  ³.
+2) If   B²-  Á -  ³ then  ~ ( , where
+( ~ ²   Ä     ³
+The matrix ( is called the matrix of  .
+Example 2.3 Consider the linear transformation ¢ -  ¦ -  defined by
+²%Á &Á '³ ~ ²% c &Á 'Á % b & b '³
+Then we have, in column form,
+
+
+v % y v %c& y v 
+& ~
+'
+~ 
+w ' z w %b&b' z w 
+
+c
+
+
+
+y v%y
+
+&
+z w' z
+
+and so the standard matrix of  is
+(~
+
+v
+
+w
+
+c
+
+
+
+y
+
+z
+
+If (  CÁ , then since the image of ( is the column space of (, we have
+dim²ker²( ³³ b rk²(³ ~ dim²-  ³
+This gives the following useful result.
+Theorem 2.11 Let ( be an  d  matrix over - .
+1) ( ¢ -  ¦ -  is injective if and only if rk²(³ ~ n.
+2) ( ¢ -  ¦ -  is surjective if and only if rk²(³ ~ m.
+
+Linear Transformations
+
+65
+
+Change of Basis Matrices
+Suppose that 8 ~ ² Á Ã Á  ³ and 9 ~ ² Á Ã Á  ³ are ordered bases for a
+vector space = . It is natural to ask how the coordinate matrices ´#µ8 and ´#µ9 are
+related. Referring to Figure 2.1,
+
+Fn
+
+IB
+IC(IB)-1
+
+V
+
+IC
+
+Fn
+
+Figure 2.1
+the map that takes ´#µ8 to ´#µ9 is 8Á9 ~ 9 8c and is called the change of basis
+operator (or change of coordinates operator). Since 8Á9 is an operator on
+-  , it has the form ( , where
+( ~ ²8Á9 ² ³  Ä  8Á9 ² ³³
+~ ²9 8c ²´ µ8 ³  Ä  9 8c ²´ µ8 ³³
+~ ²´ µ9  Ä  ´ µ9 ³³
+We denote ( by 48,9 and call it the change of basis matrix from 8 to 9.
+Theorem 2.12 Let 8 ~ ² Á Ã Á  ³ and 9 be ordered bases for a vector space
+= . Then the change of basis operator 8Á9 ~ 9 8c is an automorphism of -  ,
+whose standard matrix is
+48,9 ~ ²´ µ9  Ä  ´ µ9 ³³
+Hence
+´#µ9 ~ 48Á9 ´#µ8
+and 49Á8 ~ 48c
+,9 .
+Consider the equation
+( ~ 48 Á 9
+or equivalently,
+( ~ ²´ µ9  Ä  ´ µ9 ³³
+Then given any two of ( (an invertible  d  matrix)Á 8 (an ordered basis for
+-  ) and 9 (an ordered basis for -  ), the third component is uniquely
+determined by this equation. This is clear if 8 and 9 are given or if ( and 9 are
+
+66
+
+Advanced Linear Algebra
+
+given. If ( and 8 are given, then there is a unique 9 for which (c ~ 49Á8 and
+so there is a unique 9 for which ( ~ 48Á9 .
+Theorem 2.13 If we are given any two of the following:
+1) an invertible  d  matrix (
+2) an ordered basis 8 for - 
+3) an ordered basis 9 for -  .
+then the third is uniquely determined by the equation
+( ~ 48 Á 9
+
+The Matrix of a Linear Transformation
+Let ¢ = ¦ > be a linear transformation, where dim²= ³ ~  and
+dim²> ³ ~  and let 8 ~ ² Á Ã Á  ³ be an ordered basis for = and 9 an
+ordered basis for > . Then the map
+¢ ´#µ8 ¦ ´ #µ9
+is a representation of  as a linear transformation from -  to -  , in the sense
+that knowing (along with 8 and 9, of course) is equivalent to knowing  . Of
+course, this representation depends on the choice of ordered bases 8 and 9.
+Since is a linear transformation from -  to -  , it is just multiplication by an
+ d  matrix (, that is,
+´ #µ9 ~ (´#µ8
+Indeed, since ´ µ8 ~  , we get the columns of ( as follows:
+(²³ ~ ( ~ (´# µ8 ~ ´  µ9
+Theorem 2.14 Let   B²= Á > ³ and let 8 ~ ² Á Ã Á  ³ and 9 be ordered
+bases for = and > , respectively. Then  can be represented with respect to 8
+and 9 as matrix multiplication, that is,
+´ #µ9 ~ ´ µ8,9 ´#µ8
+where
+´ µ8,9 ~ ²´  µ9  Ä  ´  µ9 ³
+is called the matrix of  with respect to the bases 8 and 9 . When = ~ > and
+8 ~ 9, we denote ´ µ8,8 by ´ µ8 and so
+´ #µ8 ~ ´ µ8 ´#µ8
+Example 2.4 Let +¢ F ¦ F be the derivative operator, defined on the vector
+space of all polynomials of degree at most . Let 8 ~ 9 ~ ²Á %Á % ³. Then
+
+Linear Transformations
+
+´+²³µ9 ~ ´µ9 ~
+
+67
+
+vy
+vy
+vy
+ , ´+²%³µ9 ~ ´µ9 ~  Á ´+²%³µ9 ~ ´%µ9 ~ 
+wz
+wz
+wz
+
+and so
+´+µ8 ~
+Hence, for example, if ²%³ ~
+
+v
+
+w
+
+
+
+
+
+y
+
+z
+
+b % b % , then
+
+´+²%³µ9 ~ ´+µ8 ´²%³µ8 ~
+
+v
+
+w
+
+
+
+
+
+ yv y v  y
+
+ ~ 
+ zw  z w  z
+
+and so +²%³ ~  b %.
+The following result shows that we may work equally well with linear
+transformations or with the matrices that represent them (with respect to fixed
+ordered bases 8 and 9). This applies not only to addition and scalar
+multiplication, but also to matrix multiplication.
+Theorem 2.15 Let = and > be finite-dimensional vector spaces over - , with
+ordered bases 8 ~ ² Á Ã Á  ³ and 9 ~ ² Á Ã Á  ³, respectively.
+1) The map ¢ B²= Á > ³ ¦ CÁ ²- ³ defined by
+² ³ ~ ´ µ8,9
+is an isomorphism and so B²= Á > ³  CÁ ²- ³. Hence,
+dim²B²= Á > ³³ ~ dim²CÁ ²- ³³ ~  d 
+2) If   B²< Á = ³ and   B²= Á > ³ and if 8 , 9 and : are ordered bases for
+< , = and > , respectively, then
+´µ8,: ~ ´ µ9,: ´µ8,9
+Thus, the matrix of the product (composition)  is the product of the
+matrices of  and  . In fact, this is the primary motivation for the definition
+of matrix multiplication.
+Proof. To see that  is linear, observe that for all ,
+´  b ! µ8Á9 ´ µ8 ~ ´²  b ! ³² ³µ9
+~ ´ ² ³ b ! ² ³µ9
+~ ´² ³µ9 b !´ ² ³µ9
+~ ´µ8Á9 ´ µ8 b !´ µ8Á9 ´ µ8
+~ ² ´µ8Á9 b !´ µ8Á9 ³´ µ8
+
+68
+
+Advanced Linear Algebra
+
+and since ´ µ8 ~  is a standard basis vector, we conclude that
+´  b ! µ8Á9 ~ ´µ8Á9 b !´ µ8Á9
+and so  is linear. If (  CÁ , we define  by the condition ´  µ9 ~ (²³ ,
+whence ² ³ ~ ( and  is surjective. Also, ker²³ ~ ¸¹ since ´ µ8 ~ 
+implies that  ~ . Hence, the map  is an isomorphism. To prove part 2), we
+have
+´µ8Á: ´#µ8 ~ ´ ²#³µ: ~ ´ µ9,: ´#µ9 ~ ´ µ9Á: ´µ8Á9 ´#µ8
+
+Change of Bases for Linear Transformations
+Since the matrix ´ µ8,9 that represents  depends on the ordered bases 8 and 9 , it
+is natural to wonder how to choose these bases in order to make this matrix as
+simple as possible. For instance, can we always choose the bases so that  is
+represented by a diagonal matrix?
+As we will see in Chapter 7, the answer to this question is no. In that chapter,
+we will take up the general question of how best to represent a linear operator
+by a matrix. For now, let us take the first step and describe the relationship
+between the matrices ´ µ8Á9 and ´ µ8Z Á9Z of  with respect to two different pairs
+²8 Á 9³ and ²8 Z Á 9Z ³ of ordered bases. Multiplication by ´ µ8Z Á9Z sends ´#µ8Z to
+´ #µ9Z . This can be reproduced by first switching from 8 Z to 8 , then applying
+´ µ8Á9 and finally switching from 9 to 9Z , that is,
+´ µ8Z ,9Z ~ 49Á9Z ´ µ8,9 48Z Á8 ~ 49Á9Z ´ µ8,9 48c
+Á8 Z
+Theorem 2.16 Let   B²= ,> ³ and let ²8 Á 9³ and ²8 Z Á 9Z ³ be pairs of ordered
+bases of = and > , respectively. Then
+´ µ8Z Á9Z ~ 49Á9Z ´ µ8Á9 48Z Á8
+
+(2.1)
+
+When   B²= ³ is a linear operator on = , it is generally more convenient to
+represent  by matrices of the form ´ µ8 , where the ordered bases used to
+represent vectors in the domain and image are the same. When 8 ~ 9, Theorem
+2.16 takes the following important form.
+Corollary 2.17 Let   B²= ³ and let 8 and 9 be ordered bases for = . Then the
+matrix of  with respect to 9 can be expressed in terms of the matrix of  with
+respect to 8 as follows:
+´ µ9 ~ 48Á9 ´ µ8 48c
+Á9
+
+(2.2)
+
+Equivalence of Matrices
+Since the change of basis matrices are precisely the invertible matrices, (2.1) has
+the form
+
+Linear Transformations
+
+69
+
+´ µ8Z Á9Z ~ 7 ´ µ8Á9 8c
+where 7 and 8 are invertible matrices. This motivates the following definition.
+Definition Two matrices ( and ) are equivalent if there exist invertible
+matrices 7 and 8 for which
+) ~ 7 (8c
+We have remarked that ) is equivalent to ( if and only if ) can be obtained
+from ( by a series of elementary row and column operations. Performing the
+row operations is equivalent to multiplying the matrix ( on the left by 7 and
+performing the column operations is equivalent to multiplying ( on the right by
+8c .
+In terms of (2.1), we see that performing row operations (premultiplying by 7 )
+is equivalent to changing the basis used to represent vectors in the image and
+performing column operations (postmultiplying by 8c ) is equivalent to
+changing the basis used to represent vectors in the domain.
+According to Theorem 2.16, if ( and ) are matrices that represent  with
+respect to possibly different ordered bases, then ( and ) are equivalent. The
+converse of this also holds.
+Theorem 2.18 Let = and > be vector spaces with dim²= ³ ~  and
+dim²> ³ ~ . Then two  d  matrices ( and ) are equivalent if and only if
+they represent the same linear transformation   B²= Á > ³, but possibly with
+respect to different ordered bases. In this case, ( and ) represent exactly the
+same set of linear transformations in B²= Á > ³.
+Proof. If ( and ) represent  , that is, if
+( ~ ´ µ8,9
+
+and
+
+) ~ ´ µ8Z ,9Z
+
+for ordered bases 8 Á 9Á 8 Z and 9Z , then Theorem 2.16 shows that ( and ) are
+equivalent. Now suppose that ( and ) are equivalent, say
+) ~ 7 (8c
+where 7 and 8 are invertible. Suppose also that ( represents a linear
+transformation   B²= Á > ³ for some ordered bases 8 and 9, that is,
+( ~ ´ µ8Á9
+Theorem 2.9 implies that there is a unique ordered basis 8 Z for = for which
+8 ~ 48Á8Z and a unique ordered basis 9Z for > for which 7 ~ 49Á9Z . Hence
+) ~ 49Á9Z ´ µ8Á9 48Z Á8 ~ ´ µ8Z Á9Z
+
+70
+
+Advanced Linear Algebra
+
+Hence, ) also represents  . By symmetry, we see that ( and ) represent the
+same set of linear transformations. This completes the proof.
+We remarked in Example 0.3 that every matrix is equivalent to exactly one
+matrix of the block form
+1 ~ >
+
+0
+cÁ
+
+Ác
+cÁc ?block
+
+Hence, the set of these matrices is a set of canonical forms for equivalence.
+Moreover, the rank is a complete invariant for equivalence. In other words, two
+matrices are equivalent if and only if they have the same rank.
+
+Similarity of Matrices
+When a linear operator   B²= ³ is represented by a matrix of the form ´ µ8 ,
+equation (2.2) has the form
+´ µ8Z ~ 7 ´ µ8 7 c
+where 7 is an invertible matrix. This motivates the following definition.
+Definition Two matrices ( and ) are similar, denoted by (  ) , if there
+exists an invertible matrix 7 for which
+) ~ 7 (7 c
+The equivalence classes associated with similarity are called similarity
+classes.
+The analog of Theorem 2.18 for square matrices is the following.
+Theorem 2.19 Let = be a vector space of dimension . Then two  d 
+matrices ( and ) are similar if and only if they represent the same linear
+operator   B²= ³, but possibly with respect to different ordered bases. In this
+case, ( and ) represent exactly the same set of linear operators in B²= ³.
+Proof. If ( and ) represent   B²= ³, that is, if
+( ~ ´ µ8
+
+and ) ~ ´ µ9
+
+for ordered bases 8 and 9, then Corollary 2.17 shows that ( and ) are similar.
+Now suppose that ( and ) are similar, say
+) ~ 7 (7 c
+Suppose also that ( represents a linear operator   B²= ³ for some ordered
+basis 8 , that is,
+( ~ ´ µ8
+Theorem 2.9 implies that there is a unique ordered basis 9 for = for which
+
+Linear Transformations
+
+71
+
+7 ~ 48Á9 . Hence
+) ~ 48Á9 ´ µ8 48c
+Á 9 ~ ´ µ9
+Hence, ) also represents  . By symmetry, we see that ( and ) represent the
+same set of linear operators. This completes the proof.
+We will devote much effort in Chapter 7 to finding a canonical form for
+similarity.
+
+Similarity of Operators
+We can also define similarity of operators.
+Definition Two linear operators  Á   B²= ³ are similar, denoted by   , if
+there exists an automorphism   B²= ³ for which
+ ~ c
+The equivalence classes associated with similarity are called similarity
+classes.
+Note that if 8 ~ ² Á Ã Á  ³ and 9 ~ ² Á Ã Á  ³ are ordered bases for = , then
+49Á8 ~ ²´ µ8  Ä  ´ µ8 ³
+Now, the map defined by ² ³ ~  is an automorphism of = and
+49Á8 ~ ²´² ³µ8  Ä  ´² ³µ8 ³ ~ ´µ8
+Conversely, if ¢ = ¦ = is an automorphism and 8 ~ ² Á Ã Á  ³ is an ordered
+basis for = , then 9 ~ ² ~ ² ³Á Ã Á  ~ ² ³³ is also a basis:
+´µ8 ~ ²´² ³µ8  Ä  ´² ³µ8 ³ ~ 49Á8
+The analog of Theorem 2.19 for linear operators is the following.
+Theorem 2.20 Let = be a vector space of dimension . Then two linear
+operators  and  on = are similar if and only if there is a matrix (  C that
+represents both operators, but with respect to possibly different ordered bases.
+In this case,  and  are represented by exactly the same set of matrices in C .
+Proof. If  and  are represented by (  C , that is, if
+´ µ8 ~ ( ~ ´µ9
+for ordered bases 8 and 9, then
+´µ9 ~ ´ µ8 ~ 49Á8 ´ µ9 48Á9
+As remarked above, if ¢ = ¦ = is defined by ² ³ ~  , then
+
+72
+
+Advanced Linear Algebra
+
+´µ9 ~ 48Á9
+and so
+c
+´µ9 ~ ´µc
+9 ´ µ9 ´µ9 ~ ´ µ9
+
+from which it follows that  and  are similar. Conversely, suppose that  and 
+are similar, say
+ ~ c
+where  is an automorphism of = . Suppose also that  is represented by the
+matrix (  C , that is,
+( ~ ´ µ8
+for some ordered basis 8 . Then ´µ8 ~ 49Á8 and so
+c
+´µ8 ~ ´c µ8 ~ ´µ8 ´ µ8 ´µc
+8 ~ 4 9 Á8 ´  µ 8 4 9 Á 8
+
+It follows that
+( ~ ´ µ8 ~ 48Á9 ´µ8 48c
+Á9 ~ ´ µ9
+and so ( also represents . By symmetry, we see that  and  are represented
+by the same set of matrices. This completes the proof.
+We can summarize the sitiation with respect to similarity in Figure 2.2. Each
+similarity class I in B²= ³ corresponds to a similarity class J in C ²- ³: J is
+the set of all matrices that represent any   I and I is the set of all operators
+in B²= ³ that are represented by any 4  J .
+
+V
+
+similarity classes
+of L(V)
+
+[W]B [V]B
+J [W]C [V]C
+
+Similarity classes
+of matrices
+
+W
+I
+
+V
+W
+
+Figure 2.2
+
+Invariant Subspaces and Reducing Pairs
+The restriction of a linear operator   B²= ³ to a subspace : of = is not
+necessarily a linear operator on : . This prompts the following definition.
+
+Linear Transformations
+
+73
+
+Definition Let   B²= ³. A subspace : of = is said to be invariant under  or
+ -invariant if  :  : , that is, if   : for all  : . Put another way, : is
+invariant under  if the restriction O: is a linear operator on : .
+If
+= ~: l;
+then the fact that : is  -invariant does not imply that the complement ; is also
+ -invariant. (The reader may wish to supply a simple example with = ~ s .)
+Definition Let   B²= ³. If = ~ : l ; and if both : and ; are  -invariant,
+we say that the pair ²:Á ; ³ reduces  .
+A reducing pair can be used to decompose a linear operator into a direct sum as
+follows.
+Definition Let   B²= ³. If ²:Á ; ³ reduces  we write
+ ~  O: l  O ;
+and call  the direct sum of  O: and  O; . Thus, the expression
+ ~l
+means that there exist subspaces : and ; of = for which ²:Á ; ³ reduces  and
+ ~ O: and  ~ O;
+The concept of the direct sum of linear operators will play a key role in the
+study of the structure of a linear operator.
+
+Projection Operators
+We will have several uses for a special type of linear operator that is related to
+direct sums.
+Definition Let = ~ : l ; . The linear operator :Á; ¢ = ¦ = defined by
+:Á; ² b !³ ~
+where  : and !  ; is called projection onto : along ; .
+Whenever we say that the operator :Á; is a projection, it is with the
+understanding that = ~ : l ; . The following theorem describes a few basic
+properties of projection operators. We leave proof as an exercise.
+Theorem 2.21 Let = be a vector space and let   B²= ³.
+
+74
+
+Advanced Linear Algebra
+
+1) If = ~ : l ; then
+:Á; b ; Á: ~ 
+2) If  ~ :Á; then
+im²³ ~ :
+
+and
+
+ker²³ ~ ;
+
+and so
+= ~ im²³ l ker²³
+In other words,  is projection onto its image along its kernel. Moreover,
+#  im²³
+
+¯
+
+# ~ #
+
+3) If   B²= ³ has the property that
+= ~ im²³ l ker²³
+
+and
+
+Oim²³ ~ 
+
+then  is projection onto im²³ along ker²³.
+Projection operators are easy to characterize.
+Definition A linear operator   B²= ³ is idempotent if   ~  .
+Theorem 2.22 A linear operator   B²= ³ is a projection if and only if it is
+idempotent.
+Proof. If  ~ :Á; , then for any  : and !  ; ,
+ ² b !³ ~  ~
+
+~ ² b !³
+
+and so  ~ . Conversely, suppose that  is idempotent. If #  im²³ q ker²³,
+then # ~ % and so
+ ~ # ~  % ~ % ~ #
+Hence im²³ q ker²³ ~ ¸¹. Also, if #  = , then
+# ~ ²# c #³ b #  ker²³ l im²³
+and so = ~ ker²³ l im²³. Finally, ²%³ ~  % ~ % and so Oim²³ ~  .
+Hence,  is projection onto im²³ along ker²³.
+
+Projections and Invariance
+Projections can be used to characterize invariant subspaces. Let   B²= ³ and
+let : be a subspace of = . Let  ~ :Á; for any complement ; of : . The key is
+that the elements of : can be characterized as those vectors fixed by , that is,
+
+Linear Transformations
+
+75
+
+ : if and only if  ~ . Hence, the following are equivalent:
+:  :
+  : for all  :
+² ³ ~  for all  :
+² ³ ~  for all  :
+Thus, : is  -invariant if and only if  ~  for all vectors  : . But this is
+also true for all vectors in ; , since both sides are equal to  on ; . This proves
+the following theorem.
+Theorem 2.23 Let   B²= ³. Then a subspace : of = is  -invariant if and only
+if there is a projection  ~ :Á; for which
+ ~ 
+in which case this holds for all projections of the form  ~ :Á; .
+We also have the following relationship between projections and reducing pairs.
+Theorem 2.24 Let = ~ : l ; . Then ²:Á ; ³ reduces   B²= ³ if and only if 
+commutes with :Á; .
+Proof. Theorem 2.23 implies that : and ; are  -invariant if and only if
+and
+
+:Á; :Á; ~ :Á; 
+
+² c :Á; ³ ² c :Á; ³ ~ ² c :Á; ³
+
+and a little algebra shows that this is equivalent to
+:Á; :Á; ~ :Á; 
+
+and
+
+:Á;  ~ :Á;
+
+which is equivalent to :Á;  ~ :Á; .
+
+Orthogonal Projections and Resolutions of the Identity
+Observe that if  is a projection, then
+² c ³ ~ ² c ³ ~ 
+Definition Two projections Á   B²= ³ are orthogonal, written    , if
+ ~  ~ 
+Note that    if and only if
+im²³  ker²³
+
+and
+
+im²³  ker²³
+
+The following example shows that it is not enough to have  ~  in the
+definition of orthogonality. In fact, it is possible for  ~  and yet  is not
+even a projection.
+
+76
+
+Advanced Linear Algebra
+
+Example 2.5 Let = ~ -  and consider the ? - and @ -axes and the diagonal:
+? ~ ¸²%Á ³  %  - ¹
+@ ~ ¸²Á &³  &  - ¹
++ ~ ¸²%Á %³  %  - ¹
+Then
++Á? +Á@ ~ +Á@ £ +Á? ~ +Á@ +Á?
+From this we deduce that if  and  are projections, it may happen that both
+products  and  are projections, but that they are not equal. We leave it to
+the reader to show that @ Á? ?Á+ ~  (which is a projection), but that ?Á+ @ Á?
+is not a projection.
+Since a projection  is idempotent, we can write the identity operator  as s sum
+of two orthogonal projections:
+ b ² c  ³ ~  Á
+
+  ² c  ³
+
+Let us generalize this to more than two projections.
+Definition A resolution of the identity on = is a sum of the form
+ b Ä b   ~ 
+where the  's are pairwise orthogonal projections, that is,    for  £ .
+There is a connection between the resolutions of the identity on = and direct
+sum decompositions of = . In general terms, if
+ b Ä b  ~ 
+for any linear operators   B²= ³, then for all #  = ,
+# ~  # b Ä b  #  im² ³ b Ä b im² ³
+and so
+= ~ im² ³ b Ä b im² ³
+However, the sum need not be direct.
+Theorem 2.25 Let = be a vector space. Resolutions of the identity on =
+correspond to direct sum decompositions of = as follows:
+1) If  b Ä b  ~  is a resolution of the identity, then
+= ~ im² ³ l Ä l im² ³
+
+Linear Transformations
+
+77
+
+and  is projection onto im² ³ along
+ker² ³ ~  im² ³
+£
+
+2) Conversely, if
+= ~ : l Ä l :
+and if  is projection onto : along the direct sum £ : ,, then
+ b Ä b  ~  is a resolution of the identity.
+Proof. To prove 1), if  b Ä b  ~  is a resolution of the identity, then
+= ~ im² ³ b Ä b im² ³
+Moreover, if
+ % b Ä b  % ~ 
+then applying  gives  % ~  and so the sum is direct. As to the kernel of  ,
+we have
+im² ³ l ker² ³ ~ = ~ im² ³ l
+
+p
+
+ im² ³
+
+q £
+
+s
+t
+
+and since   ~ , it follows that
+ im² ³  ker² ³
+£
+
+and so equality must hold. For part 2), suppose that
+= ~ : l Ä l :
+and  is projection onto : along £ : . If  £ , then
+im² ³ ~ :  ker² ³
+and so    . Also, if # ~
+#~
+
+ b Ä b  for
+
+  : , then
+
+ b Ä b  ~  # b Ä b  # ~ ² b Ä b  ³#
+
+and so  ~  b Ä b  is a resolution of the identity.
+
+The Algebra of Projections
+If  and  are projections, it does not necessarily follow that  b  ,  c  or 
+is a projection. For example, the sum  b  is a projection if and only if
+² b ³ ~  b 
+
+78
+
+Advanced Linear Algebra
+
+which is equivalent to
+ ~ c
+Of course, this holds if  ~  ~ , that is, if   . But the converse is also
+true, provided that char²- ³ £ . To see this, we simply evaluate  in two
+ways:
+²³ ~ c²³ ~ c
+and
+²³ ~ c²³ ~ c
+Hence,  ~  ~ c and so  ~ . It follows that  ~ c ~  and so
+  . Thus, for char²- ³ £ , we have  b  is a projection if and only if
+  .
+Now suppose that  b  is a projection. For the kernel of  b , note that
+² b ³# ~ 
+
+¬
+
+² b ³# ~ 
+
+¬
+
+# ~ 
+
+and similarly, # ~ . Hence, ker² b ³  ker²³ q ker²³. But the reverse
+inclusion is obvious and so
+ker² b ³ ~ ker²³ q ker²³
+As to the image of  b  , we have
+#  im² b ³
+
+¬
+
+# ~ ² b ³# ~ # b #  im²³ b im²³
+
+and so im² b ³  im²³ b im²³. For the reverse inclusion, if # ~ % b &,
+then
+² b ³# ~ ² b ³²% b &³ ~ % b & ~ #
+and so #  im² b ³. Thus, im² b ³ ~ im²³ b im²³. Finally,  ~ 
+implies that im²³  ker²³ and so the sum is direct and
+im² b ³ ~ im²³ l im²³
+The following theorem also describes the situation for the difference and
+product. Proof in these cases is left for the exercises.
+Theorem 2.26 Let = be a vector space over a field - of characteristic £  and
+let  and  be projections.
+1) The sum  b  is a projection if and only if    , in which case
+im² b ³ ~ im²³ l im²³
+
+and
+
+ker² b ³ ~ ker²³ q ker²³
+
+2) The difference  c  is a projection if and only if
+ ~  ~ 
+
+Linear Transformations
+
+79
+
+in which case
+im² c ³ ~ im²³ q ker²³
+
+and
+
+ker² c ³ ~ ker²³ l im²³
+
+3) If  and  commute, then  is a projection, in which case
+im²³ ~ im²³ q im²³
+
+and
+
+ker²³ ~ ker²³ b ker²³
+
+(Example 2.5 shows that the converse may be false.)
+
+Topological Vector Spaces
+This section is for readers with some familiarity with point-set topology.
+
+The Definition
+A pair ²= Á J ³ where = is a real vector space = and J is a topology on the set
+= is called a topological vector space if the operations of addition
+7¢ = d = ¦ = Á
+
+7²#Á $³ ~ # b $
+
+and scalar multiplication
+C¢ s d = ¦ = Á
+
+C²Á #³ ~ #
+
+are continuous functions.
+
+The Standard Topology on s
+The vector space s is a topological vector space under the standard topology,
+which is the topology for which the set of open rectangles
+8 ~ ¸0 d Ä d 0  0 's are open intervals in s¹
+is a base, that is, a subset of s is open if and only if it is a union of open
+rectangles. The standard topology is also the topology induced by the Euclidean
+metric on s , since an open rectangle is the union of Euclidean open balls and
+an open ball is the union of open rectangles.
+The standard topology on s has the property that the addition function
+7¢ s d s ¦ s ¢ ²#Á $³ ¦ # b $
+and the scalar multiplication function
+C¢ s d s ¦ s ¢ ²Á #³ ¦ #
+are continuous and so s is a topological vector space under this topology.
+Also, the linear functionals  ¢ s ¦ s are continuous maps.
+For example, to see that addition is continuous, if
+²" Á Ã Á " ³ b ²# Á Ã Á # ³  ² Á  ³ d Ä d ²Á ³  8
+
+80
+
+Advanced Linear Algebra
+
+then " b #  ² Á  ³ and so there is an    for which
+²" c Á " b ³ b ²# c Á # b ³  ² Á  ³
+for all . It follows that if
+²" Á Ã Á " ³  0  ²" c Á " b ³ d Ä d ²" c Á " b ³  8
+and
+²# Á Ã Á # ³  1  ²# c Á # b ³ d Ä d ²# c Á # b ³  8
+then
+²" Á Ã Á " ³ b ²# Á Ã Á # ³  7²0Á 1 ³  ² Á  ³ d Ä d ²Á ³
+
+The Natural Topology on =
+Now let = be a real vector space of dimension  and fix an ordered basis
+8 ~ ²# Á Ã Á # ³ for = . We wish to show that there is precisely one topology J
+on = for which ²= Á J ³ is a topological vector space and all linear functionals
+are continuous. This topology is called the natural topology on = .
+Our plan is to show that if ²= Á J ³ is a topological vector space and if all linear
+functionals on = are continuous, then the coordinate map 8 ¢ =  s is a
+homeomorphism. This implies that if J does exist, it must be unique. Then we
+use  ~ 8c to move the standard topology from s to = , thus giving = a
+topology J for which 8 is a homeomorphism. Finally, we show that ²= Á J ³ is
+a topological vector space and that all linear functionals on = are continuous.
+The first step is to show that if ²= Á J ³ is a topological vector space, then  is
+continuous. Since  ~  where  ¢ s ¦ = is defined by
+ ² Á Ã Á  ³ ~  #
+it is sufficient to show that these maps are continuous. (The sum of continuous
+maps is continuous.) Let 6 be an open set in J . Then
+Cc ²6³ ~ ¸²Á %³  s d =  %  6¹
+is open in s d = . This implies that if %  6, then there is an open interval
+0  s containing  for which
+0% ~ ¸ % 
+
+ 0¹  6
+
+We need to show that the set c
+ ²6³ is open. But
+
+c
+ ²6³ ~ ¸² Á Ã Á  ³  s   #  6¹
+~ s d Ä d s d ¸  s   #  6¹ d s d Ä d s
+
+In words, an -tuple ² Á Ã Á  ³ is in c
+ ²6³ if the th coordinate  times # is
+
+Linear Transformations
+
+81
+
+in 6. But if  #  6, then there is an open interval 0  s for which   0 and
+0#  6. Hence, the entire open set
+< ~sdÄdsd0 dsdÄds
+where the factor 0 is in the th position is in c
+ ²6³, that is,
+² Á Ã Á  ³  <  c
+ ²6³
+Thus, c
+ ²6³ is open and  , and therefore also , is continuous.
+Next we show that if every linear functional on = is continuous under a
+topology J on = , then the coordinate map  is continuous. If #  = denote by
+´#µ8Á the th coordinate of ´#µ8 . The map ¢ = ¦ s defined by # ~ ´#µ8Á is a
+linear functional and so is continuous by assumption. Hence, for any open
+interval 0  s the set
+( ~ ¸#  =  ´#µ8Á  0 ¹
+is open. Now, if 0 are open intervals in s, then
+c ²0 d Ä d 0 ³ ~ ¸#  =  ´#µ8  0 d Ä d 0 ¹ ~
+
+(
+
+is open. Thus,  is continuous.
+We have shown that if a topology J has the property that ²= Á J ³ is a
+topological vector space under which every linear functional is continuous, then
+ and  ~ c are homeomorphisms. This means that if J exists, its open sets
+must be the images under  of the open sets in the standard topology of s . It
+remains to prove that the topology J on = that makes  a homeomorphism
+makes ²= Á J ³ a topological vector space for which any linear functional  on =
+is continuous.
+The addition map on = is a composition
+7 ~ c k 7Z k ² d ³
+where 7Z ¢ s d s ¦ s is addition in s and since each of the maps on the
+right is continuous, so is 7.
+Similarly, scalar multiplication in = is
+C ~ c k CZ k ² d ³
+where CZ ¢ s d s ¦ s is scalar multiplication in s . Hence, C is
+continuous.
+Now let  be a linear functional. Since  is continuous if and only if  k c is
+continuous, we can confine attention to = ~ s . In this case, if  Á Ã Á  is the
+standard basis for s and ( ² ³(  4 for all , then for any
+
+82
+
+Advanced Linear Algebra
+
+% ~ ² Á Ã Á  ³  s , we have
+( ²%³( ~ c   ² ³c   ( (( ² ³(  4  ( (
+Now, if (%(  °4 , then ( (  °4  and so ( ²%³(  , which implies that 
+is continuous at % ~ .
+According to the Riesz representation theorem (Theorem 9.18) and the Cauchy–
+Schwarz inequality, we have
+) ²%³)  )H ))%)
+where 9  s . Hence, % ¦  implies  ²% ³ ¦  and so by linearity, % ¦ %
+implies  ²% ³ ¦ % and so  is continuous at all %.
+Theorem 2.27 Let = be a real vector space of dimension . There is a unique
+topology on = , called the natural topology, for which = is a topological vector
+space and for which all linear functionals on = are continuous. This topology is
+determined by the fact that the coordinate map ¢ = ¦ s is a
+homeomorphism, where s has the standard topology induced by the Euclidean
+metric.
+
+Linear Operators on = d
+A linear operator  on a real vector space = can be extended to a linear operator
+ d on the complexification = d by defining
+ d ²" b #³ ~  ²"³ b  ²#³
+Here are the basic properties of this complexification of  .
+Theorem 2.28 If  Á   B²= ³, then
+1) ² ³d ~  d ,   s
+2) ² b ³d ~  d b d
+3) ²³d ~  d d
+4) ´ #µd ~  d ²#d ³.
+Let us recall that for any ordered basis 8 for = and any vector #  = we have
+´# b µcpx²8 ³ ~ ´#µ8
+Now, if 8 is an ordered basis for = , then the th column of ´ µ8 is
+´  µ8 ~ ´  b µcpx²8³ ~ ´ d ² b ³µcpx²8³
+which is the th column of the coordinate matrix of  d with respect to the basis
+cpx²8 ³. Thus we have the following theorem.
+
+Linear Transformations
+
+83
+
+Theorem 2.29 Let   B²= ³ where = is a real vector space. The matrix of  d
+with respect to the ordered basis cpx²8 ³ is equal to the matrix of  with respect
+to the ordered basis 8 :
+´ d µcpx²8³ ~ ´ µ8
+Hence, if a real matrix ( represents a linear operator  on = , then ( also
+represents the complexification  d of  on = d .
+
+Exercises
+1.
+
+2.
+3.
+4.
+
+Let (  CÁ have rank  . Prove that there are matrices ?  CÁ and
+@  CÁ , both of rank  , for which ( ~ ?@ . Prove that ( has rank  if
+and only if it has the form ( ~ %! & where % and & are row matrices.
+Prove Corollary 2.9 and find an example to show that the corollary does not
+hold without the finiteness condition.
+Let   B²= Á > ³. Prove that  is an isomorphism if and only if it carries a
+basis for = to a basis for > .
+If   B²= Á > ³ and   B²= Á > ³ we define the external direct sum
+ ^   B²= ^ = Á > ^ > ³ by
+² ^ ³²²# Á # ³³ ~ ² # Á # ³
+
+Show that  ^  is a linear transformation.
+Let = ~ : l ; . Prove that : l ;  : ^ ; . Thus, internal and external
+direct sums are equivalent up to isomorphism.
+6. Let = ~ ( b ) and consider the external direct sum , ~ ( ^ ) . Define a
+map  ¢ ( ^ ) ¦ = by  ²#Á $³ ~ # b $. Show that  is linear. What is the
+kernel of  ? When is  an isomorphism?
+7. Let   B- ²= ³ where dim²= ³ ~   B. Let (  C ²- ³. Suppose that
+there is an isomorphism ¢ =  -  with the property that ² #³ ~ (²#³.
+Prove that there is an ordered basis 8 for which ( ~ ´ µ8 .
+8. Let J be a subset of B²= ³. A subspace : of = is J -invariant if : is  invariant for every   J . Also, = is J -irreducible if the only J -invariant
+subspaces of = are ¸¹ and = . Prove the following form of Schur's lemma.
+Suppose that J=  B²= ³ and J>  B²> ³ and = is J= -irreducible and >
+is J> -irreducible. Let   B²= Á > ³ satisfy J= ~ J> , that is, for any
+  J= there is a   J> such that  ~  and for any   J> there is a
+  J= such that  ~ . Prove that  ~  or  is an isomorphism.
+9. Let   B²= ³ where dim²= ³  B. If rk²  ³ ~ rk² ³ show that
+im² ³ q ker² ³ ~ ¸¹.
+10. Let   B²< ,= ³ and   B²= Á > ³. Show that
+5.
+
+rk² ³  min¸rk² ³Á rk²³¹
+11. Let   B²< Á = ³ and   B²= Á > ³. Show that
+null² ³  null² ³ b null²³
+
+84
+
+Advanced Linear Algebra
+
+12. Let  Á   B²= ³ where  is invertible. Show that
+rk²³ ~ rk² ³ ~ rk²³
+13. Let  Á   B²= Á > ³. Show that
+rk² b ³  rk² ³ b rk²³
+14. Let : be a subspace of = . Show that there is a   B²= ³ for which
+ker² ³ ~ : . Show also that there exists a   B²= ³ for which im²³ ~ : .
+15. Suppose that  Á   B²= ³.
+a) Show that  ~  for some   B²= ³ if and only if im²³  im² ³.
+b) Show that  ~  for some   B²= ³ if and only if ker² ³  ker²³.
+16. Let dim²= ³  B and suppose that   B²= ³ satisfies   ~ . Show that
+rk² ³  dim²= ³.
+17. Let ( be an  d  matrix over - . What is the relationship between the
+linear transformation ( ¢ -  ¦ -  and the system of equations (? ~ ) ?
+Use your knowledge of linear transformations to state and prove various
+results concerning the system (? ~ ) , especially when ) ~ .
+18. Let = have basis 8 ~ ¸# Á Ã Á # ¹ and assume that the base field - for =
+has characteristic . Suppose that for each   Á    we define
+Á  B²= ³ by
+#
+Á ²# ³ ~ F 
+# b #
+
+if  £ 
+if  ~ 
+
+Prove that the Á are invertible and form a basis for B²= ³.
+19. Let   B²= ³. If : is a  -invariant subspace of = must there be a subspace
+; of = for which ²:Á ; ³ reduces  ?
+20. Find an example of a vector space = and a proper subspace : of = for
+which =  : .
+21. Let dim²= ³  B. If  ,   B²= ³ prove that  ~  implies that  and 
+are invertible and that  ~ ² ³ for some polynomial ²%³  - ´%µ.
+22. Let   B²= ³. If  ~  for all   B²= ³ show that  ~  , for some
+  - , where  is the identity map.
+23. Let = be a vector space over a field - of characteristic £  and let  and 
+be projections. Prove the following:
+a) The difference  c  is a projection if and only if
+ ~  ~ 
+in which case
+im² c ³ ~ im²³ q ker²³
+
+and
+
+ker² c ³ ~ ker²³ l im²³
+
+Hint:  is a projection if and only if  c  is a projection and so  c 
+is a projection if and only if
+
+Linear Transformations
+
+85
+
+~  c ² c  ³ ~ ²  c  ³ b 
+is a projection.
+b) If  and  commute, then  is a projection, in which case
+im²³ ~ im²³ q im²³
+
+and
+
+ker²³ ~ ker²³ b ker²³
+
+24. Let  ¢ s ¦ s be a continuous function with the property that
+ ²% b &³ ~  ²%³ b  ²&³
+Prove that  is a linear functional on s .
+25. Prove that any linear functional  ¢ s ¦ s is a continuous map.
+26. Prove that any subspace : of s is a closed set or, equivalently, that
+:  ~ s ± : is open, that is, for any %  :  there is an open ball )²%Á ³
+centered at % with radius    for which )²%Á ³  :  .
+27. Prove that any linear transformation ¢ = ¦ > is continuous under the
+natural topologies of = and > .
+28. Prove that any surjective linear transformation  from = to > (both finitedimensional topological vector spaces under the natural topology) is an
+open map, that is,  maps open sets to open sets.
+29. Prove that any subspace : of a finite-dimensional vector space = is a
+closed set or, equivalently, that :  is open, that is, for any %  :  there is
+an open ball )²%Á ³ centered at % with radius    for which
+)²%Á ³  :  .
+30. Let : be a subspace of = with dim²= ³  B.
+a) Show that the subspace topology on : inherited from = is the natural
+topology.
+b) Show that the natural topology on = °: is the topology for which the
+natural projection map ¢ = ¦ = °: continuous and open.
+31. If = is a real vector space, then = d is a complex vector space. Thinking of
+= d as a vector space ²= d ³s over s, show that ²= d ³s is isomorphic to the
+external direct product = ^ = .
+32. (When is a complex linear map a complexification?) Let = be a real vector
+space with complexification = d and let   B²= d ³. Prove that  is a
+complexification, that is,  has the form  d for some   B²= ³ if and only
+if  commutes with the conjugate map ¢ = d ¦ = d defined by
+²" b #³ ~ " c #.
+33. Let > be a complex vector space.
+a) Consider replacing the scalar multiplication on > by the operation
+²'Á $³ ¦ '$
+where '  d and $  > . Show that the resulting set with the addition
+defined for the vector space > and with this scalar multiplication is a
+complex vector space, which we denote by > .
+b) Show, without using dimension arguments, that ²>s ³d  > ^ > .
+
+Chapter 3
+
+The Isomorphism Theorems
+
+Quotient Spaces
+Let : be a subspace of a vector space = . It is easy to see that the binary relation
+on = defined by
+"#
+
+¯
+
+"c#:
+
+is an equivalence relation. When "  #, we say that " and # are congruent
+modulo : . The term mod is used as a colloquialism for modulo and "  # is
+often written
+"  # mod :
+When the subspace in question is clear, we will simply write "  #.
+To see what the equivalence classes look like, observe that
+´#µ ~ ¸"  =  "  #¹
+~ ¸"  =  " c #  :¹
+~ ¸"  =  " ~ # b for some  :¹
+~ ¸# b   :¹
+~#b:
+The set
+´#µ ~ # b : ~ ¸# b 
+
+ :¹
+
+is called a coset of : in = and # is called a coset representative for # b : .
+(Thus, any member of a coset is a coset representative.)
+The set of all cosets of : in = is denoted by
+= °: ~ ¸# b :  #  = ¹
+This is read “= mod : ” and is called the quotient space of = modulo : . Of
+
+88
+
+Advanced Linear Algebra
+
+course, the term space is a hint that we intend to define vector space operations
+on = °: .
+The natural choice for these vector space operations is
+²" b :³ b ²# b :³ ~ ²" b #³ b :
+and
+²" b :³ ~ ²"³ b :
+but we must check that these operations are well-defined, that is,
+1) " b : ~ " b :Á # b : ~ # b : ¬ ²" b # ³ b : ~ ²" b # ³ b :
+2) " b : ~ " b : ¬ " b : ~ " b :
+Equivalently, the equivalence relation  must be consistent with the vector
+space operations on = , that is,
+3) "  " Á #  # ¬ ²" b # ³  ²" b # ³
+4) "  " ¬ "  "
+This senario is a recurring one in algebra. An equivalence relation on an
+algebraic structure, such as a group, ring, module or vector space is called a
+congruence relation if it preserves the algebraic operations. In the case of a
+vector space, these are conditions 3) and 4) above.
+These conditions follow easily from the fact that : is a subspace, for if "  "
+and #  # , then
+" c "  :Á # c #  : ¬ ²" c " ³ b ²# c # ³  :
+¬ ²" b # ³ c ²" b # ³  :
+¬ " b #  " b #
+which verifies both conditions at once. We leave it to the reader to verify that
+= °: is indeed a vector space over - under these well-defined operations.
+Actually, we are lucky here: For any subspace : of = , the quotient = °: is a
+vector space under the natural operations. In the case of groups, not all
+subgroups have this property. Indeed, it is precisely the normal subgroups 5 of
+. that have the property that the quotient .°5 is a group. Also, for rings, it is
+precisely the ideals (not the subrings) that have the property that the quotient is
+a ring.
+Let us summarize.
+
+

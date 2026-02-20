@@ -1,0 +1,1160 @@
+Metric Spaces
+
+309
+
+Example 12.7 The space MB is not separable. Recall that MB is the set of all
+bounded sequences of real numbers (or complex numbers) with metric
+²%Á &³ ~ sup(% c & (
+
+
+To see that this space is not separable, consider the set : of all binary sequences
+: ~ ¸²% ³  % ~  or  for all ¹
+This set is in one-to-one correspondence with the set of all subsets of o and so
+is uncountable. (It has cardinality 2L  L .³ Now, each sequence in : is
+certainly bounded and so lies in MB . Moreover, if % £ &  MB , then the two
+sequences must differ in at least one position and so ²%Á &³ ~ .
+In other words, we have a subset : of MB that is uncountable and for which the
+distance between any two distinct elements is . This implies that the balls in the
+uncountable collection ¸)² Á °³   :¹ are mutually disjoint. Hence, no
+countable set can meet every ball, which implies that no countable set can be
+dense in MB .
+Example 12.8 The metric spaces M are separable, for   . The set : of all
+sequences of the form
+~ ² Á Ã Á  Á Á Ã ³
+for all   , where the  's are rational, is a countable set. Let us show that it is
+dense in M . Any %  M satisfies
+B
+
+ (% (  B
+~
+
+Hence, for any   , there exists an 5 such that
+B
+
+ (% ( 
+~5 b
+
+
+
+
+Since the rational numbers are dense in s, we can find rational numbers  for
+which
+
+(% c  ( 
+5
+for all  ~ Á Ã Á 5 . Hence, if ~ ² Á Ã Á 5 Á Á Ã ³, then
+5
+
+B
+
+~
+
+~5 b
+
+²%Á ³ ~  (% c  ( b  (% ( 
+
+
+
+b ~
+ 
+
+which shows that there is an element of : arbitrarily close to any element of M .
+Thus, : is dense in M and so M is separable.
+
+310
+
+Advanced Linear Algebra
+
+Continuity
+Continuity plays a central role in the study of linear operators on infinitedimensional inner product spaces.
+Definition Let  ¢ 4 ¦ 4 Z be a function from the metric space ²4 Á ³ to the
+metric space ²4 Z Á  Z ³. We say that  is continuous at %  4 if for any   ,
+there exists a    such that
+²%Á % ³   ¬  Z ² ²%³Á  ²% ³³  
+or, equivalently,
+ 4)²% Á  ³5  )² ²% ³Á ³
+(See Figure 12.2.) A function is continuous if it is continuous at every
+%  4 .
+
+Figure 12.2
+We can use the notion of convergence to characterize continuity for functions
+between metric spaces.
+Theorem 12.4 A function  ¢ 4 ¦ 4 Z is continuous if and only if whenever
+²% ³ is a sequence in 4 that converges to %  4 , then the sequence ² ²% ³³
+converges to  ²% ³, in short,
+²% ³ ¦ % ¬ ² ²% ³³ ¦  ²% ³
+Proof. Suppose first that  is continuous at % and let ²% ³ ¦ % . Then, given
+  , the continuity of  implies the existence of a    such that
+ ²)²% Á  ³³  )² ²% ³Á ³
+Since ²% ³ ¦ %, there exists an 5   such that %  )²% Á  ³ for   5 and
+so
+  5 ¬  ²% ³  )² ²% ³Á ³
+Thus,  ²% ³ ¦  ²% ³.
+Conversely, suppose that ²% ³ ¦ % implies ² ²% ³³ ¦  ²% ³. Suppose, for the
+purposes of contradiction, that  is not continuous at % . Then there exists an
+
+Metric Spaces
+
+311
+
+   such that for all   ,
+ 4)²% Á  ³5 
+\ )² ²% ³Á ³
+Thus, for all   ,
+ 4) 6% Á
+
+
+\ )² ²% ³Á ³
+75 
+
+
+and so we may construct a sequence ²% ³ by choosing each term % with the
+property that
+%  ) 6% Á
+
+
+7, but  ²% ³ ¤ )² ²% ³Á ³
+
+
+Hence, ²% ³ ¦ % , but  ²% ³ does not converge to  ²% ³. This contradiction
+implies that  must be continuous at % .
+The next theorem says that the distance function is a continuous function in both
+variables.
+Theorem 12.5 Let ²4 Á ³ be a metric space. If ²% ³ ¦ % and ²& ³ ¦ &, then
+²% Á & ³ ¦ ²%Á &³.
+Proof. We leave it as an exercise to show that
+(²% Á & ³ c ²%Á &³(  ²% Á %³ b ²& Á &³
+But the right side tends to  as  ¦ B and so ²% Á & ³ ¦ ²%Á &³.
+
+Completeness
+The reader who has studied analysis will recognize the following definitions.
+Definition A sequence ²% ³ in a metric space 4 is a Cauchy sequence if for
+any   , there exists an 5   for which
+Á   5 ¬ ²% Á % ³  
+We leave it to the reader to show that any convergent sequence is a Cauchy
+sequence. When the converse holds, the space is said to be complete.
+Definition Let 4 be a metric space.
+1) 4 is said to be complete if every Cauchy sequence in 4 converges in 4 .
+2) A subspace : of 4 is complete if it is complete as a metric space. Thus, :
+is complete if every Cauchy sequence ²  ³ in : converges to an element in
+:.
+Before considering examples, we prove a very useful result about completeness
+of subspaces.
+
+312
+
+Advanced Linear Algebra
+
+Theorem 12.6 Let 4 be a metric space.
+1) Any complete subspace of 4 is closed.
+2) If 4 is complete, then a subspace : of 4 is complete if and only if it is
+closed.
+Proof. To prove 1), assume that : is a complete subspace of 4 . Let ²% ³ be a
+sequence in : for which ²% ³ ¦ %  4 . Then ²% ³ is a Cauchy sequence in :
+and since : is complete, ²% ³ must converge to an element of : . Since limits of
+sequences are unique, we have %  : . Hence, : is closed.
+To prove part 2), first assume that : is complete. Then part 1) shows that : is
+closed. Conversely, suppose that : is closed and let ²% ³ be a Cauchy sequence
+in : . Since ²% ³ is also a Cauchy sequence in the complete space 4 , it must
+converge to some %  4 . But since : is closed, we have ²% ³ ¦ %  : . Hence,
+: is complete.
+Now let us consider some examples of complete (and incomplete) metric spaces.
+Example 12.9 It is well known that the metric space s is complete. (However, a
+proof of this fact would lead us outside the scope of this book.³ Similarly, the
+complex numbers d are complete.
+Example 12.10 The Euclidean space s and the unitary space d are complete.
+Let us prove this for s . Suppose that ²% ³ is a Cauchy sequence in s , where
+% ~ ²%Á Á Ã Á %Á ³
+Thus,
+
+
+²% Á % ³ ~ ²%Á c %Á ³ ¦  as Á  ¦ B
+~
+
+and so, for each coordinate position ,
+²%Á c %Á ³  ²% Á % ³ ¦ 
+which shows that the sequence ²%Á ³~Á2ÁÃ of th coordinates is a Cauchy
+sequence in s. Since s is complete, we must have
+²%Á ³ ¦ & as  ¦ B
+If & ~ ²& Á Ã Á & ³, then
+
+
+²% Á &³ ~ ²%Á c & ³ ¦  as  ¦ B
+~
+
+and so ²% ³ ¦ &  s . This proves that s is complete.
+
+Metric Spaces
+
+313
+
+Example 12.11 The metric space ²*´Á µÁ ³ of all real-valued (or complexvalued) continuous functions on ´Á µ, with metric
+² Á ³ ~ sup ( ²%³ c ²%³(
+%´Áµ
+
+is complete. To see this, we first observe that the limit with respect to  is the
+uniform limit on ´Á µ, that is ² Á  ³ ¦  if and only if for any   , there is
+an 5   for which
+  5 ¬ ( ²%³ c  ²%³(   for all %  ´Á µ
+Now let ² ³ be a Cauchy sequence in ²*´Á µÁ ³. Thus, for any   , there is
+an 5 for which
+Á   5 ¬ ( ²%³ c  ²%³(   for all %  ´Á µ
+
+(12.1)
+
+This implies that, for each %  ´Á µ, the sequence ² ²%³³ is a Cauchy sequence
+of real (or complex) numbers and so it converges. We can therefore define a
+function  on ´Á µ by
+ ²%³ ~ lim  ²%³
+¦B
+
+Letting  ¦ B in (12.1), we get
+  5 ¬ ( ²%³ c  ²%³(   for all %  ´Á µ
+Thus,  ²%³ converges to  ²%³ uniformly. It is well known that the uniform
+limit of continuous functions is continuous and so  ²%³  *´Á µ. Thus,
+² ²%³³ ¦  ²%³  *´Á µ and so ²*´Á µÁ ³ is complete.
+Example 12.12 The metric space ²*´Á µÁ  ³ of all real-valued (or complexvalued) continuous functions on ´Á µ, with metric
+
+
+( ²%³ c ²%³(%
+
+ ² ²%³Á ²%³³ ~
+
+
+is not complete. For convenience, we take ´Á µ ~ ´Á µ and leave the general
+case for the reader. Consider the sequence of functions  ²%³ whose graphs are
+shown in Figure 12.3. (The definition of  ²%³ should be clear from the graph.³
+
+314
+
+Advanced Linear Algebra
+
+Figure 12.3
+We leave it to the reader to show that the sequence ² ²%³³ is Cauchy, but does
+not converge in ²*´Á µÁ  ³. (The sequence converges to a function that is not
+continuous.)
+Example 12.13 The metric space MB is complete. To see this, suppose that ²% ³
+is a Cauchy sequence in MB , where
+% ~ ²%Á Á %Á2 Á Ã ³
+Then, for each coordinate position , we have
+(%Á c %Á (  sup (%Á c %Á ( ¦  as Á  ¦ B
+
+(12.2)
+
+
+
+Hence, for each , the sequence ²%Á ³ of th coordinates is a Cauchy sequence in
+s (or d). Since s (or d) is complete, we have
+²%Á ³ ¦ & as  ¦ B
+for each coordinate position . We want to show that & ~ ²& ³  MB and that
+²% ³ ¦ &.
+Letting  ¦ B in ²12.2) gives
+sup (%Á c & ( ¦  as  ¦ B
+
+(12.3)
+
+
+
+and so, for some ,
+(%Á c & (   for all 
+and so
+(& (   b (%Á ( for all 
+But since %  MB , it is a bounded sequence and therefore so is ²& ³. That is,
+& ~ ²& ³  MB . Since ²12.3) implies that ²% ³ ¦ &, we see that MB is
+complete.
+
+Metric Spaces
+
+315
+
+Example 12.14 The metric space M is complete. To prove this, let ²% ³ be a
+Cauchy sequence in M , where
+% ~ ²%Á Á %Á2 Á Ã ³
+Then, for each coordinate position ,
+B
+
+(%Á c %Á (  (%Á c %Á ( ~ ²% Á % ³ ¦ 
+~
+
+which shows that the sequence ²%Á ³ of th coordinates is a Cauchy sequence in
+s (or d). Since s (or d) is complete, we have
+²%Á ³ ¦ & as  ¦ B
+We want to show that & ~ ²& ³  M and that ²% ³ ¦ & .
+To this end, observe that for any   , there is an 5 for which
+
+
+Á   5 ¬ (%Á c %Á (  
+~
+
+for all   . Now we let  ¦ B, to get
+
+
+  5 ¬ (%Á c & (  
+~
+
+for all   . Letting  ¦ B, we get, for any   5 ,
+B
+
+(%Á c & (  
+~
+
+which implies that ²% ³ c &  M and so & ~ & c ²% ³ b ²% ³  M
+addition, ²% ³ ¦ &.
+
+and in
+
+As we will see in the next chapter, the property of completeness plays a major
+role in the theory of inner product spaces. Inner product spaces for which the
+induced metric space is complete are called Hilbert spaces.
+
+Isometries
+A function between two metric spaces that preserves distance is called an
+isometry. Here is the formal definition.
+Definition Let ²4 Á ³ and ²4 Z Á  Z ³ be metric spaces. A function  ¢ 4 ¦ 4 Z is
+called an isometry if
+ Z ² ²%³Á  ²&³³ ~ ²%Á &³
+
+316
+
+Advanced Linear Algebra
+
+for all %Á &  4 . If  ¢ 4 ¦ 4 Z is a bijective isometry from 4 to 4 Z , we say
+that 4 and 4 Z are isometric and write 4  4 Z .
+Theorem 12.7 Let  ¢ ²4 Á ³ ¦ ²4 Z Á  Z ³ be an isometry. Then
+1)  is injective
+2)  is continuous
+3)  c ¢  ²4 ³ ¦ 4 is also an isometry and hence also continuous.
+Proof. To prove 1), we observe that
+ ²%³ ~  ²&³ ¯  Z ² ²%³Á  ²&³³ ~  ¯ ²%Á &³ ~  ¯ % ~ &
+To prove 2), let ²% ³ ¦ % in 4 . Then
+ Z ² ²% ³Á  ²%³³ ~ ²% Á %³ ¦  as  ¦ B
+and so ² ²% ³³ ¦  ²%³, which proves that  is continuous. Finally, we have
+² c ² ²%³³Á  c ² ²&³³ ~ ²%Á &³ ~  Z ² ²%³Á  ²&³³
+and so  c ¢  ²4 ³ ¦ 4 is an isometry.
+
+The Completion of a Metric Space
+While not all metric spaces are complete, any metric space can be embedded in
+a complete metric space. To be more specific, we have the following important
+theorem.
+Theorem 12.8 Let ²4 Á ³ be any metric space. Then there is a complete metric
+space ²4 Z Á  Z ³ and an isometry  ¢ 4 ¦  4  4 Z for which  4 is dense in
+4 Z . The metric space ²4 Z Á  Z ³ is called a completion of ²4 Á ³. Moreover,
+²4 Z Á  Z ³ is unique, up to bijective isometry.
+Proof. The proof is a bit lengthy, so we divide it into various parts. We can
+simplify the notation considerably by thinking of sequences ²% ³ in 4 as
+functions  ¢ o ¦ 4 , where  ²³ ~ % .
+
+Cauchy Sequences in 4
+The basic idea is to let the elements of 4 Z be equivalence classes of Cauchy
+sequences in 4 . So let CS²4 ³ denote the set of all Cauchy sequences in 4 . If
+ Á   CS²4 ³, then, intuitively speaking, the terms  ²³ get closer together as
+ ¦ B and so do the terms ²³. Therefore, it seems reasonable that
+² ²³Á ²³³ should approach a finite limit as  ¦ B. Indeed, since
+(² ²³Á ²³³ c ² ²³Á ²³³(  ² ²³Á  ²³³ b ²²³Á ²³³ ¦ 
+as Á  ¦ B it follows that ² ²³Á ²³³ is a Cauchy sequence of real
+numbers, which implies that
+
+Metric Spaces
+
+317
+
+(12.4)
+
+lim ² ²³Á ²³³  B
+
+¦B
+
+(That is, the limit exists and is finite.³
+
+Equivalence Classes of Cauchy Sequences in 4
+We would like to define a metric  Z on the set CS²4 ³ by
+ Z ² Á ³ ~ lim ² ²³Á ²³³
+¦B
+
+However, it is possible that
+lim ² ²³Á ²³³ ~ 
+
+¦B
+
+for distinct sequences  and , so this does not define a metric. Thus, we are led
+to define an equivalence relation on CS²4 ³ by
+   ¯ lim ² ²³Á ²³³ ~ 
+¦B
+
+Let CS²4 ³ be the set of all equivalence classes of Cauchy sequences and
+define, for  Á   CS²4 ³,
+ Z ² Á ³ ~ lim ² ²³Á ²³³
+¦B
+
+(12.5)
+
+where    and   .
+To see that  Z is well-defined, suppose that  Z   and Z  . Then since
+ Z   and Z  , we have
+(² Z ²³Á Z ²³³ c ² ²³Á ²³³(  ² Z ²³Á  ²³³ b ²Z ²³Á ²³³ ¦ 
+as  ¦ B. Thus,
+ Z   and Z   ¬ lim ² Z ²³Á Z ²³³ ~ lim ² ²³Á ²³³
+¦B
+
+¦B
+
+¬  Z ² Z Á Z ³ ~  Z ² Á ³
+which shows that  Z is well-defined. To see that  Z is a metric, we verify the
+triangle inequality, leaving the rest to the reader. If  Á  and  are Cauchy
+sequences, then
+² ²³Á ²³³  ² ²³Á ²³³ b ²²³Á ²³³
+Taking limits gives
+lim ² ²³Á ²³³  lim ² ²³Á ²³³ b lim ²²³Á ²³³
+
+¦B
+
+¦B
+
+¦B
+
+318
+
+Advanced Linear Algebra
+
+and so
+ Z ² Á ³   Z ² Á ³ b  Z ²Á ³
+
+Embedding ²4 Á ³ in ²4 Z Á  Z ³
+For each %  4 , consider the constant Cauchy sequence ´%µ, where ´%µ²³ ~ %
+for all . The map  ¢ 4 ¦ 4 Z defined by
+% ~ ´%µ
+is an isometry, since
+ Z ² %Á  &³ ~  Z ²´%µÁ ´&µ³ ~ lim ²´%µ²³Á ´&µ²³³ ~ ²%Á &³
+¦B
+
+Moreover, 4 is dense in 4 Z . This follows from the fact that we can
+approximate any Cauchy sequence in 4 by a constant sequence. In particular,
+let   4 Z . Since    is a Cauchy sequence, for any   , there exists an 5
+such that
+Á   5 ¬ ² ²³Á  ²³³  
+Now, for the constant sequence ´ ²5 ³µ we have
+ Z 4´ ²5 ³µÁ  5 ~ lim ² ²5 ³Á  ²³³  
+¦B
+
+and so 4 is dense in 4 Z .
+
+²4 Z Á  Z ³ Is Complete
+Suppose that
+ Á   Á  3 Á Ã
+is a Cauchy sequence in 4 Z . We wish to find a Cauchy sequence  in 4 for
+which
+ Z ² Á ³ ~ lim ² ²³Á ²³³ ¦  as  ¦ B
+¦B
+
+Since   4 Z and since  4 is dense in 4 Z , there is a constant sequence
+´ µ ~ ² Á  Á Ã ³
+for which
+ Z ² Á ´ µ³ 
+
+
+
+
+Metric Spaces
+
+319
+
+We can think of  as a constant approximation to  , with error at most ° .
+Let  be the sequence of these constant approximations:
+²³ ~ 
+This is a Cauchy sequence in 4 . Intuitively speaking, since the  's get closer
+to each other as  ¦ B, so do the constant approximations. In particular, we
+have
+² Á  ³ ~  Z ²´ µÁ ´ µ³
+  Z ²´ µÁ  ³ b  Z ² Á  ³ b  Z ² Á ´ µ³
+
+
+ b  Z ² Á  ³ b ¦ 
+
+
+as Á  ¦ B. To see that  converges to , observe that
+ Z ² Á ³   Z ² Á ´ µ³ b  Z ²´ µÁ ³ 
+~
+
+
+b lim ² Á  ³
+ ¦B
+
+
+b lim ² Á ²³³
+ ¦B
+
+Now, since  is a Cauchy sequence, for any   , there is an 5 such that
+Á   5 ¬ ² Á  ³  
+In particular,
+  5 ¬ lim ² Á  ³  
+¦B
+
+and so
+  5 ¬  Z ² Á ³ 
+
+
+b
+
+
+which implies that  ¦ , as desired.
+
+Uniqueness
+Finally, we must show that if ²4 Z Á  Z ³ and ²4 ZZ Á  ZZ ³ are both completions of
+²4 Á ³, then 4 Z  4 ZZ . Note that we have bijective isometries
+ ¢ 4 ¦  4  4 Z and ¢ 4 ¦ 4  4 ZZ
+Hence, the map
+ ~  c ¢  4 ¦ 4
+is a bijective isometry from  4 onto 4 , where  4 is dense in 4 Z . ²See
+Figure 12.4.³
+
+320
+
+Advanced Linear Algebra
+
+Figure 12.4
+Our goal is to show that  can be extended to a bijective isometry  from 4 Z to
+4 ZZ .
+Let %  4 Z . Then there is a sequence ² ³ in  4 for which ² ³ ¦ %. Since
+² ³ is a Cauchy sequence in  4 , ²² ³³ is a Cauchy sequence in 4  4 ZZ
+and since 4 ZZ is complete, we have ²² ³³ ¦ & for some &  4 ZZ . Let us
+define ²%³ ~ &.
+To see that  is well-defined, suppose that ² ³ ¦ % and ² ³ ¦ %, where both
+sequences lie in 4 . Then
+ ZZ ²² ³Á ² ³³ ~  Z ² Á  ³ ¦  as  ¦ B
+and so ²² ³³ and ²² ³³ converge to the same element of 4 ZZ , which implies
+that ²%³ does not depend on the choice of sequence in  4 converging to %.
+Thus,  is well-defined. Moreover, if    4 , then the constant sequence ´µ
+converges to  and so ²³ ~ lim ²³ ~ ²³, which shows that  is an
+extension of .
+To see that  is an isometry, suppose that ² ³ ¦ % and ² ³ ¦ &. Then
+²² ³³ ¦ ²%³ and ²² ³³ ¦ ²&³ and since  ZZ is continuous, we have
+ ZZ ²²%³Á ²&³³ ~ lim  ZZ ²² ³Á ² ³³ ~ lim  Z ²Á ³ ~  Z ²%Á &³
+¦B
+
+¦B
+
+Thus, we need only show that  is surjective. Note first that
+4 ~ im²³  im²³. Thus, if im²³ is closed, we can deduce from the fact
+that 4 is dense in 4 ZZ that im²³ ~ 4 ZZ . So, suppose that ²²% ³³ is a
+sequence in im²³ and ²²% ³³ ¦ ' . Then ²²% ³³ is a Cauchy sequence and
+therefore so is ²% ³. Thus, ²% ³ ¦ %  4 Z . But  is continuous and so
+²²% ³³ ¦ ²%³, which implies that ²%³ ~ ' and so '  im²³. Hence,  is
+surjective and 4 Z  4 ZZ .
+
+Metric Spaces
+
+321
+
+Exercises
+1.
+
+Prove the generalized triangle inequality
+²% Á % ³  ²% Á % ³ b ²% Á %3 ³ b Ä b ²%c Á % ³
+
+2.
+
+a)
+
+Use the triangle inequality to prove that
+(²%Á &³ c ²Á ³(  ²%Á ³ b ²&Á ³
+
+b) Prove that
+(²%Á '³ c ²&Á '³(  ²%Á &³
+3.
+4.
+
+5.
+
+6.
+7.
+8.
+9.
+
+Let :  MB be the subspace of all binary sequences (sequences of 's and
+'s). Describe the metric on : .
+Let 4 ~ ¸Á ¹ be the set of all binary -tuples. Define a function
+¢ : d : ¦ s by letting ²%Á &³ be the number of positions in which % and
+& differ. For example, ´²³Á ²³µ ~ . Prove that  is a metric. (It
+is called the Hamming distance function and plays an important role in
+the theory of error-correcting codes.³
+Let     B.
+a) If % ~ ²% ³  M show that % ¦ 
+b) Find a sequence that converges to  but is not an element of any M for
+    B.
+a) Show that if % ~ ²% ³  M , then %  M for all   .
+b) Find a sequence % ~ ²% ³ that is in M for   , but is not in M .
+Show that a subset : of a metric space 4 is open if and only if : contains
+an open neighborhood of each of its points.
+Show that the intersection of any collection of closed sets in a metric space
+is closed.
+Let ²4 Á ³ be a metric space. The diameter of a nonempty subset :  4
+is
+²:³ ~ sup ²%Á &³
+%Á&:
+
+A set : is bounded if  ²:³  B.
+a) Prove that : is bounded if and only if there is some %  4 and   s
+for which :  )²%Á ³.
+b) Prove that ²:³ ~  if and only if : consists of a single point.
+c) Prove that :  ; implies  ²:³   ²; ³.
+d) If : and ; are bounded, show that : r ; is also bounded.
+10. Let ²4 Á ³ be a metric space. Let  Z be the function defined by
+ Z ²%Á &³ ~
+
+²%Á &³
+ b ²%Á &³
+
+322
+
+Advanced Linear Algebra
+
+Show that ²4 Á  Z ³ is a metric space and that 4 is bounded under this
+metric, even if it is not bounded under the metric  .
+b) Show that the metric spaces ²4 Á ³ and ²4 Á  Z ³ have the same open
+sets.
+11. If : and ; are subsets of a metric space ²4 Á ³, we define the distance
+between : and ; by
+a)
+
+²:Á ; ³ ~
+
+inf ²%Á &³
+
+%:Á!;
+
+a) Is it true that ²:Á ; ³ ~  if and only if : ~ ; ? Is  a metric?
+b) Show that %  cl²:³ if and only if ²¸%¹Á :³ ~ .
+12. Prove that %  4 is a limit point of :  4 if and only if every
+neighborhood of % meets : in a point other than % itself.
+13. Prove that %  4 is a limit point of :  4 if and only if every open ball
+)²%Á ³ contains infinitely many points of : .
+14. Prove that limits are unique, that is, ²% ³ ¦ %, ²% ³ ¦ & implies that
+% ~ &.
+15. Let : be a subset of a metric space 4 . Prove that %  cl²:³ if and only if
+there exists a sequence ²% ³ in : that converges to %.
+16. Prove that the closure has the following properties:
+a) :  cl²:³
+b) cl²cl²:³³ ~ :
+c) cl²: r ; ³ ~ cl²:³ r cl²; ³
+d) cl²: q ; ³  cl²:³ q cl²; ³
+Can the last part be strengthened to equality?
+17. a) Prove that the closed ball )²%Á ³ is always a closed subset.
+b) Find an example of a metric space in which the closure of an open ball
+)²%Á ³ is not equal to the closed ball )²%Á ³.
+18. Provide the details to show that s is separable.
+19. Prove that d is separable.
+20. Prove that a discrete metric space is separable if and only if it is countable.
+21. Prove that the metric space 8´Á µ of all bounded functions on ´Á µ, with
+metric
+² Á ³ ~ sup ( ²%³ c ²%³(
+%´Áµ
+
+is not separable.
+22. Show that a function  ¢ ²4 Á ³ ¦ ²4 Z Á  Z ³ is continuous if and only if the
+inverse image of any open set is open, that is, if and only if
+ c ²< ³ ~ ¸%  4   ²%³  < ¹ is open in 4 whenever < is an open set
+in 4 Z .
+23. Repeat the previous exercise, replacing the word open by the word closed.
+24. Give an example to show that if  ¢ ²4 Á ³ ¦ ²4 Z Á  Z ³ is a continuous
+function and < is an open set in 4 , it need not be the case that  ²< ³ is
+open in 4 Z .
+
+Metric Spaces
+
+323
+
+25. Show that any convergent sequence is a Cauchy sequence.
+26. If ²% ³ ¦ % in a metric space 4 , show that any subsequence ²% ³ of ²% ³
+also converges to %.
+27. Suppose that ²% ³ is a Cauchy sequence in a metric space 4 and that some
+subsequence ²% ³ of ²% ³ converges. Prove that ²% ³ converges to the
+same limit as the subsequence.
+28. Prove that if ²% ³ is a Cauchy sequence, then the set ¸% ¹ is bounded. What
+about the converse? Is a bounded sequence necessarily a Cauchy sequence?
+29. Let ²% ³ and ²& ³ be Cauchy sequences in a metric space 4 . Prove that the
+sequence  ~ ²% Á & ³ converges.
+30. Show that the space of all convergent sequences of real numbers ²or
+complex numbers) is complete as a subspace of MB .
+31. Let F denote the metric space of all polynomials over d, with metric
+²Á ³ ~ sup (²%³ c ²%³(
+%´Áµ
+
+Is F complete?
+32. Let :  MB be the subspace of all sequences with finite support (that is,
+with a finite number of nonzero terms). Is : complete?
+33. Prove that the metric space { of all integers, with metric
+²Á ³ ~ ( c (, is complete.
+34. Show that the subspace : of the metric space *´Á µ (under the sup metric)
+consisting of all functions   *´Á µ for which  ²³ ~  ²³ is complete.
+35. If 4  4 Z and 4 is complete, show that 4 Z is also complete.
+36. Show that the metric spaces *´Á µ and *´Á µ, under the sup metric, are
+isometric.
+37. Prove Hölder's inequality
+B
+
+°
+
+B
+
+
+
+(% & (  8 (% ( 9
+~
+
+~
+
+°
+
+B
+
+
+
+8 (& ( 9
+~
+
+as follows:
+a) Show that ~ !c ¬ ! ~ c
+b) Let " and # be positive real numbers and consider the rectangle 9 in
+s with corners ²Á ³, ²"Á ³, ²Á #³ and ²"Á #³, with area "#. Argue
+geometrically (that is, draw a picture) to show that
+"
+
+"# 
+
+#
+
+!c ! b
+
+
+
+c
+
+
+
+
+
+and so
+"# 
+c)
+
+"
+#
+b
+
+
+
+Now let ? ~ '(% (  B and @ ~ '(& (  B. Apply the results of
+part b) to
+
+324
+
+Advanced Linear Algebra
+
+"~
+
+(% (
+Á
+? °
+
+#~
+
+(& (
+@ °
+
+and then sum on  to deduce Hölder's inequality.
+38. Prove Minkowski's inequality
+°
+
+B
+
+
+8(% b & ( 9
+~
+
+°
+
+B
+
+ 8 (% ( 9
+~
+
+B
+
+°
+
+b 8 (& ( 9
+~
+
+as follows:
+a) Prove it for  ~  first.
+b) Assume   . Show that
+(% b & (  (% ((% b & (c b (& ((% b & (c
+c)
+
+Sum this from  ~  to  and apply Hölder's inequality to each sum on
+the right, to get
+
+
+(% b & (
+~
+
+
+ H8(% ( 9
+~
+
+°
+
+
+
+b 8(& ( 9
+~
+
+°
+
+
+
+°
+
+
+I8(% b & ( 9
+~
+
+Divide both sides of this by the last factor on the right and let  ¦ B to
+deduce Minkowski's inequality.
+39. Prove that M is a metric space.
+
+Chapter 13
+
+Hilbert Spaces
+
+Now that we have the necessary background on the topological properties of
+metric spaces, we can resume our study of inner product spaces without
+qualification as to dimension. As in Chapter 9, we restrict attention to real and
+complex inner product spaces. Hence - will denote either s or d.
+
+A Brief Review
+Let us begin by reviewing some of the results from Chapter 9. Recall that an
+inner product space = over - is a vector space = , together with an inner
+product ºÁ »¢ = d = ¦ - . If - ~ s, then the inner product is bilinear and if
+- ~ d, the inner product is sesquilinear.
+An inner product induces a norm on = , defined by
+)#) ~ jº#Á #»
+We recall in particular the following properties of the norm.
+Theorem 13.1
+1) (The Cauchy-Schwarz inequality) For all "Á #  = ,
+(º"Á #»(  )") )#)
+with equality if and only if " ~ # for some   - .
+2) (The triangle inequality) For all "Á #  = ,
+)" b #)  )") b )#)
+with equality if and only if " ~ # for some   - .
+3) (The parallelogram law)
+)" b #) b )" c #) ~ )") b )#)
+We have seen that the inner product can be recovered from the norm, as follows.
+
+326
+
+Advanced Linear Algebra
+
+Theorem 13.2
+1) If = is a real inner product space, then
+º"Á #» ~
+
+
+²)" b #) c )" c #) ³
+
+
+2) If = is a complex inner product space, then
+º"Á #» ~
+
+
+
+²)" b #) c )" c #) ³ b ²)" b #) c )" c #) ³
+
+
+
+The inner product also induces a metric on = defined by
+²"Á #³ ~ )" c #)
+Thus, any inner product space is a metric space.
+Definition Let = and > be inner product spaces and let   B²= Á > ³.
+1)  is an isometry if it preserves the inner product, that is, if
+º "Á  #» ~ º"Á #»
+for all "Á #  = .
+2) A bijective isometry is called an isometric isomorphism. When ¢ = ¦ >
+is an isometric isomorphism, we say that = and > are isometrically
+isomorphic.
+It is easy to see that an isometry is always injective but need not be surjective,
+even if = ~ > .
+Theorem 13.3 A linear transformation   B²= Á > ³ is an isometry if and only
+if it preserves the norm, that is, if and only if
+)#) ~ )#)
+for all #  = .
+The following result points out one of the main differences between real and
+complex inner product spaces.
+Theorem 13.4 Let = be an inner product space and let   B²= ³.
+1) If º #Á $» ~  for all #Á $  = , then  ~ .
+2) If = is a complex inner product space and 8 ²#³ ~ º #Á #» ~  for all
+#  = , then  ~ .
+3) Part 2) does not hold in general for real inner product spaces.
+
+Hilbert Spaces
+Since an inner product space is a metric space, all that we learned about metric
+spaces applies to inner product spaces. In particular, if ²% ³ is a sequence of
+
+Hilbert Spaces
+
+327
+
+vectors in an inner product space = , then
+²% ³ ¦ % if and only if )% c %) ¦  as  ¦ B
+The fact that the inner product is continuous as a function of either of its
+coordinates is extremely useful.
+Theorem 13.5 Let = be an inner product space. Then
+1) ²% ³ ¦ %Á ²& ³ ¦ & ¬ º% Á & » ¦ º%Á &»
+2) ²% ³ ¦ % ¬ )% ) ¦ )%)
+Complete inner product spaces play an especially important role in both theory
+and practice.
+Definition An inner product space that is complete under the metric induced by
+the inner product is said to be a Hilbert space.
+Example 13.1 One of the most important examples of a Hilbert space is the
+space M . Recall that the inner product is defined by
+B
+
+º%Á &» ~ % &
+~
+
+(In the real case, the conjugate is unnecessary.³ The metric induced by this inner
+product is
+°2
+
+B
+
+²%Á &³ ~ )% c &) ~ 8(% c & ( 9
+~
+
+which agrees with the definition of the metric space M given in Chapter 12. In
+other words, the metric in Chapter 12 is induced by this inner product. As we
+saw in Chapter 12, this inner product space is complete and so it is a Hilbert
+space. (In fact, it is the prototype of all Hilbert spaces, introduced by David
+Hilbert in 1912, even before the axiomatic definition of Hilbert space was given
+by John von Neumann in 1927.³
+The previous example raises the question whether the other metric spaces M
+² £ ), with distance given by
+B
+
+°
+
+
+²%Á &³ ~ )% c &) ~ 8 (% c & ( 9
+
+(13.1)
+
+~
+
+are complete inner product spaces. The fact is that they are not even inner
+product spaces! More specifically, there is no inner product whose induced
+metric is given by (13.1). To see this, observe that, according to Theorem 13.1,
+
+328
+
+Advanced Linear Algebra
+
+any norm that comes from an inner product must satisfy the parallelogram law
+) % b & )  b ) % c & )  ~  ) % )  b  )& ) 
+But the norm in (13.1) does not satisfy this law. To see this, take
+% ~ ²Á Á Á Ã ³ and & ~ ²Á cÁ Á Ã ³. Then
+)% b &) ~ Á )% c &) ~ 
+and
+)%) ~ ° Á )&) ~ °
+Thus, the left side of the parallelogram law is
+which equals if and only if  ~ .
+
+and the right side is  h 2° ,
+
+Just as any metric space has a completion, so does any inner product space.
+Theorem 13.6 Let = be an inner product space. Then there exists a Hilbert
+space / and an isometry  ¢ = ¦ / for which  = is dense in / . Moreover, /
+is unique up to isometric isomorphism.
+Proof. We know that the metric space ²= Á ³, where  is induced by the inner
+product, has a unique completion ²= Z Á  Z ³, which consists of equivalence classes
+of Cauchy sequences in = . If ²% ³  ²% ³  = Z and ²& ³  ²& ³  = Z , then we
+set
+²% ³ b ²& ³ ~ ²% b & ³Á ²% ³ ~ ²% ³
+and
+º²% ³Á ²& ³» ~ lim º% Á & »
+¦B
+
+It is easy to see that since ²% ³ and ²& ³ are Cauchy sequences, so are ²% b & ³
+and ²% ³. In addition, these definitions are well-defined, that is, they are
+independent of the choice of representative from each equivalence class. For
+instance, if ²%
+V ³  ²% ³, then
+lim )% c %
+V ) ~ 
+
+¦B
+
+and so
+(º% Á & » c º%
+V Á & »( ~ (º% c %
+V Á & »(  )% c %
+V ))& ) ¦ 
+(The Cauchy sequence ²& ³ is bounded.³ Hence,
+º²% ³Á ²& ³» ~ lim º% Á & » ~ lim º%
+V Á & » ~ º²%
+V³Á ²&³»
+¦B
+
+¦B
+
+We leave it to the reader to show that = Z is an inner product space under these
+operations.
+
+Hilbert Spaces
+
+329
+
+Moreover, the inner product on = Z induces the metric  Z , since
+º²% c & ³Á ²% c & ³» ~ lim º% c & Á % c &»
+¦B
+
+~ lim ²% Á & ³
+¦B
+
+~  Z ²²% ³Á ²& ³³
+Hence, the metric space isometry ¢ = ¦ = Z is an isometry of inner product
+spaces, since
+º %Á  &» ~  Z ² %Á  &³ ~ ²%Á &³ ~ º%Á &»
+Thus, = Z is a complete inner product space and  = is a dense subspace of = Z
+that is isometrically isomorphic to = . We leave the issue of uniqueness to the
+reader.
+The next result concerns subspaces of inner product spaces.
+Theorem 13.7
+1) Any complete subspace of an inner product space is closed.
+2) A subspace of a Hilbert space is a Hilbert space if and only if it is closed.
+3) Any finite-dimensional subspace of an inner product space is closed and
+complete.
+Proof. Parts 1) and 2) follow from Theorem 12.6. Let us prove that a finitedimensional subspace : of an inner product space = is closed. Suppose that
+²% ³ is a sequence in : , ²% ³ ¦ % and % ¤ : . Let 8 ~ ¸ Á Ã Á  ¹ be an
+orthonormal Hamel basis for : . The Fourier expansion
+
+
+~ º%Á  »
+~
+
+in : has the property that % c £  but
+º% c Á  » ~ º%Á  » c º Á  » ~ 
+Thus, if we write & ~ % c and & ~ % c  : , the sequence ²& ³, which is
+in : , converges to a vector & that is orthogonal to : . But this is impossible,
+because &  & implies that
+)& c &) ~ )& ) b )&)  )&) ¦
+° 
+This proves that : is closed.
+To see that any finite-dimensional subspace : of an inner product space is
+complete, let us embed : (as an inner product space in its own right) in its
+completion : Z . Then : (or rather an isometric copy of : ) is a finite-dimensional
+
+330
+
+Advanced Linear Algebra
+
+subspace of a complete inner product space : Z and as such it is closed.
+However, : is dense in : Z and so : ~ : Z , which shows that : is complete.
+
+Infinite Series
+Since an inner product space allows both addition of vectors and convergence of
+sequences, we can define the concept of infinite sums, or infinite series.
+Definition Let = be an inner product space. The th partial sum of the
+sequence ²% ³ in = is
+ ~ % b Ä b % 
+
+If the sequence ²  ³ of partial sums converges to a vector  = , that is, if
+)  c ) ¦  as  ¦ B
+then we say that the series  % converges to and write
+B
+
+ % ~
+~
+
+We can also define absolute convergence.
+Definition A series  % is said to be absolutely convergent if the series
+B
+
+)% )
+~
+
+converges.
+The key relationship between convergence and absolute convergence is given in
+the next theorem. Note that completeness is required to guarantee that absolute
+convergence implies convergence.
+Theorem 13.8 Let = be an inner product space. Then = is complete if and only
+if absolute convergence of a series implies convergence.
+Proof. Suppose that = is complete and that )% )  B. Then the sequence 
+of partial sums is a Cauchy sequence, for if   , we have
+
+
+
+
+)  c  ) ~ i  % i   )% ) ¦ 
+~b
+
+~b
+
+Hence, the sequence ²  ³ converges, that is, the series  % converges.
+Conversely, suppose that absolute convergence implies convergence and let
+²% ³ be a Cauchy sequence in = . We wish to show that this sequence
+converges. Since ²% ³ is a Cauchy sequence, for each   , there exists an 5
+
+Hilbert Spaces
+
+331
+
+with the property that
+Á   5 ¬ )% c % ) 
+
+
+
+
+Clearly, we can choose 5  5  Ä, in which case
+)%5b c %5 ) 
+
+
+
+
+and so
+B
+B
+
+)%5b c %5 )     B
+
+~
+~
+
+Thus, according to hypothesis, the series
+B
+
+²%5b c %5 ³
+~
+
+converges. But this is a telescoping series, whose th partial sum is
+%5b c %5
+and so the subsequence ²%5 ³ converges. Since any Cauchy sequence that has a
+convergent subsequence must itself converge, the sequence ²% ³ converges and
+so = is complete.
+
+An Approximation Problem
+Suppose that = is an inner product space and that : is a subset of = . It is of
+considerable interest to be able to find, for any %  = , a vector in : that is
+closest to % in the metric induced by the inner product, should such a vector
+exist. This is the approximation problem for = .
+Suppose that %  = and let
+ ~ inf )% c )
+:
+
+Then there is a sequence
+
+ for which
+
+ ~ )% c  ) ¦ 
+as shown in Figure 13.1.
+
+

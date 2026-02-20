@@ -4,7 +4,7 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch12'] = window.EXTRA_VIZ['ch12'] || {};
 
-// Section 1: Different Metrics and Metric Balls
+// Section 1: Metric Spaces and Open Sets
 window.EXTRA_VIZ['ch12']['ch12-sec01'] = [
     {
         id: 'ch12-extra-viz-1',
@@ -117,8 +117,7 @@ window.EXTRA_VIZ['ch12']['ch12-sec01'] = [
             draw();
             return viz;
         }
-    },
-
+    },,
     {
         id: 'ch12-extra-viz-2',
         title: 'Interactive: Epsilon-Ball Explorer',
@@ -196,11 +195,256 @@ window.EXTRA_VIZ['ch12']['ch12-sec01'] = [
             draw();
             return viz;
         }
+    },
+    {
+        id: 'ch12-extra-viz-5',
+        title: 'Interactive: Open vs Closed Sets and Boundaries',
+        description: 'Explore the difference between open and closed sets. See how boundary points are included or excluded.',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 700, height: 500, scale: 60});
+
+            let setType = 'open-ball';
+            let radius = 2.0;
+
+            const sets = {
+                'open-ball': {
+                    name: 'Open Ball B(0, r)',
+                    contains: (x, y, r) => x*x + y*y < r*r,
+                    boundary: (x, y, r) => Math.abs(x*x + y*y - r*r) < 0.1,
+                    isBoundaryIncluded: false
+                },
+                'closed-ball': {
+                    name: 'Closed Ball B̄(0, r)',
+                    contains: (x, y, r) => x*x + y*y <= r*r,
+                    boundary: (x, y, r) => Math.abs(x*x + y*y - r*r) < 0.1,
+                    isBoundaryIncluded: true
+                },
+                'open-square': {
+                    name: 'Open Square (-r, r) × (-r, r)',
+                    contains: (x, y, r) => Math.abs(x) < r && Math.abs(y) < r,
+                    boundary: (x, y, r) => (Math.abs(Math.abs(x) - r) < 0.1 && Math.abs(y) <= r) ||
+                                          (Math.abs(Math.abs(y) - r) < 0.1 && Math.abs(x) <= r),
+                    isBoundaryIncluded: false
+                },
+                'closed-square': {
+                    name: 'Closed Square [-r, r] × [-r, r]',
+                    contains: (x, y, r) => Math.abs(x) <= r && Math.abs(y) <= r,
+                    boundary: (x, y, r) => (Math.abs(Math.abs(x) - r) < 0.1 && Math.abs(y) <= r) ||
+                                          (Math.abs(Math.abs(y) - r) < 0.1 && Math.abs(x) <= r),
+                    isBoundaryIncluded: true
+                }
+            };
+
+            const typeSelector = document.createElement('select');
+            typeSelector.innerHTML = `
+                <option value="open-ball">Open Ball</option>
+                <option value="closed-ball">Closed Ball</option>
+                <option value="open-square">Open Square</option>
+                <option value="closed-square">Closed Square</option>
+            `;
+            typeSelector.style.marginRight = '10px';
+            typeSelector.addEventListener('change', (e) => {
+                setType = e.target.value;
+                draw();
+            });
+            controls.appendChild(typeSelector);
+
+            const radiusSlider = VizEngine.createSlider(controls, 'Radius (r)', 0.5, 3.5, 2.0, 0.1, (val) => {
+                radius = val;
+                draw();
+            });
+
+            // Generate test points
+            const testPoints = [];
+            for (let x = -4; x <= 4; x += 0.4) {
+                for (let y = -4; y <= 4; y += 0.4) {
+                    testPoints.push({x, y});
+                }
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const set = sets[setType];
+
+                // Draw test points
+                for (const pt of testPoints) {
+                    const isInside = set.contains(pt.x, pt.y, radius);
+                    const isBoundary = set.boundary(pt.x, pt.y, radius);
+
+                    if (isBoundary) {
+                        if (set.isBoundaryIncluded) {
+                            viz.drawPoint(pt.x, pt.y, viz.colors.orange, null, 4);
+                        } else {
+                            viz.drawCircle(pt.x, pt.y, 0.08, null, viz.colors.orange);
+                        }
+                    } else if (isInside) {
+                        viz.drawPoint(pt.x, pt.y, viz.colors.green + '88', null, 3);
+                    }
+                }
+
+                // Draw boundary
+                if (setType.includes('ball')) {
+                    const ctx = viz.ctx;
+                    ctx.save();
+                    if (!set.isBoundaryIncluded) {
+                        ctx.setLineDash([5, 5]);
+                    }
+                    viz.drawCircle(0, 0, radius, null, viz.colors.orange);
+                    ctx.restore();
+                } else {
+                    const ctx = viz.ctx;
+                    ctx.save();
+                    if (!set.isBoundaryIncluded) {
+                        ctx.setLineDash([5, 5]);
+                    }
+                    viz.drawPolygon([
+                        [radius, radius],
+                        [-radius, radius],
+                        [-radius, -radius],
+                        [radius, -radius]
+                    ], null, viz.colors.orange, 2);
+                    ctx.restore();
+                }
+
+                // Legend
+                viz.drawText(set.name, -5.5, 4.0, viz.colors.white, 14, 'left');
+
+                viz.drawPoint(-5.2, 3.3, viz.colors.green + '88', null, 4);
+                viz.drawText('Interior points', -4.8, 3.3, viz.colors.text, 11, 'left');
+
+                if (set.isBoundaryIncluded) {
+                    viz.drawPoint(-5.2, 2.8, viz.colors.orange, null, 4);
+                    viz.drawText('Boundary (included)', -4.8, 2.8, viz.colors.text, 11, 'left');
+                } else {
+                    viz.drawCircle(-5.2, 2.8, 0.08, null, viz.colors.orange);
+                    viz.drawText('Boundary (excluded)', -4.8, 2.8, viz.colors.text, 11, 'left');
+                }
+
+                viz.drawText(set.isBoundaryIncluded ? 'CLOSED SET' : 'OPEN SET',
+                            -5.5, 2.2, set.isBoundaryIncluded ? viz.colors.blue : viz.colors.red, 13, 'left');
+            }
+
+            draw();
+            return viz;
+        }
+    },
+];
+
+// Section 2: Convergence and Continuity
+window.EXTRA_VIZ['ch12']['ch12-sec02'] = [
+    {
+        id: 'ch12-extra-viz-7',
+        title: 'Interactive: Continuous Functions on Metric Spaces',
+        description: 'Visualize epsilon-delta continuity. For any ε > 0, find δ > 0 such that d(x, x₀) < δ implies d(f(x), f(x₀)) < ε.',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 700, height: 500, scale: 60});
+
+            let epsilon = 0.8;
+            let delta = 0.5;
+            let x0 = {x: 1, y: 0.5};
+
+            // Define a continuous function: f(x, y) = (x², xy)
+            function f(pt) {
+                return {
+                    x: pt.x * pt.x / 3,
+                    y: pt.x * pt.y / 2
+                };
+            }
+
+            const fx0 = f(x0);
+
+            const epsilonSlider = VizEngine.createSlider(controls, 'Epsilon (ε)', 0.2, 2.0, 0.8, 0.1, (val) => {
+                epsilon = val;
+                draw();
+            });
+
+            const deltaSlider = VizEngine.createSlider(controls, 'Delta (δ)', 0.1, 2.0, 0.5, 0.1, (val) => {
+                delta = val;
+                draw();
+            });
+
+            const point = viz.addDraggable('x0', x0.x, x0.y, viz.colors.white, 8, () => {
+                x0 = {x: point.x, y: point.y};
+                draw();
+            });
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const fx0 = f(x0);
+
+                // Draw input space (left side)
+                viz.drawCircle(x0.x, x0.y, delta, viz.colors.blue + '22', viz.colors.blue);
+                viz.drawPoint(x0.x, x0.y, viz.colors.white, 'x₀', 7);
+
+                // Sample points in delta-ball
+                const samplePoints = [];
+                for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 6) {
+                    for (let r = 0.3; r <= delta; r += 0.3) {
+                        const px = x0.x + r * Math.cos(angle);
+                        const py = x0.y + r * Math.sin(angle);
+                        const dist = Math.sqrt((px - x0.x)**2 + (py - x0.y)**2);
+
+                        if (dist < delta) {
+                            samplePoints.push({x: px, y: py});
+                        }
+                    }
+                }
+
+                // Draw output space (right side)
+                const offset = 5;
+                viz.drawCircle(fx0.x + offset, fx0.y, epsilon, viz.colors.green + '22', viz.colors.green);
+                viz.drawPoint(fx0.x + offset, fx0.y, viz.colors.yellow, 'f(x₀)', 7);
+
+                // Check continuity condition
+                let allInside = true;
+                for (const pt of samplePoints) {
+                    viz.drawPoint(pt.x, pt.y, viz.colors.blue + '88', null, 3);
+
+                    const fpt = f(pt);
+                    const distToFx0 = Math.sqrt((fpt.x - fx0.x)**2 + (fpt.y - fx0.y)**2);
+
+                    if (distToFx0 < epsilon) {
+                        viz.drawPoint(fpt.x + offset, fpt.y, viz.colors.green + '88', null, 3);
+                    } else {
+                        viz.drawPoint(fpt.x + offset, fpt.y, viz.colors.red + '88', null, 3);
+                        allInside = false;
+                    }
+
+                    // Draw mapping arrow
+                    viz.drawSegment(pt.x, pt.y, fpt.x + offset, fpt.y, viz.colors.teal + '33', 1);
+                }
+
+                viz.drawDraggables();
+
+                // Labels
+                viz.drawText('Input Space X', x0.x, 3.5, viz.colors.text, 12);
+                viz.drawText('Output Space Y', fx0.x + offset, 3.5, viz.colors.text, 12);
+                viz.drawText(`B(x₀, δ=${delta.toFixed(2)})`, x0.x, -3.5, viz.colors.blue, 11);
+                viz.drawText(`B(f(x₀), ε=${epsilon.toFixed(2)})`, fx0.x + offset, -3.5, viz.colors.green, 11);
+
+                // Continuity check
+                if (allInside) {
+                    viz.drawText('✓ Continuity satisfied!', -5, -3.8, viz.colors.green, 13, 'left');
+                    viz.drawText('f(B(x₀,δ)) ⊆ B(f(x₀),ε)', -5, -4.3, viz.colors.text, 11, 'left');
+                } else {
+                    viz.drawText('✗ Need smaller δ', -5, -3.8, viz.colors.red, 13, 'left');
+                }
+            }
+
+            draw();
+            return viz;
+        }
     }
 ];
 
-// Section 2: Sequences and Convergence
-window.EXTRA_VIZ['ch12']['ch12-sec02'] = [
+// Section 3: Completeness and Cauchy Sequences
+window.EXTRA_VIZ['ch12']['ch12-sec03'] = [
     {
         id: 'ch12-extra-viz-3',
         title: 'Interactive: Cauchy Sequence Convergence',
@@ -340,272 +584,8 @@ window.EXTRA_VIZ['ch12']['ch12-sec02'] = [
     }
 ];
 
-// Section 3: Completeness and Fixed Points
-window.EXTRA_VIZ['ch12']['ch12-sec03'] = [
-    {
-        id: 'ch12-extra-viz-4',
-        title: 'Interactive: Banach Fixed Point Theorem (Contraction Mapping)',
-        description: 'Visualize the Banach Fixed Point Theorem in action. Watch as repeated application of a contraction mapping converges to a unique fixed point.',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 700, height: 500, scale: 60});
-
-            let contractionFactor = 0.5;
-            let centerX = 1.5;
-            let centerY = 1.0;
-            let n = 0;
-            let playing = false;
-            let x0 = {x: -2, y: 2};
-
-            // Contraction mapping: T(x) = c + λ(x - c)
-            function contractionMap(pt) {
-                return {
-                    x: centerX + contractionFactor * (pt.x - centerX),
-                    y: centerY + contractionFactor * (pt.y - centerY)
-                };
-            }
-
-            const factorSlider = VizEngine.createSlider(controls, 'Contraction factor (λ)', 0.1, 0.9, 0.5, 0.05, (val) => {
-                contractionFactor = val;
-                n = 0;
-                draw();
-            });
-
-            const playButton = VizEngine.createButton(controls, 'Iterate', () => {
-                playing = !playing;
-                playButton.textContent = playing ? 'Pause' : 'Iterate';
-                if (playing) animate();
-            });
-
-            const resetButton = VizEngine.createButton(controls, 'Reset', () => {
-                n = 0;
-                playing = false;
-                playButton.textContent = 'Iterate';
-                draw();
-            });
-
-            const startPoint = viz.addDraggable('x0', x0.x, x0.y, viz.colors.green, 8, () => {
-                x0 = {x: startPoint.x, y: startPoint.y};
-                n = 0;
-                draw();
-            });
-
-            function animate() {
-                if (!playing) return;
-
-                n = Math.min(n + 1, 20);
-                draw();
-
-                if (n < 20) {
-                    setTimeout(animate, 500);
-                } else {
-                    playing = false;
-                    playButton.textContent = 'Iterate';
-                }
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Fixed point (center)
-                viz.drawPoint(centerX, centerY, viz.colors.yellow, 'x*', 10);
-                viz.drawCircle(centerX, centerY, 0.1, null, viz.colors.yellow);
-
-                // Draw contraction region visualization
-                viz.drawCircle(centerX, centerY, 3, viz.colors.purple + '11', viz.colors.purple + '44');
-
-                // Compute iteration sequence
-                let current = {x: x0.x, y: x0.y};
-                const points = [current];
-
-                for (let i = 0; i < n; i++) {
-                    current = contractionMap(current);
-                    points.push(current);
-                }
-
-                // Draw iteration path
-                for (let i = 0; i < points.length; i++) {
-                    const pt = points[i];
-
-                    if (i === 0) {
-                        viz.drawPoint(pt.x, pt.y, viz.colors.green, 'x₀', 7);
-                    } else if (i === points.length - 1) {
-                        viz.drawPoint(pt.x, pt.y, viz.colors.blue, `x${i}`, 6);
-                    } else {
-                        viz.drawPoint(pt.x, pt.y, viz.colors.blue + '88', null, 4);
-                    }
-
-                    // Draw arrow to next point
-                    if (i < points.length - 1) {
-                        const next = points[i + 1];
-                        viz.drawVector(pt.x, pt.y, next.x, next.y, viz.colors.teal + '99', null, 1.5);
-                    }
-                }
-
-                // Display information
-                viz.drawText(`Fixed Point Iteration: x_{n+1} = T(x_n)`, -5, 4.5, viz.colors.white, 13, 'left');
-                viz.drawText(`T(x) = c + λ(x - c), λ = ${contractionFactor.toFixed(2)}`, -5, 4.0, viz.colors.text, 12, 'left');
-                viz.drawText(`Iteration: n = ${n}`, -5, 3.5, viz.colors.text, 12, 'left');
-
-                if (n > 0) {
-                    const dist = Math.sqrt((current.x - centerX)**2 + (current.y - centerY)**2);
-                    viz.drawText(`d(x_n, x*) = ${dist.toFixed(4)}`, -5, 3.0, viz.colors.orange, 12, 'left');
-
-                    const initialDist = Math.sqrt((x0.x - centerX)**2 + (x0.y - centerY)**2);
-                    const theoreticalBound = initialDist * Math.pow(contractionFactor, n);
-                    viz.drawText(`Bound: ${theoreticalBound.toFixed(4)}`, -5, 2.5, viz.colors.red, 11, 'left');
-                }
-
-                if (n === 0) {
-                    viz.drawDraggables();
-                }
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 4: Open and Closed Sets
-window.EXTRA_VIZ['ch12']['ch12-sec04'] = [
-    {
-        id: 'ch12-extra-viz-5',
-        title: 'Interactive: Open vs Closed Sets and Boundaries',
-        description: 'Explore the difference between open and closed sets. See how boundary points are included or excluded.',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 700, height: 500, scale: 60});
-
-            let setType = 'open-ball';
-            let radius = 2.0;
-
-            const sets = {
-                'open-ball': {
-                    name: 'Open Ball B(0, r)',
-                    contains: (x, y, r) => x*x + y*y < r*r,
-                    boundary: (x, y, r) => Math.abs(x*x + y*y - r*r) < 0.1,
-                    isBoundaryIncluded: false
-                },
-                'closed-ball': {
-                    name: 'Closed Ball B̄(0, r)',
-                    contains: (x, y, r) => x*x + y*y <= r*r,
-                    boundary: (x, y, r) => Math.abs(x*x + y*y - r*r) < 0.1,
-                    isBoundaryIncluded: true
-                },
-                'open-square': {
-                    name: 'Open Square (-r, r) × (-r, r)',
-                    contains: (x, y, r) => Math.abs(x) < r && Math.abs(y) < r,
-                    boundary: (x, y, r) => (Math.abs(Math.abs(x) - r) < 0.1 && Math.abs(y) <= r) ||
-                                          (Math.abs(Math.abs(y) - r) < 0.1 && Math.abs(x) <= r),
-                    isBoundaryIncluded: false
-                },
-                'closed-square': {
-                    name: 'Closed Square [-r, r] × [-r, r]',
-                    contains: (x, y, r) => Math.abs(x) <= r && Math.abs(y) <= r,
-                    boundary: (x, y, r) => (Math.abs(Math.abs(x) - r) < 0.1 && Math.abs(y) <= r) ||
-                                          (Math.abs(Math.abs(y) - r) < 0.1 && Math.abs(x) <= r),
-                    isBoundaryIncluded: true
-                }
-            };
-
-            const typeSelector = document.createElement('select');
-            typeSelector.innerHTML = `
-                <option value="open-ball">Open Ball</option>
-                <option value="closed-ball">Closed Ball</option>
-                <option value="open-square">Open Square</option>
-                <option value="closed-square">Closed Square</option>
-            `;
-            typeSelector.style.marginRight = '10px';
-            typeSelector.addEventListener('change', (e) => {
-                setType = e.target.value;
-                draw();
-            });
-            controls.appendChild(typeSelector);
-
-            const radiusSlider = VizEngine.createSlider(controls, 'Radius (r)', 0.5, 3.5, 2.0, 0.1, (val) => {
-                radius = val;
-                draw();
-            });
-
-            // Generate test points
-            const testPoints = [];
-            for (let x = -4; x <= 4; x += 0.4) {
-                for (let y = -4; y <= 4; y += 0.4) {
-                    testPoints.push({x, y});
-                }
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const set = sets[setType];
-
-                // Draw test points
-                for (const pt of testPoints) {
-                    const isInside = set.contains(pt.x, pt.y, radius);
-                    const isBoundary = set.boundary(pt.x, pt.y, radius);
-
-                    if (isBoundary) {
-                        if (set.isBoundaryIncluded) {
-                            viz.drawPoint(pt.x, pt.y, viz.colors.orange, null, 4);
-                        } else {
-                            viz.drawCircle(pt.x, pt.y, 0.08, null, viz.colors.orange);
-                        }
-                    } else if (isInside) {
-                        viz.drawPoint(pt.x, pt.y, viz.colors.green + '88', null, 3);
-                    }
-                }
-
-                // Draw boundary
-                if (setType.includes('ball')) {
-                    const ctx = viz.ctx;
-                    ctx.save();
-                    if (!set.isBoundaryIncluded) {
-                        ctx.setLineDash([5, 5]);
-                    }
-                    viz.drawCircle(0, 0, radius, null, viz.colors.orange);
-                    ctx.restore();
-                } else {
-                    const ctx = viz.ctx;
-                    ctx.save();
-                    if (!set.isBoundaryIncluded) {
-                        ctx.setLineDash([5, 5]);
-                    }
-                    viz.drawPolygon([
-                        [radius, radius],
-                        [-radius, radius],
-                        [-radius, -radius],
-                        [radius, -radius]
-                    ], null, viz.colors.orange, 2);
-                    ctx.restore();
-                }
-
-                // Legend
-                viz.drawText(set.name, -5.5, 4.0, viz.colors.white, 14, 'left');
-
-                viz.drawPoint(-5.2, 3.3, viz.colors.green + '88', null, 4);
-                viz.drawText('Interior points', -4.8, 3.3, viz.colors.text, 11, 'left');
-
-                if (set.isBoundaryIncluded) {
-                    viz.drawPoint(-5.2, 2.8, viz.colors.orange, null, 4);
-                    viz.drawText('Boundary (included)', -4.8, 2.8, viz.colors.text, 11, 'left');
-                } else {
-                    viz.drawCircle(-5.2, 2.8, 0.08, null, viz.colors.orange);
-                    viz.drawText('Boundary (excluded)', -4.8, 2.8, viz.colors.text, 11, 'left');
-                }
-
-                viz.drawText(set.isBoundaryIncluded ? 'CLOSED SET' : 'OPEN SET',
-                            -5.5, 2.2, set.isBoundaryIncluded ? viz.colors.blue : viz.colors.red, 13, 'left');
-            }
-
-            draw();
-            return viz;
-        }
-    },
-
+// Section 5: Compactness
+window.EXTRA_VIZ['ch12']['ch12-sec05'] = [
     {
         id: 'ch12-extra-viz-6',
         title: 'Interactive: Compactness and Open Cover Extraction',
@@ -759,107 +739,125 @@ window.EXTRA_VIZ['ch12']['ch12-sec04'] = [
     }
 ];
 
-// Section 5: Continuity and Isometries
-window.EXTRA_VIZ['ch12']['ch12-sec05'] = [
+// Section 6: The Banach Fixed Point Theorem
+window.EXTRA_VIZ['ch12']['ch12-sec06'] = [
     {
-        id: 'ch12-extra-viz-7',
-        title: 'Interactive: Continuous Functions on Metric Spaces',
-        description: 'Visualize epsilon-delta continuity. For any ε > 0, find δ > 0 such that d(x, x₀) < δ implies d(f(x), f(x₀)) < ε.',
+        id: 'ch12-extra-viz-4',
+        title: 'Interactive: Banach Fixed Point Theorem (Contraction Mapping)',
+        description: 'Visualize the Banach Fixed Point Theorem in action. Watch as repeated application of a contraction mapping converges to a unique fixed point.',
         setup: function(container, controls) {
             const viz = new VizEngine(container, {width: 700, height: 500, scale: 60});
 
-            let epsilon = 0.8;
-            let delta = 0.5;
-            let x0 = {x: 1, y: 0.5};
+            let contractionFactor = 0.5;
+            let centerX = 1.5;
+            let centerY = 1.0;
+            let n = 0;
+            let playing = false;
+            let x0 = {x: -2, y: 2};
 
-            // Define a continuous function: f(x, y) = (x², xy)
-            function f(pt) {
+            // Contraction mapping: T(x) = c + λ(x - c)
+            function contractionMap(pt) {
                 return {
-                    x: pt.x * pt.x / 3,
-                    y: pt.x * pt.y / 2
+                    x: centerX + contractionFactor * (pt.x - centerX),
+                    y: centerY + contractionFactor * (pt.y - centerY)
                 };
             }
 
-            const fx0 = f(x0);
-
-            const epsilonSlider = VizEngine.createSlider(controls, 'Epsilon (ε)', 0.2, 2.0, 0.8, 0.1, (val) => {
-                epsilon = val;
+            const factorSlider = VizEngine.createSlider(controls, 'Contraction factor (λ)', 0.1, 0.9, 0.5, 0.05, (val) => {
+                contractionFactor = val;
+                n = 0;
                 draw();
             });
 
-            const deltaSlider = VizEngine.createSlider(controls, 'Delta (δ)', 0.1, 2.0, 0.5, 0.1, (val) => {
-                delta = val;
+            const playButton = VizEngine.createButton(controls, 'Iterate', () => {
+                playing = !playing;
+                playButton.textContent = playing ? 'Pause' : 'Iterate';
+                if (playing) animate();
+            });
+
+            const resetButton = VizEngine.createButton(controls, 'Reset', () => {
+                n = 0;
+                playing = false;
+                playButton.textContent = 'Iterate';
                 draw();
             });
 
-            const point = viz.addDraggable('x0', x0.x, x0.y, viz.colors.white, 8, () => {
-                x0 = {x: point.x, y: point.y};
+            const startPoint = viz.addDraggable('x0', x0.x, x0.y, viz.colors.green, 8, () => {
+                x0 = {x: startPoint.x, y: startPoint.y};
+                n = 0;
                 draw();
             });
+
+            function animate() {
+                if (!playing) return;
+
+                n = Math.min(n + 1, 20);
+                draw();
+
+                if (n < 20) {
+                    setTimeout(animate, 500);
+                } else {
+                    playing = false;
+                    playButton.textContent = 'Iterate';
+                }
+            }
 
             function draw() {
                 viz.clear();
                 viz.drawGrid();
                 viz.drawAxes();
 
-                const fx0 = f(x0);
+                // Fixed point (center)
+                viz.drawPoint(centerX, centerY, viz.colors.yellow, 'x*', 10);
+                viz.drawCircle(centerX, centerY, 0.1, null, viz.colors.yellow);
 
-                // Draw input space (left side)
-                viz.drawCircle(x0.x, x0.y, delta, viz.colors.blue + '22', viz.colors.blue);
-                viz.drawPoint(x0.x, x0.y, viz.colors.white, 'x₀', 7);
+                // Draw contraction region visualization
+                viz.drawCircle(centerX, centerY, 3, viz.colors.purple + '11', viz.colors.purple + '44');
 
-                // Sample points in delta-ball
-                const samplePoints = [];
-                for (let angle = 0; angle < 2 * Math.PI; angle += Math.PI / 6) {
-                    for (let r = 0.3; r <= delta; r += 0.3) {
-                        const px = x0.x + r * Math.cos(angle);
-                        const py = x0.y + r * Math.sin(angle);
-                        const dist = Math.sqrt((px - x0.x)**2 + (py - x0.y)**2);
+                // Compute iteration sequence
+                let current = {x: x0.x, y: x0.y};
+                const points = [current];
 
-                        if (dist < delta) {
-                            samplePoints.push({x: px, y: py});
-                        }
-                    }
+                for (let i = 0; i < n; i++) {
+                    current = contractionMap(current);
+                    points.push(current);
                 }
 
-                // Draw output space (right side)
-                const offset = 5;
-                viz.drawCircle(fx0.x + offset, fx0.y, epsilon, viz.colors.green + '22', viz.colors.green);
-                viz.drawPoint(fx0.x + offset, fx0.y, viz.colors.yellow, 'f(x₀)', 7);
+                // Draw iteration path
+                for (let i = 0; i < points.length; i++) {
+                    const pt = points[i];
 
-                // Check continuity condition
-                let allInside = true;
-                for (const pt of samplePoints) {
-                    viz.drawPoint(pt.x, pt.y, viz.colors.blue + '88', null, 3);
-
-                    const fpt = f(pt);
-                    const distToFx0 = Math.sqrt((fpt.x - fx0.x)**2 + (fpt.y - fx0.y)**2);
-
-                    if (distToFx0 < epsilon) {
-                        viz.drawPoint(fpt.x + offset, fpt.y, viz.colors.green + '88', null, 3);
+                    if (i === 0) {
+                        viz.drawPoint(pt.x, pt.y, viz.colors.green, 'x₀', 7);
+                    } else if (i === points.length - 1) {
+                        viz.drawPoint(pt.x, pt.y, viz.colors.blue, `x${i}`, 6);
                     } else {
-                        viz.drawPoint(fpt.x + offset, fpt.y, viz.colors.red + '88', null, 3);
-                        allInside = false;
+                        viz.drawPoint(pt.x, pt.y, viz.colors.blue + '88', null, 4);
                     }
 
-                    // Draw mapping arrow
-                    viz.drawSegment(pt.x, pt.y, fpt.x + offset, fpt.y, viz.colors.teal + '33', 1);
+                    // Draw arrow to next point
+                    if (i < points.length - 1) {
+                        const next = points[i + 1];
+                        viz.drawVector(pt.x, pt.y, next.x, next.y, viz.colors.teal + '99', null, 1.5);
+                    }
                 }
 
-                viz.drawDraggables();
+                // Display information
+                viz.drawText(`Fixed Point Iteration: x_{n+1} = T(x_n)`, -5, 4.5, viz.colors.white, 13, 'left');
+                viz.drawText(`T(x) = c + λ(x - c), λ = ${contractionFactor.toFixed(2)}`, -5, 4.0, viz.colors.text, 12, 'left');
+                viz.drawText(`Iteration: n = ${n}`, -5, 3.5, viz.colors.text, 12, 'left');
 
-                // Labels
-                viz.drawText('Input Space X', x0.x, 3.5, viz.colors.text, 12);
-                viz.drawText('Output Space Y', fx0.x + offset, 3.5, viz.colors.text, 12);
-                viz.drawText(`B(x₀, δ=${delta.toFixed(2)})`, x0.x, -3.5, viz.colors.blue, 11);
-                viz.drawText(`B(f(x₀), ε=${epsilon.toFixed(2)})`, fx0.x + offset, -3.5, viz.colors.green, 11);
+                if (n > 0) {
+                    const dist = Math.sqrt((current.x - centerX)**2 + (current.y - centerY)**2);
+                    viz.drawText(`d(x_n, x*) = ${dist.toFixed(4)}`, -5, 3.0, viz.colors.orange, 12, 'left');
 
-                // Continuity check
-                if (allInside) {
-                    viz.drawText('✓ Continuity satisfied!', -5, -3.8, viz.colors.green, 13, 'left');
-                    viz.drawText('f(B(x₀,δ)) ⊆ B(f(x₀),ε)', -5, -4.3, viz.colors.text, 11, 'left');
-                } else {
-                    viz.drawText('✗ Need smaller δ', -5, -3.8, viz.colors.red, 13, 'left');
+                    const initialDist = Math.sqrt((x0.x - centerX)**2 + (x0.y - centerY)**2);
+                    const theoreticalBound = initialDist * Math.pow(contractionFactor, n);
+                    viz.drawText(`Bound: ${theoreticalBound.toFixed(4)}`, -5, 2.5, viz.colors.red, 11, 'left');
+                }
+
+                if (n === 0) {
+                    viz.drawDraggables();
                 }
             }
 
@@ -869,8 +867,8 @@ window.EXTRA_VIZ['ch12']['ch12-sec05'] = [
     }
 ];
 
-// Section 6: Separability and Dense Subsets
-window.EXTRA_VIZ['ch12']['ch12-sec06'] = [
+// Section 7: Separability and Dense Subsets
+window.EXTRA_VIZ['ch12']['ch12-sec07'] = [
     {
         id: 'ch12-extra-viz-8',
         title: 'Interactive: Dense Subsets and Separability',

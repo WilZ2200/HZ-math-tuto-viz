@@ -1,0 +1,1295 @@
+Preliminaries
+
+In this chapter, we briefly discuss some topics that are needed for the sequel.
+This chapter should be skimmed quickly and used primarily as a reference.
+
+Part 1 Preliminaries
+Multisets
+The following simple concept is much more useful than its infrequent
+appearance would indicate.
+Definition Let : be a nonempty set. A multiset 4 with underlying set : is a
+set of ordered pairs
+4 ~ ¸²  Á  ³ 
+
+b
+  :Á   { Á  £
+
+ for  £ ¹
+
+where {b ~ ¸Á Á Ã ¹. The number  is referred to as the multiplicity of the
+elements  in 4 . If the underlying set of a multiset is finite, we say that the
+multiset is finite. The size of a finite multiset 4 is the sum of the multiplicities
+of all of its elements.
+For example, 4 ~ ¸²Á ³Á ²Á ³Á ²Á ³¹ is a multiset with underlying set
+: ~ ¸Á Á ¹. The element  has multiplicity . One often writes out the
+elements of a multiset according to multiplicities, as in 4 ~ ¸Á Á Á Á Á ¹.
+Of course, two mutlisets are equal if their underlying sets are equal and if the
+multiplicity of each element in the common underlying set is the same in both
+multisets.
+
+Matrices
+The set of  d  matrices with entries in a field - is denoted by CÁ ²- ³ or
+by CÁ when the field does not require mention. The set CÁ ²< ³ is denoted
+by C ²- ³ or C À If (  C, the ²Á ³th entry of ( will be denoted by (Á .
+The identity matrix of size  d  is denoted by 0 . The elements of the base
+
+2
+
+Advanced Linear Algebra
+
+field - are called scalars. We expect that the reader is familiar with the basic
+properties of matrices, including matrix addition and multiplication.
+The main diagonal of an  d  matrix ( is the sequence of entries
+(Á Á (Á Á Ã Á (Á
+where  ~ min¸Á ¹.
+Definition The transpose of (  CÁ is the matrix (! defined by
+²(! ³Á ~ (Á
+A matrix ( is symmetric if ( ~ (! and skew-symmetric if (! ~ c(.
+Theorem 0.1 (Properties of the transpose) Let (, )  CÁ . Then
+1) ²(! ³! ~ (
+2) ²( b )³! ~ (! b ) !
+3) ²(³! ~ (! for all   4) ²()³! ~ ) ! (! provided that the product () is defined
+5) det²(! ³ ~ det²(³.
+
+Partitioning and Matrix Multiplication
+Let 4 be a matrix of size  d . If )  ¸Á Ã Á ¹ and *  ¸Á Ã Á ¹, then
+the submatrix 4 ´)Á *µ is the matrix obtained from 4 by keeping only the
+rows with index in ) and the columns with index in * . Thus, all other rows and
+columns are discarded and 4 ´)Á *µ has size () ( d (* (.
+Suppose that 4  CÁ and 5  CÁ . Let
+1) F ~ ¸) Á Ã Á ) ¹ be a partition of ¸Á Ã Á ¹
+2) G ~ ¸* Á Ã Á * ¹ be a partition of ¸Á Ã Á ¹
+3) H ~ ¸+ Á Ã Á + ¹ be a partition of ¸Á Ã Á ¹
+(Partitions are defined formally later in this chapter.) Then it is a very useful fact
+that matrix multiplication can be performed at the block level as well as at the
+entry level. In particular, we have
+´4 5 µ´) Á + µ ~  4 ´) Á * µ5 ´* Á + µ
+* G
+
+When the partitions in question contain only single-element blocks, this is
+precisely the usual formula for matrix multiplication
+
+
+´4 5 µÁ ~ 4Á 5Á
+~
+
+Preliminaries
+
+3
+
+Block Matrices
+It will be convenient to introduce the notational device of a block matrix. If )Á
+are matrices of the appropriate sizes, then by the block matrix
+4~
+
+v )Á
+Å
+w )Á
+
+)Á
+Å
+)Á
+
+Ä
+
+)Á y
+Å
+Ä )Á zblock
+
+we mean the matrix whose upper left submatrix is )Á , and so on. Thus, the
+)Á 's are submatrices of 4 and not entries. A square matrix of the form
+v )
+x 
+4 ~x
+Å
+w 
+
+ Ä  y
+Æ Æ Å {
+{
+Æ Æ 
+Ä  ) zblock
+
+where each ) is square and  is a zero submatrix, is said to be a block
+diagonal matrix.
+
+Elementary Row Operations
+Recall that there are three types of elementary row operations. Type 1
+operations consist of multiplying a row of ( by a nonzero scalar. Type 2
+operations consist of interchanging two rows of (. Type 3 operations consist of
+adding a scalar multiple of one row of ( to another row of (.
+If we perform an elementary operation of type  to an identity matrix 0 , the
+result is called an elementary matrix of type  . It is easy to see that all
+elementary matrices are invertible.
+In order to perform an elementary row operation on (  CÁ we can perform
+that operation on the identity 0 , to obtain an elementary matrix , and then take
+the product ,(. Note that multiplying on the right by , has the effect of
+performing column operations.
+Definition A matrix 9 is said to be in reduced row echelon form if
+1) All rows consisting only of 's appear at the bottom of the matrix.
+2) In any nonzero row, the first nonzero entry is a . This entry is called a
+leading entry.
+3) For any two consecutive rows, the leading entry of the lower row is to the
+right of the leading entry of the upper row.
+4) Any column that contains a leading entry has 's in all other positions.
+Here are the basic facts concerning reduced row echelon form.
+
+4
+
+Advanced Linear Algebra
+
+Theorem 0.2 Matrices (Á )  CÁ are row equivalent, denoted by (  ) ,
+if either one can be obtained from the other by a series of elementary row
+operations.
+1) Row equivalence is an equivalence relation. That is,
+a) (  (
+b) (  ) ¬ )  (
+c) (  ) , )  * ¬ (  * .
+2) A matrix ( is row equivalent to one and only one matrix 9 that is in
+reduced row echelon form. The matrix 9 is called the reduced row
+echelon form of (. Furthermore,
+9 ~ , Ä, (
+where , are the elementary matrices required to reduce ( to reduced row
+echelon form.
+3) ( is invertible if and only if its reduced row echelon form is an identity
+matrix. Hence, a matrix is invertible if and only if it is the product of
+elementary matrices.
+The following definition is probably well known to the reader.
+Definition A square matrix is upper triangular if all of its entries below the
+main diagonal are . Similarly, a square matrix is lower triangular if all of its
+entries above the main diagonal are . A square matrix is diagonal if all of its
+entries off the main diagonal are .
+
+Determinants
+We assume that the reader is familiar with the following basic properties of
+determinants.
+Theorem 0.3 Let (  CÁ ²- ³. Then det²(³ is an element of - . Furthermore,
+1) For any )  C ²- ³,
+det²()³ ~ det²(³det²)³
+2) ( is nonsingular (invertible) if and only if det²(³ £ .
+3) The determinant of an upper triangular or lower triangular matrix is the
+product of the entries on its main diagonal.
+4) If a square matrix 4 has the block diagonal form
+v )
+x 
+4 ~x
+Å
+w 
+then det²4 ³ ~  det²) ³.
+
+ Ä  y
+Æ Æ Å {
+{
+Æ Æ 
+Ä  ) zblock
+
+Preliminaries
+
+5
+
+Polynomials
+The set of all polynomials in the variable % with coefficients from a field - is
+denoted by - ´%µ. If ²%³  - ´%µ, we say that ²%³ is a polynomial over - . If
+²%³ ~  b  % b Ä b  %
+is a polynomial with  £ , then  is called the leading coefficient of ²%³
+and the degree of ²%³ is , written deg ²%³ ~ . For convenience, the degree
+of the zero polynomial is cB. A polynomial is monic if its leading coefficient
+is .
+Theorem 0.4 (Division algorithm) Let  ²%³Á ²%³  - ´%µ where deg ²%³  .
+Then there exist unique polynomials ²%³Á ²%³  - ´%µ for which
+ ²%³ ~ ²%³²%³ b ²%³
+where ²%³ ~  or   deg ²%³  deg ²%³.
+If ²%³ divides ²%³, that is, if there exists a polynomial  ²%³ for which
+²%³ ~  ²%³²%³
+then we write ²%³  ²%³. A nonzero polynomial ²%³  - ´%µ is said to split
+over - if ²%³ can be written as a product of linear factors
+²%³ ~ ²% c  ³Ä²% c  ³
+where   - .
+Theorem 0.5 Let  ²%³Á ²%³  - ´%µ. The greatest common divisor of  ²%³ and
+²%³, denoted by gcd² ²%³Á ²%³³, is the unique monic polynomial ²%³ over for which
+1) ²%³   ²%³ and ²%³  ²%³
+2) if ²%³   ²%³ and ²%³  ²%³ then ²%³  ²%³.
+Furthermore, there exist polynomials ²%³ and ²%³ over - for which
+gcd² ²%³Á ²%³³ ~ ²%³ ²%³ b ²%³²%³
+Definition The polynomials  ²%³Á ²%³  - ´%µ are relatively prime if
+gcd² ²%³Á ²%³³ ~ . In particular,  ²%³ and ²%³ are relatively prime if and
+only if there exist polynomials ²%³ and ²%³ over - for which
+²%³ ²%³ b ²%³²%³ ~ 
+Definition A nonconstant polynomial  ²%³  - ´%µ is irreducible if whenever
+ ²%³ ~ ²%³²%³, then one of ²%³ and ²%³ must be constant.
+The following two theorems support the view that irreducible polynomials
+behave like prime numbers.
+
+6
+
+Advanced Linear Algebra
+
+Theorem 0.6 A nonconstant polynomial  ²%³ is irreducible if and only if it has
+the property that whenever  ²%³  ²%³²%³, then either  ²%³  ²%³ or
+ ²%³  ²%³.
+Theorem 0.7 Every nonconstant polynomial in - ´%µ can be written as a product
+of irreducible polynomials. Moreover, this expression is unique up to order of
+the factors and multiplication by a scalar.
+
+Functions
+To set our notation, we should make a few comments about functions.
+Definition Let  ¢ : ¦ ; be a function from a set : to a set ; .
+1) The domain of  is the set : and the range of  is ; .
+2) The image of  is the set im² ³ ~ ¸ ² ³   :¹.
+3)  is injective (one-to-one), or an injection, if % £ & ¬  ²%³ £  ²&³.
+4)  is surjective (onto ; ), or a surjection, if im² ³ ~ ; .
+5)  is bijective, or a bijection, if it is both injective and surjective.
+6) Assuming that   ; , the support of  is
+supp² ³ ~ ¸  :   ² ³ £ ¹
+If  ¢ : ¦ ; is injective, then its inverse  c ¢ im² ³ ¦ : exists and is welldefined as a function on im² ³.
+It will be convenient to apply  to subsets of : and ; . In particular, if ?  :
+and if @  ; , we set
+ ²?³ ~ ¸ ²%³  %  ?¹
+and
+ c ²@ ³ ~ ¸  :   ² ³  @ ¹
+Note that the latter is defined even if  is not injective.
+Let  ¢ : ¦ ; . If (  : , the restriction of  to ( is the function  O( ¢ ( ¦ ;
+defined by
+ O( ²³ ~  ²³
+for all   (. Clearly, the restriction of an injective map is injective.
+In the other direction, if  ¢ : ¦ ; and if :  < , then an extension of  to < is
+a function  ¢ < ¦ ; for which  O: ~  .
+
+Preliminaries
+
+7
+
+Equivalence Relations
+The concept of an equivalence relation plays a major role in the study of
+matrices and linear transformations.
+Definition Let : be a nonempty set. A binary relation  on : is called an
+equivalence relation on : if it satisfies the following conditions:
+1) (Reflexivity)
+
+for all   : .
+2) (Symmetry)
+¬
+for all Á   : .
+3) (Transitivity)
+  Á    ¬   
+for all Á Á   : .
+Definition Let  be an equivalence relation on : . For   : , the set of all
+elements equivalent to  is denoted by
+´µ ~ ¸  :    ¹
+and called the equivalence class of .
+Theorem 0.8 Let  be an equivalence relation on : . Then
+1)   ´µ ¯   ´µ ¯ ´µ ~ ´µ
+2) For any Á   : , we have either ´µ ~ ´µ or ´µ q ´µ ~ J.
+Definition A partition of a nonempty set : is a collection ¸( Á Ã Á ( ¹ of
+nonempty subsets of : , called the blocks of the partition, for which
+1) ( q ( ~ J for all  £ 
+2 ) : ~ ( r Ä r (  .
+The following theorem sheds considerable light on the concept of an
+equivalence relation.
+Theorem 0.9
+1) Let  be an equivalence relation on : . Then the set of distinct equivalence
+classes with respect to  are the blocks of a partition of : .
+2) Conversely, if F is a partition of : , the binary relation  defined by
+   if  and  lie in the same block of F
+
+8
+
+Advanced Linear Algebra
+
+is an equivalence relation on : , whose equivalence classes are the blocks
+of F .
+This establishes a one-to-one correspondence between equivalence relations on
+: and partitions of : .
+The most important problem related to equivalence relations is that of finding an
+efficient way to determine when two elements are equivalent. Unfortunately, in
+most cases, the definition does not provide an efficient test for equivalence and
+so we are led to the following concepts.
+Definition Let  be an equivalence relation on : . A function  ¢ : ¦ ; , where
+; is any set, is called an invariant of  if it is constant on the equivalence
+classes of  , that is,
+   ¬  ²³ ~  ²³
+and a complete invariant if it is constant and distinct on the equivalence
+classes of  , that is,
+   ¯  ²³ ~  ²³
+A collection ¸ Á Ã Á  ¹ of invariants is called a complete system of
+invariants if
+   ¯  ²³ ~  ²³ for all  ~ Á Ã Á 
+Definition Let  be an equivalence relation on : . A subset *  : is said to be
+a set of canonical forms (or just a canonical form) for  if for every  : ,
+there is exactly one   * such that   . Put another way, each equivalence
+class under  contains exactly one member of * .
+Example 0.1 Define a binary relation  on - ´%µ by letting ²%³  ²%³ if and
+only if ²%³ ~ ²%³ for some nonzero constant   - . This is easily seen to be
+an equivalence relation. The function that assigns to each polynomial its degree
+is an invariant, since
+²%³  ²%³ ¬ deg²²%³³ ~ deg²²%³³
+However, it is not a complete invariant, since there are inequivalent polynomials
+with the same degree. The set of all monic polynomials is a set of canonical
+forms for this equivalence relation.
+Example 0.2 We have remarked that row equivalence is an equivalence relation
+on CÁ ²- ³. Moreover, the subset of reduced row echelon form matrices is a
+set of canonical forms for row equivalence, since every matrix is row equivalent
+to a unique matrix in reduced row echelon form.
+
+Preliminaries
+
+9
+
+Example 0.3 Two matrices (, )  C ²- ³ are row equivalent if and only if
+there is an invertible matrix 7 such that ( ~ 7 ) . Similarly, ( and ) are
+column equivalent, that is, ( can be reduced to ) using elementary column
+operations, if and only if there exists an invertible matrix 8 such that ( ~ )8.
+Two matrices ( and ) are said to be equivalent if there exist invertible
+matrices 7 and 8 for which
+( ~ 7 )8
+Put another way, ( and ) are equivalent if ( can be reduced to ) by
+performing a series of elementary row and/or column operations. (The use of the
+term equivalent is unfortunate, since it applies to all equivalence relations, not
+just this one. However, the terminology is standard, so we use it here.)
+It is not hard to see that an  d  matrix 9 that is in both reduced row echelon
+form and reduced column echelon form must have the block form
+1 ~ >
+
+0
+cÁ
+
+Ác
+cÁc ?block
+
+We leave it to the reader to show that every matrix ( in C is equivalent to
+exactly one matrix of the form 1 and so the set of these matrices is a set of
+canonical forms for equivalence. Moreover, the function  defined by
+ ²(³ ~  , where (  1 , is a complete invariant for equivalence.
+Since the rank of 1 is  and since neither row nor column operations affect the
+rank, we deduce that the rank of ( is  . Hence, rank is a complete invariant for
+equivalence. In other words, two matrices are equivalent if and only if they have
+the same rank.
+Example 0.4 Two matrices (, )  C ²- ³ are said to be similar if there exists
+an invertible matrix 7 such that
+( ~ 7 )7 c
+Similarity is easily seen to be an equivalence relation on C . As we will learn,
+two matrices are similar if and only if they represent the same linear operators
+on a given -dimensional vector space = . Hence, similarity is extremely
+important for studying the structure of linear operators. One of the main goals of
+this book is to develop canonical forms for similarity.
+We leave it to the reader to show that the determinant function and the trace
+function are invariants for similarity. However, these two invariants do not, in
+general, form a complete system of invariants.
+Example 0.5 Two matrices (, )  C ²- ³ are said to be congruent if there
+exists an invertible matrix 7 for which
+
+10
+
+Advanced Linear Algebra
+
+( ~ 7 )7 !
+where 7 ! is the transpose of 7 . This relation is easily seen to be an equivalence
+relation and we will devote some effort to finding canonical forms for
+congruence. For some base fields - (such as s, d or a finite field), this is
+relatively easy to do, but for other base fields (such as r), it is extremely
+difficult.
+
+Zorn's Lemma
+In order to show that any vector space has a basis, we require a result known as
+Zorn's lemma. To state this lemma, we need some preliminary definitions.
+Definition A partially ordered set is a pair ²7 Á  ³ where 7 is a nonempty set
+and  is a binary relation called a partial order, read “less than or equal to,”
+with the following properties:
+1) (Reflexivity) For all   7 ,
+
+2) (Antisymmetry) For all Á   7 ,
+   and    implies  ~ 
+3) (Transitivity) For all Á Á   7 ,
+   and    implies   
+Partially ordered sets are also called posets.
+It is customary to use a phrase such as “Let 7 be a partially ordered set” when
+the partial order is understood. Here are some key terms related to partially
+ordered sets.
+Definition Let 7 be a partially ordered set.
+1) The maximum (largest, top) element of 7 , should it exist, is an element
+4  7 with the property that all elements of 7 are less than or equal to
+4 , that is,
+7 ¬4
+Similarly, the mimimum (least, smallest, bottom) element of 7 , should it
+exist, is an element 5  7 with the property that all elements of 7 are
+greater than or equal to 5 , that is,
+7 ¬5 
+2) A maximal element is an element   7 with the property that there is no
+larger element in 7 , that is,
+  7Á   ¬  ~ 
+
+Preliminaries
+
+11
+
+Similarly, a minimal element is an element   7 with the property that
+there is no smaller element in 7 , that is,
+  7Á   ¬  ~ 
+3) Let Á   7 . Then "  7 is an upper bound for  and  if
+  " and   "
+The unique smallest upper bound for  and , if it exists, is called the least
+upper bound of  and  and is denoted by lub¸Á ¹.
+4) Let Á   7 . Then M  7 is a lower bound for  and  if
+M   and M  
+The unique largest lower bound for  and , if it exists, is called the
+greatest lower bound of  and  and is denoted by glb¸Á ¹.
+Let : be a subset of a partially ordered set 7 . We say that an element "  7 is
+an upper bound for : if  " for all  : . Lower bounds are defined
+similarly.
+Note that in a partially ordered set, it is possible that not all elements are
+comparable. In other words, it is possible to have %Á &  7 with the property
+that % 
+ & and & 
+ %.
+Definition A partially ordered set in which every pair of elements is
+comparable is called a totally ordered set, or a linearly ordered set. Any
+totally ordered subset of a partially ordered set 7 is called a chain in 7 .
+Example 0.6
+1) The set s of real numbers, with the usual binary relation  , is a partially
+ordered set. It is also a totally ordered set. It has no maximal elements.
+2) The set o ~ ¸Á Á Ã ¹ of natural numbers, together with the binary
+relation of divides, is a partially ordered set. It is customary to write   
+to indicate that  divides . The subset : of o consisting of all powers of 
+is a totally ordered subset of o, that is, it is a chain in o. The set
+7 ~ ¸Á Á Á Á Á  ¹ is a partially ordered set under  . It has two maximal
+elements, namely and  . The subset 8 ~ ¸Á Á Á Á ¹ is a partially
+ordered set in which every element is both maximal and minimal!
+3) Let : be any set and let F ²:³ be the power set of : , that is, the set of all
+subsets of : . Then F ²:³, together with the subset relation  , is a partially
+ordered set.
+Now we can state Zorn's lemma, which gives a condition under which a
+partially ordered set has a maximal element.
+
+12
+
+Advanced Linear Algebra
+
+Theorem 0.10 (Zorn's lemma) If 7 is a partially ordered set in which every
+chain has an upper bound, then 7 has a maximal element.
+We will use Zorn's lemma to prove that every vector space has a basis. Zorn's
+lemma is equivalent to the famous axiom of choice. As such, it is not subject to
+proof from the other axioms of ordinary (ZF) set theory. Zorn's lemma has many
+important equivalancies, one of which is the well-ordering principle. A well
+ordering on a nonempty set ? is a total order on ? with the property that every
+nonempty subset of ? has a least element.
+Theorem 0.11 (Well-ordering principle) Every nonempty set has a well
+ordering.
+
+Cardinality
+Two sets : and ; have the same cardinality, written
+(: ( ~ (; (
+if there is a bijective function (a one-to-one correspondence) between the sets.
+The reader is probably aware of the fact that
+({( ~ (o( and (r( ~ (o(
+where o denotes the natural numbers, { the integers and r the rational
+numbers.
+If : is in one-to-one correspondence with a subset of ; , we write (: (  (; (. If
+: is in one-to-one correspondence with a proper subset of ; but not all of ; ,
+then we write (: (  (; (. The second condition is necessary, since, for instance,
+o is in one-to-one correspondence with a proper subset of { and yet o is also in
+one-to-one correspondence with { itself. Hence, (o( ~ ({(.
+This is not the place to enter into a detailed discussion of cardinal numbers. The
+intention here is that the cardinality of a set, whatever that is, represents the
+“size” of the set. It is actually easier to talk about two sets having the same, or
+different, size (cardinality) than it is to explicitly define the size (cardinality) of
+a given set.
+Be that as it may, we associate to each set : a cardinal number, denoted by (: (
+or card²:³, that is intended to measure the size of the set. Actually, cardinal
+numbers are just very special types of sets. However, we can simply think of
+them as vague amorphous objects that measure the size of sets.
+Definition
+1) A set is finite if it can be put in one-to-one correspondence with a set of the
+form { ~ ¸Á Á Ã Á  c ¹, for some nonnegative integer . A set that is
+
+Preliminaries
+
+13
+
+not finite is infinite. The cardinal number (or cardinality) of a finite set is
+just the number of elements in the set.
+2) The cardinal number of the set o of natural numbers is L (read “aleph
+nought”), where L is the first letter of the Hebrew alphabet. Hence,
+(o( ~ ({( ~ (r( ~ L
+3) Any set with cardinality L is called a countably infinite set and any finite
+or countably infinite set is called a countable set. An infinite set that is not
+countable is said to be uncountable.
+Since it can be shown that (s(  (o(, the real numbers are uncountable.
+If : and ; are finite sets, then it is well known that
+(: (  (; ( and (; (  (: ( ¬ (: ( ~ (; (
+The first part of the next theorem tells us that this is also true for infinite sets.
+The reader will no doubt recall that the power set F²:³ of a set : is the set of
+all subsets of : . For finite sets, the power set of : is always bigger than the set
+itself. In fact,
+(: ( ~  ¬ (F ²:³( ~ 
+The second part of the next theorem says that the power set of any set : is
+bigger (has larger cardinality) than : itself. On the other hand, the third part of
+this theorem says that, for infinite sets : , the set of all finite subsets of : is the
+same size as : .
+Theorem 0.12
+¨ –Bernstein theorem) For any sets : and ; ,
+1) (Schroder
+(: (  (; ( and (; (  (: ( ¬ (: ( ~ (; (
+2) (Cantor's theorem) If F²:³ denotes the power set of : , then
+(: (  (F ²:³(
+3) If F ²:³ denotes the set of all finite subsets of : and if : is an infinite set,
+then
+(: ( ~ (F ²:³(
+Proof. We prove only parts 1) and 2). Let  ¢ : ¦ ; be an injective function
+from : into ; and let ¢ ; ¦ : be an injective function from ; into : . We
+want to use these functions to create a bijective function from : to ; . For this
+purpose, we make the following definitions. The descendants of an element
+ : are the elements obtained by repeated alternate applications of the
+functions  and , namely
+
+14
+
+Advanced Linear Algebra
+
+ ² ³Á ² ² ³³Á  ²² ² ³³³Á Ã
+If ! is a descendant of , then is an ancestor of !. Descendants and ancestors
+of elements of ; are defined similarly.
+Now, by tracing an element's ancestry to its beginning, we find that there are
+three possibilities: the element may originate in : , or in ; , or it may have no
+point of origin. Accordingly, we can write : as the union of three disjoint sets
+I: ~ ¸  :  originates in :¹
+I; ~ ¸  :  originates in ; ¹
+IB ~ ¸  :  has no originator¹
+Similarly, ; is the disjoint union of J: , J; and JB .
+Now, the restriction
+ OI: ¢ I: ¦ J:
+is a bijection. To see this, note that if !  J: , then ! originated in : and
+therefore must have the form  ² ³ for some  : . But ! and its ancestor have
+the same point of origin and so !  J: implies  I: . Thus,  OI: is surjective
+and hence bijective. We leave it to the reader to show that the functions
+²OJ; ³c ¢ I; ¦ J; and  OIB ¢ IB ¦ JB
+are also bijections. Putting these three bijections together gives a bijection
+between : and ; . Hence, (: ( ~ (; (, as desired.
+We now prove Cantor's theorem. The map ¢ : ¦ F ²:³ defined by ² ³ ~ ¸ ¹
+is an injection from : to F ²:³ and so (: (  (F ²:³(. To complete the proof we
+must show that no injective map  ¢ : ¦ F ²:³ can be surjective. To this end, let
+?~¸ :
+
+¤  ² ³¹  F ²:³
+
+We claim that ? is not in im² ³. For suppose that ? ~  ²%³ for some %  : .
+Then if %  ? , we have by the definition of ? that % ¤ ? . On the other hand, if
+% ¤ ? , we have again by the definition of ? that %  ? . This contradiction
+implies that ? ¤ im² ³ and so  is not surjective.
+Cardinal Arithmetic
+Now let us define addition, multiplication and exponentiation of cardinal
+numbers. If : and ; are sets, the cartesian product : d ; is the set of all
+ordered pairs
+: d ; ~ ¸² Á !³ 
+
+ :Á !  ; ¹
+
+The set of all functions from ; to : is denoted by : ; .
+
+Preliminaries
+
+15
+
+Definition Let  and  denote cardinal numbers. Let : and ; be disjoint sets
+for which (: ( ~  and (; ( ~ .
+1) The sum  b  is the cardinal number of : r ; .
+2) The product  is the cardinal number of : d ; .
+3) The power  is the cardinal number of : ; .
+We will not go into the details of why these definitions make sense. (For
+instance, they seem to depend on the sets : and ; , but in fact they do not.) It
+can be shown, using these definitions, that cardinal addition and multiplication
+are associative and commutative and that multiplication distributes over
+addition.
+Theorem 0.13 Let ,  and  be cardinal numbers. Then the following
+properties hold:
+1) (Associativity)
+ b ² b ³ ~ ² b ³ b  and ²³ ~ ²³
+2) (Commutativity)
+ b  ~  b  and  ~ 
+3) (Distributivity)
+² b ³ ~  b 
+4) (Properties of Exponents)
+a) b ~  
+b) ² ³ ~ 
+c) ²³ ~  
+On the other hand, the arithmetic of cardinal numbers can seem a bit strange, as
+the next theorem shows.
+Theorem 0.14 Let  and  be cardinal numbers, at least one of which is
+infinite. Then
+ b  ~  ~ max¸Á ¹
+It is not hard to see that there is a one-to-one correspondence between the power
+set F²:³ of a set : and the set of all functions from : to ¸Á ¹. This leads to
+the following theorem.
+Theorem 0.15 For any cardinal 
+1) If (: ( ~ , then (F ²:³( ~ 
+2)   
+
+16
+
+Advanced Linear Algebra
+
+We have already observed that (o( ~ L . It can be shown that L is the smallest
+infinite cardinal, that is,
+  L0 ¬  is a natural number
+It can also be shown that the set s of real numbers is in one-to-one
+correspondence with the power set F ²o³ of the natural numbers. Therefore,
+(s( ~ L
+The set of all points on the real line is sometimes called the continuum and so
+L is sometimes called the power of the continuum and denoted by  .
+Theorem 0.14 shows that cardinal addition and multiplication have a kind of
+“absorption” quality, which makes it hard to produce larger cardinals from
+smaller ones. The next theorem demonstrates this more dramatically.
+Theorem 0.16
+1) Addition applied a countable number of times or multiplication applied a
+finite number of times to the cardinal number L , does not yield anything
+more than L . Specifically, for any nonzero   o, we have
+L h L ~ L and L ~ L
+2) Addition and multiplication applied a countable number of times to the
+cardinal number L does not yield more than L . Specifically, we have
+L h L ~ L and ²L ³L ~ L
+Using this theorem, we can establish other relationships, such as
+L  ²L ³L  ²L ³L ~ L
+which, by the Schröder–Bernstein theorem, implies that
+²L ³L ~ L
+We mention that the problem of evaluating  in general is a very difficult one
+and would take us far beyond the scope of this book.
+We will have use for the following reasonable-sounding result, whose proof is
+omitted.
+Theorem 0.17 Let ¸(    2¹ be a collection of sets, indexed by the set 2 ,
+with (2 ( ~ . If (( (   for all   2 , then
+e  ( e  
+2
+
+Let us conclude by describing the cardinality of some famous sets.
+
+Preliminaries
+
+17
+
+Theorem 0.18
+1) The following sets have cardinality L .
+a) The rational numbers r.
+b) The set of all finite subsets of o.
+c) The union of a countable number of countable sets.
+d) The set { of all ordered -tuples of integers.
+2) The following sets have cardinality L .
+a) The set of all points in s .
+b) The set of all infinite sequences of natural numbers.
+c) The set of all infinite sequences of real numbers.
+d) The set of all finite subsets of s.
+e) The set of all irrational numbers.
+
+Part 2 Algebraic Structures
+We now turn to a discussion of some of the many algebraic structures that play a
+role in the study of linear algebra.
+
+Groups
+Definition A group is a nonempty set ., together with a binary operation
+denoted by *, that satisfies the following properties:
+1) (Associativity) For all Á Á   .,
+²i³i ~ i²i³
+2) (Identity) There exists an element   . for which
+i ~ i ~ 
+for all   ..
+3) (Inverses) For each   ., there is an element c  . for which
+ic ~ c i ~ 
+Definition A group . is abelian, or commutative, if
+i ~ i
+for all Á   . . When a group is abelian, it is customary to denote the
+operation i by +, thus writing i as  b  . It is also customary to refer to the
+identity as the zero element and to denote the inverse c by c, referred to as
+the negative of .
+Example 0.7 The set < of all bijective functions from a set : to : is a group
+under composition of functions. However, in general, it is not abelian.
+Example 0.8 The set CÁ ²- ³ is an abelian group under addition of matrices.
+The identity is the zero matrix 0Á of size  d . The set C ²- ³ is not a
+group under multiplication of matrices, since not all matrices have multiplicative
+
+18
+
+Advanced Linear Algebra
+
+inverses. However, the set of invertible matrices of size  d  is a (nonabelian)
+group under multiplication.
+A group . is finite if it contains only a finite number of elements. The
+cardinality of a finite group . is called its order and is denoted by ².³ or
+simply (.(. Thus, for example, { ~ ¸Á Á Ã Á  c ¹ is a finite group under
+addition modulo , but CÁ ²s³ is not finite.
+Definition A subgroup of a group . is a nonempty subset : of . that is a
+group in its own right, using the same operations as defined on . .
+Cyclic Groups
+If  is a formal symbol, we can define a group . to be the set of all integral
+powers of :
+. ~ ¸    {¹
+where the product is defined by the formal rules of exponents:
+  ~ b
+This group is denoted by º» and called the cyclic group generated by . The
+identity of º» is  ~  . In general, a group . is cyclic if it has the form
+. ~ º» for some   ..
+We can also create a finite group * ²³ of arbitrary positive order  by
+declaring that  ~ . Thus,
+* ²³ ~ ¸ ~  Á Á  Á Ã Á c ¹
+where the product is defined by the formal rules of exponents, followed by
+reduction modulo :
+  ~ ²b³ mod 
+This defines a group of order , called a cyclic group of order . The inverse
+of  is ²c³ mod  .
+
+Rings
+Definition A ring is a nonempty set 9 , together with two binary operations,
+called addition (denoted by b ) and multiplication (denoted by juxtaposition),
+for which the following hold:
+1) 9 is an abelian group under addition
+2) (Associativity) For all Á Á   9 ,
+²³ ~ ²³
+
+Preliminaries
+
+19
+
+3) (Distributivity) For all Á Á   9 ,
+² b ³ ~  b  and ² b ³ ~  b 
+A ring 9 is said to be commutative if  ~  for all Á   9 . If a ring 9
+contains an element  with the property that
+ ~  ~ 
+for all   9 , we say that 9 is a ring with identity. The identity  is usually
+denoted by .
+A field - is a commutative ring with identity in which each nonzero element
+has a multiplicative inverse, that is, if   - is nonzero, then there is a   for which  ~ .
+Example 0.9 The set { ~ ¸Á Á Ã Á c¹ is a commutative ring under
+addition and multiplication modulo 
+ l  ~ ² b ³ mod Á
+
+ p  ~  mod 
+
+The element   { is the identity.
+Example 0.10 The set , of even integers is a commutative ring under the usual
+operations on {, but it has no identity.
+Example 0.11 The set C ²- ³ is a noncommutative ring under matrix addition
+and multiplication. The identity matrix 0 is the identity for C ²- ³.
+Example 0.12 Let - be a field. The set - ´%µ of all polynomials in a single
+variable %, with coefficients in - , is a commutative ring under the usual
+operations of polynomial addition and multiplication. What is the identity for
+- ´%µ? Similarly, the set - ´% Á Ã Á % µ of polynomials in  variables is a
+commutative ring under the usual addition and multiplication of polynomials.
+Definition If 9 and : are rings, then a function ¢ 9 ¦ : is a ring
+homomorphism if
+² b ³ ~  b 
+²³ ~ ²³²³
+ ~ 
+for all Á   9 .
+Definition A subring of a ring 9 is a subset : of 9 that is a ring in its own
+right, using the same operations as defined on 9 and having the same
+multiplicative identity as 9 .
+
+20
+
+Advanced Linear Algebra
+
+The condition that a subring : have the same multiplicative identity as 9 is
+required. For example, the set : of all  d  matrices of the form
+( ~ >
+
+
+
+
+
+?
+
+for   - is a ring under addition and multiplication of matrices (isomorphic to
+- ). The multiplicative identity in : is the matrix ( , which is not the identity 0
+of CÁ ²- ³. Hence, : is a ring under the same operations as CÁ ²- ³ but it is
+not a subring of CÁ ²- ³.
+Applying the definition is not generally the easiest way to show that a subset of
+a ring is a subring. The following characterization is usually easier to apply.
+Theorem 0.19 A nonempty subset : of a ring 9 is a subring if and only if
+1) The multiplicative identity 9 of 9 is in :
+2) : is closed under subtraction, that is,
+Á   : ¬  c   :
+3) : is closed under multiplication, that is,
+Á   : ¬   :
+Ideals
+Rings have another important substructure besides subrings.
+Definition Let 9 be a ring. A nonempty subset ? of 9 is called an ideal if
+1) ? is a subgroup of the abelian group 9, that is, ? is closed under
+subtraction:
+Á   ? ¬  c   ?
+2) ? is closed under multiplication by any ring element, that is,
+  ? Á   9 ¬   ? and   ?
+Note that if an ideal ? contains the unit element , then ? ~ 9 .
+Example 0.13 Let ²%³ be a polynomial in - ´%µ. The set of all multiples of
+²%³,
+º²%³» ~ ¸²%³²%³  ²%³  - ´%µ¹
+is an ideal in - ´%µ, called the ideal generated by ²%³.
+Definition Let : be a subset of a ring 9 with identity. The set
+º:» ~ ¸  b Ä b      9Á   :Á   ¹
+
+Preliminaries
+
+21
+
+of all finite linear combinations of elements of : , with coefficients in 9 , is an
+ideal in 9 , called the ideal generated by : . It is the smallest (in the sense of set
+inclusion) ideal of 9 containing : . If : ~ ¸  Á Ã Á  ¹ is a finite set, we write
+º  Á Ã Á  » ~ ¸  b Ä b      9Á   :¹
+Note that in the previous definition, we require that 9 have an identity. This is
+to ensure that :  º:».
+Theorem 0.20 Let 9 be a ring.
+1) The intersection of any collection ¸?    2¹ of ideals is an ideal.
+2) If ?  ?  Ä is an ascending sequence of ideals, each one contained in
+the next, then the union ? is also an ideal.
+3) More generally, if
+9 ~ ¸?    0¹
+is a chain of ideals in 9 , then the union @ ~ 0 ? is also an ideal in 9 .
+Proof. To prove 1), let @ ~ ? . Then if Á   @ , we have Á   ? for all
+  2 . Hence,  c   ? for all   2 and so  c   @ . Hence, @ is closed
+under subtraction. Also, if   9 , then   ? for all   2 and so   @ . Of
+course, part 2) is a special case of part 3). To prove 3), if Á   @ , then   ?
+and   ? for some Á   0 . Since one of ? and ? is contained in the other, we
+may assume that ?  ? . It follows that Á   ? and so  c   ?  @ and if
+  9 , then   ?  @ . Thus @ is an ideal.
+Note that in general, the union of ideals is not an ideal. However, as we have
+just proved, the union of any chain of ideals is an ideal.
+Quotient Rings and Maximal Ideals
+Let : be a subset of a commutative ring 9 with identity. Let  be the binary
+relation on 9 defined by
+ ¯ c :
+It is easy to see that  is an equivalence relation. When    , we say that 
+and  are congruent modulo : . The term “mod” is used as a colloquialism for
+modulo and    is often written
+   mod :
+As shorthand, we write    .
+
+22
+
+Advanced Linear Algebra
+
+To see what the equivalence classes look like, observe that
+´µ ~ ¸  9    ¹
+~ ¸  9   c   :¹
+~ ¸  9   ~  b for some  :¹
+~ ¸ b   :¹
+~b:
+The set
+ b : ~ ¸ b 
+
+ :¹
+
+is called a coset of : in 9 . The element  is called a coset representative for
+ b :.
+Thus, the equivalence classes for congruence mod : are the cosets  b : of :
+in 9 . The set of all cosets is denoted by
+9°: ~ ¸ b :    9¹
+This is read “9 mod : .” We would like to place a ring structure on 9°: .
+Indeed, if : is a subgroup of the abelian group 9, then 9°: is easily seen to be
+an abelian group as well under coset addition defined by
+² b :³ b ² b :³ ~ ² b ³ b :
+In order for the product
+² b :³² b :³ ~  b :
+to be well-defined, we must have
+ b : ~  Z b : ¬  b : ~  Z b :
+or, equivalently,
+ c  Z  : ¬ ² c  Z ³  :
+But  c  Z may be any element of : and  may be any element of 9 and so this
+condition implies that : must be an ideal. Conversely, if : is an ideal, then
+coset multiplication is well defined.
+Theorem 0.21 Let 9 be a commutative ring with identity. Then the quotient
+9°? is a ring under coset addition and multiplication if and only if ? is an
+ideal of 9 . In this case, 9°? is called the quotient ring of 9 modulo ? , where
+addition and multiplication are defined by
+² b :³ b ² b :³ ~ ² b ³ b :
+² b :³² b :³ ~  b :
+
+Preliminaries
+
+23
+
+Definition An ideal ? in a ring 9 is a maximal ideal if ? £ 9 and if whenever
+@ is an ideal satisfying ?  @  9 , then either @ ~ ? or @ ~ 9 .
+Here is one reason why maximal ideals are important.
+Theorem 0.22 Let 9 be a commutative ring with identity. Then the quotient
+ring 9°? is a field if and only if ? is a maximal ideal.
+Proof. First, note that for any ideal ? of 9 , the ideals of 9°? are precisely the
+quotients @ °? where @ is an ideal for which ?  @  9. It is clear that @ °?
+is an ideal of 9°? . Conversely, if AZ is an ideal of 9°? , then let
+A ~ ¸  9   b ?  AZ ¹
+It is easy to see that A is an ideal of 9 for which ?  A  9 .
+Next, observe that a commutative ring : with identity is a field if and only if :
+has no nonzero proper ideals. For if : is a field and ? is an ideal of :
+containing a nonzero element , then  ~ c   ? and so ? ~ : . Conversely,
+if : has no nonzero proper ideals and  £  : , then the ideal º » must be :
+and so there is an   : for which  ~ . Hence, : is a field.
+Putting these two facts together proves the theorem.
+The following result says that maximal ideals always exist.
+Theorem 0.23 Any nonzero commutative ring 9 with identity contains a
+maximal ideal.
+Proof. Since 9 is not the zero ring, the ideal ¸¹ is a proper ideal of 9 . Hence,
+the set I of all proper ideals of 9 is nonempty. If
+9 ~ ¸?    0¹
+is a chain of proper ideals in 9 , then the union @ ~ 0 ? is also an ideal.
+Furthermore, if @ ~ 9 is not proper, then   @ and so   ? , for some   0 ,
+which implies that ? ~ 9 is not proper. Hence, @  I . Thus, any chain in I
+has an upper bound in I and so Zorn's lemma implies that I has a maximal
+element. This shows that 9 has a maximal ideal.
+
+Integral Domains
+Definition Let 9 be a ring. A nonzero element r  9 is called a zero divisor if
+there exists a nonzero  9 for which  ~ . A commutative ring 9 with
+identity is called an integral domain if it contains no zero divisors.
+Example 0.14 If  is not a prime number, then the ring { has zero divisors and
+so is not an integral domain. To see this, observe that if  is not prime, then
+ ~  in {, where Á   . But in { , we have
+
+24
+
+Advanced Linear Algebra
+
+ p  ~  mod  ~ 
+and so  and  are both zero divisors. As we will see later, if  is a prime, then
+{ is a field (which is an integral domain, of course).
+Example 0.15 The ring - ´%µ is an integral domain, since ²%³²%³ ~  implies
+that ²%³ ~  or ²%³ ~ .
+If 9 is a ring and % ~ & where Á %Á &  9 , then we cannot in general cancel
+the 's and conclude that % ~ &. For instance, in { , we have  h  ~  h , but
+canceling the 's gives  ~ . However, it is precisely the integral domains in
+which we can cancel. The simple proof is left to the reader.
+Theorem 0.24 Let 9 be a commutative ring with identity. Then 9 is an integral
+domain if and only if the cancellation law
+% ~ &Á  £  ¬ % ~ &
+holds.
+
+The Field of Quotients of an Integral Domain
+Any integral domain 9 can be embedded in a field. The quotient field (or field
+of quotients) of 9 is a field that is constructed from 9 just as the field of
+rational numbers is constructed from the ring of integers. In particular, we set
+9 b ~ ¸²Á ³  Á   9Á  £ ¹
+where ²Á ³ ~ ²Z Á  Z ³ if and only if  Z ~ Z  . Addition and multiplication of
+fractions is defined by
+²Á ³ b ²Á ³ ~ ² b Á  ³
+and
+²Á ³ h ²Á ³ ~ ²Á  ³
+It is customary to write ²Á ³ in the form ° . Note that if 9 has zero divisors,
+then these definitions do not make sense, because  may be  even if  and
+are not. This is why we require that 9 be an integral domain.
+
+Principal Ideal Domains
+Definition Let 9 be a ring with identity and let   9 . The principal ideal
+generated by  is the ideal
+º» ~ ¸    9¹
+An integral domain 9 in which every ideal is a principal ideal is called a
+principal ideal domain.
+
+Preliminaries
+
+25
+
+Theorem 0.25 The integers form a principal ideal domain. In fact, any ideal ?
+in { is generated by the smallest positive integer a that is contained in ? .
+Theorem 0.26 The ring - ´%µ is a principal ideal domain. In fact, any ideal ? is
+generated by the unique monic polynomial of smallest degree contained in ? .
+Moreover, for polynomials  ²%³Á Ã Á  ²%³,
+º ²%³Á Ã Á  ²%³» ~ ºgcd¸ ²%³Á Ã Á  ²%³¹»
+Proof. Let ? be an ideal in - ´%µ and let ²%³ be a monic polynomial of
+smallest degree in ? . First, we observe that there is only one such polynomial in
+? . For if ²%³  ? is monic and deg²²%³³ ~ deg²²%³³, then
+²%³ ~ ²%³ c ²%³  ?
+and since deg²²%³³  deg²²%³³, we must have ²%³ ~  and so
+²%³ ~ ²%³.
+We show that ? ~ º²%³». Since ²%³  ? , we have º²%³»  ? . To establish
+the reverse inclusion, if ²%³  ? , then dividing ²%³ by ²%³ gives
+²%³ ~ ²%³²%³ b ²%³
+where ²%³ ~  or   deg ²%³  deg ²%³. But since ? is an ideal,
+²%³ ~ ²%³ c ²%³²%³  ?
+and so   deg ²%³  deg ²%³ is impossible. Hence, ²%³ ~  and
+²%³ ~ ²%³²%³  º²%³»
+This shows that ?  º²%³» and so ? ~ º²%³».
+To prove the second statement, let ? ~ º ²%³Á Ã Á  ²%³». Then, by what we
+have just shown,
+? ~ º ²%³Á Ã Á  ²%³» ~ º²%³»
+where ²%³ is the unique monic polynomial ²%³ in ? of smallest degree. In
+particular, since  ²%³  º²%³», we have ²%³   ²%³ for each  ~ Á Ã Á .
+In other words, ²%³ is a common divisor of the  ²%³'s.
+Moreover, if ²%³   ²%³ for all , then  ²%³  º²%³» for all , which implies
+that
+²%³  º²%³» ~ º ²%³Á Ã Á  ²%³»  º²%³»
+and so ²%³  ²%³. This shows that ²%³ is the greatest common divisor of the
+ ²%³'s and completes the proof.
+
+26
+
+Advanced Linear Algebra
+
+Example 0.16 The ring 9 ~ - ´%Á &µ of polynomials in two variables % and & is
+not a principal ideal domain. To see this, observe that the set ? of all
+polynomials with zero constant term is an ideal in 9 . Now, suppose that ? is the
+principal ideal ? ~ º²%Á &³». Since %Á &  ? , there exist polynomials ²%Á &³
+and ²%Á &³ for which
+% ~ ²%Á &³²%Á &³ and & ~ ²%Á &³²%Á &³
+
+(0.1)
+
+But ²%Á &³ cannot be a constant, for then we would have ? ~ 9 . Hence,
+deg²²%Á &³³   and so ²%Á &³ and ²%Á &³ must both be constants, which
+implies that (0.1) cannot hold.
+Theorem 0.27 Any principal ideal domain 9 satisfies the ascending chain
+condition, that is, 9 cannot have a strictly increasing sequence of ideals
+?  ?  Ä
+where each ideal is properly contained in the next one.
+Proof. Suppose to the contrary that there is such an increasing sequence of
+ideals. Consider the ideal
+< ~  ?
+which must have the form < ~ º» for some   < . Since   ? for some  ,
+we have ? ~ ? for all    , contradicting the fact that the inclusions are
+proper.
+
+Prime and Irreducible Elements
+We can define the notion of a prime element in any integral domain. For
+Á  9 , we say that  divides (written   ) if there exists an %  9 for
+which ~ %.
+Definition Let 9 be an integral domain.
+1) An invertible element of 9 is called a unit. Thus, "  9 is a unit if "# ~ 
+for some #  9 .
+2) Two elements Á   9 are said to be associates if there exists a unit " for
+which  ~ " . We denote this by writing    .
+3) A nonzero nonunit   9 is said to be prime if
+   ¬    or   
+4) A nonzero nonunit   9 is said to be irreducible if
+ ~  ¬  or  is a unit
+Note that if  is prime or irreducible, then so is " for any unit ".
+The property of being associate is clearly an equivalence relation.
+
+Preliminaries
+
+27
+
+Definition We will refer to the equivalence classes under the relation of being
+associate as the associate classes of 9 .
+Theorem 0.28 Let 9 be a ring.
+1) An element "  9 is a unit if and only if º"» ~ 9 .
+2)   if and only if º» ~ º ».
+3)  divides if and only if º »  º».
+4)  properly divides , that is, ~ % where % is not a unit, if and only if
+º »  º».
+In the case of the integers, an integer is prime if and only if it is irreducible. In
+any integral domain, prime elements are irreducible, but the converse need not
+hold. (In the ring {´jc µ ~ ¸ b  jc  Á   {¹ the irreducible element 
+divides the product ² b jc ³² c jc ³ ~ but does not divide either
+factor.)
+However, in principal ideal domains, the two concepts are equivalent.
+Theorem 0.29 Let 9 be a principal ideal domain.
+1) An   9 is irreducible if and only if the ideal º» is maximal.
+2) An element in 9 is prime if and only if it is irreducible.
+3) The elements Á   9 are relatively prime, that is, have no common
+nonunit factors, if and only if there exist Á  9 for which
+ b  ~ 
+This is denoted by writing ²Á ³ ~ .
+Proof. To prove 1), suppose that  is irreducible and that º»  º»  9 . Then
+  º» and so  ~ % for some %  9. The irreducibility of  implies that  or
+% is a unit. If  is a unit, then º» ~ 9 and if % is a unit, then º» ~ º%» ~ º».
+This shows that º» is maximal. (We have º» £ 9 , since  is not a unit.)
+Conversely, suppose that  is not irreducible, that is,  ~  where neither  nor
+ is a unit. Then º»  º»  9 . But if º» ~ º», then   , which implies that
+ is a unit. Hence º» £ º». Also, if º» ~ 9 , then  must be a unit. So we
+conclude that º» is not maximal, as desired.
+To prove 2), assume first that  is prime and  ~  . Then    or    . We
+may assume that   . Therefore,  ~ % ~ % . Canceling 's gives  ~ %
+and so  is a unit. Hence,  is irreducible. (Note that this argument applies in
+any integral domain.)
+Conversely, suppose that  is irreducible and let    . We wish to prove that
+   or    . The ideal º» is maximal and so ºÁ » ~ º» or ºÁ » ~ 9 . In the
+former case,    and we are done. In the latter case, we have
+ ~ % b &
+
+28
+
+Advanced Linear Algebra
+
+for some %Á &  9 . Thus,
+ ~ % b &
+and since  divides both terms on the right, we have    .
+To prove 3), it is clear that if  b  ~ , then  and  are relatively prime. For
+the converse, consider the ideal ºÁ », which must be principal, say
+ºÁ » ~ º%». Then %   and %   and so % must be a unit, which implies that
+ºÁ » ~ 9 . Hence, there exist Á  9 for which  b  ~ .
+
+Unique Factorization Domains
+Definition An integral domain 9 is said to be a unique factorization domain
+if it has the following factorization properties:
+1) Every nonzero nonunit element   9 can be written as a product of a finite
+number of irreducible elements  ~  Ä .
+2) The factorization into irreducible elements is unique in the sense that if
+ ~  Ä and  ~  Ä are two such factorizations, then  ~  and
+after a suitable reindexing of the factors,    .
+Unique factorization is clearly a desirable property. Fortunately, principal ideal
+domains have this property.
+Theorem 0.30 Every principal ideal domain 9 is a unique factorization
+domain.
+Proof. Let   9 be a nonzero nonunit. If  is irreducible, then we are done. If
+not, then  ~   , where neither factor is a unit. If  and  are irreducible, we
+are done. If not, suppose that  is not irreducible. Then  ~   , where
+neither  nor  is a unit. Continuing in this way, we obtain a factorization of
+the form (after renumbering if necessary)
+ ~   ~  ²  ³ ~ ²  ³²  ³ ~ ²   ³²  ³ ~ Ä
+Each step is a factorization of  into a product of nonunits. However, this
+process must stop after a finite number of steps, for otherwise it will produce an
+infinite sequence  Á  Á Ã of nonunits of 9 for which b properly divides  .
+But this gives the ascending chain of ideals
+º »  º »  º »  º »  Ä
+where the inclusions are proper. But this contradicts the fact that a principal
+ideal domain satisfies the ascending chain condition. Thus, we conclude that
+every nonzero nonunit has a factorization into irreducible elements.
+As to uniqueness, if  ~  Ä and  ~  Ä are two such factorizations,
+then because 9 is an integral domain, we may equate them and cancel like
+factors, so let us assume this has been done. Thus,  £  for all Á  . If there are
+no factors on either side, we are done. If exactly one side has no factors left,
+
+Preliminaries
+
+29
+
+then we have expressed  as a product of irreducible elements, which is not
+possible since irreducible elements are nonunits.
+Suppose that both sides have factors left, that is,
+ Ä ~  Ä
+where  £  . Then    Ä , which implies that    for some . We can
+assume by reindexing if necessary that  ~   . Since  is irreducible 
+must be a unit. Replacing  by   and canceling  gives
+  Äc ~  Äc
+This process can be repeated until we run out of 's or 's. If we run out of 's
+first, then we have an equation of the form " Ä ~  where " is a unit,
+which is not possible since the  's are not units. By the same reasoning, we
+cannot run out of  's first and so  ~  and the 's and  's can be paired off as
+associates.
+
+Fields
+For the record, let us give the definition of a field (a concept that we have been
+using).
+Definition A field is a set - , containing at least two elements, together with two
+binary operations, called addition (denoted by b ) and multiplication
+(denoted by juxtaposition), for which the following hold:
+1) - is an abelian group under addition.
+2) The set - i of all nonzero elements in - is an abelian group under
+multiplication.
+3) (Distributivity) For all Á Á   - ,
+² b ³ ~  b  and ² b ³ ~  b 
+We require that - have at least two elements to avoid the pathological case in
+which  ~ .
+Example 0.17 The sets r, s and d, of all rational, real and complex numbers,
+respectively, are fields, under the usual operations of addition and multiplication
+of numbers.
+Example 0.18 The ring { is a field if and only if  is a prime number. We
+have already seen that { is not a field if  is not prime, since a field is also an
+integral domain. Now suppose that  ~  is a prime.
+We have seen that { is an integral domain and so it remains to show that every
+nonzero element in { has a multiplicative inverse. Let  £   { . Since
+  , we know that  and  are relatively prime. It follows that there exist
+integers " and # for which
+
+30
+
+Advanced Linear Algebra
+
+" b # ~ 
+Hence,
+"  ² c #³   mod 
+and so " p  ~  in { , that is, " is the multiplicative inverse of .
+The previous example shows that not all fields are infinite sets. In fact, finite
+fields play an extremely important role in many areas of abstract and applied
+mathematics.
+A field - is said to be algebraically closed if every nonconstant polynomial
+over - has a root in - . This is equivalent to saying that every nonconstant
+polynomial splits over - . For example, the complex field d is algebraically
+closed but the real field s is not. We mention without proof that every field - is
+contained in an algebraically closed field - , called the algebraic closure of - .
+For example, the algebraic closure of the real field is the complex field.
+
+The Characteristic of a Ring
+Let 9 be a ring with identity. If  is a positive integer, then by  h , we simply
+mean
+h~ bÄ
+b
+
+ terms
+Now, it may happen that there is a positive integer  for which
+h~
+For instance, in { , we have  h  ~  ~ . On the other hand, in {, the
+equation  h  ~  implies  ~  and so no such positive integer exists.
+Notice that in any finite ring, there must exist such a positive integer , since the
+members of the infinite sequence of numbers
+ h Á  h Á  h Á Ã
+cannot be distinct and so  h  ~  h  for some    , whence ² c ³ h  ~ .
+Definition Let 9 be a ring with identity. The smallest positive integer  for
+which  h  ~  is called the characteristic of 9 . If no such number  exists, we
+say that 9 has characteristic . The characteristic of 9 is denoted by
+char²9³.
+If char²9³ ~  , then for any   9 , we have
+h~ bÄ
+b ~²bÄ
+b  ³ ~  h  ~ 
+
+
+ terms
+ terms
+
+Preliminaries
+
+31
+
+Theorem 0.31 Any finite ring has nonzero characteristic. Any finite integral
+domain has prime characteristic.
+Proof. We have already seen that a finite ring has nonzero characteristic. Let be a finite integral domain and suppose that char²- ³ ~   . If  ~  , where
+Á    , then  h  ~ . Hence, ² h ³² h ³ ~ , implying that  h  ~  or
+ h  ~ . In either case, we have a contradiction to the fact that  is the smallest
+positive integer such that  h  ~ . Hence,  must be prime.
+Notice that in any field - of characteristic , we have  ~  for all   - .
+Thus, in - ,
+ ~ c for all   This property takes a bit of getting used to and makes fields of characteristic 
+quite exceptional. (As it happens, there are many important uses for fields of
+characteristic .) It can be shown that all finite fields have size equal to a
+positive integral power  of a prime  and for each prime power  , there is a
+finite field of size  . In fact, up to isomorphism, there is exactly one finite field
+of size  .
+
+Algebras
+The final algebraic structure of which we will have use is a combination of a
+vector space and a ring. (We have not yet officially defined vector spaces, but
+we will do so before needing the following definition, which is placed here for
+easy reference.)
+Definition An algebra 7 over a field - is a nonempty set 7, together with
+three operations, called addition (denoted by b ), multiplication (denoted by
+juxtaposition) and scalar multiplication (also denoted by juxtaposition), for
+which the following properties hold:
+1) 7 is a vector space over - under addition and scalar multiplication.
+2) 7 is a ring under addition and multiplication.
+3) If   - and Á   7, then
+²³ ~ ²³ ~ ²³
+Thus, an algebra is a vector space in which we can take the product of vectors,
+or a ring in which we can multiply each element by a scalar (subject, of course,
+to additional requirements as given in the definition).
+
+Part I—Basic Linear Algebra
+
+Chapter 1
+
+Vector Spaces
+
+Vector Spaces
+Let us begin with the definition of one of our principal objects of study.
+Definition Let - be a field, whose elements are referred to as scalars. A vector
+space over - is a nonempty set = , whose elements are referred to as vectors,
+together with two operations. The first operation, called addition and denoted
+by b , assigns to each pair ²"Á #³ of vectors in = a vector " b # in = . The
+second operation, called scalar multiplication and denoted by juxtaposition,
+assigns to each pair ²Á "³  - d = a vector " in = . Furthermore, the
+following properties must be satisfied:
+1) (Associativity of addition) For all vectors "Á #Á $  = ,
+" b ²# b $³ ~ ²" b #³ b $
+2) (Commutativity of addition) For all vectors "Á #  = ,
+"b#~#b"
+3) (Existence of a zero) There is a vector   = with the property that
+b"~"b~"
+for all vectors "  = .
+4) (Existence of additive inverses) For each vector "  = , there is a vector
+in = , denoted by c", with the property that
+" b ²c"³ ~ ²c"³ b " ~ 
+
+

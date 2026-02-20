@@ -1,0 +1,501 @@
+Modules II: Free and Noetherian Modules
+
+131
+
+similar result holds for free 9 -modules. We begin with the fact that ²9 ) ³ is a
+free 9 -module. The simple proof is left to the reader.
+Theorem 5.2 Let ) be any set and let 9 be a commutative ring with identity.
+The set ²9 ) ³ of all functions from ) to 9 that have finite support is a free 9 module of rank () ( with basis 8 ~ ¸ ¹ where
+ ²%³ ~ F
+
+
+
+
+if % ~ 
+if % £ 
+
+This basis is referred to as the standard basis for ²9 ) ³ .
+Theorem 5.3 Let 4 be an 9 -module. If ) is a basis for 4 , then 4 is
+isomorphic to ²9 ) ³ .
+Proof. Consider the map ¢ 4 ¦ ²9 ) ³ defined by setting
+  ~ 
+where  is defined in Theorem 5.2 and extending  to 4 by linearity. Since 
+maps a basis for 4 to a basis 8 ~ ¸ ¹ for ²9 ) ³ , it follows that  is an
+isomorphism from 4 to ²9 ) ³ .
+Theorem 5.4 Two free 9 -modules (over a commutative ring) are isomorphic if
+and only if they have the same rank.
+Proof. If 4  5 , then any isomorphism  from 4 to 5 maps a basis for 4 to
+a basis for 5 . Since  is a bijection, we have rk²4 ³ ~ rk²5 ³. Conversely,
+suppose that rk²4 ³ ~ rk²5 ³. Let 8 be a basis for 4 and let 9 be a basis for 5 .
+Since (8 ( ~ (9(, there is a bijective map  ¢ 8 ¦ 9 . This map can be extended by
+linearity to an isomorphism of 4 onto 5 and so 4  5 .
+We have seen that the cardinality of a (minimal) spanning set for a free module
+4 is at least equal to rk²4 ³. Let us now speak about the cardinality of maximal
+linearly independent sets.
+Theorem 5.5 Let 9 be an integral domain and let 4 be a free 9 -module. Then
+all linearly independent sets have cardinality at most rk²4 ³.
+Proof. Since 4  ²9  ³ we need only prove the result for ²9  ³ . Let 8 be the
+field of quotients of 9 . Then ²8 ³ is a vector space. Now, if
+8 ~ ¸#    0¹  ²9  ³  ²8 ³
+is linearly independent over 8 as a subset of ²8 ³ , then 8 is clearly linearly
+independent over 9 as a subset of ²9  ³ . Conversely, suppose that 8 is linearly
+independent over 9 and
+
+
+# b Ä b # ~ 
+
+
+
+
+132
+
+Advanced Linear Algebra
+
+where  £  for all  and  £  for some . Multiplying by
+produces a nontrivial linear dependency over 9 ,
+
+
+ # b Ä b
+
+
+
+~
+
+Ä  £ 
+
+ # ~ 
+
+which implies that  ~  for all . Thus 8 is linearly dependent over 9 if and
+only if it is linearly dependent over 8. But in the vector space ²8 ³ , all sets of
+cardinality greater than  are linearly dependent over 8 and hence all subsets of
+²9  ³ of cardinality greater than  are linearly dependent over 9 .
+
+Free Modules and Epimorphisms
+If ¢ 4 ¦ - is a module epimorphism where - is free on 8, then it is easy to
+define a right inverse for  , since we can define an 9 -map 9 ¢ - ¦ 4 by
+specifying its values arbitrarily on 8 and extending by linearity. Thus, we take
+9 ²³ to be any member of c ²³. Then Theorem 4.16 implies that ker²³ is a
+direct summand of 4 and
+4  ker²³ ^ This discussion applies to the canonical projection ¢ 4 ¦ 4 °: provided that
+the quotient 4 °: is free.
+Theorem 5.6 Let 9 be a commutative ring with identity.
+1) If ¢ 4 ¦ - is an 9 -epimorphism and - is free, then ker²³ is
+complemented and
+4 ~ ker²³ l 5  ker²³ ^ where 5  - .
+2) If : is a submodule of 4 and if 4 °: is free, then : is complemented and
+4 :^
+
+4
+:
+
+If 4 Á : and 4 °: are free, then
+rk²4 ³ ~ rk²:³ b rk6
+
+4
+7
+:
+
+and if the ranks are all finite, then
+rk6
+
+4
+7 ~ rk²4 ³ c rk²:³
+:
+
+Noetherian Modules
+One of the most desirable properties of a finitely generated 9 -module 4 is that
+all of its submodules be finitely generated:
+
+Modules II: Free and Noetherian Modules
+
+4 finitely generated, :  4
+
+¬
+
+133
+
+: finitely generated
+
+Example 4.2 shows that this is not always the case and leads us to search for
+conditions on the ring 9 that will guarantee this property for 9 -modules.
+Definition An 9 -module 4 is said to satisfy the ascending chain condition
+(abbreviated ACC) on submodules if every ascending sequence of submodules
+:  :  :  Ä
+of 4 is eventually constant, that is, there exists an index  for which
+: ~ :b ~ :kb ~ Ä
+Modules with the ascending chain condition on submodules are also called
+Noetherian modules (after Emmy Noether, one of the pioneers of module
+theory).
+Since a ring 9 is a module over itself and since the submodules of the module 9
+are precisely the ideals of the ring 9 , the preceding definition can be formulated
+for rings as follows.
+Definition A ring 9 is said to satisfy the ascending chain condition
+(abbreviated ACC) on ideals if any ascending sequence
+?  ?   ?   Ä
+of ideals of 9 is eventually constant, that is, there exists an index  for which
+? ~ ?b ~ ?b2 ~ Ä
+A ring that satisfies the ascending chain condition on ideals is called a
+Noetherian ring.
+The following theorem describes the relevance of this to the present discussion.
+Theorem 5.7
+1) An 9 -module 4 is Noetherian if and only if every submodule of 4 is
+finitely generated.
+2) In particular, a ring 9 is Noetherian if and only if every ideal of 9 is
+finitely generated.
+Proof. Suppose that all submodules of 4 are finitely generated and that 4
+contains an infinite ascending sequence
+:  :  :3  Ä
+of submodules. Then the union
+
+(5.1)
+
+134
+
+Advanced Linear Algebra
+
+: ~  :
+
+
+is easily seen to be a submodule of 4 . Hence, : is finitely generated, say
+: ~ ºº" Á Ã Á " »». Since "  : , there exists an index  such that "  : .
+Therefore, if  ~ max¸ Á Ã Á  ¹, we have
+¸" Á Ã Á " ¹  :
+and so
+: ~ ºº" Á Ã Á " »»  :  :b  :b  Ä  :
+which shows that the chain (5.1) is eventually constant.
+For the converse, suppose that 4 satisfies the ACC on submodules and let : be
+a submodule of 4 . Pick "  : and consider the submodule : ~ ºº" »»  :
+generated by " . If : ~ : , then : is finitely generated. If : £ : , then there is
+a "  : c : . Now let : ~ ºº" ," »». If : ~ : , then : is finitely generated.
+If : £ : , then pick "3  : c : and consider the submodule
+:3 ~ ºº" ," ,"3 »».
+Continuing in this way, we get an ascending chain of submodules
+ºº" »»  ºº" Á " »»  ºº" Á " Á " »»  Ä  :
+If none of these submodules were equal to : , we would have an infinite
+ascending chain of submodules, each properly contained in the next, which
+contradicts the fact that 4 satisfies the ACC on submodules. Hence,
+: ~ ºº" Á Ã Á " »» for some  and so : is finitely generated.
+Our goal is to find conditions under which all finitely generated 9 -modules are
+Noetherian. The very pleasing answer is that all finitely generated 9 -modules
+are Noetherian if and only if 9 is Noetherian as an 9 -module, or equivalently,
+as a ring.
+Theorem 5.8 Let 9 be a commutative ring with identity.
+1) 9 is Noetherian if and only if every finitely generated 9 -module is
+Noetherian.
+2) Let 9 be a principal ideal domain. If an 9 -module 4 is -generated, then
+any submodule of 4 is also -generated.
+Proof. For part 1), one direction is evident. Assume that 9 is Noetherian and
+let 4 ~ ºº" Á Ã Á " »» be a finitely generated 9 -module. Consider the
+epimorphism ¢ 9  ¦ 4 defined by
+² Á Ã Á  ³ ~  " b Ä b  "
+Let : be a submodule of 4 . Then
+
+Modules II: Free and Noetherian Modules
+
+135
+
+ c ²:³ ~ ¸"  9    "  :¹
+is a submodule of 9  and  ² c :³ ~ : . If every submodule of 9  is finitely
+generated, then  c ²:³ is finitely generated and so  c ²:³ ~ ºº# Á Ã Á # »».
+Then : is finitely generated by ¸ # Á Ã Á  # ¹. Thus, it is sufficient to prove the
+theorem for 9  , which we do by induction on .
+If  ~ , any submodule of 9 is an ideal of 9 , which is finitely generated by
+assumption. Assume that every submodule of 9  is finitely generated for all
+     and let : be a submodule of 9  .
+If   , we can extract from : something that is isomorphic to an ideal of 9
+and so will be finitely generated. In particular, let : be the “last coordinates” in
+:, specifically, let
+: ~ ¸²Á Ã Á Á  ³  ² Á Ã Á c Á  ³  : for some  Á Ã Á c  9¹
+The set : is isomorphic to an ideal of 9 and is therefore finitely generated, say
+: ~ ºº= »», where = ~ ¸ Á Ã Á  ¹ is a finite subset of : .
+Also, let
+: ~ ¸#  :  # ~ ² Á Ã Á c Á ³ for some  Á Ã Á c  9¹
+be the set of all elements of : that have last coordinate equal to . Note that :
+is a submodule of 9  and is isomorphic to a submodule of 9 c . Hence, the
+inductive hypothesis implies that : is finitely generated, say : ~ ºº= »», where
+= is a finite subset of : .
+By definition of : , each   = has the form
+ ~ ²Á Ã Á Á Á ³
+for Á  9 where there is a   : of the form
+ ~ ²Á Á Ã Á Ác Á Á ³
+Let =  ~ ¸ Á Ã Á  ¹. We claim that : is generated by the finite set =  r = .
+To see this, let # ~ ² Á Ã Á  ³  : . Then ²Á Ã Á Á  ³  : and so
+
+
+²Á Ã Á Á  ³ ~   
+~
+
+for   9. Consider now the sum
+
+136
+
+Advanced Linear Algebra
+
+
+
+$ ~     ºº=  »»
+~
+
+The last coordinate of this sum is
+
+
+  Á ~ 
+~
+
+and so the difference # c $ has last coordinate  and is thus in : ~ ºº= »».
+Hence
+# ~ ²# c $³ b $  ºº=  »» b ºº= »» ~ ºº=  r = »»
+as desired.
+For part 2), we leave it to the reader to review the proof and make the necessary
+changes. The key fact is that : is isomorphic to an ideal of 9 , which is
+principal. Hence, : is generated by a single element of 4 .
+
+The Hilbert Basis Theorem
+Theorem 5.8 naturally leads us to ask which familiar rings are Noetherian. The
+following famous theorem describes one very important case.
+Theorem 5.9 (Hilbert basis theorem) If a ring 9 is Noetherian, then so is the
+polynomial ring 9´%µ.
+Proof. We wish to show that any ideal ? in 9´%µ is finitely generated. Let 3
+denote the set of all leading coefficients of polynomials in ? , together with the 
+element of 9 . Then 3 is an ideal of 9 .
+To see this, observe that if   3 is the leading coefficient of  ²%³  ? and if
+  9 , then either  ~  or else  is the leading coefficient of  ²%³  ? . In
+either case,   3. Similarly, suppose that   3 is the leading coefficient of
+²%³  ? . We may assume that deg  ²%³ ~  and deg ²%³ ~ , with   . Then
+²%³ ~ %c  ²%³ is in ? , has leading coefficient  and has the same degree as
+²%³. Hence, either  c  is  or  c  is the leading coefficient of
+²%³ c ²%³  ? . In either case  c   3.
+Since 3 is an ideal of the Noetherian ring 9 , it must be finitely generated, say
+3 ~ º Á Ã Á  ». Since   3, there exist polynomials  ²%³  ? with leading
+coefficient  . By multiplying each  ²%³ by a suitable power of %, we may
+assume that
+deg  ²%³ ~  ~ max¸deg  ²%³¹
+for all  ~ Á Ã Á .
+
+Modules II: Free and Noetherian Modules
+
+137
+
+Now for  ~ Á Ã Á  c  let 3 be the set of all leading coefficients of
+polynomials in ? of degree  , together with the  element of 9 . A similar
+argument shows that 3 is an ideal of 9 and so 3 is also finitely generated.
+Hence, we can find polynomials 7 ~ ¸Á ²%³Á Ã Á Á ²%³¹ in ? whose
+leading coefficients constitute a generating set for 3 .
+Consider now the finite set
+c
+
+7 ~ 8  7 9 r ¸ ²%³Á Ã Á  ²%³¹
+~
+
+If @ is the ideal generated by 7 , then @  ? . An induction argument can be
+used to show that @ ~ ? . If ²%³  ? has degree , then it is a linear
+combination of the elements of 7 (which are constants) and is thus in @ .
+Assume that any polynomial in ? of degree less than  is in @ and let ²%³  ?
+have degree  .
+If   , then some linear combination ²%³ over 9 of the polynomials in 7
+has the same leading coefficient as ²%³ and if    , then some linear
+combination ²%³ of the polynomials
+B%c  ²%³Á Ã Á %c  ²%³C  @
+has the same leading coefficient as ²%³. In either case, there is a polynomial
+²%³  @ that has the same leading coefficient as ²%³. Since ²%³ c ²%³  ?
+has degree strictly smaller than that of ²%³ the induction hypothesis implies that
+²%³ c ²%³  @
+and so
+²%³ ~ ´²%³ c ²%³µ b ²%³  @
+This completes the induction and shows that ? ~ @ is finitely generated.
+
+Exercises
+1.
+2.
+3.
+4.
+5.
+6.
+
+If 4 is a free 9 -module and  ¢ 4 ¦ 5 is an epimorphism, then must 5
+also be free?
+Let ? be an ideal of 9 . Prove that if 9°? is a free 9 -module, then ? is the
+zero ideal.
+Prove that the union of an ascending chain of submodules is a submodule.
+Let : be a submodule of an 9-module 4 . Show that if 4 is finitely
+generated, so is the quotient module 4 °: .
+Let : be a submodule of an 9 -module. Show that if both : and 4 °: are
+finitely generated, then so is 4 .
+Show that an 9-module 4 satisfies the ACC for submodules if and only if
+the following condition holds. Every nonempty collection I of submodules
+
+138
+
+Advanced Linear Algebra
+
+of 4 has a maximal element. That is, for every nonempty collection I of
+submodules of 4 there is an :  I with the property that
+;  I ¬ ;  :.
+7. Let ¢ 4 ¦ 5 be an 9 -homomorphism.
+a) Show that if 4 is finitely generated, then so is im² ³.
+b) Show that if ker² ³ and im² ³ are finitely generated, then
+4 ~ ker² ³ b : where : is a finitely generated submodule of 4 .
+Hence, 4 is finitely generated.
+8. If 9 is Noetherian and ? is an ideal of 9 show that 9°? is also Noetherian.
+9. Prove that if 9 is Noetherian, then so is 9´% Á Ã Á % µ.
+10. Find an example of a commutative ring with identity that does not satisfy
+the ascending chain condition.
+11. a) Prove that an 9-module 4 is cyclic if and only if it is isomorphic to
+9°? where ? is an ideal of 9 .
+b) Prove that an 9 -module 4 is simple (4 £ ¸¹ and 4 has no proper
+nonzero submodules) if and only if it is isomorphic to 9°? where ? is
+a maximal ideal of 9 .
+c) Prove that for any nonzero commutative ring 9 with identity, a simple
+9-module exists.
+12. Prove that the condition that 9 be a principal ideal domain in part 2) of
+Theorem 5.8 is required.
+13. Prove Theorem 5.8 in the following way.
+a) Show that if ;  : are submodules of 4 and if ; and :°; are
+finitely generated, then so is : .
+b) The proof is again by induction. Assuming it is true for any module
+generated by  elements, let 4 ~ ºº# Á Ã Á #b »» and let
+4 Z ~ ºº# Á Ã Á # »». Then let ; ~ : q 4 Z in part a).
+14. Prove that any 9 -module 4 is isomorphic to the quotient of a free module
+- . If 4 is finitely generated, then - can also be taken to be finitely
+generated.
+15. Prove that if : and ; are isomorphic submodules of a module 4 it does
+not necessarily follow that the quotient modules 4 °: and 4 °; are
+isomorphic. Prove also that if : l ;  : l ; as modules it does not
+necessarily follow that ;  ; . Prove that these statements do hold if all
+modules are free and have finite rank.
+
+Chapter 6
+
+Modules over a Principal Ideal Domain
+
+We remind the reader of a few of the basic properties of principal ideal
+domains.
+Theorem 6.1 Let 9 be a principal ideal domain.
+1) An element   9 is irreducible if and only if the ideal º» is maximal.
+2) An element in 9 is prime if and only if it is irreducible.
+3) 9 is a unique factorization domain.
+4) 9 satisfies the ascending chain condition on ideals. Hence, so does any
+finitely generated 9 -module 4 . Moreover, if 4 is -generated, then any
+submodule of 4 is -generated.
+
+Annihilators and Orders
+When 9 is a principal ideal domain, all annihilators are generated by a single
+element. This permits the following definition.
+Definition Let 9 be a principal ideal domain and let 4 be an 9 -module.
+1) If 5 is a submodule of 4 , then any generator of ann²5 ³ is called an order
+of 5 .
+2) An order of an element #  4 is an order of the submodule ºº#»».
+For readers acquainted with group theory, we mention that the order of a
+module corresponds to the smallest exponent of a group, not to the order of the
+group.
+Theorem 6.2 Let 9 be a principal ideal domain and let 4 be an 9 -module.
+1) If  is an order of 5  4 , then the orders of 5 are precisely the
+associates of . We denote any order of 5 by ²5 ³ and, as is customary,
+refer to ²5 ³ as “the” order of 5 .
+2) If 4 ~ ( l ) , then
+²4 ³ ~ lcm²²(³Á ²)³³
+
+140
+
+Advanced Linear Algebra
+
+that is, the orders of 4 are precisely the least common multiples of the
+orders of ( and ) .
+Proof. We leave proof of part 1) for the reader. For part 2), suppose that
+²4 ³ ~  Á
+
+²(³ ~ Á
+
+²)³ ~  Á
+
+ ~ lcm²Á  ³
+
+Then  ( ~ ¸¹ and  ) ~ ¸¹ imply that    and    and so    . On the
+other hand,  annihilates both ( and ) and therefore also 4 ~ ( l ) . Hence,
+   and so    is an order of 4 .
+
+Cyclic Modules
+The simplest type of nonzero module is clearly a cyclic module. Despite their
+simplicity, cyclic modules will play a very important role in our study of linear
+operators on a finite-dimensional vector space and so we want to explore some
+of their basic properties, including their composition and decomposition.
+Theorem 6.3 Let 9 be a principal ideal domain.
+1) If ºº#»» is a cyclic 9 -module with annihilator º», then the multiplication
+map  ¢ 9 ¦ ºº#»» defined by   ~ # is an 9 -epimorphism with kernel º».
+Hence the induced map
+¢
+
+9
+¦ ºº#»»
+º »
+
+defined by
+² b º»³ ~ #
+is an isomorphism. In other words, cyclic 9 -modules are isomorphic to
+quotient modules of the base ring 9 .
+2) Any submodule of a cyclic 9 -module is cyclic.
+3) If ºº#»» is a cyclic submodule of 4 of order , then for   9 ,
+
+²ºº #»»³ ~
+gcd² Á ³
+Also,
+ºº #»» ~ ºº#»»
+
+¯
+
+²²#³Á  ³ ~ 
+
+¯
+
+²#³ ~ ²#³
+
+Proof. We leave proof of part 1) as an exercise. For part 2), let :  ºº#»». Then
+0 ~ ¸  9  #  :¹ is an ideal of 9 and so 0 ~ º » for some  9 . Thus,
+: ~ 0# ~ 9 # ~ ºº #»»
+For part 3), we have ² #³ ~  if and only if ² ³# ~ , that is, if and only if
+   , which is equivalent to
+
+Modules Over a Principal Ideal Domain
+
+
+
+141
+
+
+d
+gcd²Á  ³
+
+Thus,   ann² #³ if and only if   º » and so ann² #³ ~ º ». For the second
+statement, if ²Á  ³ ~  then there exist Á   9 for which  b   ~  and so
+# ~ ² b   ³# ~   #  ºº #»»  ºº#»»
+and so ºº #»» ~ ºº#»». Of course, if ºº #»» ~ ºº#»» then ²#³ ~ . Finally, if
+² #³ ~ , then
+
+ ~ ² #³ ~
+gcd²Á  ³
+and so ²Á  ³ ~ .
+
+The Decomposition of Cyclic Modules
+The following theorem shows how cyclic modules can be composed and
+decomposed.
+Theorem 6.4 Let 4 be an 9 -module.
+1) (Composing cyclic modules) If " Á Ã Á "  4 have relatively prime
+orders, then
+²" b Ä b " ³ ~ ²" ³Ä²" ³
+and
+ºº" »» l Ä l ºº" »» ~ ºº" b Ä b " »»
+Consequently, if
+4 ~ ( b Ä b (
+where the submodules ( have relatively prime orders, then the sum is
+direct.
+2) (Decomposing cyclic modules) If ²#³ ~  Ä where the  's are
+pairwise relatively prime, then # has the form
+# ~ " b Ä b " 
+where ²" ³ ~  and so
+ºº#»» ~ ºº" b Ä b " »» ~ ºº" »» l Ä l ºº"»»
+Proof. For part 1), let  ~ ²" ³,    Ä and #  " b Ä b " . Then
+since  annihilates #, the order of # divides . If ²#³ is a proper divisor of ,
+then for some index  , there is a prime    for which ° annihilates #. But
+° annihilates each " for  £  . Thus,
+
+

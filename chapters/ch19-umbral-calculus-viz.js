@@ -4,7 +4,7 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch19'] = window.EXTRA_VIZ['ch19'] || {};
 
-// Section 1: Introduction to Umbral Calculus
+// Section 1: The Umbral Algebra and Polynomial Sequences
 window.EXTRA_VIZ['ch19']['ch19-sec01'] = [
     {
         id: 'ch19-extra-viz-1',
@@ -269,8 +269,8 @@ window.EXTRA_VIZ['ch19']['ch19-sec01'] = [
     }
 ];
 
-// Section 2: Delta operators and Sheffer sequences
-window.EXTRA_VIZ['ch19']['ch19-sec02'] = [
+// Section 3: Sheffer Sequences and Delta Operators
+window.EXTRA_VIZ['ch19']['ch19-sec03'] = [
     {
         id: 'ch19-extra-viz-3',
         title: 'Interactive: Delta Operator Comparison',
@@ -585,8 +585,8 @@ window.EXTRA_VIZ['ch19']['ch19-sec02'] = [
     }
 ];
 
-// Section 3: Advanced operators
-window.EXTRA_VIZ['ch19']['ch19-sec03'] = [
+// Section 4: Umbral Composition and Operator Theory
+window.EXTRA_VIZ['ch19']['ch19-sec04'] = [
     {
         id: 'ch19-extra-viz-5',
         title: 'Interactive: Abel Polynomial Visualization',

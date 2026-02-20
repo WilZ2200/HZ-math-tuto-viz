@@ -1,7 +1,7 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch14'] = window.EXTRA_VIZ['ch14'] || {};
 
-// Section 1: Tensor Product Basics
+// Section 1: The Tensor Product and Universal Property
 window.EXTRA_VIZ['ch14']['ch14-sec01'] = [
     {
         id: 'ch14-extra-viz-1',
@@ -94,7 +94,7 @@ window.EXTRA_VIZ['ch14']['ch14-sec01'] = [
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch14-extra-viz-2',
         title: 'Universal Property of Tensor Product',
@@ -185,7 +185,7 @@ window.EXTRA_VIZ['ch14']['ch14-sec01'] = [
     }
 ];
 
-// Section 2: Tensor Product Operations
+// Section 2: Properties and Functoriality of Tensor Products
 window.EXTRA_VIZ['ch14']['ch14-sec02'] = [
     {
         id: 'ch14-extra-viz-3',
@@ -258,7 +258,186 @@ window.EXTRA_VIZ['ch14']['ch14-sec02'] = [
             draw();
             return viz;
         }
-    },
+    },,
+    {
+        id: 'ch14-extra-viz-8',
+        title: 'Rank of Tensors and Decomposition',
+        description: 'Explore tensor rank: decomposition into sum of rank-1 tensors',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let rank = 1;
+            const slider = VizEngine.createSlider(controls, 'Tensor Rank', 1, 3, 1, 1, (val) => {
+                rank = val;
+                draw();
+            });
+
+            // Define rank-1 components
+            const components = [
+                {v: [2, 1], w: [1, 2], color: viz.colors.blue},
+                {v: [-1, 1.5], w: [2, 0.5], color: viz.colors.orange},
+                {v: [0.5, -1], w: [-1, 2], color: viz.colors.green}
+            ];
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const scale = 0.8;
+                const spacing = 3.5;
+
+                // Display components based on rank
+                for (let i = 0; i < rank; i++) {
+                    const comp = components[i];
+                    const offsetX = (i - (rank - 1) / 2) * spacing;
+
+                    // Draw v⊗w for each component
+                    viz.drawVector(offsetX, 0, offsetX + comp.v[0] * scale, comp.v[1] * scale,
+                                  comp.color, `v${i+1}`, 2);
+                    viz.drawVector(offsetX, 0, offsetX + comp.w[0] * scale, comp.w[1] * scale,
+                                  comp.color + 'AA', `w${i+1}`, 2);
+
+                    // Draw parallelogram
+                    viz.drawPolygon([
+                        [offsetX, 0],
+                        [offsetX + comp.v[0] * scale, comp.v[1] * scale],
+                        [offsetX + (comp.v[0] + comp.w[0]) * scale, (comp.v[1] + comp.w[1]) * scale],
+                        [offsetX + comp.w[0] * scale, comp.w[1] * scale]
+                    ], comp.color + '22', comp.color, 2);
+
+                    viz.drawText(`v${i+1}⊗w${i+1}`, offsetX, -2.8, comp.color, 13, 'center');
+
+                    // Draw + sign between components
+                    if (i < rank - 1) {
+                        viz.drawText('+', offsetX + spacing/2, 0, viz.colors.white, 20, 'center');
+                    }
+                }
+
+                // Display tensor decomposition info
+                let decomp = '';
+                for (let i = 0; i < rank; i++) {
+                    decomp += `v${i+1}⊗w${i+1}`;
+                    if (i < rank - 1) decomp += ' + ';
+                }
+
+                viz.drawText(`Tensor Rank = ${rank}`, 0, 4.5, viz.colors.white, 16, 'center');
+                viz.drawText(`T = ${decomp}`, 0, 3.8, viz.colors.text, 13, 'center');
+
+                const rankInfo = rank === 1
+                    ? 'Rank-1: Single outer product (separable)'
+                    : `Rank-${rank}: Minimum sum of rank-1 tensors`;
+                viz.drawText(rankInfo, 0, -3.8, viz.colors.text, 12, 'center');
+
+                viz.drawText('Generic rank-2 tensor cannot be decomposed into single v⊗w',
+                            0, -4.4, viz.colors.text, 11, 'center');
+            }
+
+            draw();
+            return viz;
+        }
+    },,
+    {
+        id: 'ch14-extra-viz-9',
+        title: 'Tensor Product of Linear Maps',
+        description: 'Visualize (T⊗S)(v⊗w) = T(v)⊗S(w) for linear transformations',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            const v = viz.addDraggable('v', 1.5, 1, viz.colors.blue, 8, () => draw());
+            const w = viz.addDraggable('w', 1, 1.5, viz.colors.orange, 8, () => draw());
+
+            let thetaT = 0.6;
+            let thetaS = -0.4;
+
+            const sliderT = VizEngine.createSlider(controls, 'T rotation', -3.14, 3.14, 0.6, 0.1, (val) => {
+                thetaT = val;
+                draw();
+            });
+
+            const sliderS = VizEngine.createSlider(controls, 'S rotation', -3.14, 3.14, -0.4, 0.1, (val) => {
+                thetaS = val;
+                draw();
+            });
+
+            function applyT(vec) {
+                const cos = Math.cos(thetaT);
+                const sin = Math.sin(thetaT);
+                return {
+                    x: 1.2 * (cos * vec.x - sin * vec.y),
+                    y: 1.2 * (sin * vec.x + cos * vec.y)
+                };
+            }
+
+            function applyS(vec) {
+                const cos = Math.cos(thetaS);
+                const sin = Math.sin(thetaS);
+                return {
+                    x: 0.8 * (cos * vec.x - sin * vec.y),
+                    y: 0.8 * (sin * vec.x + cos * vec.y)
+                };
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const scale = 0.7;
+
+                // Left side: original v⊗w
+                const offsetL = -4;
+                viz.drawText('v⊗w', offsetL, 3.5, viz.colors.white, 14, 'center');
+                viz.drawVector(offsetL, 0, offsetL + v.x * scale, v.y * scale,
+                              viz.colors.blue, 'v', 2);
+                viz.drawVector(offsetL, 0, offsetL + w.x * scale, w.y * scale,
+                              viz.colors.orange, 'w', 2);
+                viz.drawPolygon([
+                    [offsetL, 0],
+                    [offsetL + v.x * scale, v.y * scale],
+                    [offsetL + (v.x + w.x) * scale, (v.y + w.y) * scale],
+                    [offsetL + w.x * scale, w.y * scale]
+                ], viz.colors.purple + '22', viz.colors.purple, 2);
+
+                // Right side: T(v)⊗S(w)
+                const offsetR = 4;
+                const Tv = applyT(v);
+                const Sw = applyS(w);
+
+                viz.drawText('T(v)⊗S(w)', offsetR, 3.5, viz.colors.white, 14, 'center');
+                viz.drawVector(offsetR, 0, offsetR + Tv.x * scale, Tv.y * scale,
+                              viz.colors.blue, 'Tv', 2);
+                viz.drawVector(offsetR, 0, offsetR + Sw.x * scale, Sw.y * scale,
+                              viz.colors.orange, 'Sw', 2);
+                viz.drawPolygon([
+                    [offsetR, 0],
+                    [offsetR + Tv.x * scale, Tv.y * scale],
+                    [offsetR + (Tv.x + Sw.x) * scale, (Tv.y + Sw.y) * scale],
+                    [offsetR + Sw.x * scale, Sw.y * scale]
+                ], viz.colors.green + '22', viz.colors.green, 2);
+
+                // Draw arrow between them
+                viz.drawSegment(offsetL + 1.5, 2, offsetR - 1.5, 2, viz.colors.teal, 3);
+                viz.drawText('T⊗S', 0, 2.3, viz.colors.teal, 14, 'center');
+
+                viz.drawDraggables();
+
+                viz.drawText('Tensor Product of Maps: (T⊗S)(v⊗w) = T(v)⊗S(w)',
+                            0, 4.5, viz.colors.white, 14, 'center');
+                viz.drawText(`T: rotation by ${(thetaT * 180 / Math.PI).toFixed(0)}°, scale 1.2`,
+                            0, -3.5, viz.colors.blue, 11, 'center');
+                viz.drawText(`S: rotation by ${(thetaS * 180 / Math.PI).toFixed(0)}°, scale 0.8`,
+                            0, -4.1, viz.colors.orange, 11, 'center');
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 3: Multilinear Maps and Iterated Tensor Products
+window.EXTRA_VIZ['ch14']['ch14-sec03'] = [
     {
         id: 'ch14-extra-viz-4',
         title: 'Multilinear Map Visualization',
@@ -335,8 +514,8 @@ window.EXTRA_VIZ['ch14']['ch14-sec02'] = [
     }
 ];
 
-// Section 3: Exterior Products
-window.EXTRA_VIZ['ch14']['ch14-sec03'] = [
+// Section 4: Symmetric and Exterior Algebras
+window.EXTRA_VIZ['ch14']['ch14-sec04'] = [
     {
         id: 'ch14-extra-viz-5',
         title: 'Exterior Product v∧w as Oriented Area',
@@ -443,7 +622,7 @@ window.EXTRA_VIZ['ch14']['ch14-sec03'] = [
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch14-extra-viz-6',
         title: 'Symmetric vs Alternating Tensors',
@@ -568,8 +747,8 @@ window.EXTRA_VIZ['ch14']['ch14-sec03'] = [
     }
 ];
 
-// Section 4: Advanced Tensor Concepts
-window.EXTRA_VIZ['ch14']['ch14-sec04'] = [
+// Section 5: Tensor Algebra and Universal Constructions
+window.EXTRA_VIZ['ch14']['ch14-sec05'] = [
     {
         id: 'ch14-extra-viz-7',
         title: 'Tensor Contraction Visualization',
@@ -639,179 +818,4 @@ window.EXTRA_VIZ['ch14']['ch14-sec04'] = [
             return viz;
         }
     },
-    {
-        id: 'ch14-extra-viz-8',
-        title: 'Rank of Tensors and Decomposition',
-        description: 'Explore tensor rank: decomposition into sum of rank-1 tensors',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            let rank = 1;
-            const slider = VizEngine.createSlider(controls, 'Tensor Rank', 1, 3, 1, 1, (val) => {
-                rank = val;
-                draw();
-            });
-
-            // Define rank-1 components
-            const components = [
-                {v: [2, 1], w: [1, 2], color: viz.colors.blue},
-                {v: [-1, 1.5], w: [2, 0.5], color: viz.colors.orange},
-                {v: [0.5, -1], w: [-1, 2], color: viz.colors.green}
-            ];
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const scale = 0.8;
-                const spacing = 3.5;
-
-                // Display components based on rank
-                for (let i = 0; i < rank; i++) {
-                    const comp = components[i];
-                    const offsetX = (i - (rank - 1) / 2) * spacing;
-
-                    // Draw v⊗w for each component
-                    viz.drawVector(offsetX, 0, offsetX + comp.v[0] * scale, comp.v[1] * scale,
-                                  comp.color, `v${i+1}`, 2);
-                    viz.drawVector(offsetX, 0, offsetX + comp.w[0] * scale, comp.w[1] * scale,
-                                  comp.color + 'AA', `w${i+1}`, 2);
-
-                    // Draw parallelogram
-                    viz.drawPolygon([
-                        [offsetX, 0],
-                        [offsetX + comp.v[0] * scale, comp.v[1] * scale],
-                        [offsetX + (comp.v[0] + comp.w[0]) * scale, (comp.v[1] + comp.w[1]) * scale],
-                        [offsetX + comp.w[0] * scale, comp.w[1] * scale]
-                    ], comp.color + '22', comp.color, 2);
-
-                    viz.drawText(`v${i+1}⊗w${i+1}`, offsetX, -2.8, comp.color, 13, 'center');
-
-                    // Draw + sign between components
-                    if (i < rank - 1) {
-                        viz.drawText('+', offsetX + spacing/2, 0, viz.colors.white, 20, 'center');
-                    }
-                }
-
-                // Display tensor decomposition info
-                let decomp = '';
-                for (let i = 0; i < rank; i++) {
-                    decomp += `v${i+1}⊗w${i+1}`;
-                    if (i < rank - 1) decomp += ' + ';
-                }
-
-                viz.drawText(`Tensor Rank = ${rank}`, 0, 4.5, viz.colors.white, 16, 'center');
-                viz.drawText(`T = ${decomp}`, 0, 3.8, viz.colors.text, 13, 'center');
-
-                const rankInfo = rank === 1
-                    ? 'Rank-1: Single outer product (separable)'
-                    : `Rank-${rank}: Minimum sum of rank-1 tensors`;
-                viz.drawText(rankInfo, 0, -3.8, viz.colors.text, 12, 'center');
-
-                viz.drawText('Generic rank-2 tensor cannot be decomposed into single v⊗w',
-                            0, -4.4, viz.colors.text, 11, 'center');
-            }
-
-            draw();
-            return viz;
-        }
-    },
-    {
-        id: 'ch14-extra-viz-9',
-        title: 'Tensor Product of Linear Maps',
-        description: 'Visualize (T⊗S)(v⊗w) = T(v)⊗S(w) for linear transformations',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            const v = viz.addDraggable('v', 1.5, 1, viz.colors.blue, 8, () => draw());
-            const w = viz.addDraggable('w', 1, 1.5, viz.colors.orange, 8, () => draw());
-
-            let thetaT = 0.6;
-            let thetaS = -0.4;
-
-            const sliderT = VizEngine.createSlider(controls, 'T rotation', -3.14, 3.14, 0.6, 0.1, (val) => {
-                thetaT = val;
-                draw();
-            });
-
-            const sliderS = VizEngine.createSlider(controls, 'S rotation', -3.14, 3.14, -0.4, 0.1, (val) => {
-                thetaS = val;
-                draw();
-            });
-
-            function applyT(vec) {
-                const cos = Math.cos(thetaT);
-                const sin = Math.sin(thetaT);
-                return {
-                    x: 1.2 * (cos * vec.x - sin * vec.y),
-                    y: 1.2 * (sin * vec.x + cos * vec.y)
-                };
-            }
-
-            function applyS(vec) {
-                const cos = Math.cos(thetaS);
-                const sin = Math.sin(thetaS);
-                return {
-                    x: 0.8 * (cos * vec.x - sin * vec.y),
-                    y: 0.8 * (sin * vec.x + cos * vec.y)
-                };
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const scale = 0.7;
-
-                // Left side: original v⊗w
-                const offsetL = -4;
-                viz.drawText('v⊗w', offsetL, 3.5, viz.colors.white, 14, 'center');
-                viz.drawVector(offsetL, 0, offsetL + v.x * scale, v.y * scale,
-                              viz.colors.blue, 'v', 2);
-                viz.drawVector(offsetL, 0, offsetL + w.x * scale, w.y * scale,
-                              viz.colors.orange, 'w', 2);
-                viz.drawPolygon([
-                    [offsetL, 0],
-                    [offsetL + v.x * scale, v.y * scale],
-                    [offsetL + (v.x + w.x) * scale, (v.y + w.y) * scale],
-                    [offsetL + w.x * scale, w.y * scale]
-                ], viz.colors.purple + '22', viz.colors.purple, 2);
-
-                // Right side: T(v)⊗S(w)
-                const offsetR = 4;
-                const Tv = applyT(v);
-                const Sw = applyS(w);
-
-                viz.drawText('T(v)⊗S(w)', offsetR, 3.5, viz.colors.white, 14, 'center');
-                viz.drawVector(offsetR, 0, offsetR + Tv.x * scale, Tv.y * scale,
-                              viz.colors.blue, 'Tv', 2);
-                viz.drawVector(offsetR, 0, offsetR + Sw.x * scale, Sw.y * scale,
-                              viz.colors.orange, 'Sw', 2);
-                viz.drawPolygon([
-                    [offsetR, 0],
-                    [offsetR + Tv.x * scale, Tv.y * scale],
-                    [offsetR + (Tv.x + Sw.x) * scale, (Tv.y + Sw.y) * scale],
-                    [offsetR + Sw.x * scale, Sw.y * scale]
-                ], viz.colors.green + '22', viz.colors.green, 2);
-
-                // Draw arrow between them
-                viz.drawSegment(offsetL + 1.5, 2, offsetR - 1.5, 2, viz.colors.teal, 3);
-                viz.drawText('T⊗S', 0, 2.3, viz.colors.teal, 14, 'center');
-
-                viz.drawDraggables();
-
-                viz.drawText('Tensor Product of Maps: (T⊗S)(v⊗w) = T(v)⊗S(w)',
-                            0, 4.5, viz.colors.white, 14, 'center');
-                viz.drawText(`T: rotation by ${(thetaT * 180 / Math.PI).toFixed(0)}°, scale 1.2`,
-                            0, -3.5, viz.colors.blue, 11, 'center');
-                viz.drawText(`S: rotation by ${(thetaS * 180 / Math.PI).toFixed(0)}°, scale 0.8`,
-                            0, -4.1, viz.colors.orange, 11, 'center');
-            }
-
-            draw();
-            return viz;
-        }
-    }
 ];

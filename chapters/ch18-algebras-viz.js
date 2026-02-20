@@ -4,7 +4,7 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch18'] = window.EXTRA_VIZ['ch18'] || {};
 
-// Section 1: Algebra Multiplication Tables and Structure
+// Section 1: Algebras and Subalgebras
 window.EXTRA_VIZ['ch18']['ch18-sec01'] = [
     {
         id: 'ch18-extra-viz-1',
@@ -333,8 +333,8 @@ window.EXTRA_VIZ['ch18']['ch18-sec01'] = [
     }
 ];
 
-// Section 2: Complex Numbers as Algebra over ℝ
-window.EXTRA_VIZ['ch18']['ch18-sec02'] = [
+// Section 5: Matrix Algebras and the Tensor Product
+window.EXTRA_VIZ['ch18']['ch18-sec05'] = [
     {
         id: 'ch18-extra-viz-3',
         title: 'Interactive: Complex Numbers as ℝ-Algebra',
@@ -510,8 +510,8 @@ window.EXTRA_VIZ['ch18']['ch18-sec02'] = [
     }
 ];
 
-// Section 3: Division Algebras and Ideals
-window.EXTRA_VIZ['ch18']['ch18-sec03'] = [
+// Section 4: Division Algebras
+window.EXTRA_VIZ['ch18']['ch18-sec04'] = [
     {
         id: 'ch18-extra-viz-5',
         title: 'Interactive: Division Algebra Explorer',
@@ -874,8 +874,8 @@ window.EXTRA_VIZ['ch18']['ch18-sec03'] = [
     }
 ];
 
-// Additional visualization for Wedderburn's theorem
-window.EXTRA_VIZ['ch18']['ch18-sec04'] = [
+// Section 6: The Structure Theory of Algebras
+window.EXTRA_VIZ['ch18']['ch18-sec06'] = [
     {
         id: 'ch18-extra-viz-7',
         title: 'Interactive: Finite Division Algebras (Wedderburn)',

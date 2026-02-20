@@ -1,0 +1,1214 @@
+Structure Theory for Normal Operators
+
+233
+
+2) Conversely, if
+= ~ : p Ä p :
+and if  is orthogonal projection onto : , then  b Ä b  ~  is an
+orthogonal resolution of the identity.
+Proof. To prove 1), if  b Ä b  ~  is an orthogonal resolution of the
+identity, Theorem 2.25 implies that
+= ~ im² ³ l Ä l im² ³
+However, since the  's are pairwise orthogonal and self-adjoint, it follows that
+º #Á  $» ~ º#Á   $» ~ º#Á » ~ 
+and so
+= ~ im² ³ p Ä p im² ³
+For the converse, Theorem 2.25 implies that  b Ä b  ~  is a resolution of
+the identity where  is projection onto im² ³ along
+ker² ³ ~  im² ³ ~ im² ³
+£
+
+Hence,  is orthogonal.
+
+Unitary Diagonalizability
+We have seen (Theorem 8.10) that a linear operator   B²= ³ on a finitedimensional vector space = is diagonalizable if and only if
+= ~ ; l Ä l ;
+Of course, each eigenspace ; has an orthonormal basis E , but the union of
+these bases need not be an orthonormal basis for = .
+Definition A linear operator   B²= ³ is unitarily diagonalizable (when = is
+complex) and orthogonally diagonalizable (when = is real) if there is an
+ordered orthonormal basis E ~ ²" Á Ã Á " ³ of = for which the matrix ´ µE is
+diagonal, or equivalently, if
+ " ~  "
+for all  ~ Á Ã Á .
+Here is the counterpart of Theorem 8.10 for inner product spaces.
+Theorem 10.7 Let = be a finite-dimensional inner product space and let
+  B²= ³. The following are equivalent:
+1)  is unitarily (orthogonally) diagonalizable.
+2) = has an orthonormal basis that consists entirely of eigenvectors of  .
+
+234
+
+Advanced Linear Algebra
+
+3) = has the form
+= ~ ; p Ä p ;
+where  Á Ã Á  are the distinct eigenvalues of  .
+For simplicity in exposition, we will tend to use the term unitarily
+diagonalizable for both cases. Since unitarily diagonalizable operators are so
+well behaved, it is natural to seek a characterization of such operators.
+Remarkably, there is a simple one, as we will see next.
+
+Normal Operators
+Operators that commute with their own adjonts are very special.
+Definition
+1) A linear operator  on an inner product space = is normal if it commutes
+with its adjoint:
+ i ~  i 
+2) A matrix (  C ²- ³ is normal if ( commutes with its adjoint (i .
+If  is normal and E is an ordered orthonormal basis of = , then
+´ µE ´ µiE ~ ´ µE ´ i µE ~ ´ i µE
+and
+´ µiE ´ µE ~ ´ i µE ´ µE ~ ´ i  µE
+and so  is normal if and only if ´ µE is normal for some, and hence all,
+orthonormal bases for = . Note that this does not hold for bases that are not
+orthonormal.
+Normal operators have some very special properties.
+Theorem 10.8 Let   B²= ³ be normal.
+1) The following are also normal:
+a)  O: , if  reduces ²:Á :  ³
+b)  i
+c)  c , if  is invertible
+d) ² ³, for any polynomial ²%³  - ´%µ
+2) For any #Á $  = ,
+º #Á  $» ~ º i #Á  i $»
+and, in particular,
+) #) ~ ) i #)
+
+Structure Theory for Normal Operators
+
+235
+
+and so
+ker² i ³ ~ ker² ³
+3) For any integer   ,
+ker²  ³ ~ ker² ³
+4) The minimal polynomial  ²%³ is a product of distinct prime monic
+polynomials.
+5)
+ # ~ #
+
+¯
+
+ i # ~ #
+
+6) If : and ; are submodules of = with relatively prime orders, then :  ; .
+7) If  and  are distinct eigenvalues of  , then ;  ; .
+Proof. We leave part 1) for the reader. For part 2), normality implies that
+º #Á  $» ~ º i  #Á #» ~ º i #Á #» ~ º i #Á  i #»
+We prove part 3) first for the operator  ~  i  , which is self-adjoint, that is,
+ i ~ ² i  ³ i ~  i  ~ 
+If  # ~  for   , then
+ ~ º #Á c #» ~ ºc #Á c #»
+and so c # ~ . Continuing in this way gives # ~ . Now, if   # ~  for
+  , then
+  # ~ ² i  ³  # ~ ²  i ³    # ~ 
+and so # ~ . Hence,
+ ~ º#Á #» ~ º i  #Á #» ~ º #Á  #»
+and so # ~ .
+For part 4), suppose that
+ ²%³ ~  ²%³²%³
+where ²%³ is monic and prime. Then for any #  = ,
+ ² ³´² ³#µ ~ 
+and since ² ³ is also normal, part 3) implies that
+² ³´² ³#µ ~ 
+for all #  = . Hence, ² ³² ³ ~ , which implies that  ~ . Thus, the prime
+factors of  ²%³ appear only to the first power.
+
+236
+
+Advanced Linear Algebra
+
+Part 5) follows from part 2):
+ker² c ³ ~ ker´² c ³i µ ~ ker² i c ³
+For part 6), if ²:³ ~ ²%³ and ²; ³ ~ ²%³, then there are polynomials ²%³
+and ²%³ for which ²%³²%³ b ²%³²%³ ~  and so
+² ³² ³ b ² ³² ³ ~ 
+Now,  ~ ² ³² ³ annihilates : and  ~ ² ³² ³ annihilates ; . Therefore
+ i also annihilates ; and so
+º:Á ; » ~ º² b  ³:Á ; » ~ º :Á ; » ~ º:Á  i ; » ~ ¸¹
+Part 7) follows from part 6), since ²; ³ ~ % c  and ²; ³ ~ % c  are
+relatively prime when  £ . Alternatively, for #  ; and $  ; , we have
+º#Á $» ~ º #Á $» ~ º#Á  i $» ~ º#Á $» ~ º#Á $»
+and so  £  implies that º#Á $» ~ .
+
+The Spectral Theorem for Normal Operators
+Theorem 10.8 implies that when - ~ d, the minimal polynomial  ²%³ splits
+into distinct linear factors and so Theorem 8.11 implies that  is diagonalizable,
+that is,
+= ~ ; l Ä l ;
+Moreover, since distinct eigenspaces of a normal operator are orthogonal, we
+have
+= ~ ; p Ä p ;
+and so  is unitarily diagonalizable.
+The converse of this is also true. If = has an orthonormal basis E ~
+¸# Á Ã Á # ¹ of eigenvectors for  , then since ´ µE and ´ i µE ~ ´ µiE are
+diagonal, these matrices commute and therefore so do  i and  .
+Theorem 10.9 (The spectral theorem for normal operators: complex case)
+Let = be a finite-dimensional complex inner product space and let   B²= ³.
+The following are equivalent:
+1)  is normal.
+2)  is unitarily diagonalizable, that is,
+= ~ ; p Ä p ;
+
+Structure Theory for Normal Operators
+
+237
+
+3)  has an orthogonal spectral resolution
+(10.1)
+
+ ~   b Ä b  
+
+where  b Ä b  ~  and  is orthogonal for all , in which case,
+¸ Á Ã Á  ¹ is the spectrum of  and
+and
+
+im² ³ ~ ;
+
+ker² ³ ~  ;
+£
+
+Proof. We have seen that 1) and 2) are equivalent. To see that 2) and 3) are
+equivalent, Theorem 8.12 says that
+= ~ ; l Ä l ;
+if and only if
+ ~   b Ä b  
+and in this case,
+im² ³ ~ ;
+
+and
+
+ker² ³ ~  ;
+£
+
+But ;  ; for  £  if and only if
+im² ³  ker² ³
+that is, if and only if each  is orthogonal. Hence, the direct sum = ~
+; l Ä l ; is an orthogonal sum if and only if each projection is
+orthogonal.
+The Real Case
+If - ~ s, then  ²%³ has the form
+ ²%³ ~ ²% c  ³Ä²% c  ³ ²%³Ä ²%³
+where each  ²%³ is an irreducible monic quadratic. Hence, the primary cyclic
+decomposition of = gives
+= ~ ; p Ä p ; p > p Ä p >
+where > is cyclic with prime quadratic order  ²%³. Therefore, Theorem 8.8
+implies that there is an ordered basis 8 for which
+
+´ O> µ8 ~ > 
+
+
+c
+ ?
+
+Theorem 10.10 (The spectral theorem for normal operators: real case) A
+linear operator  on a finite-dimensional real inner product space is normal if
+and only if
+
+238
+
+Advanced Linear Algebra
+
+= ~ ; p Ä p ; p > p Ä p >
+where ¸ Á Ã Á  ¹ is the spectrum of  and each > is an indecomposable twodimensional  -invariant subspace with an ordered basis 8 for which
+
+´ µ8 ~ > 
+
+
+c
+ ?
+
+Proof. We need only show that if = has such a decomposition, then  is normal.
+But
+´ µ8 ´ µ!8 ~ ² b  ³0 ~ ´ µ!8 ´ µ8
+and so ´ µ8 is normal. It follows easily that  is normal.
+
+Special Types of Normal Operators
+We now want to introduce some special types of normal operators.
+Definition Let = be an inner product space.
+1)   B²= ³ is self-adjoint (also called Hermitian in the complex case and
+symmetric in the real case) if
+i ~ 
+2)   B²= ³ is skew self-adjoint (also called skew-Hermitian in the
+complex case and skew-symmetric in the real case) if
+ i ~ c
+3)   B²= ³ is unitary in the complex case and orthogonal in the real case if
+ is invertible and
+ i ~  c
+There are also matrix versions of these definitions, obtained simply by replacing
+the operator  by a matrix (. Moreover, the operator  is self-adjoint if and only
+if any matrix that represents  with respect to an ordered orthonormal basis E is
+self-adjoint. Similar statements hold for the other types of operators in the
+previous definition.
+In some sense, square complex matrices are a generalization of complex
+numbers and the adjoint (conjugate transpose) is a generalization of the complex
+conjugate. In looking for a better analogy, we could consider just the diagonal
+matrices, but this is a bit too restrictive. The next logical choice is the set D of
+normal matrices.
+Indeed, among the complex numbers, there are some special subsets: the real
+numbers, the positive numbers and the numbers on the unit circle. We will soon
+see that a complex matrix ( is self-adjoint if and only if its complex eigenvalues
+
+Structure Theory for Normal Operators
+
+239
+
+are real. This would suggest that the analog of the set of real numbers is the set
+of self-adjoint matrices. Also, we will see that a complex matrix is unitary if and
+only if its eigenvalues have norm , so numbers on the unit circle seem to
+correspond to the set of unitary matrices. This leaves open the question of which
+normal matrices correspond to the positive real numbers. These are the positive
+definite matrices, which we will discuss later in the chapter.
+
+Self-Adjoint Operators
+Let us consider the basic properties of self-adjoint operators. The quadratic
+form associated with the linear operator  is the function 8 ¢ = ¦ - defined
+by
+8 ²#³ ~ º #Á #»
+We have seen (Theorem 9.2) that in a complex inner product space,  ~  if and
+only if 8 ~  but this does not hold, in general, for real inner product spaces.
+However, it does hold for symmetric operators on a real inner product space.
+Theorem 10.11 Let = be a finite-dimensional inner product space and let
+Á   B²= ³.
+1) If  and  are self-adjoint, then so are the following:
+a)  b 
+b)  c , if  is invertible
+c) ² ³, for any real polynomial ²%³  s´%µ
+2) A complex operator  is Hermitian if and only if 8 ²#³ is real for all
+#=.
+3) If  is a complex operator or a real symmetric operator, then
+ ~
+
+¯
+
+8 ~ 
+
+4) The characteristic polynomial  ²%³ of a self-adjoint operator  splits over
+s, that is, all complex roots of  ²%³ are real. Hence, the minimal
+polynomial  ²%³ of  is the product of distinct monic linear factors over
+s.
+Proof. For part 2), if  is Hermitian, then
+º #Á #» ~ º#Á  #» ~ º #Á #»
+and so 8 ²#³ ~ º #Á #» is real. Conversely, if º #Á #»  s, then
+º#Á  #» ~ º #Á #» ~ º#Á  i #»
+and so  ~  i .
+For part 3), we need only prove that 8 ~  implies  ~  when - ~ s. But if
+8 ~ , then
+
+240
+
+Advanced Linear Algebra
+
+ ~ º ²% b &³Á % b &»
+~ º %Á %» b º &Á &» b º %Á &» b º &Á %»
+~ º %Á &» b º &Á %»
+~ º %Á &» b º%Á  &»
+~ º %Á &» b º %Á &»
+~ º %Á &»
+and so  ~ .
+For part 4), if  is Hermitian (- ~ d) and  # ~ #, then
+ # ~  # ~  i # ~ #
+and so  ~  is real. If  is symmetric (- ~ s) , we must be a bit careful, since
+a nonreal root of  ²%³ is not an eigenvalue of  . However, matrix techniques
+can come to the rescue here. If ( ~ ´ µE for any ordered orthonormal basis E
+for = , then  ²%³ ~ ( ²%³. Now, ( is a real symmetric matrix, but can be
+thought of as a complex Hermitian matrix with real entries. As such, it
+represents a Hermitian linear operator on the complex space d and so, by what
+we have just shown, all (complex) roots of its characteristic polynomial are real.
+But the characteristic polynomial of ( is the same, whether we think of ( as a
+real or a complex matrix and so the result follows.
+
+Unitary Operators and Isometries
+We now turn to the basic properties of unitary operators. These are the
+workhorse operators, in that a unitary operator is precisely a normal operator
+that maps orthonormal bases to orthonormal bases.
+Note that  is unitary if and only if
+º #Á $» ~ º#Á  c $»
+for all #Á $  = .
+Theorem 10.12 Let = be a finite-dimensional inner product space and let
+Á   B²= ³.
+1) If  and  are unitary/orthogonal, then so are the following:
+a)  , for   dÁ (( ~ 
+b) 
+c)  c , if  is invertible.
+2)  is unitary/orthogonal if and only it is an isometric isomorphism.
+3)  is unitary/orthogonal if and only if it takes some orthonormal basis to an
+orthonormal basis, in which case it takes all orthonormal bases to
+orthonormal bases.
+4) If  is unitary/orthogonal, then the eigenvalues of  have absolute value .
+
+Structure Theory for Normal Operators
+
+241
+
+Proof. We leave the proof of part 1) to the reader. For part 2), a
+unitary/orthogonal map is injective and since = is finite-dimensional, it is
+bijective. Moreover, for a bijective linear map  , we have
+ is an isometry ¯ º #Á  $» ~ º#Á $» for all #Á $  =
+¯ º#Á  i  $» ~ º#Á $» for all #Á $  =
+¯  i ~ 
+¯  i ~  c
+¯  is unitary/orthogonal
+For part 3), suppose that  is unitary/orthogonal and that E ~ ¸" Á Ã Á " ¹ is an
+orthonormal basis for = . Then
+º " Á  " » ~ º" Á " » ~ Á
+and so E is an orthonormal basis for = . Conversely, suppose that E and E
+are orthonormal bases for = . Then
+º " Á  " » ~ Á ~ º" Á " »
+which implies that º #Á  $» ~ º#Á $» for all #Á $  =
+unitary/orthogonal.
+
+and so  is
+
+For part 4), if  is unitary and  # ~ #, then
+º#Á #» ~ º#Á #» ~ º #Á  #» ~ º#Á #»
+and so (( ~  ~ , which implies that (( ~ .
+We also have the following theorem concerning unitary (and orthogonal)
+matrices.
+Theorem 10.13 Let ( be an  d  matrix over - ~ d or - ~ s.
+1) The following are equivalent:
+a) ( is unitary/orthogonal.
+b) The columns of ( form an orthonormal set in -  .
+c) The rows of ( form an orthonormal set in -  .
+2) If ( is unitary, then (det²(³( ~ . If ( is orthogonal, then det²(³ ~ f.
+Proof. The matrix ( is unitary if and only if ((i ~ 0 , which is equivalent to
+the rows of ( being orthonormal. Similarly, ( is unitary if and only if
+(i ( ~ 0 , which is equivalent to the columns of ( being orthonormal. As for
+part 2),
+((i ~ 0
+
+¬
+
+det²(³det²(i ³ ~ 
+
+from which the result follows.
+
+¬
+
+det²(³det²(³ ~ 
+
+242
+
+Advanced Linear Algebra
+
+Unitary/orthogonal matrices play the role of change of basis matrices when we
+restrict attention to orthonormal bases. Let us first note that if 8 ~ ²" Á Ã Á " ³
+is an ordered orthonormal basis and
+# ~  " b Ä b  "
+$ ~  "  b Ä b   " 
+then
+º#Á $» ~   b Ä b   ~ ´#µ8 h ´$µ8
+where the right hand side is the standard inner product in -  and so #  $ if
+and only if ´#µ8  ´$µ8 . We can now state the analog of Theorem 2.9.
+Theorem 10.14 If we are given any two of the following:
+1) A unitary/orthogonal  d  matrix (,
+2) An ordered orthonormal basis 8 for -  ,
+3) An ordered orthonormal basis 9 for -  ,
+then the third is uniquely determined by the equation
+( ~ 48 Á 9
+Proof. Let 8 ~ ¸ ¹ be a basis for = . If 9 is an orthonormal basis for = , then
+º Á  » ~ ´ µ9 h ´ µ9
+where ´ µ9 is the th column of ( ~ 48Á9 . Hence, ( is unitary if and only if 8
+is orthonormal. We leave the rest of the proof to the reader.
+
+Unitary Similarity
+We have seen that the change of basis formula for operators is given by
+´ µ8Z ~ 7 ´ µ8 7 c
+where 7 is an invertible matrix. What happens when the bases are orthonormal?
+Definition
+1) Two complex matrices ( and ) are unitarily similar (also called
+unitarily equivalent) if there exists a unitary matrix < for which
+) ~ < (< c ~ < (< i
+The equivalence classes associated with unitary similarity are called
+unitary similarity classes.
+2) Similarly, two real matrices ( and ) are orthogonally similar (also called
+orthogonally equivalent) if there exists an orthogonal matrix 6 for which
+) ~ 6(6c ~ 6(6!
+The equivalence classes associated with orthogonal similarity are called
+orthogonal similarity classes.
+
+Structure Theory for Normal Operators
+
+243
+
+The analog of Theorem 2.19 is the following.
+Theorem 10.15 Let = be an inner product space of dimension . Then two
+ d  matrices ( and ) are unitarily/orthogonally similar if and only if they
+represent the same linear operator   B²= ³ with respect to (possibly different)
+ordered orthonormal bases. In this case, ( and ) represent exactly the same
+set of linear operators in B²= ³ with respect to ordered orthonormal bases.
+Proof. If ( and ) represent   B²= ³, that is, if
+( ~ ´ µ8
+
+and
+
+) ~ ´  µ9
+
+for ordered orthonormal bases 8 and 9, then
+) ~ 48Á9 (49Á8
+and according to Theorem 10.14, 48Á9 is unitary/orthogonal. Hence, ( and )
+are unitarily/orthogonally similar.
+Now suppose that ( and ) are unitarily/orthogonally similar, say
+) ~ < (< c
+where < is unitary/orthogonal. Suppose also that ( represents a linear operator
+  B²= ³ for some ordered orthonormal basis 8 , that is,
+( ~ ´ µ8
+Theorem 10.14 implies that there is a unique ordered orthonormal basis 9 for =
+for which < ~ 48Á9 . Hence
+) ~ 48Á9 ´ µ8 48c
+Á9 ~ ´ µ9
+and so ) also represents  . By symmetry, we see that ( and ) represent the
+same set of linear operators, under all possible ordered orthonormal bases.
+We have shown (see the discussion of Schur's theorem) that any complex matrix
+( is unitarily similar to an upper triangular matrix, that is, that ( is unitarily
+upper triangularizable. However, upper triangular matrices do not form a set of
+canonical forms under unitary similarity. Indeed, the subject of canonical forms
+for unitary similarity is rather complicated and we will not discuss it in this
+book, but instead refer the reader to the survey article [28].
+
+Reflections
+The following defines a very special type of unitary operator.
+
+244
+
+Advanced Linear Algebra
+
+Definition For a nonzero #  = , the unique operator /# for which
+/# # ~ c#Á /# $ ~ $ for all $  º#»
+is called a reflection or a Householder transformation.
+It is easy to verify that
+/# % ~ % c
+
+º%Á #»
+#
+º#Á #»
+
+Moreover, /# % ~ c% for % £  if and only if % ~ # for some   - and so
+we can uniquely identify # by the behavior of the reflection on = .
+If /# is a reflection and if we extend # to an ordered orthonormal basis 8 for = ,
+then ´/# µ8 is the matrix obtained from the identity matrix by replacing the upper
+left entry by c,
+v c
+x
+´/# µ8 ~ x
+w
+
+y
+{
+{
+
+
+Æ
+
+z
+
+Thus, a reflection is both unitary and Hermitian, that is,
+/#i ~ /#c ~ /#
+Given two nonzero vectors of equal length, there is precisely one reflection that
+interchanges these vectors.
+Theorem 10.16 Let #Á $  = be distinct nonzero vectors of equal length. Then
+/#c$ is the unique reflection sending # to $ and $ to #.
+Proof. If )#) ~ )$), then ²# c $³  ²# b $³ and so
+/#c$ ²# c $³ ~ $ c #
+/#c$ ²# b $³ ~ # b $
+from which it follows that /#c$ ²#³ ~ $ and /#c$ ²$³ ~ #. As to uniqueness,
+suppose /% is a reflection for which /% ²#³ ~ $. Since /%c ~ /% , we have
+/% ²$³ ~ # and so
+/% ²# c $³ ~ c²# c $³
+which implies that /% ~ /#c$ .
+Reflections can be used to characterize unitary operators.
+Theorem 10.17 Let = be a finite-dimensional inner product space. The
+following are equivalent for an operator   B²= ³:
+
+Structure Theory for Normal Operators
+
+245
+
+1)  is unitary/orthogonal
+2)  is a product of reflections.
+Proof. Since reflections are unitary/orthogonal and the product of unitary/
+orthogonal operators is unitary, it follows that 2) implies 1). For the converse,
+let  be unitary. Let 8 ~ ²" Á Ã Á " ³ be an orthonormal basis for = . Then
+/ " c" ² " ³ ~ "
+and so if % ~  " c " then
+²/%  ³" ~ "
+that is,   /%  is the identity on º" ». Suppose that we have found
+reflections /%c Á Ã Á /% for which c  /%c Ä/%  is the identity on
+º" Á Ã Á "c ». Then
+/c " c" ²c " ³ ~ "
+Moreover, we claim that ²c " c " ³  " for    , since
+ºc " c " Á " » ~ º²/%c Ä/%  ³" Á " »
+~ º " Á /% Ä/%c " »
+~ º "  Á  "  »
+~ º" Á " »
+~
+Hence, if % ~ c " c " , then
+²/% Ä/%  ³" ~ /% " ~ "
+and so   /% Ä/%  is the identity on º" Á Ã Á " ». Thus, for  ~  we
+have /% Ä/%  ~  and so  ~ /% Ä/% , as desired.
+
+The Structure of Normal Operators
+The following theorem includes the spectral theorems stated above for real and
+complex normal operators, along with some further refinements related to selfadjoint and unitary/orthogonal operators.
+Theorem 10.18 (The structure theorem for normal operators)
+1) (Complex case) Let = be a finite-dimensional complex inner product
+space.
+a) The following are equivalent for   B²= ³:
+i)  is normal
+ii)  is unitarily diagonalizable
+iii)  has an orthogonal spectral resolution
+ ~    b Ä b    
+
+246
+
+Advanced Linear Algebra
+
+b) Among the normal operators, the Hermitian operators are precisely
+those for which all complex eigenvalues are real.
+c) Among the normal operators, the unitary operators are precisely those
+for which all complex eigenvalues have norm .
+2) (Real case) Let = be a finite-dimensional real inner product space.
+a)   B²= ³ is normal if and only if
+= ~ ; p Ä p ; p > p Ä p >
+where ¸ Á Ã Á  ¹ is the spectrum of  and each > is a twodimensional indecomposable  -invariant subspace with an ordered
+basis 8 for which
+
+´ µ8 ~ > 
+
+
+c
+ ?
+
+b) Among the real normal operators, the symmetric operators are those
+for which there are no subspaces > in the decomposition of part 2a).
+Hence, the following are equivalent for   B²= ³:
+i)  is symmetric.
+ii)  is orthogonally diagonalizable.
+iii)  has the orthogonal spectral resolution
+ ~   b Ä b  
+c)
+
+Among the real normal operators, the orthogonal operators are
+precisely those for which the eigenvalues are equal to f and the
+matrices ´ µ8 described in part 2a) have rows (and columns) of norm
+, that is,
+´ µ8 ~ >
+
+sin
+cos
+
+ccos
+sin ?
+
+for some  s.
+Proof. We have proved part 1a). As to part 1b), it is only necessary to look at a
+diagonal matrix ( representing  . This matrix has the eigenvalues of  on its
+main diagonal and so it is Hermitian if and only if the eigenvalues of  are real.
+Similarly, ( is unitary if and only if the eigenvalues of  have absolute value
+equal to .
+We have proved part 2a). Parts 2b) and 2c) follow by looking at the matrix
+( ~ ´ µ8 where 8 ~ 8 . This matrix is symmetric if and only if ( is diagonal,
+and ( is orthogonal if and only if  ~ f and the matrices ´ µ8 have
+orthonormal rows.
+
+Matrix Versions
+We can formulate matrix versions of the structure theorem for normal operators.
+
+Structure Theory for Normal Operators
+
+247
+
+Theorem 10.19 (The structure theorem for normal matrices)
+1) (Complex case)
+a) A complex matrix ( is normal if and only if it is unitarily
+diagonalizable, that is, if and only if there is a unitary matrix < for
+which
+< (< i ~ diag² Á Ã Á  ³
+b) A complex matrix ( is Hermitian if and only if 1a) holds, where all
+eigenvalues  are real.
+c) A complex matrix ( is unitary if and only if 1a) holds, where all
+eigenvalues  have norm .
+2) (Real case)
+a) A real matrix ( is normal if and only if there is an orthogonal matrix
+6 for which
+
+6(6! ~ diag6 Á Ã Á  Á > 
+
+
+c
+
+ÁÃÁ> 
+ ?
+
+
+c
+ ?7
+
+b) A real matrix ( is symmetric if and only if it is orthogonally
+diagonalizable, that is, if and only if there is an orthogonal matrix 6
+for which
+6(6! ~ diag² Á Ã Á  ³
+c)
+
+A real matrix ( is orthogonal if and only if there is an orthogonal
+matrix 6 for which
+6(6!
+~ diag6 Á Ã Á  Á >
+for some
+
+sin 
+cos 
+
+sin 
+ccos 
+ÁÃÁ>
+sin  ?
+cos 
+
+ccos 
+sin  ?7
+
+ Á Ã Á   s.
+
+Functional Calculus
+Let  be a normal operator on a finite-dimensional inner product space = and let
+ have spectral resolution
+ ~   b Ä b  
+Since each  is idempotent, we have  ~  for all   . The pairwise
+orthogonality of the projections implies that
+  ~ ²  b Ä b   ³ ~   b Ä b  
+More generally, for any polynomial ²%³ over - ,
+² ³ ~ ² ³ b Ä b ² ³
+Note that a polynomial of degree  c  is uniquely determined by specifying an
+
+248
+
+Advanced Linear Algebra
+
+arbitrary set of  of its values at the distinct points  Á Ã Á  . This follows from
+the Lagrange interpolation formula
+c
+v
+% c  y
+²%³ ~  ² ³ 
+w £  c  z
+~
+
+Therefore, we can define a unique polynomial ²%³ by specifying the values
+² ³, for  ~ Á Ã Á  .
+For example, for a given      , if  ²%³ is a polynomial for which
+ ² ³ ~ Á
+for  ~ Á Ã Á  , then
+ ² ³ ~ 
+and so each projection  is a polynomial function of  . As another example, if
+ is invertible and ² ³ ~ c , then
+² ³ ~ c  b Ä b c  ~  c
+as can easily be verified by direct calculation. Finally, if ² ³ ~  , then since
+each  is self-adjoint, we have
+² ³ ~   b Ä b   ~  i
+and so  i is a polynomial in  .
+We can extend this idea further by defining, for any function
+ ¢ ¸ Á Ã Á  ¹ ¦ the linear operator  ² ³ by
+ ² ³ ~  ² ³ b Ä b  ² ³
+For example, we may define j Á  c Á  and so on. Notice, however, that
+since the spectral resolution of  is a finite sum, we gain nothing (but
+convenience) by using functions other than polynomials, for we can always find
+a polynomial ²%³ for which ² ³ ~  ² ³ for  ~ Á Ã Á  and so
+ ² ³ ~ ² ³. The study of the properties of functions of an operator  is
+referred to as the functional calculus of  .
+According to the spectral theorem, if = is complex and  is normal, then  ² ³ is
+a normal operator whose eigenvalues are  ² ³. Similarly, if = is real and  is
+symmetric, then  ² ³ is symmetric, with eigenvalues  ² ³.
+
+Structure Theory for Normal Operators
+
+249
+
+Commutativity
+The functional calculus can be applied to the study of the commutativity
+properties of operators. Here are two simple examples.
+Theorem 10.20 Let = be a finite-dimensional complex inner product space.
+For  Á   B²= ³, we write  ©  to denote the fact that  and  commute. Let
+ and  have spectral resolutions
+ ~   b Ä b  
+ ~    b Ä b    
+Then
+1) For any   B²= ³,
+©
+
+¯
+
+ ©  for all 
+
+ ©
+
+¯
+
+ ©  , for all Á 
+
+2)
+
+3) If  ¢ ¸ Á Ã Á  ¹ ¦ - and ¢ ¸ Á Ã Á  ¹ ¦ - are injective functions,
+then
+ ² ³ © ²³
+
+¯
+
+ ©
+
+Proof. For 1), if  ©  for all , then  ©  and the converse follows from the
+fact that  is a polynomial in  . Part 2) is similar. For part 3),  ©  clearly
+implies  ² ³ © ²³. For the converse, let $ ~ ¸ Á Ã Á  ¹. Since  is
+injective, the inverse function  c ¢  ²$³ ¦ $ is well-defined and
+ c ² ² ³³ ~  . Thus,  is a function of  ² ³. Similarly,  is a function of ²³.
+It follows that  ² ³ © ²³ implies  ©  .
+Theorem 10.21 Let  and  be normal operators on a finite-dimensional
+complex inner product space = . Then  and  commute if and only if they have
+the form
+ ~ ²² Á ³³
+ ~ ²² Á ³³
+where ²%³Á ²%³ and ²%Á &³ are polynomials.
+Proof. If  and  are polynomials in ~ ² Á ³, then they clearly commute.
+For the converse, suppose that  ~  and let
+ ~   b Ä b  
+and
+ ~    b Ä b    
+be the orthogonal spectral resolutions of  and .
+
+250
+
+Advanced Linear Algebra
+
+Then Theorem 10.20 implies that   ~   . Hence,
+   ~ ²  b Ä b   ³ ²  b Ä b   ³
+~ ²  b Ä b   ³²  b Ä b   ³
+~     
+Á
+
+It follows that for any polynomial ²%Á &³ in two variables,
+² Á ³ ~ ² Á  ³ 
+Á
+
+So if we choose ²%Á &³ with the property that Á ~ ² Á  ³ are distinct, then
+² Á ³ ~ Á  
+Á
+
+and we can also choose ²%³ and ²%³ so that ²Á ³ ~  for all  and
+²Á ³ ~  for all . Then
+²² Á ³³ ~ ²Á ³  ~   
+Á
+
+Á
+
+~ 8  98 9 ~   ~ 
+
+
+
+
+
+
+and similarly, ²² Á ³³ ~  .
+
+Positive Operators
+One of the most important cases of the functional calculus is  ²%³ ~ j%.
+Recall that the quadratic form associated with a linear operator  is
+8 ²#³ ~ º #Á #»
+Definition A self-adjoint linear operator   B²= ³ is
+1) positive if 8 ²#³   for all #  =
+2) positive definite if 8 ²#³   for all # £ .
+Theorem 10.22 A self-adjoint operator  on a finite-dimensional inner product
+space is
+1) positive if and only if all of its eigenvalues are nonnegative
+2) positive definite if and only if all of its eigenvalues are positive.
+Proof. If 8 ²#³   and  # ~ #, then
+  º #Á #» ~ º#Á #»
+
+Structure Theory for Normal Operators
+
+251
+
+and so   . Conversely, if all eigenvalues of  are nonnegative, then
+ ~   b Ä b   Á   
+and since  ~  b Ä b  ,
+º #Á #» ~  º #Á  #» ~  ) #)  
+Á
+
+
+
+and so  is positive. Part 2) is proved similarly.
+If  is a positive operator, with spectral resolution
+ ~   b Ä b   Á   
+then we may take the positive square root of  ,
+j ~ j  b Ä b j 
+where j is the nonnegative square root of  . It is clear that
+²j ³ ~ 
+and it is not hard to see that j is the only positive operator whose square is  .
+In other words, every positive operator has a unique positive square root.
+Conversely, if  has a positive square root, that is, if  ~  , for some positive
+operator , then  is positive. Hence, an operator  is positive if and only if it
+has a positive square root.
+If  is positive, then j is self-adjoint and so
+²j ³i j ~ 
+Conversely, if  ~ i  for some operator , then  is positive, since it is clearly
+self-adjoint and
+º #Á #» ~ ºi #Á #» ~ º#Á #»  
+Thus,  is positive if and only if it has the form  ~ i  for some operator  .
+(A complex number ' is nonnegative if and only if has the form ' ~ $$ for
+some complex number $.)
+Theorem 10.23 Let   B²= ³.
+1)  is positive if and only if it has a positive square root.
+2)  is positive if and only if it has the form  ~ i  for some operator  .
+Here is an application of square roots.
+Theorem 10.24 If  and  are positive operators and  ~  , then  is
+positive.
+
+252
+
+Advanced Linear Algebra
+
+Proof. Since  is a positive operator, it has a positive square root j , which is
+a polynomial in  . A similar statement holds for  . Therefore, since  and 
+commute, so do j and j. Hence,
+²j j³ ~ ²j ³ ²j³ ~ 
+Since j and j are self-adjoint and commute, their product is self-adjoint
+and so  is positive.
+
+The Polar Decomposition of an Operator
+It is well known that any nonzero complex number ' can be written in the polar
+form ' ~  , where  is a positive number and is real. We can do the same
+for any nonzero linear operator  on a finite-dimensional complex inner product
+space.
+Theorem 10.25 Let  be a nonzero linear operator on a finite-dimensional
+complex inner product space = .
+1) There exist a positive operator  and a unitary operator  for which
+ ~ . Moreover,  is unique and if  is invertible, then  is also unique.
+2) Similarly, there exist a positive operator  and a unitary operator  for
+which  ~ . Moreover,  is unique and if  is invertible, then  is also
+unique.
+Proof. Let us suppose for a moment that  ~ . Then
+ i ~ ²³i ~ i  i ~  c
+and so
+ i  ~  c  ~ 
+Also, if #  = , then
+ # ~  ²#³
+These equations give us a clue as to how to define  and  .
+Let us define  to be the unique positive square root of the positive operator
+ i  . Then
+)#) ~ º#Á #» ~ º #Á #» ~ º i  #Á #» ~ ) #)
+
+(10.2)
+
+Define  on im²³ by
+ ²#³ ~  #
+for all #  = . Equation (10.2) shows that % ~ & implies that  % ~  & and so
+this definition of  on im²³ is well-defined.
+Moreover,  is an isometry on im²³, since (10.2) gives
+
+Structure Theory for Normal Operators
+
+253
+
+) ²#³) ~ ) #) ~ )#)
+Thus, if 8 ~ ¸ Á Ã Á  ¹ is an orthonormal basis for im²³, then
+8 ~ ¸  Á Ã Á   ¹ is an orthonormal basis for  ²im²³³ ~ im² ³. Finally, we
+may extend both orthonormal bases to orthonormal bases for = and then extend
+the definition of  to an isometry on = for which  ~ .
+As for the uniqueness, we have seen that  must satisfy  ~  i  and since 
+has a unique positive square root, we deduce that  is uniquely defined. Finally,
+if  is invertible, then so is  since ker²³  ker² ³. Hence,  ~ c is
+uniquely determined by  .
+Part 2) can be proved by applying the previous theorem to the map  i , to get
+ ~ ² i ³i ~ ²³i ~  c ~ 
+where  is unitary.
+We leave it as an exercise to show that any unitary operator  has the form
+ ~  , where  is a self-adjoint operator. This gives the following corollary.
+Corollary 10.26 (Polar decomposition) Let  be a nonzero linear operator on
+a finite-dimensional complex inner product space. Then there is a positive
+operator  and a self-adjoint operator  for which  has the polar
+decomposition
+ ~ 
+Moreover,  is unique and if  is invertible, then  is also unique.
+Normal operators can be characterized using the polar decomposition.
+Theorem 10.27 Let  ~  be a polar decomposition of a nonzero linear
+operator  . Then  is normal if and only if  ~ .
+Proof. Since
+ i ~  c  ~ 
+and
+ i  ~ c  ~ c  
+we see that  is normal if and only if
+c   ~ 
+
+254
+
+Advanced Linear Algebra
+
+or equivalently,
+  ~  
+Now,  is a polynomial in  and  is a polynomial in  and so this holds if
+and only if  ~ .
+
+Exercises
+1.
+2.
+
+Let   B²< Á = ³. If  is surjective, find a formula for the right inverse of 
+in terms of  i . If  is injective, find a formula for a left inverse of  in terms
+of  i . Hint: Consider  i and  i  .
+Let   B²= ³ where = is a complex vector space and let
+ ~
+
+
+
+² b  i ³ and  ~ ² c  i ³
+
+
+
+Show that  and  are self-adjoint and that
+ ~  b  and  i ~  c 
+What can you say about the uniqueness of these representations of  and
+ i?
+3. Prove that all of the roots of the characteristic polynomial of a skewHermitian matrix are pure imaginary.
+4. Give an example of a normal operator that is neither self-adjoint nor
+unitary.
+5. Prove that if ) #) ~ ) i ²#³) for all #  = , where = is complex, then  is
+normal.
+6. Let  be a normal operator on a complex finite-dimensional inner product
+space = or a self-adjoint operator on a real finite-dimensional inner product
+space.
+a) Show that  i ~ ² ³, for some polynomial ²%³  d´%µ.
+b) Show that for any   B²= ³,  ~  implies  i ~  i  . In other
+words,  i commutes with all operators that commute with  .
+7. Show that a linear operator  on a finite-dimensional complex inner product
+space = is normal if and only if whenever : is an invariant subspace under
+, so is :  .
+8. Let = be a finite-dimensional inner product space and let  be a normal
+operator on = .
+a) Prove that if  is idempotent, then it is also self-adjoint.
+b) Prove that if  is nilpotent, then  ~ .
+c) Prove that if   ~   , then  is idempotent.
+9. Show that if  is a normal operator on a finite-dimensional complex inner
+product space, then the algebraic multiplicity is equal to the geometric
+multiplicity for all eigenvalues of  .
+10. Show that two orthogonal projections  and  are orthogonal to each other
+if and only if im²³  im²³.
+
+Structure Theory for Normal Operators
+
+255
+
+11. Let  be a normal operator and let  be any operator on = . If the
+eigenspaces of  are  -invariant, show that  and  commute.
+12. Prove that if  and  are normal operators on a finite-dimensional complex
+inner product space and if  ~  for some operator then  i ~ i .
+13. Prove that if two normal  d  complex matrices are similar, then they are
+unitarily similar, that is, similar via a unitary matrix.
+14. If  is a unitary operator on a complex inner product space, show that there
+exists a self-adjoint operator  for which  ~  .
+15. Show that a positive operator has a unique positive square root.
+16. Prove that if  has a square root, that is, if  ~  , for some positive
+operator , then  is positive.
+17. Prove that if    (that is,  c  is positive) and if is a positive operator
+that commutes with both  and  then    .
+18. Using the 89 factorization, prove the following result, known as the
+Cholsky decomposition. An invertible linear operator   B²= ³ is positive
+if and only if it has the form  ~ i  where  is upper triangularizable.
+Moreover,  can be chosen with positive eigenvalues, in which case the
+factorization is unique.
+19. Does every self-adjoint operator on a finite-dimensional real inner product
+space have a square root?
+20. Let  be a linear operator on d and let  Á Ã Á  be the eigenvalues of  ,
+each one written a number of times equal to its algebraic multiplicity. Show
+that
+( (  tr² i  ³
+
+
+where tr is the trace. Show also that equality holds if and only if  is
+normal.
+21. If   B²= ³ where = is a real inner product space, show that the Hilbert
+space adjoint satisfies ² i ³d ~ ² d ³i .
+
+Part II—Topics
+
+Chapter 11
+
+Metric Vector Spaces: The Theory of
+Bilinear Forms
+
+In this chapter, we study vector spaces over arbitrary fields that have a bilinear
+form defined on them.
+Unless otherwise mentioned, all vector spaces are assumed to be finitedimensional. The symbol - denotes an arbitrary field and - denotes a finite
+field of size  .
+
+Symmetric, Skew-Symmetric and Alternate Forms
+We begin with the basic definition.
+Definition Let = be a vector space over - . A mapping ºÁ »¢ = d = ¦ - is
+called a bilinear form if it is linear in each coordinate, that is, if
+º% b  &Á '» ~ º%Á '» b  º&Á '»
+and
+º'Á % b  &» ~ º'Á %» b  º'Á &»
+A bilinear form is
+1) symmetric if
+º%Á &» ~ º&Á %»
+for all %Á &  = .
+2) skew-symmetric (or antisymmetric) if
+º%Á &» ~ cº&Á %»
+for all %Á &  = .
+
+260
+
+Advanced Linear Algebra
+
+3) alternate (or alternating) if
+º%Á %» ~ 
+for all %  = .
+A bilinear form that is either symmetric, skew-symmetric, or alternate is
+referred to as an inner product and a pair ²= Á ºÁ »³, where = is a vector space
+and ºÁ » is an inner product on = , is called a metric vector space or inner
+product space. As usual, we will refer to = as a metric vector space when the
+form is understood.
+4) A metric vector space = with a symmetric form is called an orthogonal
+geometry over - .
+5) A metric vector space = with an alternate form is called a symplectic
+geometry over - .
+The term symplectic, from the Greek for “intertwined,” was introduced in 1939
+by the famous mathematician Hermann Weyl in his book The Classical Groups,
+as a substitute for the term complex. According to the dictionary, symplectic
+means “relating to or being an intergrowth of two different minerals.” An
+example is ophicalcite, which is marble spotted with green serpentine.
+Example 11.1 Minkowski space 44 is the four-dimensional real orthogonal
+geometry s with inner product defined by
+º Á  » ~ º Á  » ~ º3 Á 3 » ~ 
+º4 Á 4 » ~ c
+º Á  » ~  for  £ 
+where  Á Ã Á 4 is the standard basis for s .
+As is traditional, when the inner product is understood, we will use the phrase
+“let = be a metric vector space.”
+The real inner products discussed in Chapter 9 are inner products in the present
+sense and have the additional property of being positive definite—a notion that
+does not even make sense if the base field is not ordered. Thus, a real inner
+product space is an orthogonal geometry. On the other hand, the complex inner
+products of Chapter 9, being sesquilinear, are not inner products in the present
+sense. For this reason, we use the term metric vector space in this chapter, rather
+than inner product space.
+If : is a vector subspace of a metric vector space = , then : inherits the metric
+structure from = . With this structure, we refer to : as a subspace of = .
+The concepts of being symmetric, skew-symmetric and alternate are not
+independent. However, their relationship depends on the characteristic of the
+base field - , as do many other properties of metric vector spaces. In fact, the
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+261
+
+next theorem tells us that we do not need to consider skew-symmetric forms per
+se, since skew-symmetry is always equivalent to either symmetry or
+alternateness.
+Theorem 11.1 Let = be a vector space over a field - .
+1) If char²- ³ ~ , then
+alternate ¬ symmetric ¯ skew-symmetric
+2) If char²- ³ £ , then
+alternate ¯ skew-symmetric
+Also, the only form that is both alternate and symmetric is the zero form:
+º%Á &» ~  for all %Á &  = .
+Proof. First note that for an alternating form over any base field,
+ ~ º% b &Á % b &» ~ º%Á &» b º&Á %»
+and so
+º%Á &» ~ cº&Á %»
+which shows that the form is skew-symmetric. Thus, alternate always implies
+skew-symmetric.
+If char²- ³ ~ , then c ~  and so the definitions of symmetric and skewsymmetric are equivalent, which proves 1). If char²- ³ £  and the form is
+skew-symmetric, then for any %  = , we have º%Á %» ~ cº%Á %» or º%Á %» ~ ,
+which implies that º%Á %» ~ . Hence, the form is alternate. Finally, if the form
+is alternate and symmetric, then it is also skew-symmetric and so
+º"Á #» ~ cº"Á #» for all "Á #  = , that is, º"Á #» ~  for all "Á #  = .
+Example 11.2 The standard inner product on = ²Á ³, defined by
+²% Á Ã Á % ³ h ²& Á Ã Á & ³ ~ % & b Ä b % &
+is symmetric, but not alternate, since
+²Á Á Ã Á ³ h ²Á Á Ã Á ³ ~  £ 
+
+The Matrix of a Bilinear Form
+If 8 ~ ² Á Ã Á  ³ is an ordered basis for a metric vector space = , then a
+bilinear form is completely determined by the  d  matrix of values
+48 ~ ²Á ³ ~ ²º Á  »³
+This is referred to as the matrix of the form (or the matrix of = ) with respect to
+the ordered basis 8 . Moreover, any  d  matrix over - is the matrix of some
+bilinear form on = .
+
+262
+
+Advanced Linear Algebra
+
+Note that if % ~ '  then
+48 ´%µ8 ~
+
+v º Á %» y
+Å
+w º Á %» z
+
+and
+´%µ!8 48 ~  º%Á  » Ä º%Á  » 
+It follows that if & ~    , then
+´%µ!8 48 ´&µ8 ~  º%Á  » Ä º%Á  » 
+
+v y
+Å ~ º%Á &»
+w z
+
+and this uniquely defines the matrix 48 , that is, if ´%µ!8 (´&µ8 ~ º%Á &» for all
+%Á &  = , then ( ~ 48 .
+A matrix is alternate if it is skew-symmetric and has 's on the main diagonal.
+Thus, we can say that a form is symmetric (skew-symmetric, alternate) if and
+only if the matrix 48 is symmetric (skew-symmetric, alternate).
+Now let us see how the matrix of a form behaves with respect to a change of
+basis. Let 9 ~ ² Á Ã Á  ³ be an ordered basis for = . Recall from Chapter 2 that
+the change of basis matrix 49Á8 , whose th column is ´ µ8 , satisfies
+´#µ8 ~ 49Á8 ´#µ9
+Hence,
+º%Á &» ~ ´%µ!8 48 ´&µ8
+~ ²´%µ!9 49!Á8 ³48 ²49Á8 ´&µ9 ³
+~ ´%µ!9 ²49!Á8 48 49Á8 ³´&µ9
+and so
+49 ~ 49!Á8 48 49Á8
+This prompts the following definition.
+Definition Two matrices (Á )  C ²- ³ are congruent if there exists an
+invertible matrix 7 for which
+( ~ 7 ! )7
+The equivalence classes under congruence are called congruence classes.
+
+Metric Vector Spaces: The Theory of Bilinear Forms
+
+263
+
+Thus, if two matrices represent the same bilinear form on = , they must be
+congruent. Conversely, if ) ~ 48 represents a bilinear form on = and
+( ~ 7 ! )7
+where 7 is invertible, then there is an ordered basis 9 for = for which
+7 ~ 49 Á 8
+and so
+( ~ 49!Á8 48 49Á8
+Thus, ( ~ 49 represents the same form with respect to 9.
+Theorem 11.2 Let 8 ~ ² Á Ã Á  ³ be an ordered basis for an inner product
+space = , with matrix
+48 ~ ²º Á  »³
+1) The form can be recovered from the matrix by the formula
+º%Á &» ~ ´%µ!8 48 ´&µ8
+2) If 9 ~ ² Á Ã Á  ³ is also an ordered basis for = , then
+49 ~ 49!Á8 48 49Á8
+where 49Á8 is the change of basis matrix from 9 to 8 .
+3) Two matrices ( and ) represent the same bilinear form on a vector space
+= if and only if they are congruent, in which case they represent the same
+set of bilinear forms on = .
+In view of the fact that congruent matrices have the same rank, we may define
+the rank of a bilinear form (or of = ) to be the rank of any matrix that represents
+that form.
+
+The Discriminant of a Form
+If ( and ) are congruent matrices, then
+det²(³ ~ det²7 ! )7 ³ ~ det²7 ³ det²)³
+and so det²(³ and det²)³ differ by a square factor. The discriminant " of a
+bilinear form is the set of determinants of all of the matrices that represent the
+form. Thus, if 8 is an ordered basis for = , then
+" ~ -  det²48 ³ ~ ¸ det²48 ³   £   - ¹
+
+

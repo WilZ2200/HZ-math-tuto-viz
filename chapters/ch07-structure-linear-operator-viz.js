@@ -4,7 +4,7 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch07'] = window.EXTRA_VIZ['ch07'] || {};
 
-// Section 1: Primary Cyclic Decomposition Visualizations
+// Section 1: Invariant Subspaces and the Minimal Polynomial
 window.EXTRA_VIZ['ch07']['ch07-sec01'] = [
     {
         id: 'ch07-extra-viz-1',
@@ -207,8 +207,11 @@ window.EXTRA_VIZ['ch07']['ch07-sec01'] = [
             draw();
             return viz;
         }
-    },
+    }
+];
 
+// Section 2: Primary Decomposition Theorem
+window.EXTRA_VIZ['ch07']['ch07-sec02'] = [
     {
         id: 'ch07-extra-viz-3',
         title: 'Interactive: Primary Decomposition into Generalized Eigenspaces',
@@ -289,8 +292,11 @@ window.EXTRA_VIZ['ch07']['ch07-sec01'] = [
             draw();
             return viz;
         }
-    },
+    }
+];
 
+// Section 4: Jordan Canonical Form
+window.EXTRA_VIZ['ch07']['ch07-sec04'] = [
     {
         id: 'ch07-extra-viz-4',
         title: 'Interactive: Jordan Block Action Animation',
@@ -390,8 +396,11 @@ window.EXTRA_VIZ['ch07']['ch07-sec01'] = [
             draw();
             return viz;
         }
-    },
+    }
+];
 
+// Section 3: Cyclic Decomposition and Elementary Divisors
+window.EXTRA_VIZ['ch07']['ch07-sec03'] = [
     {
         id: 'ch07-extra-viz-5',
         title: 'Interactive: Nilpotent Operator Visualization',
@@ -596,8 +605,11 @@ window.EXTRA_VIZ['ch07']['ch07-sec01'] = [
             draw();
             return viz;
         }
-    },
+    }
+];
 
+// Section 5: Rational Canonical Form
+window.EXTRA_VIZ['ch07']['ch07-sec05'] = [
     {
         id: 'ch07-extra-viz-7',
         title: 'Interactive: Companion Matrix Structure Explorer',

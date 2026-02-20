@@ -4,8 +4,8 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch17'] = window.EXTRA_VIZ['ch17'] || {};
 
-// Section 1: Singular Value Decomposition
-window.EXTRA_VIZ['ch17']['ch17-sec01'] = [
+// Section 2: The Singular Value Decomposition (Matrix Form)
+window.EXTRA_VIZ['ch17']['ch17-sec02'] = [
     {
         id: 'ch17-extra-viz-1',
         title: 'Interactive: SVD Decomposition Animation (Circle → Ellipse)',
@@ -519,8 +519,8 @@ window.EXTRA_VIZ['ch17']['ch17-sec01'] = [
     }
 ];
 
-// Section 2: Least Squares and Applications
-window.EXTRA_VIZ['ch17']['ch17-sec02'] = [
+// Section 5: Least Squares and the Pseudoinverse
+window.EXTRA_VIZ['ch17']['ch17-sec05'] = [
     {
         id: 'ch17-extra-viz-4',
         title: 'Interactive: Least Squares Geometric View',
@@ -904,8 +904,8 @@ window.EXTRA_VIZ['ch17']['ch17-sec02'] = [
     }
 ];
 
-// Section 3: Additional Applications
-window.EXTRA_VIZ['ch17']['ch17-sec03'] = [
+// Section 7: Applications and Further Topics
+window.EXTRA_VIZ['ch17']['ch17-sec07'] = [
     {
         id: 'ch17-extra-viz-7',
         title: 'Interactive: Image Compression via SVD',

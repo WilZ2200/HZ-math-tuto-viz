@@ -1,0 +1,1612 @@
+Hilbert Spaces
+
+333
+
+Proof. Only the uniqueness remains to be established. Suppose that
+)% c %
+V) ~  ~ )% c %Z )
+Then, by the parallelogram law,
+
+
+)%
+%³)
+V c %Z ) ~ )²% c %Z ³ c ²% c V
+
+
+
+
+
+~  )% c %
+V) b )% c %Z ) c )% c %
+V c %Z )
+
+
+
+~  )% c %
+V) b )% c %Z ) c h% c
+
+
+
+%
+V b %Z
+h
+2
+
+
+
+   b   c   ~ 
+and so %
+V ~ %Z .
+Since any subspace : of an inner product space = is convex, Theorem 13.9
+applies to complete subspaces. However, in this case, we can say more.
+Theorem 13.10 Let = be an inner product space and let : be a complete
+subspace of = . Then for any %  = , the best approximation to % in : is the
+unique vector %Z  : for which % c %Z  : .
+Proof. Suppose that % c %Z  : , where %Z  : . Then for any  : , we have
+% c %Z  c %Z and so
+
+
+
+
+)% c ) ~ )% c %Z ) b )%Z c )  )% c %Z )
+
+
+
+Hence %Z ~ %
+V is the best approximation to % in : . Now we need only show that
+%c%
+V  : , where %
+V is the best approximation to % in : . For any  : , a little
+computation reminiscent of completing the square gives
+)% c  )2 ~ º% c  Á % c  »
+~ )%) c º%Á » c º Á %» b ) )
+~ )%) b ) ) 8 c 
+~ ) % )  b ) )  8 c
+
+
+
+
+~ )%) b ) ) e c
+
+º%Á »
+) )
+
+
+
+c
+
+º%Á »
+) )
+
+9
+
+º%Á »
+
+º%Á »
+
+(º%Á »(
+
+) )
+
+) )
+
+) )
+
+c
+ 98
+
+º%Á »
+) )
+
+
+
+c
+ e
+
+Now, this is smallest when
+ ~  
+
+º%Á »
+) )
+
+(º%Á »(
+) )
+
+c
+ 9
+
+334
+
+Advanced Linear Algebra
+
+in which case
+)% c  ) ~ )%) c
+
+(º%Á »(
+) )
+
+Replacing % by % c %
+V gives
+
+
+)% c %
+V c  ) ~ )% c %
+V) c
+
+(º% c V
+%Á »(
+) )
+
+But %
+V is the best approximation to % in : and since %
+V c   : we must have
+
+
+)% c %
+V c  )  )% c %
+V)
+
+Hence,
+(º% c V
+%Á »(
+) )
+
+~
+
+or equivalently,
+º% c V
+%Á » ~ 
+Hence, % c %
+V  :.
+According to Theorem 13.9, if : is a complete subspace of an inner product
+space = , then for any %  = , we may write
+%~%
+%³
+V b ²% c V
+where %
+V  : and % c %
+V  :  . Hence, = ~ : b :  and since : q :  ~ ¸¹,
+we also have = ~ : p :  . This is the projection theorem for arbitrary inner
+product spaces.
+Theorem 13.11 (The projection theorem) If : is a complete subspace of an
+inner product space = , then
+= ~ : p :
+In particular, if : is a closed subspace of a Hilbert space / , then
+/ ~ : p :
+Theorem 13.12 Let : , ; and ; Z be subspaces of an inner product space = .
+1) If = ~ : p ; then ; ~ :  .
+2) If : p ; ~ : p ; Z then ; ~ ; Z .
+Proof. If = ~ : p ; , then ;  :  by definition of orthogonal direct sum. On
+the other hand, if '  :  , then ' ~ b !, for some  : and !  ; . Hence,
+ ~ º'Á » ~ º Á » b º!Á » ~ º Á »
+
+Hilbert Spaces
+and so
+1 ).
+
+335
+
+~ , implying that ' ~ !  ; . Thus, :   ; . Part 2) follows from part
+
+Let us denote the closure of the span of a set : of vectors by cspan²:³.
+Theorem 13.13 Let / be a Hilbert space.
+1) If ( is a subset of / , then
+cspan²(³ ~ (
+2) If : is a subspace of / , then
+cl²:³ ~ : 
+3) If 2 is a closed subspace of / , then
+2 ~ 2 
+Proof. We leave it as an exercise to show that ´cspan²(³µ ~ ( . Hence
+/ ~ cspan²(³ p ´cspan²(³µ ~ cspan²(³ p (
+But since ( is closed, we also have
+/ ~ ( p (
+and so by Theorem 13.12, cspan²(³ ~ ( . The rest follows easily from part
+1 ).
+In the exercises, we provide an example of a closed subspace 2 of an inner
+product space = for which 2 £ 2  . Hence, we cannot drop the requirement
+that / be a Hilbert space in Theorem 13.13.
+Corollary 13.14 If ( is a subset of a Hilbert space / , then span²(³ is dense in
+/ if and only if ( ~ ¸¹.
+Proof. As in the previous proof,
+/ ~ cspan²(³ p (
+and so ( ~ ¸¹ if and only if / ~ cspan²(³.
+
+Hilbert Bases
+We recall the following definition from Chapter 9.
+Definition A maximal orthonormal set in a Hilbert space / is called a Hilbert
+basis for / .
+Zorn's lemma can be used to show that any nontrivial Hilbert space has a Hilbert
+basis. Again, we should mention that the concepts of Hilbert basis and Hamel
+basis (a maximal linearly independent set) are quite different. We will show
+
+336
+
+Advanced Linear Algebra
+
+later in this chapter that any two Hilbert bases for a Hilbert space have the same
+cardinality.
+Since an orthonormal set E is maximal if and only if E ~ ¸¹, Corollary
+13.14 gives the following characterization of Hilbert bases.
+Theorem 13.15 Let E be an orthonormal subset of a Hilbert space / . The
+following are equivalent:
+1) E is a Hilbert basis
+2) E ~ ¸¹
+3) E is a total subset of / , that is, cspan²E³ ~ / .
+Part 3) of this theorem says that a subset of a Hilbert space is a Hilbert basis if
+and only if it is a total orthonormal set.
+
+Fourier Expansions
+We now want to take a closer look at best approximations. Our goal is to find an
+explicit expression for the best approximation to any vector % from within a
+closed subspace : of a Hilbert space / . We will find it convenient to consider
+three cases, depending on whether : has finite, countably infinite, or
+uncountable dimension.
+
+The Finite-Dimensional Case
+Suppose that E ~ ¸" Á Ã Á " ¹ is an orthonormal set in a Hilbert space / .
+Recall that the Fourier expansion of any %  / , with respect to E , is given by
+
+
+%
+V ~ º%Á " »"
+~
+
+where º%Á " » is the Fourier coefficient of % with respect to " . Observe that
+º% c V
+%Á " » ~ º%Á " » c º%Á
+V " » ~ 
+and so % c %
+V  span²E³. Thus, according to Theorem 13.9, the Fourier
+expansion %
+V is the best approximation to % in span²E³. Moreover, since
+%c%
+V%
+V, we have
+
+
+
+
+)%
+V ) ~ ) % ) c )% c %
+V)  )%)
+
+and so
+)%
+V )  )%)
+with equality if and only if % ~ %
+V, which happens if and only if %  span²E³.
+Let us summarize.
+
+Hilbert Spaces
+
+337
+
+Theorem 13.16 Let E ~ ¸" Á Ã Á " ¹ be a finite orthonormal set in a Hilbert
+space / . For any %  / , the Fourier expansion %
+V of % is the best
+approximation to % in span²E³. We also have Bessel's inequality
+)%
+V )  )%)
+or equivalently,
+
+
+(º%Á " »(  )%)
+
+(13.3)
+
+~
+
+with equality if and only if %  span²E³.
+
+The Countably Infinite-Dimensional Case
+In the countably infinite case, we will be dealing with infinite sums and so
+questions of convergence will arise. Thus, we begin with the following.
+Theorem 13.17 Let E ~ ¸" Á " Á Ã ¹ be a countably infinite orthonormal set in
+a Hilbert space / . The series
+B
+
+(13.4)
+
+ "
+~
+
+converges in / if and only if the series
+B
+
+( (
+
+(13.5)
+
+~
+
+converges in s. If these series converge, then they converge unconditionally
+(that is, any series formed by rearranging the order of the terms also
+converges). Finally, if the series (13.4) converges, then
+B
+
+
+
+B
+
+
+i  " i ~  ( (
+~
+
+~
+
+Proof. Denote the partial sums of the first series by
+the second series by  . Then for   
+
+
+
+
+
+
+ and the partial sums of
+
+
+
+)  c  ) ~ i   " i ~  ( ( ~ ( c  (
+~b
+
+~b
+
+Hence ²  ³ is a Cauchy sequence in / if and only if ² ³ is a Cauchy sequence
+in s. Since both / and s are complete, ²  ³ converges if and only if ² ³
+converges.
+If the series (13.5) converges, then it converges absolutely and hence
+unconditionally. (A real series converges unconditionally if and only if it
+
+338
+
+Advanced Linear Algebra
+
+converges absolutely.³ But if (13.5) converges unconditionally, then so does
+(13.4). The last part of the theorem follows from the continuity of the norm.
+Now let E ~ ¸" Á " Á Ã ¹ be a countably infinite orthonormal set in / . The
+Fourier expansion of a vector %  / is defined to be the sum
+B
+
+%
+V ~ º%Á " »"
+
+(13.6)
+
+~
+
+To see that this sum converges, observe that for any   , (13.3) gives
+
+
+(º%Á " »(  )%)
+~
+
+and so
+B
+
+(º%Á " »(  )%)
+~
+
+which shows that the series on the left converges. Hence, according to Theorem
+13.17, the Fourier expansion (13.6) converges unconditionally.
+Moreover, since the inner product is continuous,
+º% c V
+%Á " » ~ º%Á " » c º%Á
+V " » ~ 
+and so % c %
+V  ´span²E³µ ~ ´cspan²E³µ . Hence, %
+V is the best approximation
+to % in cspan²E³. Finally, since % c %
+V%
+V, we again have
+
+
+
+
+)%
+V ) ~ ) % ) c )% c %
+V)  )%)
+
+and so
+)%
+V )  )%)
+with equality if and only if % ~ %
+V, which happens if and only if %  cspan²E³.
+Thus, the following analog of Theorem 13.16 holds.
+Theorem 13.18 Let E ~ ¸" Á " Á Ã ¹ be a countably infinite orthonormal set in
+a Hilbert space / . For any %  / , the Fourier expansion
+B
+
+%
+V ~ º%Á " »"
+~
+
+of % converges unconditionally and is the best approximation to % in cspan²E³.
+We also have Bessel's inequality
+)%
+V )  )%)
+
+Hilbert Spaces
+
+339
+
+or equivalently,
+B
+
+(º%Á " »(  )%)
+~
+
+with equality if and only if %  cspan²E³.
+
+The Arbitrary Case
+To discuss the case of an arbitrary orthonormal set E ~ ¸"    2¹, let us
+first define and discuss the concept of the sum of an arbitrary number of terms.
+(This is a bit of a digression, since we could proceed without all of the coming
+details c but they are interesting.³
+Definition Let A ~ ¸%    2¹ be an arbitrary family of vectors in an inner
+product space = . The sum
+ %
+2
+
+is said to converge to a vector %  = and we write
+% ~  %
+
+(13.7)
+
+2
+
+if for any   , there exists a finite set :  2 for which
+;  :Á ; finite ¬ i % c %i  
+;
+
+For those readers familiar with the language of convergence of nets, the set
+F ²2³ of all finite subsets of 2 is a directed set under inclusion (for every
+(Á )  F ²2³ there is a *  F ²2³ containing ( and ) ) and the function
+: ¦ %
+:
+
+is a net in / . Convergence of ²13.7) is convergence of this net. In any case, we
+will refer to the preceding definition as the net definition of convergence.
+It is not hard to verify the following basic properties of net convergence for
+arbitrary sums.
+Theorem 13.19 Let A ~ ¸%    2¹ be an arbitrary family of vectors in an
+inner product space = . If
+% ~ % and & ~ &
+2
+
+then
+
+2
+
+340
+
+Advanced Linear Algebra
+
+1) (Linearity)
+ ²% b & ³ ~ % b &
+2
+
+for any Á  2) (Continuity)
+º% Á &» ~ º%Á &» and º&Á % » ~ º&Á %»
+2
+
+2
+
+The next result gives a useful “Cauchy-type” description of convergence.
+Theorem 13.20 Let A ~ ¸%    2¹ be an arbitrary family of vectors in an
+inner product space = .
+1) If the sum
+ %
+2
+
+converges, then for any   , there exists a finite set 0  2 such that
+1 q 0 ~ JÁ 1 finite ¬ i % i  
+1
+
+2) If = is a Hilbert space, then the converse of 1) also holds.
+Proof. For part 1), given   , let :  2 , : finite, be such that
+;  :Á ; finite ¬ i% c %i 
+;
+
+
+2
+
+If 1 q : ~ J, 1 finite, then
+i % i ~ i²% b % c %³ c ²% c %³i
+1
+
+1
+
+:
+
+:
+
+ i% c %i b i% c %i 
+1 r:
+
+:
+
+
+
+b ~
+2 2
+
+As for part 2), for each   , let 0  2 be a finite set for which
+1 q 0 ~ JÁ 1 finite ¬ i% i 
+1
+
+and let
+& ~  %
+0
+
+
+
+
+Hilbert Spaces
+
+341
+
+Then ²& ³ is a Cauchy sequence, since
+)& c & ) ~ i % c  % i ~ i  % c  % i
+0
+
+0
+
+0 c0
+
+ i  % i b i  %  i 
+0 c0
+
+0 c0
+
+0 c0
+
+
+
+b ¦
+ 
+
+Since = is assumed complete, we have ²& ³ ¦ &.
+Now, given   , there exists an 5 such that
+  5 ¬ )& c &) ~ i% c &i 
+0
+
+
+2
+
+Setting  ~ max¸5 Á °¹ gives for ;  0 Á ; finite,
+i %  c & i ~ i  %  c & b  %  i
+;
+
+0
+
+; c0
+
+ i %  c & i b i  %  i 
+0
+
+; c0
+
+
+
+b 
+ 
+
+and so 2 % converges to &.
+The following theorem tells us that convergence of an arbitrary sum implies that
+only countably many terms can be nonzero so, in some sense, there is no such
+thing as a nontrivial uncountable sum.
+Theorem 13.21 Let A ~ ¸%    2¹ be an arbitrary family of vectors in an
+inner product space = . If the sum
+ %
+2
+
+converges, then at most a countable number of terms % can be nonzero.
+Proof. According to Theorem 13.20, for each   , we can let 0  2 , 0
+finite, be such that
+1 q 0 ~ JÁ 1 finite ¬ i % i 
+1
+
+
+
+
+Let 0 ~  0 . Then 0 is countable and
+ ¤ 0 ¬ ¸¹ q 0 ~ J for all  ¬ )% ) 
+
+
+for all  ¬ % ~ 
+
+
+342
+
+Advanced Linear Algebra
+
+Here is the analog of Theorem 13.17.
+Theorem 13.22 Let E ~ ¸"    2¹ be an arbitrary orthonormal family of
+vectors in a Hilbert space / . The two series
+ " and ( (
+2
+
+2
+
+converge or diverge together. If these series converge, then
+
+
+
+i   " i ~ ( (
+2
+
+2
+
+Proof. The first series converges if and only if for every   , there exists a
+finite set 0  2 such that
+
+
+1 q 0 ~ JÁ 1 finite ¬ i " i  
+1
+
+or equivalently,
+1 q 0 ~ JÁ 1 finite ¬ ( (  
+1
+
+and this is precisely what it means for the second series to converge. We leave
+proof of the remaining statement to the reader.
+The following is a useful characterization of arbitrary sums of nonnegative real
+terms.
+Theorem 13.23 Let ¸    2¹ be a collection of nonnegative real numbers.
+Then
+  ~ sup  
+1 finite
+1 2
+
+2
+
+1
+
+provided that either of the preceding expressions is finite.
+Proof. Suppose that
+sup  ~ 9  B
+
+1 finite
+1 2 1
+
+Then, for any   , there exists a finite set :  2 such that
+9    9 c 
+:
+
+(13.8)
+
+Hilbert Spaces
+
+343
+
+Hence, if ;  2 is a finite set for which ;  : , then since   ,
+9      9 c 
+;
+
+:
+
+and so
+i9 c  i  
+;
+
+which shows that  converges to 9. Finally, if the sum on the left of (13.8)
+converges, then the supremum on the right is finite and so (13.8) holds.
+The reader may have noticed that we have two definitions of convergence for
+countably infinite series: the net version and the traditional version involving
+the limit of partial sums. Let us write
+B
+
+ % and  %
+ob
+
+~
+
+for the net version and the partial sum version, respectively. Here is the
+relationship between these two definitions.
+Theorem 13.24 Let / be a Hilbert space. If %  / , then the following are
+equivalent:
+1)
+2)
+
+ % converges (net version) to %
+
+ob
+B
+
+ % converges unconditionally to %
+
+~
+
+Proof. Assume that 1) holds. Suppose that  is any permutation of ob . Given
+any   , there is a finite set :  ob for which
+;  :Á ; finite ¬ i % c %i  
+;
+
+Let us denote the set of integers ¸Á Ã Á ¹ by 0 and choose a positive integer 
+such that ²0 ³  : . Then for    we have
+
+
+²0 ³  ²0 ³  : ¬ i %²³ c %i ~
+~
+
+and so 2) holds.
+
+ % c %  
+²0 ³
+
+344
+
+Advanced Linear Algebra
+
+Next, assume that 2) holds, but that the series in 1) does not converge. Then
+there exists an    such that for any finite subset 0  ob , there exists a finite
+subset 1 with 1 q 0 ~ J for which
+i %  i  
+1
+
+From this, we deduce the existence of a countably infinite sequence 1 of
+mutually disjoint finite subsets of ob with the property that
+max²1 ³ ~ 4  b ~ min²1b ³
+and
+i  % i  
+1
+
+Now we choose any permutation ¢ ob ¦ ob with the following properties
+1) ²´ Á 4 µ³  ´ Á 4 µ
+2) if 1 ~ ¸Á Á Ã Á Á" ¹, then
+² ³ ~ Á Á ² b ³ ~ Á2 Á Ã Á ² b " c ³ ~ Á"
+The intention in property 2) is that for each ,  takes a set of consecutive
+integers to the integers in 1 .
+For any such permutation , we have
+ b" c
+
+i  %²³ i ~ i  % i  
+~
+
+1
+
+which shows that the sequence of partial sums of the series
+B
+
+%²³
+~
+
+is not Cauchy and so this series does not converge. This contradicts 2) and
+shows that 2) implies at least that 1) converges. But if 1) converges to &  / ,
+then since 1) implies 2) and since unconditional limits are unique, we have
+& ~ %. Hence, 2) implies 1).
+Now we can return to the discussion of Fourier expansions. Let
+E ~ ¸"    2¹ be an arbitrary orthonormal set in a Hilbert space / . Given
+any %  / , we may apply Theorem 13.16 to all finite subsets of E , to deduce
+
+Hilbert Spaces
+
+345
+
+that
+sup (º%Á " »(  )%)
+
+1 finite
+1 2
+
+1
+
+and so Theorem 13.23 tells us that the sum
+(º%Á " »(
+2
+
+converges. Hence, according to Theorem 13.22, the Fourier expansion
+%
+V ~ º%Á " »"
+2
+
+of % also converges and
+
+
+)%
+V) ~ (º%Á " »(
+2
+
+Note that, according to Theorem 13.21, %
+V is a countably infinite sum of terms of
+the form º%Á " »" and so is in cspan²E³.
+The continuity of infinite sums with respect to the inner product (Theorem
+13.19) implies that
+º% c V
+%Á " » ~ º%Á " » c º%Á
+V " » ~ 
+and so % c %
+V  ´span²E³µ ~ ´cspan²E³µ . Hence, Theorem 3.9 tells us that %
+V
+is the best approximation to % in cspan²E³. Finally, since % c %
+V%
+V, we again
+have
+
+
+
+
+)%
+V ) ~ ) % ) c )% c %
+V)  )%)
+
+and so
+)%
+V )  )%)
+with equality if and only if % ~ %
+V, which happens if and only if %  cspan²E³.
+Thus, we arrive at the most general form of a key theorem about Hilbert spaces.
+Theorem 13.25 Let E ~ ¸"    2¹ be an orthonormal family of vectors in
+a Hilbert space / . For any %  / , the Fourier expansion
+%
+V ~ º%Á " »"
+2
+
+of % converges in / and is the unique best approximation to % in cspan²E³.
+Moreover, we have Bessel's inequality
+)%
+V )  )%)
+
+346
+
+Advanced Linear Algebra
+
+or equivalently,
+(º%Á " »(  )%)
+2
+
+with equality if and only if %  cspan²E³.
+
+A Characterization of Hilbert Bases
+Recall from Theorem 13.15 that an orthonormal set E ~ ¸"    2¹ in a
+Hilbert space / is a Hilbert basis if and only if
+cspan²E³ ~ /
+Theorem 13.25, then leads to the following characterization of Hilbert bases.
+Theorem 13.26 Let E ~ ¸"    2¹ be an orthonormal family in a Hilbert
+space / . The following are equivalent:
+1) E is a Hilbert basis (a maximal orthonormal set)
+2) E ~ ¸¹
+3) E is total (that is, cspan²E³ ~ / )
+4) % ~ %
+V for all %  /
+5) Equality holds in Bessel's inequality for all %  / , that is,
+)%) ~ )%
+V)
+for all %  /
+6) Parseval's identity
+º%Á &» ~ º%Á
+V V&»
+holds for all %Á &  / , that is,
+º%Á &» ~ º%Á " »º&Á " »
+2
+
+Proof. Parts 1), 2) and 3) are equivalent by Theorem 13.15. Part 4) implies part
+3), since %
+V  cspan²E³ and 3) implies 4) since the unique best approximation of
+any %  cspan²E³ is itself and so % ~ %
+V. Parts 3) and 5) are equivalent by
+Theorem 13.25. Parseval's identity follows from part 4) using Theorem 13.19.
+Finally, Parseval's identity for & ~ % implies that equality holds in Bessel's
+inequality.
+
+Hilbert Dimension
+We now wish to show that all Hilbert bases for a Hilbert space / have the same
+cardinality and so we can define the Hilbert dimension of / to be that
+cardinality.
+
+Hilbert Spaces
+
+347
+
+Theorem 13.27 All Hilbert bases for a Hilbert space / have the same
+cardinality. This cardinality is called the Hilbert dimension of / , which we
+denote by hdim²/³.
+Proof. If / has a finite Hilbert basis, then that set is also a Hamel basis and so
+all finite Hilbert bases have size dim²/³. Suppose next that 8 ~ ¸    2¹
+and 9 ~ ¸    1 ¹ are infinite Hilbert bases for / . Then for each  , we have
+ ~ º Á  »
+1
+
+where 1 is the countable set ¸  º Á  » £ ¹. Moreover, since no  can be
+orthogonal to every  , we have 2 1 ~ 1 . Thus, since each 1 is countable,
+we have
+(1 ( ~ e  1 e  L (2 ( ~ (2 (
+2
+
+By symmetry, we also have (2 (  (1 ( and so the Schröder–Bernstein theorem
+implies that (1 ( ~ (2 (.
+Theorem 13.28 Two Hilbert spaces are isometrically isomorphic if and only if
+they have the same Hilbert dimension.
+Proof. Suppose that hdim²/ ³ ~ hdim²/ ³. Let E ~ ¸"    2¹ be a
+Hilbert basis for / and E ~ ¸#    2¹ a Hilbert basis for / . We may
+define a map ¢ / ¦ / as follows:
+4 " 5 ~  #
+2
+
+2
+
+We leave it as an exercise to verify that  is a bijective isometry. The converse
+is also left as an exercise.
+
+A Characterization of Hilbert Spaces
+We have seen that any vector space = is isomorphic to a vector space ²- ) ³ of
+all functions from ) to - that have finite support. There is a corresponding
+result for Hilbert spaces. Let 2 be any nonempty set and let
+M ²2³ ~ D ¢ 2 ¦ dc ( ²³(  BE
+2
+
+The functions in M ²2³ are referred to as square summable functions. ²We can
+also define a real version of this set by replacing d by s.³ We define an inner
+product on M ²2³ by
+º Á » ~  ²³²³
+2
+
+
+The proof that M ²2³ is a Hilbert space is quite similar to the proof that
+
+348
+
+Advanced Linear Algebra
+
+M ~ M ²o³ is a Hilbert space and the details are left to the reader. If we define
+  M ²2³ by
+ ²³ ~ Á ~ F
+
+
+
+
+if  ~ 
+if  £ 
+
+then the collection
+E ~ ¸    2¹
+is a Hilbert basis for M ²2³, of cardinality (2 (. To see this, observe that
+º Á  » ~  ²³ ²³ ~ Á
+2
+
+and so E is orthonormal. Moreover, if   M ²2³, then  ²³ £  for only a
+countable number of   2 , say ¸ Á  Á Ã ¹. If we define  Z by
+B
+
+ Z ~  ² ³
+~
+Z
+
+Z
+
+then   cspan²E³ and  ²³ ~  ²³ for all   2 , which implies that  ~  Z .
+This shows that M ²2³ ~ cspan²E³ and so E is a total orthonormal set, that is, a
+Hilbert basis for M ²2³.
+Now let / be a Hilbert space, with Hilbert basis 8 ~ ¸"    2¹. We define
+a map ¢ / ¦ M ²2³ as follows. Since 8 is a Hilbert basis, any %  / has the
+form
+% ~ º%Á " »"
+2
+
+Since the series on the right converges, Theorem 13.22 implies that the series
+(º%Á " »(
+2
+
+converges. Hence, another application of Theorem 13.22 implies that the
+following series converges:
+²%³ ~ º%Á " »
+2
+
+It follows from Theorem 13.19 that  is linear and it is not hard to see that it is
+also bijective. Notice that ²" ³ ~  and so  takes the Hilbert basis 8 for /
+to the Hilbert basis E for M ²2³.
+
+Hilbert Spaces
+
+349
+
+Notice also that
+
+
+
+
+
+)²%³) ~ º²%³Á ²%³» ~ (º%Á " »( ~ i º%Á " »" i ~ )%)
+2
+
+2
+
+and so  is an isometric isomorphism. We have proved the following theorem.
+Theorem 13.29 If / is a Hilbert space of Hilbert dimension  and if 2 is any
+set of cardinality  , then / is isometrically isomorphic to M ²2³.
+
+The Riesz Representation Theorem
+We conclude our discussion of Hilbert spaces by discussing the Riesz
+representation theorem. As it happens, not all linear functionals on a Hilbert
+space have the form “take the inner product withÃ ,” as in the finitedimensional case. To see this, observe that if &  / , then the function
+& ²%³ ~ º%Á &»
+is certainly a linear functional on / . However, it has a special property. In
+particular, the Cauchy–Schwarz inequality gives, for all %  / ,
+(& ²%³( ~ (º%Á &»(  )%))&)
+or, for all % £ ,
+(& ²%³(
+ )& )
+)%)
+Noticing that equality holds if % ~ & , we have
+(& ²%³(
+~ )& )
+%£ )%)
+
+sup
+
+This prompts us to make the following definition, which we do for linear
+transformations between Hilbert spaces (this covers the case of linear
+functionals).
+Definition Let  ¢ / ¦ / be a linear transformation from / to / . Then  is
+said to be bounded if
+)%)
+B
+%£ )%)
+
+sup
+
+If the supremum on the left is finite, we denote it by ) ) and call it the norm of
+.
+
+350
+
+Advanced Linear Algebra
+
+Of course, if  ¢ / ¦ - is a bounded linear functional on / , then
+( ²%³(
+%£ )%)
+
+) ) ~ sup
+
+The set of all bounded linear functionals on a Hilbert space / is called the
+continuous dual space, or conjugate space, of / and denoted by / i . Note
+that this differs from the algebraic dual of / , which is the set of all linear
+functionals on / . In the finite-dimensional case, however, since all linear
+functionals are bounded (exercise), the two concepts agree. (Unfortunately,
+there is no universal agreement on the notation for the algebraic dual versus the
+continuous dual. Since we will discuss only the continuous dual in this section,
+no confusion should arise.³
+The following theorem gives some simple reformulations of the definition of
+norm.
+Theorem 13.30 Let ¢ / ¦ / be a bounded linear transformation.
+1) ) ) ~ sup ) %)
+)%)~
+
+2) ) ) ~ sup ) %)
+)%)
+
+3) ) ) ~ inf¸  s  ) %)   )%) for all %  /¹
+The following theorem explains
+transformations.
+
+the
+
+importance
+
+of bounded linear
+
+Theorem 13.31 Let ¢ / ¦ / be a linear transformation. The following are
+equivalent:
+1)  is bounded
+2)  is continuous at any point %  /
+3)  is continuous.
+Proof. Suppose that  is bounded. Then
+) % c  % ) ~ ) ²% c % ³)  ) ))% c % ) ¦ 
+as % ¦ % . Hence,  is continuous at % . Thus, 1) implies 2). If 2) holds, then
+for any &  / , we have
+) % c  &) ~ ) ²% c & b % ³ c  ²% ³) ¦ 
+as % ¦ &, since  is continuous at % and % c & b % ¦ % as & ¦ %. Hence, 
+is continuous at any &  / and 3) holds. Finally, suppose that 3) holds. Thus, 
+is continuous at  and so there exists a    such that
+)%)   ¬ ) % )  
+
+Hilbert Spaces
+
+351
+
+In particular,
+) %) ~  ¬
+
+
+)  %)
+
+
+)%)
+
+and so
+)%) ~  ¬ ) % ) ~  ¬
+
+
+
+) ² %³)
+) % )
+ ¬
+
+
+
+) %)
+)%)
+
+Thus,  is bounded.
+Now we can state and prove the Riesz representation theorem.
+Theorem 13.32 (The Riesz representation theorem) Let / be a Hilbert
+space. For any bounded linear functional  on / , there is a unique '  /
+such that
+ ²%³ ~ º%Á ' »
+for all %  / . Moreover, )' ) ~ ) ).
+Proof. If  ~ , we may take ' ~ , so let us assume that  £ . Hence,
+2 ~ ker² ³ £ / and since  is continuous, 2 is closed. Thus
+/ ~ 2 p 2
+Now, the first isomorphism theorem, applied to the linear functional  ¢ / ¦ - ,
+implies that /°2  - (as vector spaces). In addition, Theorem 3.5 implies that
+/°2  2  and so 2   - . In particular, dim²2  ³ ~ .
+For any '  2  , we have
+%  2 ¬  ²%³ ~  ~ º%Á '»
+Since dim²2  ³ ~ , all we need do is find  £ '  2  for which
+ ²'³ ~ º'Á '»
+for then  ²'³ ~  ²'³ ~ º'Á '» ~ º'Á '» for all   - , showing that
+ ²%³ ~ º%Á '» for %  2 as well.
+But if  £ '  2  , then
+' ~
+
+ ²'³
+'
+º'Á '»
+
+has this property, as can be easily checked. The fact that )' ) ~ ) ) has
+already been established.
+
+352
+
+Advanced Linear Algebra
+
+Exercises
+1.
+2.
+3.
+
+4.
+5.
+6.
+
+7.
+
+Prove that the sup metric on the metric space *´Á µ of continuous
+functions on ´Á µ does not come from an inner product. Hint: let  ²!³ ~ 
+and ²!³ ~ ²! c a³°² c a³ and consider the parallelogram law.
+Prove that any Cauchy sequence that has a convergent subsequence must
+itself converge.
+Let = be an inner product space and let ( and ) be subsets of = . Show
+that
+a) (  ) ¬ )   (
+b) ( is a closed subspace of =
+c) ´cspan²(³µ ~ (
+Let = be an inner product space and :  = . Under what conditions is
+:  ~ :  ?
+Prove that a subspace : of a Hilbert space / is closed if and only if
+: ~ :  .
+Let = be the subspace of M consisting of all sequences of real numbers
+with the property that each sequence has only a finite number of nonzero
+terms. Thus, = is an inner product space. Let 2 be the subspace of =
+consisting of all sequences % ~ ²% ³ in = with the property that
+'% ° ~ . Show that 2 is closed, but that 2  £ 2 . Hint: For the latter,
+show that 2  ~ ¸¹ by considering the sequences " ~ ²Á Ã Á cÁ Ã ³,
+where the term c is in the th coordinate position.
+Let E ~ ¸" Á " Á Ã ¹ be an orthonormal set in / . If % ~ ' " converges,
+show that
+B
+
+)%) ~ ( (
+~
+
+8.
+
+Prove that if an infinite series
+B
+
+%
+~
+
+9.
+
+converges absolutely in a Hilbert space / , then it also converges in the
+sense of the “net” definition given in this section.
+Let ¸    2¹ be a collection of nonnegative real numbers. If the sum
+on the left below converges, show that
+ ~ sup  
+2
+
+1 finite
+1 2 1
+
+10. Find a countably infinite sum of real numbers that converges in the sense of
+partial sums, but not in the sense of nets.
+11. Prove that if a Hilbert space / has infinite Hilbert dimension, then no
+Hilbert basis for / is a Hamel basis.
+12. Prove that M ²2³ is a Hilbert space for any nonempty set 2 .
+
+Hilbert Spaces
+
+353
+
+13. Prove that any linear transformation between finite-dimensional Hilbert
+spaces is bounded.
+14. Prove that if   / i , then ker² ³ is a closed subspace of / .
+15. Prove that a Hilbert space is separable if and only if hdim²/³  L .
+16. Can a Hilbert space have countably infinite Hamel dimension?
+17. What is the Hamel dimension of M ²o³?
+18. Let  and  be bounded linear operators on / . Verify the following:
+a) ) ) ~ (() )
+b) )  b  )  ) ) b ) )
+c) ))  ) )))
+19. Use the Riesz representation theorem to show that / i  / for any Hilbert
+space / .
+
+Chapter 14
+
+Tensor Products
+
+In the preceding chapters, we have seen several ways to construct new vector
+spaces from old ones. Two of the most important such constructions are the
+direct sum < l = and the vector space B²< Á = ³ of all linear transformations
+from < to = . In this chapter, we consider another very important construction,
+known as the tensor product.
+
+Universality
+We begin by describing a general type of universality that will help motivate the
+definition of tensor product. Our description is strongly related to the formal
+notion of a universal pair in category theory, but we will be somewhat less
+formal to avoid the need to formally define categorical concepts. Accordingly,
+the terminology that we shall introduce is not standard, but does not contradict
+any standard terminology.
+Referring to Figure 14.1, consider a set ( and two functions  and , with
+domain (.
+f
+A
+S
+
+W
+
+g
+X
+Figure 14.1
+
+Suppose that there exists a function ¢ : ¦ ? for which this diagram
+commutes, that is,
+~ k
+This is sometimes expressed by saying that  can be factored through  . What
+does this say about the relationship between the functions  and ?
+
+356
+
+Advanced Linear Algebra
+
+Let us think of the “information” about ( contained in a function ¢ ( ¦ ) as
+the way in which  distinguishes elements of ( using labels from ) . The
+relationship above implies that
+²³ £ ²³ ¬  ²³ £  ²³
+and this can be phrased by saying that whatever ability  has to distinguish
+elements of ( is also possessed by  . Put another way, except for labeling
+differences, any information about ( that is contained in  is also contained in
+.
+If  happens to be injective, then the only difference between  and  is the
+values of the labels. That is, the two functions have the same information about
+(. However, in general,  is not required to be injective and so  may contain
+more information than .
+Now consider a family I of sets and a family
+< ~ ¸¢ ( ¦ ?  ?  I ¹
+Assume that :  I and  ¢ ( ¦ :  < . If the diagram in Figure 14.1 commutes
+for all   < , then the information contained in every function in < is also
+contained in  . Moreover, since   < , the function  cannot contain more
+information than is contained in the entire family and so we conclude that 
+contains exactly the same information as is contained in the entire family < . In
+this sense,  ¢ ( ¦ : is universal among all functions ¢ ( ¦ ? in < .
+In this way, a single function  ¢ ( ¦ : , or more precisely, a single pair ²:Á  ³,
+can capture a mathematical concept as described by a family of functions. Some
+examples from linear algebra are basis for a vector space, quotient space, direct
+sum and bilinearity (as we will see).
+Let us make a formal definition.
+Definition Referring to Figure 14.2, let ( be a set and let I be a family of sets.
+Let
+< ~ ¸¢ ( ¦ ?  ?  I ¹
+be a family of functions, all of which have domain ( and range a member of I .
+Let
+> ~ ¸ ¢ ? ¦ @  ?Á @  I ¹
+be a family of functions with domain and range in I . We assume that > has the
+following structure:
+1) > contains the identity function : for each member of I .
+
+Tensor Products
+
+357
+
+2) > is closed under composition of functions, which is an associative
+operation.
+3) For any   > and   < , the composition  k  is defined and belongs to
+<.
+
+S1
+A
+
+f1
+f2
+
+S2
+
+f3
+
+W1
+
+W2
+
+W3
+S3
+
+Figure 14.2
+We refer to > as the measuring family and its members as measuring
+functions.
+A pair ²:Á  ¢ ( ¦ :³, where :  I and   < has the universal property for
+the family < as measured by >, or is a universal pair for ²< Á >³, if for every
+¢ ( ¦ ? in < , there is a unique  ¢ : ¦ ? in > for which the diagram in
+Figure 14.1 commutes, that is, for which
+~ k
+or equivalently, any   < can be factored through  . The unique measuring
+function  is called the mediating morphism for .
+Note the requirement that the mediating morphism  be unique. Universal pairs
+are essentially unique, as the following describes.
+Theorem 14.1 Let ²:Á  ¢ ( ¦ :³ and ²; Á ¢ ( ¦ ; ³ be universal pairs for
+²< Á >³. Then there is a bijective measuring function   > for which : ~ ; .
+In fact, the mediating morphism of  with respect to  and the mediating
+morphism of  with respect to  are isomorphisms.
+Proof. With reference to Figure 14.3, there are mediating morphisms ¢ : ¦ ;
+and ¢ ; ¦ : for which
+~ k
+ ~k
+Hence,
+ ~ ² k  ³ k 
+ ~ ² k  ³ k 
+However, referring to the third diagram in Figure 14.3, both  k  ¢ : ¦ : and
+the identity map ¢ : ¦ : are mediating morphisms for  and so the uniqueness
+
+358
+
+Advanced Linear Algebra
+
+of mediating morphisms implies that  k  ~  . Similarly  k  ~  and so  and
+ are inverses of one another, making  the desired bijection.
+f
+
+A
+
+S
+W
+
+g
+
+g
+
+A
+
+T
+V
+
+f
+
+T
+
+f
+
+A
+
+S
+
+S
+VW L
+
+f
+S
+
+Figure 14.3
+
+Examples of Universality
+Now let us look at some examples of the universal property. Let Vect²- ³ denote
+the family of all vector spaces over the base field - . (We use the term family
+informally to represent what in set theory is formally referred to as a class. A
+class is a “collection” that is too large to be considered a set. For example,
+Vect²- ³ is a class.)
+Example 14.1 (Bases) Let 8 be a nonempty set and let
+1) I ~ Vect²- ³
+2) < ~ set functions from 8 to members of <
+3) > ~ linear transformations
+If =8 is a vector space with basis 8 , then the pair ²=8 Á ¢ 8 ¦ =8 ³, where  is
+the inclusion map # ~ #, is universal for ²< Á >³. To see this, note that the
+condition that   < can be factored through ,
+~ k
+is equivalent to the statement that  # ~ # for each basis vector #  8 . But this
+uniquely defines a linear transformation  .
+In fact, the universality of the pair ²=8 Á ³ is precisely the statement that a linear
+transformation  is uniquely determined by assigning its values arbitrarily on a
+basis 8 , the function  doing the arbitrary assignment in this context. Note also
+that Theorem 14.1 implies that if ²> Á ¢ 8 ¦ > ³ is also universal for ²< Á >³,
+then there is a bijective mediating morphism from =8 to > , that is, > and =8
+are isomorphic.
+Example 14.2 (Quotient spaces and canonical projections) Let = be a vector
+space and let 2 be a subspace of = . Let
+1) I ~ Vect²- ³
+
+Tensor Products
+
+359
+
+2) < ~ linear maps with domain = , whose kernels contain 2
+3) > ~ linear transformations
+Theorem 3.4 says precisely that the pair ²= °2Á ¢ = ¦ = °2³, where  is the
+canonical projection map, has the universal property for < as measured by >.
+Example 14.3 (Direct sums) Let < and = be vector spaces over - . Let
+1) I ~ Vect²- ³
+2) < ~ ordered pairs ² ¢ < ¦ > Á ¢ = ¦ > ³ of linear transformations
+3) > ~ linear transformations
+Here we have a slight variation on the definition of universal pair: In this case,
+< is a family of pairs of functions. For   > and ² Á ³  < , we set
+ k ² Á ³ ~ ² k  Á  k ³
+Then the pair ²< ^ = Á ² Á  ³¢ ²< Á = ³ ¦ < ^ = ³, where
+ " ~ ²"Á ³
+
+and  # ~ ²Á #³
+
+are called the canonical injections, has the universal property for ²< Á >³. To
+see this, observe that for any pair ² Á ³¢ ²< Á = ³ ¦ > in < , the condition
+² Á ³ ~  k ² Á  ³
+is equivalent to
+² Á ³ ~ ² k  Á  k  ³
+or
+ ²"Á ³ ~  ²"³
+
+and
+
+ ²Á #³ ~ ²#³
+
+But these conditions define a unique linear transformation  ¢ < ^ = ¦ > .
+Thus, bases, quotient spaces and direct sums are all examples of universal pairs
+and it should be clear from these examples that the notion of universal property
+is, well, universal. In fact, it happens that the most useful definition of tensor
+product is through a universal property, which we now explore.
+
+Bilinear Maps
+The universality that defines tensor products rests on the notion of a bilinear
+map.
+Definition Let < , = and > be vector spaces over - . Let < d = be the
+cartesian product of < and = as sets. A set function
+¢ < d = ¦ >
+
+360
+
+Advanced Linear Algebra
+
+is bilinear if it is linear in both variables separately, that is, if
+ ²" b "Z Á #³ ~  ²"Á #³ b  ²"Z Á #³
+and
+ ²"Á # b #Z ³ ~  ²"Á #³ b  ²"Á #Z ³
+The set of all bilinear functions from < d = to > is denoted by
+hom- ²< Á = Â > ³. A bilinear function  ¢ < d = ¦ - with values in the base
+field - is called a bilinear form on < d = .
+Note that bilinearity can also be expressed in matrix language as follows: If
+ ~ ² Á Ã Á  ³  -  Á
+
+ ~ ² Á Ã Á  ³  - 
+
+" ~ ²" Á Ã Á " ³  <  Á
+
+# ~ ²# Á Ã Á # ³  = 
+
+and
+
+then  ¢ < d = ¦ > is bilinear if
+ ²"! Á #! ³ ~ -  !
+where - ~ ´ ²" Á # ³µÁ .
+It is important to emphasize that, in the definition of bilinear function, < d = is
+the cartesian product of sets, not the direct product of vector spaces. In other
+words, we do not consider any algebraic structure on < d = when defining
+bilinear functions, so expressions like
+²%Á &³ b ²'Á $³
+
+and ²%Á &³
+
+are meaningless.
+In fact, if = is a vector space, there are two classes of functions from = d = to
+> : the linear maps B²= d = Á > ³, where = d = ~ = ^ = is the direct
+product of vector spaces, and the bilinear maps hom²= Á = Â > ³, where = d = is
+just the cartesian product of sets. We leave it as an exercise to show that these
+two classes have only the zero map in common. In other words, the only map
+that is both linear and bilinear is the zero map.
+We made a thorough study of bilinear forms on a finite-dimensional vector
+space = in Chapter 11 (although this material is not assumed here). However,
+bilinearity is far more important and far-reaching than its application to metric
+vector spaces, as the following examples show. Indeed, both multiplication and
+evaluation are bilinear.
+Example 14.4 (Multiplication is bilinear) If ( is an algebra, the product map
+¢ ( d ( ¦ ( defined by
+
+Tensor Products
+
+361
+
+²Á ³ ~ 
+is bilinear, that is, multiplication is linear in each position.
+Example 14.5 (Evaluation is bilinear) If = and > are vector spaces, then the
+evaluation map ¢ B²= Á > ³ d = ¦ > defined by
+² Á #³ ~  #
+is bilinear. In particular, the evaluation map ¢ = i d = ¦ - defined by
+² Á #³ ~  # is a bilinear form on = i d = .
+Example 14.6 If = and > are vector spaces, and   = i and   > i , then the
+product map ¢ = d > ¦ - defined by
+²#Á $³ ~  ²#³²$³
+is bilinear. Dually, if #  = and $  > , then the map ¢ = i d > i ¦ defined by
+² Á ³ ~  ²#³²$³
+is bilinear.
+It is precisely the tensor product that will allow us to generalize the previous
+example. In particular, if   B²< Á > ³ and   B²= Á > ³, then we would like
+to consider a “product” map ¢ < d = ¦ > defined by
+²"Á #³ ~  ²"³ ? ²#³
+The tensor product n is just the thing to replace the question mark, because it
+has the desired bilinearity property, as we will see. In fact, the tensor product is
+bilinear and nothing else, so it is exactly what we need!
+
+Tensor Products
+Let < and = be vector spaces. Our guide for the definition of the tensor product
+< n = will be the desire to have a universal property for bilinear functions, as
+measured by linearity. Referring to Figure 14.4, we want to define a vector
+space ; and a bilinear map !¢ < d = ¦ ; so that any bilinear map  with
+domain < d = can be factored through !. Intuitively speaking, ! is the most
+“general” or “universal” bilinear map with domain < d = : It is bilinear and
+nothing more.
+
+362
+
+Advanced Linear Algebra
+
+U
+
+V
+
+t
+
+bilinear
+
+f bilinear
+
+T
+W linear
+W
+
+Figure 14.4
+Definition Let < d = be the cartesian product of two vector spaces over - . Let
+I ~ Vect²- ³. Let
+< ~ ¸hom- ²< Á = Â > ³  >  I ¹
+>
+
+be the family of all bilinear maps from < d = to any vector space > . The
+measuring family > is the family of all linear transformations.
+A pair ²; Á !¢ < d = ¦ ; ³ is universal for bilinearity if it is universal for
+²< Á >³, that is, if for every bilinear map  ¢ < d = ¦ > , there is a unique
+linear transformation ¢ ; ¦ > for which
+ ~ k!
+The map  is called the mediating morphism for  .
+We can now define the tensor product via this universal property.
+Definition Let < and = be vector spaces over a field - . Any universal pair
+²; Á !¢ < d = ¦ ; ³ for bilinearity is called a tensor product of < and = . The
+vector space ; is denoted by < n = and sometimes referred to by itself as the
+tensor product. The map ! is called the tensor map and the elements of < n =
+are called tensors.
+It is customary to use the symbol n to denote the image of any ordered pair
+²"Á #³ under the tensor map, that is,
+" n # ~ !²"Á #³
+for any "  < and #  = . A tensor of the form " n # is said to be
+decomposable, that is, the decomposable tensors are the images under the
+tensor map.
+Since universal pairs are unique up to isomorphism, we may refer to “the”
+tensor product of vector spaces. Note also that the tensor product n is not a
+product in the sense of a binary operation on a set. In fact, even when = ~ < ,
+the tensor product " n " is not in < , but rather in < n < .
+
+

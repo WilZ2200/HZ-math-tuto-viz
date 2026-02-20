@@ -1,98 +1,8 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch00'] = window.EXTRA_VIZ['ch00'] || {};
 
-// Section 1: Equivalence Relations
+// Section 1: Sets, Functions, and Composition
 window.EXTRA_VIZ['ch00']['ch00-sec01'] = [
-    {
-        id: 'ch00-extra-viz-1',
-        title: 'Equivalence Class Partition Visualizer',
-        description: 'Drag points to see how equivalence relation partitions a set into disjoint classes',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            // Create random points with equivalence classes based on mod 3
-            const points = [];
-            const numPoints = 12;
-            for (let i = 0; i < numPoints; i++) {
-                const x = (Math.random() - 0.5) * 12;
-                const y = (Math.random() - 0.5) * 8;
-                points.push({
-                    x: x,
-                    y: y,
-                    id: i,
-                    eqClass: i % 3  // equivalence class mod 3
-                });
-            }
-
-            const colors = [viz.colors.blue, viz.colors.orange, viz.colors.green];
-            const classNames = ['[0]', '[1]', '[2]'];
-
-            // Add draggable points
-            const draggables = points.map((p, idx) =>
-                viz.addDraggable(`p${idx}`, p.x, p.y, colors[p.eqClass], 6, () => draw())
-            );
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Draw convex hull for each equivalence class
-                for (let c = 0; c < 3; c++) {
-                    const classPoints = [];
-                    draggables.forEach((d, idx) => {
-                        if (points[idx].eqClass === c) {
-                            classPoints.push([d.x, d.y]);
-                        }
-                    });
-
-                    if (classPoints.length > 2) {
-                        // Compute convex hull (simple algorithm for small sets)
-                        const hull = computeConvexHull(classPoints);
-                        viz.drawPolygon(hull, colors[c] + '22', colors[c], 2);
-                    }
-                }
-
-                // Draw points with labels
-                draggables.forEach((d, idx) => {
-                    viz.drawPoint(d.x, d.y, colors[points[idx].eqClass],
-                        `${points[idx].id}∈${classNames[points[idx].eqClass]}`, 6);
-                });
-
-                viz.drawDraggables();
-
-                // Draw legend
-                viz.drawText('Partition into 3 equivalence classes (mod 3)', -6, 4.5, viz.colors.white, 14);
-            }
-
-            function computeConvexHull(pts) {
-                if (pts.length < 3) return pts;
-                // Gift wrapping algorithm
-                const hull = [];
-                let pointOnHull = pts.reduce((min, p) => p[0] < min[0] ? p : min, pts[0]);
-                let endpoint;
-                do {
-                    hull.push(pointOnHull);
-                    endpoint = pts[0];
-                    for (let j = 1; j < pts.length; j++) {
-                        if (endpoint === pointOnHull ||
-                            cross(pointOnHull, endpoint, pts[j]) > 0) {
-                            endpoint = pts[j];
-                        }
-                    }
-                    pointOnHull = endpoint;
-                } while (endpoint !== hull[0]);
-                return hull;
-            }
-
-            function cross(o, a, b) {
-                return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
-            }
-
-            draw();
-            return viz;
-        }
-    },
     {
         id: 'ch00-extra-viz-2',
         title: 'Function Injection/Surjection/Bijection Explorer',
@@ -216,11 +126,169 @@ window.EXTRA_VIZ['ch00']['ch00-sec01'] = [
             draw();
             return viz;
         }
+    },
+    {
+        id: 'ch00-extra-viz-5',
+        title: 'Cartesian Product Visualizer',
+        description: 'Drag sliders to see different subsets and their Cartesian product A × B',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let sizeA = 3;
+            let sizeB = 2;
+
+            const sliderA = VizEngine.createSlider(controls, '|A|', 1, 4, 3, 1, (val) => {
+                sizeA = val;
+                draw();
+            });
+
+            const sliderB = VizEngine.createSlider(controls, '|B|', 1, 4, 2, 1, (val) => {
+                sizeB = val;
+                draw();
+            });
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Set A = {1, 2, ..., sizeA}
+                // Set B = {1, 2, ..., sizeB}
+
+                // Draw all points in A × B
+                for (let a = 1; a <= sizeA; a++) {
+                    for (let b = 1; b <= sizeB; b++) {
+                        viz.drawPoint(a - 0.5, b - 0.5, viz.colors.blue, null, 8);
+                    }
+                }
+
+                // Draw rectangles showing structure
+                viz.drawPolygon(
+                    [[0.5, 0.5], [sizeA + 0.5, 0.5], [sizeA + 0.5, sizeB + 0.5], [0.5, sizeB + 0.5]],
+                    viz.colors.teal + '11',
+                    viz.colors.teal,
+                    2
+                );
+
+                // Labels
+                viz.drawText(`A = {1,...,${sizeA}}`, 0.5 + sizeA/2, -1, viz.colors.white, 14, 'center');
+                viz.drawText(`B = {1,...,${sizeB}}`, -1.5, 0.5 + sizeB/2, viz.colors.white, 14, 'center');
+                viz.drawText(`|A × B| = ${sizeA} × ${sizeB} = ${sizeA * sizeB}`,
+                            0, 4.5, viz.colors.white, 16, 'center');
+
+                // Draw set A on x-axis
+                for (let a = 1; a <= sizeA; a++) {
+                    viz.drawCircle(a - 0.5, -0.5, 0.15, viz.colors.orange, viz.colors.orange);
+                }
+
+                // Draw set B on y-axis
+                for (let b = 1; b <= sizeB; b++) {
+                    viz.drawCircle(-0.5, b - 0.5, 0.15, viz.colors.green, viz.colors.green);
+                }
+            }
+
+            draw();
+            return viz;
+        }
     }
 ];
 
-// Section 2: Partial Orders
+// Section 2: Equivalence Relations and Partitions
 window.EXTRA_VIZ['ch00']['ch00-sec02'] = [
+    {
+        id: 'ch00-extra-viz-1',
+        title: 'Equivalence Class Partition Visualizer',
+        description: 'Drag points to see how equivalence relation partitions a set into disjoint classes',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            // Create random points with equivalence classes based on mod 3
+            const points = [];
+            const numPoints = 12;
+            for (let i = 0; i < numPoints; i++) {
+                const x = (Math.random() - 0.5) * 12;
+                const y = (Math.random() - 0.5) * 8;
+                points.push({
+                    x: x,
+                    y: y,
+                    id: i,
+                    eqClass: i % 3  // equivalence class mod 3
+                });
+            }
+
+            const colors = [viz.colors.blue, viz.colors.orange, viz.colors.green];
+            const classNames = ['[0]', '[1]', '[2]'];
+
+            // Add draggable points
+            const draggables = points.map((p, idx) =>
+                viz.addDraggable(`p${idx}`, p.x, p.y, colors[p.eqClass], 6, () => draw())
+            );
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Draw convex hull for each equivalence class
+                for (let c = 0; c < 3; c++) {
+                    const classPoints = [];
+                    draggables.forEach((d, idx) => {
+                        if (points[idx].eqClass === c) {
+                            classPoints.push([d.x, d.y]);
+                        }
+                    });
+
+                    if (classPoints.length > 2) {
+                        // Compute convex hull (simple algorithm for small sets)
+                        const hull = computeConvexHull(classPoints);
+                        viz.drawPolygon(hull, colors[c] + '22', colors[c], 2);
+                    }
+                }
+
+                // Draw points with labels
+                draggables.forEach((d, idx) => {
+                    viz.drawPoint(d.x, d.y, colors[points[idx].eqClass],
+                        `${points[idx].id}∈${classNames[points[idx].eqClass]}`, 6);
+                });
+
+                viz.drawDraggables();
+
+                // Draw legend
+                viz.drawText('Partition into 3 equivalence classes (mod 3)', -6, 4.5, viz.colors.white, 14);
+            }
+
+            function computeConvexHull(pts) {
+                if (pts.length < 3) return pts;
+                // Gift wrapping algorithm
+                const hull = [];
+                let pointOnHull = pts.reduce((min, p) => p[0] < min[0] ? p : min, pts[0]);
+                let endpoint;
+                do {
+                    hull.push(pointOnHull);
+                    endpoint = pts[0];
+                    for (let j = 1; j < pts.length; j++) {
+                        if (endpoint === pointOnHull ||
+                            cross(pointOnHull, endpoint, pts[j]) > 0) {
+                            endpoint = pts[j];
+                        }
+                    }
+                    pointOnHull = endpoint;
+                } while (endpoint !== hull[0]);
+                return hull;
+            }
+
+            function cross(o, a, b) {
+                return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 3: Partial Orders and Zorn's Lemma
+window.EXTRA_VIZ['ch00']['ch00-sec03'] = [
     {
         id: 'ch00-extra-viz-3',
         title: 'Hasse Diagram of Partial Order (Divisibility)',
@@ -418,28 +486,44 @@ window.EXTRA_VIZ['ch00']['ch00-sec02'] = [
             draw();
             return viz;
         }
-    }
-];
-
-// Section 3: Cartesian Products and Functions
-window.EXTRA_VIZ['ch00']['ch00-sec03'] = [
+    },
     {
-        id: 'ch00-extra-viz-5',
-        title: 'Cartesian Product Visualizer',
-        description: 'Drag sliders to see different subsets and their Cartesian product A × B',
+        id: 'ch00-extra-viz-8',
+        title: "Zorn's Lemma: Chains and Maximal Elements",
+        description: 'Drag to explore a poset where every chain has an upper bound, implying a maximal element',
         setup: function(container, controls) {
             const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
 
-            let sizeA = 3;
-            let sizeB = 2;
+            // Poset structure - every chain has an upper bound
+            const elements = {
+                bottom: {x: 0, y: -3, label: '⊥'},
+                a: {x: -3, y: -1, label: 'a'},
+                b: {x: -1, y: -1, label: 'b'},
+                c: {x: 1, y: -1, label: 'c'},
+                d: {x: 3, y: -1, label: 'd'},
+                ab: {x: -2, y: 1, label: 'a∨b'},
+                cd: {x: 2, y: 1, label: 'c∨d'},
+                max: {x: 0, y: 3, label: '⊤'}
+            };
 
-            const sliderA = VizEngine.createSlider(controls, '|A|', 1, 4, 3, 1, (val) => {
-                sizeA = val;
-                draw();
-            });
+            const edges = [
+                ['bottom', 'a'], ['bottom', 'b'], ['bottom', 'c'], ['bottom', 'd'],
+                ['a', 'ab'], ['b', 'ab'],
+                ['c', 'cd'], ['d', 'cd'],
+                ['ab', 'max'], ['cd', 'max']
+            ];
 
-            const sliderB = VizEngine.createSlider(controls, '|B|', 1, 4, 2, 1, (val) => {
-                sizeB = val;
+            const draggables = {};
+            for (let key in elements) {
+                const elem = elements[key];
+                draggables[key] = viz.addDraggable(
+                    `e${key}`, elem.x, elem.y, viz.colors.blue, 8, () => draw()
+                );
+            }
+
+            let showChain = false;
+            const toggleButton = VizEngine.createButton(controls, 'Show Chain Example', () => {
+                showChain = !showChain;
                 draw();
             });
 
@@ -448,39 +532,39 @@ window.EXTRA_VIZ['ch00']['ch00-sec03'] = [
                 viz.drawGrid();
                 viz.drawAxes();
 
-                // Set A = {1, 2, ..., sizeA}
-                // Set B = {1, 2, ..., sizeB}
+                // Draw edges
+                edges.forEach(([from, to]) => {
+                    const fromPos = draggables[from];
+                    const toPos = draggables[to];
 
-                // Draw all points in A × B
-                for (let a = 1; a <= sizeA; a++) {
-                    for (let b = 1; b <= sizeB; b++) {
-                        viz.drawPoint(a - 0.5, b - 0.5, viz.colors.blue, null, 8);
-                    }
+                    const isChainEdge = showChain &&
+                        (['bottom', 'a', 'ab', 'max'].includes(from) &&
+                         ['bottom', 'a', 'ab', 'max'].includes(to) &&
+                         edges.some(e => e[0] === from && e[1] === to));
+
+                    const color = isChainEdge ? viz.colors.orange : viz.colors.teal;
+                    viz.drawSegment(fromPos.x, fromPos.y, toPos.x, toPos.y, color, 2);
+                });
+
+                // Draw nodes
+                for (let key in draggables) {
+                    const d = draggables[key];
+                    const elem = elements[key];
+                    const color = (key === 'max') ? viz.colors.green : viz.colors.blue;
+                    const radius = (key === 'max') ? 12 : 8;
+                    viz.drawPoint(d.x, d.y, color, elem.label, radius);
                 }
 
-                // Draw rectangles showing structure
-                viz.drawPolygon(
-                    [[0.5, 0.5], [sizeA + 0.5, 0.5], [sizeA + 0.5, sizeB + 0.5], [0.5, sizeB + 0.5]],
-                    viz.colors.teal + '11',
-                    viz.colors.teal,
-                    2
-                );
+                viz.drawDraggables();
 
-                // Labels
-                viz.drawText(`A = {1,...,${sizeA}}`, 0.5 + sizeA/2, -1, viz.colors.white, 14, 'center');
-                viz.drawText(`B = {1,...,${sizeB}}`, -1.5, 0.5 + sizeB/2, viz.colors.white, 14, 'center');
-                viz.drawText(`|A × B| = ${sizeA} × ${sizeB} = ${sizeA * sizeB}`,
-                            0, 4.5, viz.colors.white, 16, 'center');
-
-                // Draw set A on x-axis
-                for (let a = 1; a <= sizeA; a++) {
-                    viz.drawCircle(a - 0.5, -0.5, 0.15, viz.colors.orange, viz.colors.orange);
+                viz.drawText("Poset satisfying Zorn's Lemma hypothesis",
+                            0, 4.5, viz.colors.white, 14, 'center');
+                if (showChain) {
+                    viz.drawText('Chain ⊥ ≤ a ≤ a∨b ≤ ⊤ has upper bound ⊤',
+                                0, -4.2, viz.colors.orange, 12, 'center');
                 }
-
-                // Draw set B on y-axis
-                for (let b = 1; b <= sizeB; b++) {
-                    viz.drawCircle(-0.5, b - 0.5, 0.15, viz.colors.green, viz.colors.green);
-                }
+                viz.drawText('⊤ is the maximal element (green)',
+                            0, -4.7, viz.colors.green, 11, 'center');
             }
 
             draw();
@@ -489,7 +573,7 @@ window.EXTRA_VIZ['ch00']['ch00-sec03'] = [
     }
 ];
 
-// Section 4: Cardinality
+// Section 4: Cardinality and Infinite Sets
 window.EXTRA_VIZ['ch00']['ch00-sec04'] = [
     {
         id: 'ch00-extra-viz-6',
@@ -635,94 +719,6 @@ window.EXTRA_VIZ['ch00']['ch00-sec04'] = [
                 }
 
                 viz.drawText('ℝ is uncountable', 0, -4.5, viz.colors.white, 16, 'center');
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 5: Zorn's Lemma
-window.EXTRA_VIZ['ch00']['ch00-sec05'] = [
-    {
-        id: 'ch00-extra-viz-8',
-        title: "Zorn's Lemma: Chains and Maximal Elements",
-        description: 'Drag to explore a poset where every chain has an upper bound, implying a maximal element',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            // Poset structure - every chain has an upper bound
-            const elements = {
-                bottom: {x: 0, y: -3, label: '⊥'},
-                a: {x: -3, y: -1, label: 'a'},
-                b: {x: -1, y: -1, label: 'b'},
-                c: {x: 1, y: -1, label: 'c'},
-                d: {x: 3, y: -1, label: 'd'},
-                ab: {x: -2, y: 1, label: 'a∨b'},
-                cd: {x: 2, y: 1, label: 'c∨d'},
-                max: {x: 0, y: 3, label: '⊤'}
-            };
-
-            const edges = [
-                ['bottom', 'a'], ['bottom', 'b'], ['bottom', 'c'], ['bottom', 'd'],
-                ['a', 'ab'], ['b', 'ab'],
-                ['c', 'cd'], ['d', 'cd'],
-                ['ab', 'max'], ['cd', 'max']
-            ];
-
-            const draggables = {};
-            for (let key in elements) {
-                const elem = elements[key];
-                draggables[key] = viz.addDraggable(
-                    `e${key}`, elem.x, elem.y, viz.colors.blue, 8, () => draw()
-                );
-            }
-
-            let showChain = false;
-            const toggleButton = VizEngine.createButton(controls, 'Show Chain Example', () => {
-                showChain = !showChain;
-                draw();
-            });
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Draw edges
-                edges.forEach(([from, to]) => {
-                    const fromPos = draggables[from];
-                    const toPos = draggables[to];
-
-                    const isChainEdge = showChain &&
-                        (['bottom', 'a', 'ab', 'max'].includes(from) &&
-                         ['bottom', 'a', 'ab', 'max'].includes(to) &&
-                         edges.some(e => e[0] === from && e[1] === to));
-
-                    const color = isChainEdge ? viz.colors.orange : viz.colors.teal;
-                    viz.drawSegment(fromPos.x, fromPos.y, toPos.x, toPos.y, color, 2);
-                });
-
-                // Draw nodes
-                for (let key in draggables) {
-                    const d = draggables[key];
-                    const elem = elements[key];
-                    const color = (key === 'max') ? viz.colors.green : viz.colors.blue;
-                    const radius = (key === 'max') ? 12 : 8;
-                    viz.drawPoint(d.x, d.y, color, elem.label, radius);
-                }
-
-                viz.drawDraggables();
-
-                viz.drawText("Poset satisfying Zorn's Lemma hypothesis",
-                            0, 4.5, viz.colors.white, 14, 'center');
-                if (showChain) {
-                    viz.drawText('Chain ⊥ ≤ a ≤ a∨b ≤ ⊤ has upper bound ⊤',
-                                0, -4.2, viz.colors.orange, 12, 'center');
-                }
-                viz.drawText('⊤ is the maximal element (green)',
-                            0, -4.7, viz.colors.green, 11, 'center');
             }
 
             draw();

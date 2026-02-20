@@ -1,261 +1,8 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch13'] = window.EXTRA_VIZ['ch13'] || {};
 
-// Section 1: Hilbert Bases and Fourier Expansions
+// Section 1: Complete Subspaces and Projections
 window.EXTRA_VIZ['ch13']['ch13-sec01'] = [
-    {
-        id: 'ch13-extra-viz-1',
-        title: 'Fourier Series Convergence',
-        description: 'Adjust slider to see how more Fourier terms approximate a square wave. Watch convergence!',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            let numTerms = 1;
-
-            const slider = VizEngine.createSlider(controls, 'Number of Terms', 1, 20, 1, 1, (val) => {
-                numTerms = val;
-                draw();
-            });
-
-            // Square wave target function: f(x) = 1 for x in (0,π), -1 for x in (π,2π)
-            // Fourier series: f(x) ≈ (4/π) Σ sin((2k-1)x)/(2k-1) for k=1,2,3,...
-            function squareWave(x) {
-                const period = 2 * Math.PI;
-                const xMod = ((x % period) + period) % period;
-                return xMod < Math.PI ? 1 : -1;
-            }
-
-            function fourierApprox(x, n) {
-                let sum = 0;
-                for (let k = 1; k <= n; k++) {
-                    sum += Math.sin((2*k - 1) * x) / (2*k - 1);
-                }
-                return (4 / Math.PI) * sum;
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const xMin = -6;
-                const xMax = 6;
-                const steps = 200;
-                const dx = (xMax - xMin) / steps;
-
-                // Draw target square wave (dashed)
-                for (let i = 0; i < steps; i++) {
-                    const x1 = xMin + i * dx;
-                    const x2 = xMin + (i + 1) * dx;
-                    const y1 = squareWave(x1);
-                    const y2 = squareWave(x2);
-                    viz.drawSegment(x1, y1, x2, y2, viz.colors.teal + '88', 2, true);
-                }
-
-                // Draw Fourier approximation
-                const approxPoints = [];
-                for (let i = 0; i <= steps; i++) {
-                    const x = xMin + i * dx;
-                    const y = fourierApprox(x, numTerms);
-                    approxPoints.push([x, y]);
-                }
-
-                for (let i = 0; i < approxPoints.length - 1; i++) {
-                    viz.drawSegment(
-                        approxPoints[i][0], approxPoints[i][1],
-                        approxPoints[i + 1][0], approxPoints[i + 1][1],
-                        viz.colors.orange, 3
-                    );
-                }
-
-                // Compute L2 error
-                let error = 0;
-                for (let i = 0; i <= 100; i++) {
-                    const x = -Math.PI + i * (2 * Math.PI / 100);
-                    const diff = squareWave(x) - fourierApprox(x, numTerms);
-                    error += diff * diff;
-                }
-                error = Math.sqrt(error / 100);
-
-                viz.drawText(`Fourier Series: ${numTerms} term${numTerms > 1 ? 's' : ''}`,
-                            0, 4.5, viz.colors.white, 14, 'center');
-                viz.drawText(`L² error: ${error.toFixed(3)}`,
-                            0, 3.8, viz.colors.yellow, 12, 'center');
-                viz.drawText('Target (teal dashed) vs Approximation (orange)',
-                            0, -4.5, viz.colors.white, 11, 'center');
-            }
-
-            draw();
-            return viz;
-        }
-    },
-    {
-        id: 'ch13-extra-viz-2',
-        title: 'Bessel Inequality Demonstration',
-        description: 'Drag vector v to see Bessel inequality: sum of squared Fourier coefficients ≤ ||v||²',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            // Orthonormal basis in R³ (visualized in 2D projection)
-            const e1 = {x: 1, y: 0};
-            const e2 = {x: 0, y: 1};
-
-            const v = viz.addDraggable('v', 2.5, 1.8, viz.colors.blue, 8, () => draw());
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Draw orthonormal basis vectors
-                viz.drawVector(0, 0, e1.x, e1.y, viz.colors.green, 'e₁', 3);
-                viz.drawVector(0, 0, e2.x, e2.y, viz.colors.green, 'e₂', 3);
-
-                // Draw vector v
-                viz.drawVector(0, 0, v.x, v.y, viz.colors.blue, 'v', 4);
-
-                // Compute Fourier coefficients (inner products)
-                const c1 = v.x * e1.x + v.y * e1.y;  // ⟨v, e₁⟩
-                const c2 = v.x * e2.x + v.y * e2.y;  // ⟨v, e₂⟩
-
-                // Draw projections
-                viz.drawVector(0, 0, c1 * e1.x, c1 * e1.y, viz.colors.orange + 'aa', null, 3);
-                viz.drawVector(0, 0, c2 * e2.x, c2 * e2.y, viz.colors.orange + 'aa', null, 3);
-
-                // Draw Fourier approximation
-                const vApprox = {
-                    x: c1 * e1.x + c2 * e2.x,
-                    y: c1 * e1.y + c2 * e2.y
-                };
-                viz.drawVector(0, 0, vApprox.x, vApprox.y, viz.colors.purple, 'v̂', 4);
-
-                // Draw error vector
-                viz.drawVector(vApprox.x, vApprox.y, v.x, v.y, viz.colors.red, 'v-v̂', 2);
-
-                // Compute norms
-                const normV = Math.sqrt(v.x * v.x + v.y * v.y);
-                const sumSquaredCoeffs = c1 * c1 + c2 * c2;
-                const normVApprox = Math.sqrt(sumSquaredCoeffs);
-
-                // Display Bessel inequality
-                viz.drawText('Bessel Inequality:', -6, 4.5, viz.colors.white, 14);
-                viz.drawText(`Σ|⟨v,eᵢ⟩|² = ${sumSquaredCoeffs.toFixed(3)}`, -6, 3.9, viz.colors.orange, 12);
-                viz.drawText(`||v||² = ${(normV * normV).toFixed(3)}`, -6, 3.3, viz.colors.blue, 12);
-                viz.drawText(`||v̂||² = ${sumSquaredCoeffs.toFixed(3)} ≤ ||v||²`,
-                            0, -4.5, viz.colors.purple, 12, 'center');
-
-                const ratio = (sumSquaredCoeffs / (normV * normV)) * 100;
-                viz.drawText(`Energy captured: ${ratio.toFixed(1)}%`,
-                            0, -4.0, viz.colors.green, 11, 'center');
-
-                viz.drawDraggables();
-            }
-
-            draw();
-            return viz;
-        }
-    },
-    {
-        id: 'ch13-extra-viz-3',
-        title: 'Parseval Energy Conservation',
-        description: 'Interactive demo showing Parseval identity: ||v||² = Σ|⟨v,eᵢ⟩|² for complete basis',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            let angle = 0;
-            let animating = false;
-
-            // Complete orthonormal basis in R²
-            const basis = [
-                {x: 1, y: 0, label: 'e₁'},
-                {x: 0, y: 1, label: 'e₂'}
-            ];
-
-            const startButton = VizEngine.createButton(controls, 'Start/Stop Rotation', () => {
-                animating = !animating;
-                if (animating) animate();
-            });
-
-            function animate() {
-                if (!animating) return;
-                angle += 0.03;
-                draw();
-                requestAnimationFrame(animate);
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Draw basis
-                basis.forEach(e => {
-                    viz.drawVector(0, 0, e.x, e.y, viz.colors.green, e.label, 3);
-                });
-
-                // Rotating vector
-                const v = {
-                    x: 2.5 * Math.cos(angle),
-                    y: 2.5 * Math.sin(angle)
-                };
-
-                viz.drawVector(0, 0, v.x, v.y, viz.colors.blue, 'v', 4);
-
-                // Fourier coefficients
-                const coeffs = basis.map(e => v.x * e.x + v.y * e.y);
-
-                // Draw projections
-                coeffs.forEach((c, i) => {
-                    const e = basis[i];
-                    viz.drawVector(0, 0, c * e.x, c * e.y, viz.colors.orange + '66', null, 2);
-                });
-
-                // Compute energies
-                const normVSquared = v.x * v.x + v.y * v.y;
-                const sumSquaredCoeffs = coeffs.reduce((sum, c) => sum + c * c, 0);
-
-                // Energy bars
-                const barWidth = 0.8;
-                const barX = 5;
-
-                // ||v||² bar
-                viz.drawPolygon(
-                    [[barX, 0], [barX + barWidth, 0],
-                     [barX + barWidth, normVSquared / 3], [barX, normVSquared / 3]],
-                    viz.colors.blue + '88',
-                    viz.colors.blue,
-                    2
-                );
-                viz.drawText('||v||²', barX + barWidth/2, -0.8, viz.colors.blue, 10, 'center');
-
-                // Σ|cᵢ|² bar
-                viz.drawPolygon(
-                    [[barX - 2, 0], [barX - 2 + barWidth, 0],
-                     [barX - 2 + barWidth, sumSquaredCoeffs / 3], [barX - 2, sumSquaredCoeffs / 3]],
-                    viz.colors.orange + '88',
-                    viz.colors.orange,
-                    2
-                );
-                viz.drawText('Σ|cᵢ|²', barX - 2 + barWidth/2, -0.8, viz.colors.orange, 10, 'center');
-
-                // Display values
-                viz.drawText('Parseval Identity (Complete Basis):', -6, 4.5, viz.colors.white, 14);
-                viz.drawText(`||v||² = ${normVSquared.toFixed(4)}`, -6, 3.9, viz.colors.blue, 12);
-                viz.drawText(`Σ|⟨v,eᵢ⟩|² = ${sumSquaredCoeffs.toFixed(4)}`, -6, 3.3, viz.colors.orange, 12);
-
-                const diff = Math.abs(normVSquared - sumSquaredCoeffs);
-                viz.drawText(`Difference: ${diff.toFixed(6)} (equality!)`,
-                            0, -4.5, viz.colors.green, 12, 'center');
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 2: Best Approximation and Projection
-window.EXTRA_VIZ['ch13']['ch13-sec02'] = [
     {
         id: 'ch13-extra-viz-4',
         title: 'Orthogonal Projection onto Closed Subspace',
@@ -370,7 +117,7 @@ window.EXTRA_VIZ['ch13']['ch13-sec02'] = [
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch13-extra-viz-5',
         title: 'Best Approximation in Incomplete Subspace',
@@ -461,101 +208,94 @@ window.EXTRA_VIZ['ch13']['ch13-sec02'] = [
     }
 ];
 
-// Section 3: Riesz Representation and Dual Spaces
-window.EXTRA_VIZ['ch13']['ch13-sec03'] = [
+// Section 2: Hilbert Bases and Orthonormal Sets
+window.EXTRA_VIZ['ch13']['ch13-sec02'] = [
     {
-        id: 'ch13-extra-viz-6',
-        title: 'Riesz Representation: Functional ↔ Vector',
-        description: 'Every bounded linear functional φ on Hilbert space corresponds to unique vector via φ(v) = ⟨v,w⟩',
+        id: 'ch13-extra-viz-1',
+        title: 'Fourier Series Convergence',
+        description: 'Adjust slider to see how more Fourier terms approximate a square wave. Watch convergence!',
         setup: function(container, controls) {
             const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
 
-            let functionalAngle = 0.8;
+            let numTerms = 1;
 
-            const slider = VizEngine.createSlider(controls, 'Functional Direction', 0, 2 * Math.PI, 0.8, 0.1, (val) => {
-                functionalAngle = val;
+            const slider = VizEngine.createSlider(controls, 'Number of Terms', 1, 20, 1, 1, (val) => {
+                numTerms = val;
                 draw();
             });
+
+            // Square wave target function: f(x) = 1 for x in (0,π), -1 for x in (π,2π)
+            // Fourier series: f(x) ≈ (4/π) Σ sin((2k-1)x)/(2k-1) for k=1,2,3,...
+            function squareWave(x) {
+                const period = 2 * Math.PI;
+                const xMod = ((x % period) + period) % period;
+                return xMod < Math.PI ? 1 : -1;
+            }
+
+            function fourierApprox(x, n) {
+                let sum = 0;
+                for (let k = 1; k <= n; k++) {
+                    sum += Math.sin((2*k - 1) * x) / (2*k - 1);
+                }
+                return (4 / Math.PI) * sum;
+            }
 
             function draw() {
                 viz.clear();
                 viz.drawGrid();
                 viz.drawAxes();
 
-                // Riesz vector w corresponding to functional φ
-                const w = {
-                    x: 2.5 * Math.cos(functionalAngle),
-                    y: 2.5 * Math.sin(functionalAngle)
-                };
+                const xMin = -6;
+                const xMax = 6;
+                const steps = 200;
+                const dx = (xMax - xMin) / steps;
 
-                // Draw the Riesz vector
-                viz.drawVector(0, 0, w.x, w.y, viz.colors.orange, 'w (Riesz vector)', 4);
-
-                // Draw level sets of the functional φ(v) = ⟨v, w⟩
-                // These are lines perpendicular to w
-                const perpX = -w.y;
-                const perpY = w.x;
-                const perpNorm = Math.sqrt(perpX * perpX + perpY * perpY);
-                const perpUnit = {x: perpX / perpNorm, y: perpY / perpNorm};
-
-                // Draw several level sets
-                const wNorm = Math.sqrt(w.x * w.x + w.y * w.y);
-                for (let c = -3; c <= 3; c++) {
-                    const offset = c / wNorm;
-                    const centerX = offset * w.x;
-                    const centerY = offset * w.y;
-
-                    const t = 8;
-                    const color = (c === 0) ? viz.colors.yellow : viz.colors.teal + '66';
-                    const width = (c === 0) ? 3 : 1;
-
-                    viz.drawSegment(
-                        centerX - t * perpUnit.x, centerY - t * perpUnit.y,
-                        centerX + t * perpUnit.x, centerY + t * perpUnit.y,
-                        color, width, c !== 0
-                    );
-
-                    if (c !== 0 && Math.abs(c) <= 2) {
-                        viz.drawText(`φ=${c.toFixed(1)}`,
-                                    centerX + 2 * perpUnit.x, centerY + 2 * perpUnit.y,
-                                    viz.colors.teal, 9);
-                    }
+                // Draw target square wave (dashed)
+                for (let i = 0; i < steps; i++) {
+                    const x1 = xMin + i * dx;
+                    const x2 = xMin + (i + 1) * dx;
+                    const y1 = squareWave(x1);
+                    const y2 = squareWave(x2);
+                    viz.drawSegment(x1, y1, x2, y2, viz.colors.teal + '88', 2, true);
                 }
 
-                // Sample test vectors
-                const testVectors = [
-                    {x: 1.5, y: 2, label: 'v₁'},
-                    {x: -2, y: 1.5, label: 'v₂'},
-                    {x: 2, y: -1, label: 'v₃'}
-                ];
+                // Draw Fourier approximation
+                const approxPoints = [];
+                for (let i = 0; i <= steps; i++) {
+                    const x = xMin + i * dx;
+                    const y = fourierApprox(x, numTerms);
+                    approxPoints.push([x, y]);
+                }
 
-                testVectors.forEach(v => {
-                    viz.drawVector(0, 0, v.x, v.y, viz.colors.blue + 'aa', v.label, 2);
+                for (let i = 0; i < approxPoints.length - 1; i++) {
+                    viz.drawSegment(
+                        approxPoints[i][0], approxPoints[i][1],
+                        approxPoints[i + 1][0], approxPoints[i + 1][1],
+                        viz.colors.orange, 3
+                    );
+                }
 
-                    // Compute φ(v) = ⟨v, w⟩
-                    const phiV = v.x * w.x + v.y * w.y;
+                // Compute L2 error
+                let error = 0;
+                for (let i = 0; i <= 100; i++) {
+                    const x = -Math.PI + i * (2 * Math.PI / 100);
+                    const diff = squareWave(x) - fourierApprox(x, numTerms);
+                    error += diff * diff;
+                }
+                error = Math.sqrt(error / 100);
 
-                    // Draw value
-                    viz.drawText(`φ(${v.label})=${phiV.toFixed(2)}`,
-                                v.x + 0.3, v.y + 0.3, viz.colors.blue, 9);
-                });
-
-                // Draw kernel (null space): φ(v) = 0
-                viz.drawText('ker(φ) = {v : ⟨v,w⟩ = 0} (yellow line)',
-                            0, 4.5, viz.colors.yellow, 12, 'center');
-
-                // Display Riesz info
-                viz.drawText('Riesz Representation Theorem:', -6, -3.5, viz.colors.white, 13);
-                viz.drawText('φ: H → ℂ bounded linear ⟺ ∃! w ∈ H s.t. φ(v) = ⟨v,w⟩',
-                            -6, -4.0, viz.colors.white, 10);
-                viz.drawText(`||w|| = ||φ|| = ${wNorm.toFixed(3)}`,
-                            -6, -4.5, viz.colors.orange, 11);
+                viz.drawText(`Fourier Series: ${numTerms} term${numTerms > 1 ? 's' : ''}`,
+                            0, 4.5, viz.colors.white, 14, 'center');
+                viz.drawText(`L² error: ${error.toFixed(3)}`,
+                            0, 3.8, viz.colors.yellow, 12, 'center');
+                viz.drawText('Target (teal dashed) vs Approximation (orange)',
+                            0, -4.5, viz.colors.white, 11, 'center');
             }
 
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch13-extra-viz-7',
         title: 'L² Function Space Inner Product',
@@ -662,7 +402,7 @@ window.EXTRA_VIZ['ch13']['ch13-sec03'] = [
             draw();
             return viz;
         }
-    },
+    },,
     {
         id: 'ch13-extra-viz-8',
         title: 'Gram-Schmidt Orthogonalization Process',
@@ -768,4 +508,268 @@ window.EXTRA_VIZ['ch13']['ch13-sec03'] = [
             return viz;
         }
     }
+];
+
+// Section 3: Parseval's Identity and Bessel's Inequality
+window.EXTRA_VIZ['ch13']['ch13-sec03'] = [
+    {
+        id: 'ch13-extra-viz-2',
+        title: 'Bessel Inequality Demonstration',
+        description: 'Drag vector v to see Bessel inequality: sum of squared Fourier coefficients ≤ ||v||²',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            // Orthonormal basis in R³ (visualized in 2D projection)
+            const e1 = {x: 1, y: 0};
+            const e2 = {x: 0, y: 1};
+
+            const v = viz.addDraggable('v', 2.5, 1.8, viz.colors.blue, 8, () => draw());
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Draw orthonormal basis vectors
+                viz.drawVector(0, 0, e1.x, e1.y, viz.colors.green, 'e₁', 3);
+                viz.drawVector(0, 0, e2.x, e2.y, viz.colors.green, 'e₂', 3);
+
+                // Draw vector v
+                viz.drawVector(0, 0, v.x, v.y, viz.colors.blue, 'v', 4);
+
+                // Compute Fourier coefficients (inner products)
+                const c1 = v.x * e1.x + v.y * e1.y;  // ⟨v, e₁⟩
+                const c2 = v.x * e2.x + v.y * e2.y;  // ⟨v, e₂⟩
+
+                // Draw projections
+                viz.drawVector(0, 0, c1 * e1.x, c1 * e1.y, viz.colors.orange + 'aa', null, 3);
+                viz.drawVector(0, 0, c2 * e2.x, c2 * e2.y, viz.colors.orange + 'aa', null, 3);
+
+                // Draw Fourier approximation
+                const vApprox = {
+                    x: c1 * e1.x + c2 * e2.x,
+                    y: c1 * e1.y + c2 * e2.y
+                };
+                viz.drawVector(0, 0, vApprox.x, vApprox.y, viz.colors.purple, 'v̂', 4);
+
+                // Draw error vector
+                viz.drawVector(vApprox.x, vApprox.y, v.x, v.y, viz.colors.red, 'v-v̂', 2);
+
+                // Compute norms
+                const normV = Math.sqrt(v.x * v.x + v.y * v.y);
+                const sumSquaredCoeffs = c1 * c1 + c2 * c2;
+                const normVApprox = Math.sqrt(sumSquaredCoeffs);
+
+                // Display Bessel inequality
+                viz.drawText('Bessel Inequality:', -6, 4.5, viz.colors.white, 14);
+                viz.drawText(`Σ|⟨v,eᵢ⟩|² = ${sumSquaredCoeffs.toFixed(3)}`, -6, 3.9, viz.colors.orange, 12);
+                viz.drawText(`||v||² = ${(normV * normV).toFixed(3)}`, -6, 3.3, viz.colors.blue, 12);
+                viz.drawText(`||v̂||² = ${sumSquaredCoeffs.toFixed(3)} ≤ ||v||²`,
+                            0, -4.5, viz.colors.purple, 12, 'center');
+
+                const ratio = (sumSquaredCoeffs / (normV * normV)) * 100;
+                viz.drawText(`Energy captured: ${ratio.toFixed(1)}%`,
+                            0, -4.0, viz.colors.green, 11, 'center');
+
+                viz.drawDraggables();
+            }
+
+            draw();
+            return viz;
+        }
+    },,
+    {
+        id: 'ch13-extra-viz-3',
+        title: 'Parseval Energy Conservation',
+        description: 'Interactive demo showing Parseval identity: ||v||² = Σ|⟨v,eᵢ⟩|² for complete basis',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let angle = 0;
+            let animating = false;
+
+            // Complete orthonormal basis in R²
+            const basis = [
+                {x: 1, y: 0, label: 'e₁'},
+                {x: 0, y: 1, label: 'e₂'}
+            ];
+
+            const startButton = VizEngine.createButton(controls, 'Start/Stop Rotation', () => {
+                animating = !animating;
+                if (animating) animate();
+            });
+
+            function animate() {
+                if (!animating) return;
+                angle += 0.03;
+                draw();
+                requestAnimationFrame(animate);
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Draw basis
+                basis.forEach(e => {
+                    viz.drawVector(0, 0, e.x, e.y, viz.colors.green, e.label, 3);
+                });
+
+                // Rotating vector
+                const v = {
+                    x: 2.5 * Math.cos(angle),
+                    y: 2.5 * Math.sin(angle)
+                };
+
+                viz.drawVector(0, 0, v.x, v.y, viz.colors.blue, 'v', 4);
+
+                // Fourier coefficients
+                const coeffs = basis.map(e => v.x * e.x + v.y * e.y);
+
+                // Draw projections
+                coeffs.forEach((c, i) => {
+                    const e = basis[i];
+                    viz.drawVector(0, 0, c * e.x, c * e.y, viz.colors.orange + '66', null, 2);
+                });
+
+                // Compute energies
+                const normVSquared = v.x * v.x + v.y * v.y;
+                const sumSquaredCoeffs = coeffs.reduce((sum, c) => sum + c * c, 0);
+
+                // Energy bars
+                const barWidth = 0.8;
+                const barX = 5;
+
+                // ||v||² bar
+                viz.drawPolygon(
+                    [[barX, 0], [barX + barWidth, 0],
+                     [barX + barWidth, normVSquared / 3], [barX, normVSquared / 3]],
+                    viz.colors.blue + '88',
+                    viz.colors.blue,
+                    2
+                );
+                viz.drawText('||v||²', barX + barWidth/2, -0.8, viz.colors.blue, 10, 'center');
+
+                // Σ|cᵢ|² bar
+                viz.drawPolygon(
+                    [[barX - 2, 0], [barX - 2 + barWidth, 0],
+                     [barX - 2 + barWidth, sumSquaredCoeffs / 3], [barX - 2, sumSquaredCoeffs / 3]],
+                    viz.colors.orange + '88',
+                    viz.colors.orange,
+                    2
+                );
+                viz.drawText('Σ|cᵢ|²', barX - 2 + barWidth/2, -0.8, viz.colors.orange, 10, 'center');
+
+                // Display values
+                viz.drawText('Parseval Identity (Complete Basis):', -6, 4.5, viz.colors.white, 14);
+                viz.drawText(`||v||² = ${normVSquared.toFixed(4)}`, -6, 3.9, viz.colors.blue, 12);
+                viz.drawText(`Σ|⟨v,eᵢ⟩|² = ${sumSquaredCoeffs.toFixed(4)}`, -6, 3.3, viz.colors.orange, 12);
+
+                const diff = Math.abs(normVSquared - sumSquaredCoeffs);
+                viz.drawText(`Difference: ${diff.toFixed(6)} (equality!)`,
+                            0, -4.5, viz.colors.green, 12, 'center');
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 4: The Riesz Representation Theorem
+window.EXTRA_VIZ['ch13']['ch13-sec04'] = [
+    {
+        id: 'ch13-extra-viz-6',
+        title: 'Riesz Representation: Functional ↔ Vector',
+        description: 'Every bounded linear functional φ on Hilbert space corresponds to unique vector via φ(v) = ⟨v,w⟩',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let functionalAngle = 0.8;
+
+            const slider = VizEngine.createSlider(controls, 'Functional Direction', 0, 2 * Math.PI, 0.8, 0.1, (val) => {
+                functionalAngle = val;
+                draw();
+            });
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Riesz vector w corresponding to functional φ
+                const w = {
+                    x: 2.5 * Math.cos(functionalAngle),
+                    y: 2.5 * Math.sin(functionalAngle)
+                };
+
+                // Draw the Riesz vector
+                viz.drawVector(0, 0, w.x, w.y, viz.colors.orange, 'w (Riesz vector)', 4);
+
+                // Draw level sets of the functional φ(v) = ⟨v, w⟩
+                // These are lines perpendicular to w
+                const perpX = -w.y;
+                const perpY = w.x;
+                const perpNorm = Math.sqrt(perpX * perpX + perpY * perpY);
+                const perpUnit = {x: perpX / perpNorm, y: perpY / perpNorm};
+
+                // Draw several level sets
+                const wNorm = Math.sqrt(w.x * w.x + w.y * w.y);
+                for (let c = -3; c <= 3; c++) {
+                    const offset = c / wNorm;
+                    const centerX = offset * w.x;
+                    const centerY = offset * w.y;
+
+                    const t = 8;
+                    const color = (c === 0) ? viz.colors.yellow : viz.colors.teal + '66';
+                    const width = (c === 0) ? 3 : 1;
+
+                    viz.drawSegment(
+                        centerX - t * perpUnit.x, centerY - t * perpUnit.y,
+                        centerX + t * perpUnit.x, centerY + t * perpUnit.y,
+                        color, width, c !== 0
+                    );
+
+                    if (c !== 0 && Math.abs(c) <= 2) {
+                        viz.drawText(`φ=${c.toFixed(1)}`,
+                                    centerX + 2 * perpUnit.x, centerY + 2 * perpUnit.y,
+                                    viz.colors.teal, 9);
+                    }
+                }
+
+                // Sample test vectors
+                const testVectors = [
+                    {x: 1.5, y: 2, label: 'v₁'},
+                    {x: -2, y: 1.5, label: 'v₂'},
+                    {x: 2, y: -1, label: 'v₃'}
+                ];
+
+                testVectors.forEach(v => {
+                    viz.drawVector(0, 0, v.x, v.y, viz.colors.blue + 'aa', v.label, 2);
+
+                    // Compute φ(v) = ⟨v, w⟩
+                    const phiV = v.x * w.x + v.y * w.y;
+
+                    // Draw value
+                    viz.drawText(`φ(${v.label})=${phiV.toFixed(2)}`,
+                                v.x + 0.3, v.y + 0.3, viz.colors.blue, 9);
+                });
+
+                // Draw kernel (null space): φ(v) = 0
+                viz.drawText('ker(φ) = {v : ⟨v,w⟩ = 0} (yellow line)',
+                            0, 4.5, viz.colors.yellow, 12, 'center');
+
+                // Display Riesz info
+                viz.drawText('Riesz Representation Theorem:', -6, -3.5, viz.colors.white, 13);
+                viz.drawText('φ: H → ℂ bounded linear ⟺ ∃! w ∈ H s.t. φ(v) = ⟨v,w⟩',
+                            -6, -4.0, viz.colors.white, 10);
+                viz.drawText(`||w|| = ||φ|| = ${wNorm.toFixed(3)}`,
+                            -6, -4.5, viz.colors.orange, 11);
+            }
+
+            draw();
+            return viz;
+        }
+    },
 ];

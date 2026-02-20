@@ -1,0 +1,1046 @@
+190
+
+Advanced Linear Algebra
+
+The Jordan Canonical Form
+One of the virtues of the rational canonical form is that every linear operator on
+a finite-dimensional vector space has a rational canonical form. However, as
+mentioned earlier, the rational canonical form may be far from the ideal of
+simplicity that we had in mind for a set of simple canonical forms and is really
+more of a theoretical tool than a practical tool.
+When the minimal polynomial  ²%³ of  splits over - ,
+ ²%³ ~ ²% c  ³ Ä²% c  ³
+there is another set of canoncial forms that is arguably simpler than the set of
+rational canonical forms.
+In some sense, the complexity of the rational canonical form comes from the
+choice of basis for the cyclic submodules ºº#Á »». Recall that the  -cyclic bases
+have the form
+8Á ~ 2#Á Á  #Á Á Ã Á  Á c #Á 3
+
+
+where Á ~ deg² Á ³. With this basis, all of the complexity comes at the end,
+so to speak, when we attempt to express
+ ² Á c ²#Á ³³ ~  Á ²#Á ³
+as a linear combination of the basis vectors.
+However, since 8Á has the form
+2#Á  #Á   #Á Ã Á  c #3
+any ordered set of the form
+ ² ³#Á  ² ³#Á Ã Á c ² ³#
+where deg² ²%³³ ~  will also be a basis for ºº#Á »». In particular, when  ²%³
+splits over - , the elementary divisors are
+
+
+ Á ²%³ ~ ²% c  ³Á
+and so the set
+9Á ~ 2#Á Á ² c  ³#Á Á Ã Á ² c  ³Á c #Á 3
+is also a basis for ºº#Á »».
+If we temporarily denote the  th basis vector in 9Á by  , then for
+ ~ Á Ã Á Á c ,
+
+Eigenvalues and Eigenvectors
+
+191
+
+  ~  ´² c  ³ ²#Á ³µ
+~ ² c  b  ³´² c  ³ ²#Á ³µ
+~ ² c  ³b ²#Á ³ b  ² c  ³ ²#Á ³
+~ b b  
+For  ~ Á c , a similar computation, using the fact that
+² c  ³b ²#Á ³ ~ ² c  ³Á ²#Á ³ ~ 
+gives
+ ²Á c ³ ~  Á c
+Thus, for this basis, the complexity is more or less spread out evenly, and the
+matrix of  Oºº#Á »» with respect to 9Á is the Á d Á matrix
+v 
+x
+x
+@ ² Á Á ³ ~ x 
+x
+Å
+w
+
+
+
+
+Æ
+Ä
+
+Ä Ä y
+Æ
+Å {
+{
+Æ Æ Å {
+{
+Æ Æ 
+
+  z
+
+which is called a Jordan block associated with the scalar  . Note that a Jordan
+block has  's on the main diagonal, 's on the subdiagonal and 's elsewhere.
+Let us refer to the basis
+9 ~ 9Á
+as a Jordan basis for  .
+Theorem 8.6 (The Jordan canonical form) Suppose that the minimal
+polynomial of   B²= ³ splits over the base field - , that is,
+ ²%³ ~ ²% c  ³ Ä²% c  ³
+where   - .
+1) The matrix of  with respect to a Jordan basis 9 is
+diag@ ² Á Á ³Á Ã Á @ ² Á Á ³Á Ã Á @ ² Á Á ³Á Ã Á @ ² Á Á ³
+where the polynomials ²% c  ³Á are the elementary divisors of  . This
+block diagonal matrix is said to be in Jordan canonical form and is called
+the Jordan canonical form of  .
+2) If - is algebraically closed, then up to order of the block diagonal
+matrices, the set of matrices in Jordan canonical form constitutes a set of
+canonical forms for similarity.
+Proof. For part 2), the companion matrix and corresponding Jordan block are
+similar:
+
+192
+
+Advanced Linear Algebra
+
+*´²% c  ³Á µ  @ ² Á Á ³
+since they both represent the same operator  on the subspace ºº#Á »». It follows
+that the rational canonical matrix and the Jordan canonical matrix for  are
+similar.
+Note that the diagonal elements of the Jordan canonical form @ of  are
+precisely the eigenvalues of  , each appearing a number of times equal to its
+algebraic multiplicity. In general, the rational canonical form does not “expose”
+the eigenvalues of the matrix, even when these eigenvalues lie in the base field.
+
+Triangularizability and Schur's Lemma
+We have discussed two different canonical forms for similarity: the rational
+canonical form, which applies in all cases and the Jordan canonical form, which
+applies only when the base field is algebraically closed. Moreover, there is an
+annoying sense in which these sets of canoncial forms leave something to be
+desired: One is too complex and the other does not always exist.
+Let us now drop the rather strict requirements of canonical forms and look at
+two classes of matrices that are too large to be canonical forms (the upper
+triangular matrices and the almost upper triangular matrices) and one class of
+matrices that is too small to be a canonical form (the diagonal matrices).
+The upper triangular matrices (or lower triangular matrices) have some nice
+algebraic properties and it is of interest to know when an arbitrary matrix is
+similar to a triangular matrix. We confine our attention to upper triangular
+matrices, since there are direct analogs for lower triangular matrices as well.
+Definition A linear operator   B²= ³ is upper triangularizable if there is an
+ordered basis 8 ~ ²# Á Ã Á # ³ of = for which the matrix ´ µ8 is upper
+triangular, or equivalently, if
+#  º# Á Ã Á # »
+for all  ~ Á Ã Á .
+As we will see next, when the base field is algebraically closed, all operators are
+upper triangularizable. However, since two distinct upper triangular matrices
+can be similar, the class of upper triangular matrices is not a canonical form for
+similarity. Simply put, there are just too many upper triangular matrices.
+Theorem 8.7 (Schur's theorem) Let = be a finite-dimensional vector space
+over a field - .
+1) If the characteristic polynomial (or minimal polynomial) of   B²= ³ splits
+over - , then  is upper triangularizable.
+2) If - is algebraically closed, then all operators are upper triangularizable.
+
+Eigenvalues and Eigenvectors
+
+193
+
+Proof. Part 2) follows from part 1). The proof of part 1) is most easily
+accomplished by matrix means, namely, we prove that every square matrix
+(  4 ²- ³ whose characteristic polynomial splits over - is similar to an upper
+triangular matrix. If  ~  there is nothing to prove, since all  d  matrices are
+upper triangular. Assume the result is true for  c  and let (  4 ²- ³.
+Let # be an eigenvector associated with the eigenvalue   - of ( and extend
+¸# ¹ to an ordered basis 8 ~ ²# Á Ã Á # ³ for s . The matrix of ( with respect
+to 8 has the form
+´( µ8 ~ >
+
+
+
+
+i
+( ?block
+
+for some (  4c ²- ³. Since ´( µ8 and ( are similar, we have
+det ²%0 c (³ ~ det ²%0 c ´( µ8 ³ ~ ²% c  ³ det ²%0 c ( ³
+Hence, the characteristic polynomial of ( also splits over - and the induction
+hypothesis implies that there is an invertible matrix 7  4c ²- ³ for which
+< ~ 7 ( 7 c
+is upper triangular. Hence, if
+8~>
+
+
+
+
+
+7 ?block
+
+then 8 is invertible and
+8´(µ8 8c ~ >
+
+
+
+
+
+
+7 ?> 
+
+
+i
+( ?> 
+
+
+
+~
+7 c ? > 
+
+i
+<?
+
+is upper triangular.
+
+The Real Case
+When the base field is - ~ s, an operator  is upper triangularizable if and
+only if its characteristic polynomial splits over s. (Why?) We can, however,
+always achieve a form that is close to triangular by permitting values on the first
+subdiagonal.
+Before proceeding, let us recall Theorem 7.11, which says that for a module >
+of prime order  ²%³, the following are equivalent:
+1)
+2)
+3)
+4)
+5)
+
+> is cyclic
+> is indecomposable
+ ²%³ is irreducible
+ is nonderogatory, that is,  ²%³ ~  ²%³
+dim²> ³ ~ deg²²%³³.
+
+194
+
+Advanced Linear Algebra
+
+Now suppose that - ~ s and  ²%³ ~ % b % b ! is an irreducible quadratic.
+If 8 is a  -cyclic basis for > , then
+´ µ8 ~ >
+
+
+
+
+c!
+c ?
+
+However, there is a more appealing matrix representation of  . To this end, let
+( be the matrix above. As a complex matrix, ( has two distinct eigenvalues:
+ ~c f
+
+
+j! c 
+
+
+Now, a matrix of the form
+)~>
+
+
+
+
+c
+ ?
+
+has characteristic polynomial ²%³ ~ ²% c ³ b   and eigenvalues  f  . So
+if we set
+~c
+
+and  ~ c
+
+
+
+j! c 
+
+
+then ) has the same two distinct eigenvalues as ( and so ( and ) have the
+same Jordan canonical form over d. It follows that ( and ) are similar over d
+and therefore also over s, by Theorem 7.20. Thus, there is an ordered basis 9
+for which ´ µ9 ~ ) .
+Theorem 8.8 If - ~ s and > is cyclic and deg² ²%³³ ~ , then there is an
+ordered basis 9 for which
+´ µ9 ~ >
+
+
+
+
+c
+ ?
+
+Now we can proceed with the real version of Schur's theorem. For the sake of
+the exposition, we make the following definition.
+Definition A matrix (  4 ²- ³ is almost upper triangular if it has the form
+
+where
+
+v (
+x
+(~x
+
+(
+
+i
+
+w
+
+
+
+Æ
+
+y
+{
+{
+( zblock
+
+Eigenvalues and Eigenvectors
+
+( ~ ´µ or ( ~ >
+
+
+
+
+195
+
+c
+ ?
+
+for Á   - . A linear operator   B²= ³ is almost upper triangularizable if
+there is an ordered basis 8 for which ´ µ8 is almost upper triangular.
+To see that every real linear operator is almost upper triangularizable, we use
+Theorem 7.19, which states that if ²%³ is a prime factor of  ²%³, then = has a
+cyclic submodule > of order ²%³. Hence, > is a  -cyclic subspace of
+dimension deg²²%³³ and  O> has characteristic polynomial ²%³.
+Now, the minimal polynomial of a real operator   B²= ³ factors into a product
+of linear and irreducible quadratic factors. If  ²%³ has a linear factor over - ,
+then = has a one-dimensional  -invariant subspace > . If  ²%³ has an
+irreducible quadratic factor ²%³, then = has a cyclic submodule > of order
+²%³ and so a matrix representation of  on > is given by the matrix
+(~>
+
+
+
+
+c
+ ?
+
+This is the basis for an inductive proof, as in the complex case.
+Theorem 8.9 (Schur's theorem: real case) If = is a real vector space, then
+every linear operator on = is almost upper triangularizable.
+Proof. As with the complex case, it is simpler to proceed using matrices, by
+showing that any  d  real matrix ( is similar to an almost upper triangular
+matrix. The result is clear if  ~ . Assume for the purposes of induction that
+any square matrix of size less than  d  is almost upper triangularizable.
+We have just seen that -  has a one-dimensional ( -invariant subspace > or a
+two-dimensional ( -cyclic subspace > , where ( has irreducible characteristic
+polynomial on > . Hence, we may choose a basis 8 for -  for which the first
+one or first two vectors are a basis for > . Then
+´( µ8 ~ >
+
+(
+
+
+i
+( ?block
+
+where
+( ~ ´µ
+
+or ( ~ >
+
+
+
+
+c
+ ?
+
+and ( has size  d  . The induction hypothesis applied to ( gives an
+invertible matrix 7  4 for which
+< ~ 7 ( 7 c
+
+196
+
+Advanced Linear Algebra
+
+is almost upper triangular. Hence, if
+0
+8 ~ > c
+
+
+
+7 ?block
+
+then 8 is invertible and
+0
+8´(µ8 8c ~ > c
+
+
+
+(
+7 ?> 
+
+0c
+i
+( ?> 
+
+
+(
+~
+7 c ? > 
+
+i
+<?
+
+is almost upper triangular.
+
+Unitary Triangularizability
+Although we have not yet discussed inner product spaces and orthonormal
+bases, the reader may very well be familiar with these concepts. For those who
+are, we mention that when = is a real or complex inner product space, then if an
+operator  on = can be triangularized (or almost triangularized) using an
+ordered basis 8 , it can also be triangularized (or almost triangularized) using an
+orthonormal ordered basis E .
+To see this, suppose we apply the Gram–Schmidt orthogonalization process to a
+basis 8 ~ ²# Á Ã Á # ³ that triangularizes (or almost triangularizes)  . The
+resulting ordered orthonormal basis E ~ ²" Á Ã Á " ³ has the property that
+º# Á Ã Á # » ~ º" Á Ã Á " »
+for all   . Since ´ µ8 is (almost) upper triangular, that is,
+#  º# Á Ã Á # »
+for all   , it follows that
+ "  º # Á Ã Á  # »  º# Á Ã Á # » ~ º" Á Ã Á " »
+and so the matrix ´ µE is also (almost) upper triangular.
+A linear operator  is unitarily upper triangularizable if there is an ordered
+orthonormal basis with respect to which  is upper triangular. Accordingly,
+when = is an inner product space, we can replace the term “upper
+triangularizable” with “unitarily upper triangularizable” in Schur's theorem. (A
+similar statement holds for almost upper triangular matrices.)
+
+Diagonalizable Operators
+Definition A linear operator   B²= ³ is diagonalizable if there is an ordered
+basis 8 ~ ²# Á Ã Á # ³ of = for which the matrix ´ µ8 is diagonal, or
+equivalently, if
+
+Eigenvalues and Eigenvectors
+
+197
+
+ # ~  #
+for all  ~ Á Ã Á .
+The previous definition leads immediately to the following simple
+characterization of diagonalizable operators.
+Theorem 8.10 Let   B²= ³. The following are equivalent:
+1)  is diagonalizable.
+2) = has a basis consisting entirely of eigenvectors of  .
+3) = has the form
+= ~ ; l Ä l ;
+where  Á Ã Á  are the distinct eigenvalues of  .
+Diagonalizable operators can also be characterized in a simple way via their
+minimal polynomials.
+Theorem 8.11 A linear operator   B²= ³ on a finite-dimensional vector space
+is diagonalizable if and only if its minimal polynomial is the product of distinct
+linear factors.
+Proof. If  is diagonalizable, then
+= ~ ; l Ä l ;
+and Theorem 7.7 implies that  ²%³ is the least common multiple of the
+minimal polynomials % c  of  restricted to ; . Hence,  ²%³ is a product of
+distinct linear factors. Conversely, if  ²%³ is a product of distinct linear
+factors, then the primary decomposition of = has the form
+= ~ = l Ä l =
+where
+= ~ ¸#  =  ² c  ³# ~ ¹ ~ ;
+and so  is diagonalizable.
+
+Spectral Resolutions
+We have seen (Theorem 2.25) that resolutions of the identity on a vector space
+= correspond to direct sum decompositions of = . We can do something similar
+for any diagonalizable linear operator  on = (not just the identity operator).
+Suppose that  has the form
+ ~   b Ä b  
+where  b Ä b  ~  is a resolution of the identity and the   - are
+distinct. This is referred to as a spectral resolution of  .
+
+198
+
+Advanced Linear Algebra
+
+We claim that the  's are the eigenvalues of  and im² ³ ~ ; . Theorem 2.25
+implies that
+= ~ im² ³ l Ä l im² ³
+If  #  im² ³, then
+ ² #³ ~ ²  b Ä b   ³ # ~  ² #³
+and so  #  ; . Hence, im² ³  ; and so
+= ~ im² ³ l Ä l im² ³  ; l Ä l ;  =
+which implies that im² ³ ~ ; and
+= ~ ; l Ä l ;
+The converse also holds, for if = ~ ; l Ä l ; and if  is projection onto
+; along the direct sum of the other eigenspaces, then
+ b Ä b  ~ 
+and since  ~   , it follows that
+ ~  ² b Ä b  ³ ~   b Ä b  
+Theorem 8.12 A linear operator   B²= ³ is diagonalizable if and only if it
+has a spectral resolution
+ ~   b Ä b  
+In this case, ¸ Á Ã Á  ¹ is the spectrum of  and
+im² ³ ~ ;
+
+and
+
+ker² ³ ~  ;
+£
+
+Exercises
+1.
+2.
+3.
+4.
+5.
+6.
+
+Let 1 be the  d  matrix all of whose entries are equal to . Find the
+minimal polynomial and characteristic polynomial of 1 and the
+eigenvalues.
+Prove that the eigenvalues of a matrix do not form a complete set of
+invariants under similarity.
+Show that   B²= ³ is invertible if and only if  is not an eigenvalue of  .
+Let ( be an  d  matrix over a field - that contains all roots of the
+characteristic polynomial of (. Prove that det²(³ is the product of the
+eigenvalues of (, counting multiplicity.
+Show that if  is an eigenvalue of  , then ²³ is an eigenvalue of ² ³, for
+any polynomial ²%³. Also, if  £ , then c is an eigenvalue for  c .
+An operator   B²= ³ is nilpotent if   ~  for some positive   o.
+
+Eigenvalues and Eigenvectors
+
+199
+
+a) Show that if  is nilpotent, then the spectrum of  is ¸¹.
+b) Find a nonnilpotent operator  with spectrum ¸¹.
+7. Show that if Á   B²= ³ and one of  and  is invertible, then   
+and so  and  have the same eigenvalues, counting multiplicty.
+8. (Halmos)
+a) Find a linear operator  that is not idempotent but for which
+  ² c  ³ ~ .
+b) Find a linear operator  that is not idempotent but for which
+ ² c  ³  ~  .
+c) Prove that if   ² c  ³ ~  ² c  ³ ~ , then  is idempotent.
+9. An involution is a linear operator for which  ~ . If  is idempotent
+what can you say about  c  ? Construct a one-to-one correspondence
+between the set of idempotents on = and the set of involutions.
+10. Let (Á )  4 ²d³ and suppose that ( ~ )  ~ 0Á ()( ~ ) c but
+( £ 0 and ) £ 0 . Show that if *  4 ²d³ commutes with both ( and ) ,
+then * ~ 0 for some scalar   d.
+11. Let   B²= ³ and let
+: ~ º#Á  #Á Ã Á  c #»
+be a  -cyclic submodule of = with minimal polynomial ²%³ where ²%³
+is prime of degree . Let  ~ ² ³ restricted to º#». Show that : is the
+direct sum of  -cyclic submodules each of dimension , that is,
+: ~ ; l Ä l ; 
+Hint: For each      , consider the set
+8 ~ ¸  #Á ² ³  #Á Ã Á ² ³c   #»
+12. Fix   . Show that any complex matrix is similar to a matrix that looks
+just like a Jordan matrix except that the entries that are equal to  are
+replaced by entries with value  , where  is any complex number. Thus, any
+complex matrix is similar to a matrix that is “almost” diagonal. Hint:
+consider the fact that
+v
+
+w
+
+
+
+
+
+ yv 
+
+
+ zw 
+
+
+
+
+
+ yv 
+
+
+ zw 
+
+
+c
+
+
+ y v
+
+~ 
+c z w 
+
+
+
+
+
+y
+
+z
+
+13. Show that the Jordan canonical form is not very robust in the sense that a
+small change in the entries of a matrix ( may result in a large jump in the
+entries of the Jordan form 1 . Hint: consider the matrix
+( ~ >
+
+
+
+
+
+?
+
+What happens to the Jordan form of ( as  ¦ ?
+
+200
+
+Advanced Linear Algebra
+
+14. Give an example of a complex nonreal matrix all of whose eigenvalues are
+real. Show that any such matrix is similar to a real matrix. What about the
+type of the invertible matrices that are used to bring the matrix to Jordan
+form?
+15. Let 1 ~ ´ µ8 be the Jordan form of a linear operator   B²= ³. For a given
+Jordan block of 1 ²Á ³ let < be the subspace of = spanned by the basis
+vectors of 8 associated with that block.
+a) Show that  O< has a single eigenvalue  with geometric multiplicity .
+In other words, there is essentially only one eigenvector (up to scalar
+multiple) associated with each Jordan block. Hence, the geometric
+multiplicity of  for  is the number of Jordan blocks for  . Show that
+the algebraic multiplicity is the sum of the dimensions of the Jordan
+blocks associated with  .
+b) Show that the number of Jordan blocks in 1 is the maximum number
+of linearly independent eigenvectors of  .
+c) What can you say about the Jordan blocks if the algebraic multiplicity
+of every eigenvalue is equal to its geometric multiplicity?
+16. Assume that the base field - is algebraically closed. Then assuming that the
+eigenvalues of a matrix ( are known, it is possible to determine the Jordan
+form 1 of ( by looking at the rank of various matrix powers. A matrix ) is
+nilpotent if )  ~  for some   . The smallest such exponent is called
+the index of nilpotence.
+a) Let 1 ~ 1 ²Á ³ be a single Jordan block of size  d . Show that
+1 c 0 is nilpotent of index . Thus,  is the smallest integer for
+which rk²1 c 0³ ~ .
+Now let 1 be a matrix in Jordan form but possessing only one eigenvalue
+.
+b) Show that 1 c 0 is nilpotent. Let  be its index of nilpotence. Show
+that  is the maximum size of the Jordan blocks of 1 and that
+rk²1 c 0³c is the number of Jordan blocks in 1 of maximum size.
+c) Show that rk²1 c 0³c is equal to  times the number of Jordan
+blocks of maximum size plus the number of Jordan blocks of size one
+less than the maximum.
+d) Show that the sequence rk²1 c 0³ for  ~ Á Ã Á  uniquely
+determines the number and size of all of the Jordan blocks in 1 , that is,
+it uniquely determines 1 up to the order of the blocks.
+e) Now let 1 be an arbitrary Jordan matrix. If  is an eigenvalue for 1
+show that the sequence rk²1 c 0³ for  ~ Á Ã Á  where  is the
+first integer for which rk²1 c 0³ ~ rk²1 c 0³b uniquely
+determines 1 up to the order of the blocks.
+f) Prove that for any matrix ( with spectrum ¸ Á Ã Á  ¹ the sequence
+rk²( c  0³ for  ~ Á Ã Á and  ~ Á Ã Á  where  is the first
+integer for which rk²( c  0³ ~ rk²( c  0³b uniquely
+determines the Jordan matrix 1 for ( up to the order of the blocks.
+17. Let (  C ²- ³.
+
+Eigenvalues and Eigenvectors
+a)
+
+201
+
+If all the roots of the characteristic polynomial of ( lie in - prove that
+( is similar to its transpose (! . Hint: Let ) be the matrix
+v
+xÅ
+)~x
+
+w
+
+Ä  y
+Ç  {
+{
+Ç Ç Å
+ Ä z
+
+with 's on the diagonal that moves up from left to right and 's
+elsewhere. Let 1 be a Jordan block of the same size as ) . Show that
+)1 ) c ~ 1 ! .
+b) Let (Á )  C ²- ³. Let 2 be a field containing - . Show that if ( and
+) are similar over 2 , that is, if ) ~ 7 (7 c where 7  C ²2³, then
+( and ) are also similar over - , that is, there exists 8  C ²- ³ for
+which ) ~ 8(8c .
+c) Show that any matrix is similar to its transpose.
+
+The Trace of a Matrix
+18. Let (  C ²- ³. Verify the following statements.
+a) tr²A³ ~  tr²(³, for   - .
+b) tr²( b )³ ~ tr²(³ b tr²)³.
+c) tr²()³ ~ tr²)(³.
+d) tr²()*³ ~ tr²*()³ ~ tr²)*(³. Find an example to show that
+tr²()*³ may not equal tr²(*)³.
+e) The trace is an invariant under similarity.
+f) If - is algebraically closed, then the trace of ( is the sum of the
+eigenvalues of (.
+19. Use the concept of the trace of a matrix, as defined in the previous exercise,
+to prove that there are no matrices (, )  C ²d³ for which
+() c )( ~ 0
+20. Let ; ¢ C ²- ³ ¦ - be a function with the following properties. For all
+matrices (Á )  C ²- ³ and   - ,
+1) ; ²A³ ~ ; ²(³
+2) ; ²( b )³ ~ ; ²(³ b ; ²)³
+3) ; ²()³ ~ ; ²)(³
+Show that there exists
+ - for which ; ²(³ ~ tr²(³, for all
+(  C ²- ³.
+
+Commuting Operators
+Let
+< ~ ¸  B²= ³    ? ¹
+be a family of operators on a vector space = . Then < is a commuting family if
+every pair of operators commutes, that is,  ~  for all Á   < . A subspace
+
+202
+
+Advanced Linear Algebra
+
+< of = is < -invariant if it is  -invariant for every   < . It is often of interest
+to know whether a family < of linear operators on = has a common
+eigenvector, that is, a single vector #  = that is an eigenvector for every
+  < (the corresponding eigenvalues may be different for each operator,
+however).
+21. A pair of linear operators Á   B²= ³ is simultaneously diagonalizable if
+there is an ordered basis 8 for = for which ´ µ8 and ´µ8 are both diagonal,
+that is, 8 is an ordered basis of eigenvectors for both  and  . Prove that
+two diagonalizable operators  and  are simultaneously diagonalizable if
+and only if they commute, that is,  ~  . Hint: If  ~  , then the
+eigenspaces of  are invariant under  .
+22. Let Á   B²= ³. Prove that if  and  commute, then every eigenspace of
+ is  -invariant. Thus, if < is a commuting family, then every eigenspace
+of any member of < is < -invariant.
+23. Let < be a family of operators in B²= ³ with the property that each operator
+in < has a full set of eigenvalues in the base field - , that is, the
+characteristic polynomial splits over - . Prove that if < is a commuting
+family, then < has a common eigenvector #  = .
+24. What do the real matrices
+(~>
+
+
+c
+
+
+
+and ) ~ >
+?
+c
+
+
+?
+
+have to do with the issue of common eigenvectors?
+
+Geršgorin Disks
+It is generally impossible to determine precisely the eigenvalues of a given
+complex operator or matrix (  C ²d³, for if   , then the characteristic
+equation has degree
+and cannot in general be solved. As a result, the
+approximation of eigenvalues is big business. Here we consider one aspect of
+this approximation problem, which also has some interesting theoretical
+consequences.
+Let (  C ²d³ and suppose that (# ~ # where # ~ ² Á Ã Á  ³! . Comparing
+th rows gives
+
+
+(  ~ 
+~
+
+which can also be written in the form
+
+
+ ² c ( ³ ~ ( 
+~
+£
+
+If  has the property that ( (  ( ( for all , we have
+
+Eigenvalues and Eigenvectors
+
+
+
+203
+
+
+
+( (( c ( (  (( (( (  ( ((( (
+~
+£
+
+~
+£
+
+and thus
+
+
+( c ( (  (( (
+
+(8.7)
+
+~
+£
+
+The right-hand side is the sum of the absolute values of all entries in the  th row
+of ( except the diagonal entry ( . This sum 9 ²(³ is the  th deleted absolute
+row sum of (. The inequality (8.7) says that, in the complex plane, the
+eigenvalue  lies in the disk centered at the diagonal entry ( with radius equal
+to 9 ²(³. This disk
+GR ²(³ ~ ¸'  d  (' c ( (  9 ²(³¹
+is called the Geršgorin row disk for the  th row of (. The union of all of the
+Geršgorin row disks is called the Geršgorin row region for (.
+Since there is no way to know in general which is the index  for which
+( (  ( (, the best we can say in general is that the eigenvalues of ( lie in the
+union of all Geršgorin row disks, that is, in the Geršgorin row region of (.
+Similar definitions can be made for columns and since a matrix has the same
+eigenvalues as its transpose, we can say that the eigenvalues of ( lie in the
+Geršgorin column region of (. The Geršgorin region .²(³ of a matrix
+(  4 ²- ³ is the intersection of the Geršgorin row region and the Geršgorin
+column region and we can say that all eigenvalues of ( lie in the Geršgorin
+region of (. In symbols, (  .(.
+25. Find and sketch the Geršgorin region and the eigenvalues for the matrix
+(~
+
+v
+
+w
+
+
+
+y
+z
+
+26. A matrix (  4 ²d³ is diagonally dominant if for each  ~ Á Ã Á ,
+(( (  9 ²(³
+and it is strictly diagonally dominant if strict inequality holds. Prove that
+if ( is strictly diagonally dominant, then it is invertible.
+27. Find a matrix (  4 ²d³ that is diagonally dominant but not invertible.
+28. Find a matrix (  4 ²d³ that is invertible but not strictly diagonally
+dominant.
+
+Chapter 9
+
+Real and Complex Inner Product Spaces
+
+We now turn to a discussion of real and complex vector spaces that have an
+additional function defined on them, called an inner product, as described in the
+following definition. In this chapter, - will denote either the real or complex
+field. Also, the complex conjugate of   d is denoted by .
+Definition Let = be a vector space over - ~ s or - ~ d. An inner product
+on = is a function ºÁ »¢ = d = ¦ - with the following properties:
+1) (Positive definiteness) For all #  = ,
+º#Á #»  
+
+and º#Á #» ~  ¯ # ~ 
+
+2) For - ~ d: (Conjugate symmetry)
+º"Á #» ~ º#Á "»
+For - ~ s: (Symmetry)
+º"Á #» ~ º#Á "»
+3) (Linearity in the first coordinate) For all "Á #  = and Á  º" b #Á $» ~ º"Á $» b º#Á $»
+A real (or complex) vector space = , together with an inner product, is called a
+real (or complex) inner product space.
+If ?Á @  = , then we let
+º?Á @ » ~ ¸º%Á &»  %  ?Á &  @ ¹
+and
+º#Á ?» ~ ¸º#Á %»  %  ?¹
+Note that a vector subspace : of an inner product space = is also an inner
+product space under the restriction of the inner product of = to : .
+
+206
+
+Advanced Linear Algebra
+
+We will study bilinear forms (also called inner products) on vector spaces over
+fields other than s or d in Chapter 11. Note that property 1) implies that º#Á #»
+is always real, even if = is a complex vector space.
+If - ~ s, then properties 2) and 3) imply that the inner product is linear in both
+coordinates, that is, the inner product is bilinear. However, if - ~ d, then
+º$Á " b #» ~ º" b #Á $» ~ º"Á $» b º#Á $» ~ º$Á "» b º$Á #»
+This is referred to as conjugate linearity in the second coordinate. Specifically,
+a function  ¢ = ¦ > between complex vector spaces is conjugate linear if
+ ²" b #³ ~  ²"³ b  ²#³
+and
+ ²"³ ~  ²"³
+for all "Á #  = and   d. Thus, a complex inner product is linear in its first
+coordinate and conjugate linear in its second coordinate. This is often described
+by saying that a complex inner product is sesquilinear. (Sesqui means “one and
+a half times.”)
+Example 9.1
+1) The vector space s is an inner product space under the standard inner
+product, or dot product, defined by
+º² Á Ã Á  ³Á ²  Á Ã Á  ³» ~   b Ä b  
+The inner product space s is often called -dimensional Euclidean
+space.
+2) The vector space d is an inner product space under the standard inner
+product defined by
+º² Á Ã Á  ³Á ²  Á Ã Á  ³» ~   b Ä b  
+This inner product space is often called -dimensional unitary space.
+3) The vector space *´Á µ of all continuous complex-valued functions on the
+closed interval ´Á µ is a complex inner product space under the inner
+product
+
+
+º Á » ~
+
+ ²%³²%³ %
+
+
+Example 9.2 One of the most important inner product spaces is the vector space
+M of all real (or complex) sequences ²  ³ with the property that
+(  (  B
+
+Real and Complex Inner Product Spaces
+
+207
+
+under the inner product
+B
+
+º²  ³Á ²! ³» ~   !
+~
+
+Such sequences are called square summable. Of course, for this inner product
+to make sense, the sum on the right must converge. To see this, note that if
+²  ³Á ²! ³  M , then
+  ²(  ( c (! (³ ~ (  ( c (  ((! ( b (! (
+and so
+(  ! (  (  ( b (! (
+which implies that ²  ! ³  M . We leave it to the reader to verify that M is an
+inner product space.
+The following simple result is quite useful.
+Lemma 9.1 If = is an inner product space and º"Á %» ~ º#Á %» for all %  = ,
+then " ~ #.
+The next result points out one of the main differences between real and complex
+inner product spaces and will play a key role in later work.
+Theorem 9.2 Let = be an inner product space and let   B²= ³.
+1)
+º #Á $» ~  for all #Á $  =
+
+¬
+
+ ~
+
+¬
+
+ ~
+
+2) If = is a complex inner product space, then
+º #Á #» ~  for all #  =
+
+but this does not hold in general for real inner product spaces.
+Proof. Part 1) follows directly from Lemma 9.1. As for part 2), let # ~ % b &,
+for %Á &  = and   - . Then
+ ~ º ²% b &³Á % b &»
+~ (( º %Á %» b º &Á &» b º %Á &» b º &Á %»
+~ º %Á &» b º &Á %»
+Setting  ~  gives
+º %Á &» b º &Á %» ~ 
+and setting  ~  gives
+
+208
+
+Advanced Linear Algebra
+
+º %Á &» c º &Á %» ~ 
+These two equations imply that º %Á &» ~  for all %Á &  = and so part 1)
+implies that  ~ . For the last statement, rotation by  degrees in the real
+plane s has the property that º #Á #» ~  for all #.
+
+Norm and Distance
+If = is an inner product space, the norm, or length of #  = is defined by
+)#) ~ jº#Á #»
+
+(9.1)
+
+A vector # is a unit vector if )#) ~ . Here are the basic properties of the norm.
+Theorem 9.3
+1) )#)   and )#) ~  if and only if # ~ .
+2) For all   - and #  = ,
+)#) ~ (()#)
+3) (The Cauchy–Schwarz inequality) For all "Á #  = ,
+(º"Á #»(  )"))#)
+with equality if and only if one of " and # is a scalar multiple of the other.
+4) (The triangle inequality) For all "Á #  = ,
+)" b #)  )") b )#)
+with equality if and only if one of " and # is a scalar multiple of the other.
+5) For all "Á #Á %  = ,
+)" c #)  )" c %) b )% c #)
+6) For all "Á #  = ,
+()") c )#)(  )" c #)
+7) (The parallelogram law) For all "Á #  = ,
+)" b #) b )" c #) ~ )") b )#)
+Proof. We prove only Cauchy–Schwarz and the triangle inequality. For
+Cauchy–Schwarz, if either " or # is zero the result follows, so assume that
+"Á # £ . Then, for any scalar   - ,
+  )" c #)
+~ º" c #Á " c #»
+~ º"Á "» c º"Á #» c ´º#Á "» c º#Á #»µ
+Choosing  ~ º#Á "»°º#Á #» makes the value in the square brackets equal to 
+
+Real and Complex Inner Product Spaces
+
+209
+
+and so
+  º"Á "» c
+
+º#Á "»º"Á #»
+(º"Á #»(
+~ )") c
+º#Á #»
+)#)
+
+which is equivalent to the Cauchy–Schwarz inequality. Furthermore, equality
+holds if and only if )" c #) ~ , that is, if and only if " c # ~ , which is
+equivalent to " and # being scalar multiples of one another.
+To prove the triangle inequality, the Cauchy–Schwarz inequality gives
+)" b #) ~ º" b #Á " b #»
+~ º"Á "» b º"Á #» b º#Á "» b º#Á #»
+ )") b )"))#) b )#)
+~ ²)") b )#)³
+from which the triangle inequality follows. The proof of the statement
+concerning equality is left to the reader.
+Any vector space = , together with a function ) h )¢ = ¦ s that satisfies
+properties 1), 2) and 4) of Theorem 9.3, is called a normed linear space and the
+function ) h ) is called a norm. Thus, any inner product space is a normed linear
+space, under the norm given by (9.1).
+It is interesting to observe that the inner product on = can be recovered from the
+norm. Thus, knowing the length of all vectors in = is equivalent to knowing all
+inner products of vectors in = .
+Theorem 9.4 (The polarization identities)
+1) If = is a real inner product space, then
+º"Á #» ~
+
+
+²)" b #) c )" c #) ³
+
+
+2) If = is a complex inner product space, then
+º"Á #» ~
+
+
+
+²)" b #) c )" c #) ³ b ²)" b #) c )" c #) ³
+
+
+
+The norm can be used to define the distance between any two vectors in an
+inner product space.
+Definition Let = be an inner product space. The distance ²"Á #³ between any
+two vectors " and # in = is
+²"Á #³ ~ )" c #)
+Here are the basic properties of distance.
+
+(9.2)
+
+

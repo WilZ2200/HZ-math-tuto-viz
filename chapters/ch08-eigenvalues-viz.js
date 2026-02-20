@@ -2,7 +2,7 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch08'] = window.EXTRA_VIZ['ch08'] || {};
 
-// Section 1: Interactive Eigenvector Explorer
+// Section 1: Eigenvalues and Eigenvectors
 window.EXTRA_VIZ['ch08']['ch08-sec01'] = [
     {
         id: 'ch08-extra-viz-1',
@@ -71,8 +71,11 @@ window.EXTRA_VIZ['ch08']['ch08-sec01'] = [
             draw();
             return viz;
         }
-    },
+    }
+];
 
+// Section 2: Characteristic and Minimal Polynomials
+window.EXTRA_VIZ['ch08']['ch08-sec02'] = [
     {
         id: 'ch08-extra-viz-2',
         title: 'Characteristic Polynomial Landscape',
@@ -131,8 +134,11 @@ window.EXTRA_VIZ['ch08']['ch08-sec01'] = [
             draw();
             return viz;
         }
-    },
+    }
+];
 
+// Section 3: Diagonalizability
+window.EXTRA_VIZ['ch08']['ch08-sec03'] = [
     {
         id: 'ch08-extra-viz-3',
         title: 'Diagonalization Animation',
@@ -197,11 +203,8 @@ window.EXTRA_VIZ['ch08']['ch08-sec01'] = [
             draw();
             return viz;
         }
-    }
-];
+    },
 
-// Section 2: Shear transformation and non-diagonalizability
-window.EXTRA_VIZ['ch08']['ch08-sec02'] = [
     {
         id: 'ch08-extra-viz-4',
         title: 'Shear Transformation: Non-Diagonalizable Example',
@@ -255,6 +258,252 @@ window.EXTRA_VIZ['ch08']['ch08-sec02'] = [
         }
     },
 
+    {
+        id: 'ch08-extra-viz-8',
+        title: 'Geometric vs Algebraic Multiplicity',
+        description: 'Compare matrices with different multiplicities. Adjust sliders to see when geometric multiplicity equals algebraic multiplicity (diagonalizable case).',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let matrixType = 0; // 0: diagonal, 1: diagonalizable, 2: Jordan block
+            const typeNames = ['Diagonal (diag.)', 'Diagonalizable', 'Jordan Block (non-diag.)'];
+
+            const matrices = [
+                [[2, 0], [0, 2]],           // Diagonal: geom = alg = 2
+                [[2, 0.5], [0.5, 2]],       // Diagonalizable: geom = alg = 2
+                [[2, 1], [0, 2]]            // Jordan: geom = 1, alg = 2
+            ];
+
+            const typeBtn = VizEngine.createButton(controls, 'Type: ' + typeNames[0], () => {
+                matrixType = (matrixType + 1) % 3;
+                typeBtn.textContent = 'Type: ' + typeNames[matrixType];
+                draw();
+            });
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const M = matrices[matrixType];
+                const evals = VizEngine.eigenvalues2(M);
+
+                // Find eigenspaces dimension
+                let geomMult = 0;
+                if (evals) {
+                    const ev1 = VizEngine.eigenvector2(M, evals[0]);
+                    const ev2 = VizEngine.eigenvector2(M, evals[1]);
+
+                    // Check if they're independent
+                    const cross = ev1[0] * ev2[1] - ev1[1] * ev2[0];
+
+                    if (Math.abs(cross) > 0.01) {
+                        geomMult = 2;
+                        // Draw both eigenspaces
+                        viz.drawLine(0, 0, ev1[0], ev1[1], viz.colors.green + '66', 2, true);
+                        viz.drawLine(0, 0, ev2[0], ev2[1], viz.colors.yellow + '66', 2, true);
+                        viz.drawVector(0, 0, ev1[0] * 2, ev1[1] * 2, viz.colors.green, 'e₁');
+                        viz.drawVector(0, 0, ev2[0] * 2, ev2[1] * 2, viz.colors.yellow, 'e₂');
+                    } else {
+                        geomMult = 1;
+                        // Draw single eigenspace
+                        viz.drawLine(0, 0, ev1[0], ev1[1], viz.colors.green + '88', 3, true);
+                        viz.drawVector(0, 0, ev1[0] * 2, ev1[1] * 2, viz.colors.green, 'e₁');
+                    }
+                }
+
+                // Draw unit square transformation
+                viz.drawTransformedUnitSquare(M, viz.colors.orange + '22', viz.colors.orange, 2);
+
+                // Display info
+                viz.drawText('Matrix: ' + typeNames[matrixType], 0, 4.8, viz.colors.white, 14);
+                if (evals) {
+                    viz.drawText('λ = ' + evals[0].toFixed(2) + ' (repeated)', 0, 4.0, viz.colors.text, 12);
+                    viz.drawText('Algebraic multiplicity: 2', 0, -4.0, viz.colors.text, 12);
+                    viz.drawText('Geometric multiplicity: ' + geomMult, 0, -4.7, geomMult === 2 ? viz.colors.green : viz.colors.orange, 12);
+
+                    if (geomMult === 2) {
+                        viz.drawText('✓ Diagonalizable!', 0, -5.4, viz.colors.green, 13);
+                    } else {
+                        viz.drawText('✗ Not diagonalizable', 0, -5.4, viz.colors.red, 13);
+                    }
+                }
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 4: Triangularization and Schur's Theorem
+window.EXTRA_VIZ['ch08']['ch08-sec04'] = [
+    {
+        id: 'ch08-extra-viz-9',
+        title: 'Schur Triangularization Process',
+        description: 'Visualize how any matrix can be triangularized. The basis vectors are chosen to be orthogonal (unitary triangularization).',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let step = 0;
+            const M = [[2, 1], [0.5, 1.5]]; // Sample matrix
+
+            const stepBtn = VizEngine.createButton(controls, 'Next Step', () => {
+                step = (step + 1) % 4;
+                draw();
+            });
+
+            VizEngine.createButton(controls, 'Reset', () => {
+                step = 0;
+                draw();
+            });
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                const evals = VizEngine.eigenvalues2(M);
+                const ev1 = VizEngine.eigenvector2(M, evals[0]);
+
+                // Find orthogonal vector to ev1
+                const ev2_perp = [-ev1[1], ev1[0]];
+
+                if (step === 0) {
+                    viz.drawText('Step 1: Original matrix A', 0, 4.8, viz.colors.white, 14);
+                    viz.drawTransformedUnitSquare(M, viz.colors.blue + '22', viz.colors.blue, 2);
+                    viz.drawText('A = [[' + M[0][0] + ', ' + M[0][1] + '], [' + M[1][0] + ', ' + M[1][1] + ']]', 0, -4.5, viz.colors.text, 11);
+                } else if (step === 1) {
+                    viz.drawText('Step 2: Find eigenvector q₁', 0, 4.8, viz.colors.white, 14);
+                    viz.drawVector(0, 0, ev1[0] * 2.5, ev1[1] * 2.5, viz.colors.green, 'q₁');
+                    const Aev1 = VizEngine.matVec(M, ev1);
+                    viz.drawVector(0, 0, Aev1[0] * 2.5, Aev1[1] * 2.5, viz.colors.orange, 'Aq₁=' + evals[0].toFixed(2) + 'q₁');
+                    viz.drawText('λ₁ = ' + evals[0].toFixed(2), 0, -4.5, viz.colors.text, 12);
+                } else if (step === 2) {
+                    viz.drawText('Step 3: Choose orthogonal q₂', 0, 4.8, viz.colors.white, 14);
+                    viz.drawVector(0, 0, ev1[0] * 2.5, ev1[1] * 2.5, viz.colors.green, 'q₁');
+                    viz.drawVector(0, 0, ev2_perp[0] * 2.5, ev2_perp[1] * 2.5, viz.colors.yellow, 'q₂');
+                    viz.drawText('Q = [q₁ | q₂] is orthogonal', 0, -4.5, viz.colors.text, 12);
+                } else if (step === 3) {
+                    viz.drawText('Step 4: T = Q*AQ is upper triangular', 0, 4.8, viz.colors.white, 14);
+
+                    // Build Q matrix
+                    const Q = [[ev1[0], ev2_perp[0]], [ev1[1], ev2_perp[1]]];
+                    const Qt = [[ev1[0], ev1[1]], [ev2_perp[0], ev2_perp[1]]];
+
+                    // Compute T = Qt * M * Q (approximately)
+                    const MQ = VizEngine.matMul(M, Q);
+                    const T = VizEngine.matMul(Qt, MQ);
+
+                    viz.drawText('T ≈ [[' + T[0][0].toFixed(1) + ', ' + T[0][1].toFixed(1) + '], [' + T[1][0].toFixed(2) + ', ' + T[1][1].toFixed(1) + ']]', 0, -4.0, viz.colors.orange, 11);
+                    viz.drawText('Upper triangular! (T₂₁ ≈ 0)', 0, -4.7, viz.colors.green, 12);
+
+                    // Show triangular structure
+                    const scale = 1.5;
+                    viz.drawSegment(-3, 2, -1, 2, viz.colors.white, 2);
+                    viz.drawSegment(-1, 2, -1, 1, viz.colors.white, 2);
+                    viz.drawSegment(-1, 1, -3, 1, viz.colors.white, 2);
+                    viz.drawSegment(-3, 1, -3, 2, viz.colors.white, 2);
+                    viz.drawText('*', -2, 1.5, viz.colors.orange, 16);
+                    viz.drawText('*', -2, 1.5, viz.colors.orange, 16);
+                    viz.drawSegment(-2, 1.5, -2, 1.5, viz.colors.orange, 4);
+                    viz.drawText('0', -2.5, 1.25, viz.colors.green, 14);
+                }
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 5: The Jordan Canonical Form
+window.EXTRA_VIZ['ch08']['ch08-sec05'] = [
+    {
+        id: 'ch08-extra-viz-7',
+        title: 'Jordan Block Structure Visualizer',
+        description: 'Explore how a Jordan block transforms the plane. Notice how vectors spiral - the block has one eigenvalue but limited eigenvectors.',
+        setup: function(container, controls) {
+            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
+
+            let lambda = 1.2;
+
+            VizEngine.createSlider(controls, 'λ', 0.5, 2, lambda, 0.1, (v) => {
+                lambda = v;
+                draw();
+            });
+
+            let t = 0;
+            let animating = false;
+
+            const playBtn = VizEngine.createButton(controls, 'Animate', () => {
+                animating = !animating;
+                playBtn.textContent = animating ? 'Pause' : 'Animate';
+                if (animating) animate();
+            });
+
+            function animate() {
+                if (!animating) return;
+                t += 0.02;
+                draw();
+                requestAnimationFrame(animate);
+            }
+
+            function draw() {
+                viz.clear();
+                viz.drawGrid();
+                viz.drawAxes();
+
+                // Jordan block: [[λ, 1], [0, λ]]
+                const J = [[lambda, 1], [0, lambda]];
+
+                // Draw eigenspace (only x-axis, since geometric multiplicity = 1)
+                viz.drawLine(0, 0, 1, 0, viz.colors.green + '88', 2, true);
+                viz.drawText('1D eigenspace (geom. mult. = 1)', 0, 4.8, viz.colors.green, 13);
+                viz.drawText('Algebraic mult. = 2', 0, 4.1, viz.colors.text, 12);
+
+                // Draw several test vectors
+                const testVectors = [
+                    [2, 0],     // eigenvector
+                    [1, 1],     // general vector
+                    [-1, 1.5],  // another vector
+                    [0.5, -1]
+                ];
+
+                testVectors.forEach((v, i) => {
+                    const colors = [viz.colors.green, viz.colors.blue, viz.colors.purple, viz.colors.pink];
+                    const vx = v[0] * Math.cos(t * 0.5) - v[1] * Math.sin(t * 0.5);
+                    const vy = v[0] * Math.sin(t * 0.5) + v[1] * Math.cos(t * 0.5);
+
+                    if (animating) {
+                        viz.drawVector(0, 0, vx, vy, colors[i] + '88', null, 1.5);
+                        const Jv = VizEngine.matVec(J, [vx, vy]);
+                        viz.drawVector(0, 0, Jv[0], Jv[1], colors[i], null, 2);
+                    }
+                });
+
+                // Static example
+                if (!animating) {
+                    viz.drawVector(0, 0, 2, 0, viz.colors.green, 'e');
+                    const Je = VizEngine.matVec(J, [2, 0]);
+                    viz.drawVector(0, 0, Je[0], Je[1], viz.colors.green + 'cc', 'Je=' + lambda.toFixed(1) + 'e');
+
+                    viz.drawVector(0, 0, 1, 1, viz.colors.blue, 'v');
+                    const Jv = VizEngine.matVec(J, [1, 1]);
+                    viz.drawVector(0, 0, Jv[0], Jv[1], viz.colors.orange, 'Jv');
+
+                    viz.drawText('J = [[' + lambda.toFixed(1) + ', 1], [0, ' + lambda.toFixed(1) + ']]', 0, -4.5, viz.colors.text, 12);
+                }
+            }
+
+            draw();
+            return viz;
+        }
+    }
+];
+
+// Section 7: Applications and Spectral Theory
+window.EXTRA_VIZ['ch08']['ch08-sec07'] = [
     {
         id: 'ch08-extra-viz-5',
         title: 'Simultaneous Eigenspaces (Commuting Operators)',
@@ -420,254 +669,8 @@ window.EXTRA_VIZ['ch08']['ch08-sec02'] = [
             draw();
             return viz;
         }
-    }
-];
-
-// Section 3: Jordan canonical form and geometric multiplicity
-window.EXTRA_VIZ['ch08']['ch08-sec03'] = [
-    {
-        id: 'ch08-extra-viz-7',
-        title: 'Jordan Block Structure Visualizer',
-        description: 'Explore how a Jordan block transforms the plane. Notice how vectors spiral - the block has one eigenvalue but limited eigenvectors.',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            let lambda = 1.2;
-
-            VizEngine.createSlider(controls, 'λ', 0.5, 2, lambda, 0.1, (v) => {
-                lambda = v;
-                draw();
-            });
-
-            let t = 0;
-            let animating = false;
-
-            const playBtn = VizEngine.createButton(controls, 'Animate', () => {
-                animating = !animating;
-                playBtn.textContent = animating ? 'Pause' : 'Animate';
-                if (animating) animate();
-            });
-
-            function animate() {
-                if (!animating) return;
-                t += 0.02;
-                draw();
-                requestAnimationFrame(animate);
-            }
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                // Jordan block: [[λ, 1], [0, λ]]
-                const J = [[lambda, 1], [0, lambda]];
-
-                // Draw eigenspace (only x-axis, since geometric multiplicity = 1)
-                viz.drawLine(0, 0, 1, 0, viz.colors.green + '88', 2, true);
-                viz.drawText('1D eigenspace (geom. mult. = 1)', 0, 4.8, viz.colors.green, 13);
-                viz.drawText('Algebraic mult. = 2', 0, 4.1, viz.colors.text, 12);
-
-                // Draw several test vectors
-                const testVectors = [
-                    [2, 0],     // eigenvector
-                    [1, 1],     // general vector
-                    [-1, 1.5],  // another vector
-                    [0.5, -1]
-                ];
-
-                testVectors.forEach((v, i) => {
-                    const colors = [viz.colors.green, viz.colors.blue, viz.colors.purple, viz.colors.pink];
-                    const vx = v[0] * Math.cos(t * 0.5) - v[1] * Math.sin(t * 0.5);
-                    const vy = v[0] * Math.sin(t * 0.5) + v[1] * Math.cos(t * 0.5);
-
-                    if (animating) {
-                        viz.drawVector(0, 0, vx, vy, colors[i] + '88', null, 1.5);
-                        const Jv = VizEngine.matVec(J, [vx, vy]);
-                        viz.drawVector(0, 0, Jv[0], Jv[1], colors[i], null, 2);
-                    }
-                });
-
-                // Static example
-                if (!animating) {
-                    viz.drawVector(0, 0, 2, 0, viz.colors.green, 'e');
-                    const Je = VizEngine.matVec(J, [2, 0]);
-                    viz.drawVector(0, 0, Je[0], Je[1], viz.colors.green + 'cc', 'Je=' + lambda.toFixed(1) + 'e');
-
-                    viz.drawVector(0, 0, 1, 1, viz.colors.blue, 'v');
-                    const Jv = VizEngine.matVec(J, [1, 1]);
-                    viz.drawVector(0, 0, Jv[0], Jv[1], viz.colors.orange, 'Jv');
-
-                    viz.drawText('J = [[' + lambda.toFixed(1) + ', 1], [0, ' + lambda.toFixed(1) + ']]', 0, -4.5, viz.colors.text, 12);
-                }
-            }
-
-            draw();
-            return viz;
-        }
     },
 
-    {
-        id: 'ch08-extra-viz-8',
-        title: 'Geometric vs Algebraic Multiplicity',
-        description: 'Compare matrices with different multiplicities. Adjust sliders to see when geometric multiplicity equals algebraic multiplicity (diagonalizable case).',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            let matrixType = 0; // 0: diagonal, 1: diagonalizable, 2: Jordan block
-            const typeNames = ['Diagonal (diag.)', 'Diagonalizable', 'Jordan Block (non-diag.)'];
-
-            const matrices = [
-                [[2, 0], [0, 2]],           // Diagonal: geom = alg = 2
-                [[2, 0.5], [0.5, 2]],       // Diagonalizable: geom = alg = 2
-                [[2, 1], [0, 2]]            // Jordan: geom = 1, alg = 2
-            ];
-
-            const typeBtn = VizEngine.createButton(controls, 'Type: ' + typeNames[0], () => {
-                matrixType = (matrixType + 1) % 3;
-                typeBtn.textContent = 'Type: ' + typeNames[matrixType];
-                draw();
-            });
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const M = matrices[matrixType];
-                const evals = VizEngine.eigenvalues2(M);
-
-                // Find eigenspaces dimension
-                let geomMult = 0;
-                if (evals) {
-                    const ev1 = VizEngine.eigenvector2(M, evals[0]);
-                    const ev2 = VizEngine.eigenvector2(M, evals[1]);
-
-                    // Check if they're independent
-                    const cross = ev1[0] * ev2[1] - ev1[1] * ev2[0];
-
-                    if (Math.abs(cross) > 0.01) {
-                        geomMult = 2;
-                        // Draw both eigenspaces
-                        viz.drawLine(0, 0, ev1[0], ev1[1], viz.colors.green + '66', 2, true);
-                        viz.drawLine(0, 0, ev2[0], ev2[1], viz.colors.yellow + '66', 2, true);
-                        viz.drawVector(0, 0, ev1[0] * 2, ev1[1] * 2, viz.colors.green, 'e₁');
-                        viz.drawVector(0, 0, ev2[0] * 2, ev2[1] * 2, viz.colors.yellow, 'e₂');
-                    } else {
-                        geomMult = 1;
-                        // Draw single eigenspace
-                        viz.drawLine(0, 0, ev1[0], ev1[1], viz.colors.green + '88', 3, true);
-                        viz.drawVector(0, 0, ev1[0] * 2, ev1[1] * 2, viz.colors.green, 'e₁');
-                    }
-                }
-
-                // Draw unit square transformation
-                viz.drawTransformedUnitSquare(M, viz.colors.orange + '22', viz.colors.orange, 2);
-
-                // Display info
-                viz.drawText('Matrix: ' + typeNames[matrixType], 0, 4.8, viz.colors.white, 14);
-                if (evals) {
-                    viz.drawText('λ = ' + evals[0].toFixed(2) + ' (repeated)', 0, 4.0, viz.colors.text, 12);
-                    viz.drawText('Algebraic multiplicity: 2', 0, -4.0, viz.colors.text, 12);
-                    viz.drawText('Geometric multiplicity: ' + geomMult, 0, -4.7, geomMult === 2 ? viz.colors.green : viz.colors.orange, 12);
-
-                    if (geomMult === 2) {
-                        viz.drawText('✓ Diagonalizable!', 0, -5.4, viz.colors.green, 13);
-                    } else {
-                        viz.drawText('✗ Not diagonalizable', 0, -5.4, viz.colors.red, 13);
-                    }
-                }
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 4: Triangularization and Schur's theorem
-window.EXTRA_VIZ['ch08']['ch08-sec04'] = [
-    {
-        id: 'ch08-extra-viz-9',
-        title: 'Schur Triangularization Process',
-        description: 'Visualize how any matrix can be triangularized. The basis vectors are chosen to be orthogonal (unitary triangularization).',
-        setup: function(container, controls) {
-            const viz = new VizEngine(container, {width: 560, height: 400, scale: 40});
-
-            let step = 0;
-            const M = [[2, 1], [0.5, 1.5]]; // Sample matrix
-
-            const stepBtn = VizEngine.createButton(controls, 'Next Step', () => {
-                step = (step + 1) % 4;
-                draw();
-            });
-
-            VizEngine.createButton(controls, 'Reset', () => {
-                step = 0;
-                draw();
-            });
-
-            function draw() {
-                viz.clear();
-                viz.drawGrid();
-                viz.drawAxes();
-
-                const evals = VizEngine.eigenvalues2(M);
-                const ev1 = VizEngine.eigenvector2(M, evals[0]);
-
-                // Find orthogonal vector to ev1
-                const ev2_perp = [-ev1[1], ev1[0]];
-
-                if (step === 0) {
-                    viz.drawText('Step 1: Original matrix A', 0, 4.8, viz.colors.white, 14);
-                    viz.drawTransformedUnitSquare(M, viz.colors.blue + '22', viz.colors.blue, 2);
-                    viz.drawText('A = [[' + M[0][0] + ', ' + M[0][1] + '], [' + M[1][0] + ', ' + M[1][1] + ']]', 0, -4.5, viz.colors.text, 11);
-                } else if (step === 1) {
-                    viz.drawText('Step 2: Find eigenvector q₁', 0, 4.8, viz.colors.white, 14);
-                    viz.drawVector(0, 0, ev1[0] * 2.5, ev1[1] * 2.5, viz.colors.green, 'q₁');
-                    const Aev1 = VizEngine.matVec(M, ev1);
-                    viz.drawVector(0, 0, Aev1[0] * 2.5, Aev1[1] * 2.5, viz.colors.orange, 'Aq₁=' + evals[0].toFixed(2) + 'q₁');
-                    viz.drawText('λ₁ = ' + evals[0].toFixed(2), 0, -4.5, viz.colors.text, 12);
-                } else if (step === 2) {
-                    viz.drawText('Step 3: Choose orthogonal q₂', 0, 4.8, viz.colors.white, 14);
-                    viz.drawVector(0, 0, ev1[0] * 2.5, ev1[1] * 2.5, viz.colors.green, 'q₁');
-                    viz.drawVector(0, 0, ev2_perp[0] * 2.5, ev2_perp[1] * 2.5, viz.colors.yellow, 'q₂');
-                    viz.drawText('Q = [q₁ | q₂] is orthogonal', 0, -4.5, viz.colors.text, 12);
-                } else if (step === 3) {
-                    viz.drawText('Step 4: T = Q*AQ is upper triangular', 0, 4.8, viz.colors.white, 14);
-
-                    // Build Q matrix
-                    const Q = [[ev1[0], ev2_perp[0]], [ev1[1], ev2_perp[1]]];
-                    const Qt = [[ev1[0], ev1[1]], [ev2_perp[0], ev2_perp[1]]];
-
-                    // Compute T = Qt * M * Q (approximately)
-                    const MQ = VizEngine.matMul(M, Q);
-                    const T = VizEngine.matMul(Qt, MQ);
-
-                    viz.drawText('T ≈ [[' + T[0][0].toFixed(1) + ', ' + T[0][1].toFixed(1) + '], [' + T[1][0].toFixed(2) + ', ' + T[1][1].toFixed(1) + ']]', 0, -4.0, viz.colors.orange, 11);
-                    viz.drawText('Upper triangular! (T₂₁ ≈ 0)', 0, -4.7, viz.colors.green, 12);
-
-                    // Show triangular structure
-                    const scale = 1.5;
-                    viz.drawSegment(-3, 2, -1, 2, viz.colors.white, 2);
-                    viz.drawSegment(-1, 2, -1, 1, viz.colors.white, 2);
-                    viz.drawSegment(-1, 1, -3, 1, viz.colors.white, 2);
-                    viz.drawSegment(-3, 1, -3, 2, viz.colors.white, 2);
-                    viz.drawText('*', -2, 1.5, viz.colors.orange, 16);
-                    viz.drawText('*', -2, 1.5, viz.colors.orange, 16);
-                    viz.drawSegment(-2, 1.5, -2, 1.5, viz.colors.orange, 4);
-                    viz.drawText('0', -2.5, 1.25, viz.colors.green, 14);
-                }
-            }
-
-            draw();
-            return viz;
-        }
-    }
-];
-
-// Section 5: Spectral decomposition
-window.EXTRA_VIZ['ch08']['ch08-sec05'] = [
     {
         id: 'ch08-extra-viz-10',
         title: 'Spectral Resolution Explorer',

@@ -1,0 +1,913 @@
+90
+
+Advanced Linear Algebra
+
+V
+V/S
+
+T
+S
+
+T/S
+
+{0}
+
+{0}
+
+Figure 3.1: The correspondence theorem
+Theorem 3.3 (The correspondence theorem) Let : be a subspace of = . Then
+the function that assigns to each intermediate subspace :  ;  = the
+subspace ; °: of = °: is an order-preserving (with respect to set inclusion)
+one-to-one correspondence between the set of all subspaces of = containing :
+and the set of all subspaces of = °: .
+Proof. We prove only that the correspondence is surjective. Let
+? ~ ¸" b :  "  < ¹
+be a subspace of = °: and let ; be the union of all cosets in ? :
+; ~  ²" b :³
+"<
+
+We show that :  ;  = and that ; °: ~ ? . If %Á &  ; , then % b : and
+& b : are in ? and since ?  = °: , we have
+% b :Á ²% b &³ b :  ?
+which implies that %Á % b &  ; . Hence, ; is a subspace of = containing : .
+Moreover, if ! b :  ; °: , then !  ; and so ! b :  ? . Conversely, if
+" b :  ? , then "  ; and therefore " b :  ; °: . Thus, ? ~ ; °: .
+
+The Universal Property
+Isomorphism Theorem
+
+of
+
+Quotients
+
+and
+
+the
+
+First
+
+Let : be a subspace of = . The pair ²= °:Á : ³ has a very special property,
+known as the universal property—a term that comes from the world of category
+theory.
+Figure 3.2 shows a linear transformation   B²= Á > ³, along with the
+canonical projection : from = to the quotient space = °: .
+
+The Isomorphism Theorems
+
+V
+
+W
+
+91
+
+W
+
+Ss
+W'
+V/S
+Figure 3.2: The universal property
+The universal property states that if ker² ³  : , then there is a unique
+ Z ¢ = °: ¦ > for which
+ Z k : ~ 
+Another way to say this is that any such   B²= Á > ³ can be factored through
+the canonical projection : .
+Theorem 3.4 Let : be a subspace of = and let   B²= Á > ³ satisfy
+:  ker² ³. Then, as pictured in Figure 3.2, there is a unique linear
+transformation  Z ¢ = °: ¦ > with the property that
+ Z k : ~ 
+Moreover, ker² Z ³ ~ ker² ³°: and im² Z ³ ~ im² ³.
+Proof. We have no other choice but to define  Z by the condition  Z k : ~  ,
+that is,
+ Z ²# b :³ ~  #
+This function is well-defined if and only if
+# b : ~ " b : ¬  Z ²# b :³ ~  Z ²" b :³
+which is equivalent to each of the following statements:
+# b : ~ " b : ¬ # ~ "
+# c "  : ¬  ²# c "³ ~ 
+%  : ¬ % ~ 
+:  ker² ³
+Thus,  Z ¢ = °: ¦ > is well-defined. Also,
+im² Z ³ ~ ¸ Z ²# b :³  #  = ¹ ~ ¸ #  #  = ¹ ~ im² ³
+and
+
+92
+
+Advanced Linear Algebra
+
+ker² Z ³ ~ ¸# b :   Z ²# b :³ ~ ¹
+~ ¸# b :   # ~ ¹
+~ ¸# b :  #  ker² ³¹
+~ ker² ³°:
+The uniqueness of  Z is evident.
+Theorem 3.4 has a very important corollary, which is often called the first
+isomorphism theorem and is obtained by taking : ~ ker² ³.
+Theorem 3.5 (The first isomorphism theorem) Let ¢ = ¦ > be a linear
+transformation. Then the linear transformation  Z ¢ = °ker² ³ ¦ > defined by
+ Z ²# b ker² ³³ ~  #
+is injective and
+=
+ im² ³
+ker² ³
+According to Theorem 3.5, the image of any linear transformation on = is
+isomorphic to a quotient space of = . Conversely, any quotient space = °: of =
+is the image of a linear transformation on = : the canonical projection : . Thus,
+up to isomorphism, quotient spaces are equivalent to homomorphic images.
+
+Quotient Spaces, Complements and Codimension
+The first isomorphism theorem gives some insight into the relationship between
+complements and quotient spaces. Let : be a subspace of = and let ; be a
+complement of : , that is,
+= ~: l;
+Applying the first isomorphism theorem to the projection operator ; Á: ¢ = ¦ ;
+gives
+;  = °:
+Theorem 3.6 Let : be a subspace of = . All complements of : in = are
+isomorphic to = °: and hence to each other.
+The previous theorem can be rephrased by writing
+(l) ~(l* ¬) *
+On the other hand, quotients and complements do not behave as nicely with
+respect to isomorphisms as one might casually think. We leave it to the reader to
+show the following:
+
+The Isomorphism Theorems
+
+93
+
+1) It is possible that
+(l) ~* l+
+° +. Hence, (  * does not imply that a complement
+with (  * but ) 
+of ( is isomorphic to a complement of * .
+2) It is possible that =  > and
+= ~ : l ) and > ~ : l +
+but ) °
+ +. Hence, =  > does not imply that = °:  > °: . (However,
+according to the previous theorem, if = equals > then )  +.)
+Corollary 3.7 Let : be a subspace of a vector space = . Then
+dim²= ³ ~ dim²:³ b dim²= °:³
+Definition If : is a subspace of = , then dim²= °:³ is called the codimension of
+: in = and is denoted by codim²:³ or codim= ²:³.
+Thus, the codimension of : in = is the dimension of any complement of : in =
+and when = is finite-dimensional, we have
+codim= ²:³ ~ dim²= ³ c dim²:³
+(This makes no sense, in general, if = is not finite-dimensional, since infinite
+cardinal numbers cannot be subtracted.)
+
+Additional Isomorphism Theorems
+There are other isomorphism theorems that are direct consequences of the first
+isomorphism theorem. As we have seen, if = ~ : l ; then = °;  : . This can
+be written
+: l;
+:
+
+;
+: q;
+This applies to nondirect sums as well.
+Theorem 3.7 (The second isomorphism theorem) Let = be a vector space
+and let : and ; be subspaces of = . Then
+: b;
+:
+
+;
+: q;
+Proof. Let ¢ ²: b ; ³ ¦ :°²: q ; ³ be defined by
+² b !³ ~ b ²: q ; ³
+We leave it to the reader to show that  is a well-defined surjective linear
+transformation, with kernel ; . An application of the first isomorphism theorem
+then completes the proof.
+
+94
+
+Advanced Linear Algebra
+
+The following theorem demonstrates one way in which the expression = °:
+behaves like a fraction.
+Theorem 3.8 (The third isomorphism theorem) Let = be a vector space and
+suppose that :  ;  = are subspaces of = . Then
+= °:
+=
+
+; °:
+;
+Proof. Let  ¢ = °: ¦ = °; be defined by  ²# b :³ ~ # b ; . We leave it to the
+reader to show that  is a well-defined surjective linear transformation whose
+kernel is ; °: . The rest follows from the first isomorphism theorem.
+The following theorem demonstrates one way in which the expression = °:
+does not behave like a fraction.
+Theorem 3.9 Let = be a vector space and let : be a subspace of = . Suppose
+that = ~ = l = and : ~ : l : with :  = . Then
+=
+= l =
+=
+=
+^
+~
+
+:
+: l :
+:
+:
+Proof. Let  ¢ = ¦ ²= °: ³ ^ ²= °: ³ be defined by
+²# b # ³ ~ ²# b : Á # b : ³
+This map is well-defined, since the sum = ~ = l = is direct. We leave it to
+the reader to show that  is a surjective linear transformation, whose kernel is
+: l : . The rest follows from the first isomorphism theorem.
+
+Linear Functionals
+Linear transformations from = to the base field - (thought of as a vector space
+over itself) are extremely important.
+Definition Let = be a vector space over - . A linear transformation
+  B²= Á - ³ whose values lie in the base field - is called a linear functional
+(or simply functional) on = . (Some authors use the term linear function.) The
+vector space of all linear functionals on = is denoted by = * and is called the
+algebraic dual space of = .
+The adjective algebraic is needed here, since there is another type of dual space
+that is defined on general normed vector spaces, where continuity of linear
+transformations makes sense. We will discuss the so-called continuous dual
+space briefly in Chapter 13. However, until then, the term “dual space” will
+refer to the algebraic dual space.
+
+The Isomorphism Theorems
+
+95
+
+To help distinguish linear functionals from other types of linear transformations,
+we will usually denote linear functionals by lowercase italic letters, such as  , 
+and .
+Example 3.1 The map  ¢ - ´%µ ¦ - defined by  ²²%³³ ~ ²³ is a linear
+functional, known as evaluation at .
+Example 3.2 Let 9´Á µ denote the vector space of all continuous functions on
+´Á µ  s. Let  ¢ 9´Á µ ¦ s be defined by
+
+
+ ²²%³³ ~
+
+²%³ %
+
+
+Then   9´Á µi .
+For any   = * , the rank plus nullity theorem is
+dim²ker² ³³ b dim²im² ³³ ~ dim²= ³
+But since im² ³  - , we have either im² ³ ~ ¸¹, in which case  is the zero
+linear functional, or im² ³ ~ - , in which case  is surjective. In other words, a
+nonzero linear functional is surjective. Moreover, if  £ , then
+codim²ker² ³³ ~ dim6
+
+=
+7~
+ker² ³
+
+and if dim²= ³  B, then
+dim²ker² ³³ ~ dim²= ³ c 
+Thus, in dimensional terms, the kernel of a linear functional is a very “large”
+subspace of the domain = .
+The following theorem will prove very useful.
+Theorem 3.10
+1) For any nonzero vector #  = , there exists a linear functional   = * for
+which  ²#³ £ .
+2) A vector #  = is zero if and only if  ²#³ ~  for all   = * .
+3) Let   = i . If  ²%³ £ , then
+= ~ º%» l ker² ³
+4) Two nonzero linear functionals  Á   = i have the same kernel if and only
+if there is a nonzero scalar  such that  ~ .
+Proof. For part 3), if  £ #  º%» q ker² ³, then  ²#³ ~  and # ~ % for
+ £   - , whence  ²%³ ~ , which is false. Hence, º%» q ker² ³ ~ ¸¹ and
+the direct sum : ~ º%» l ker² ³ exists. Also, for any #  = we have
+
+96
+
+Advanced Linear Algebra
+
+ ²#³
+ ²#³
+% b 6# c
+%7  º%» b ker² ³
+ ²%³
+ ²%³
+
+#~
+
+and so = ~ º%» l ker² ³.
+For part 4), if  ~  for  £ , then ker² ³ ~ ker²³. Conversely, if
+2 ~ ker² ³ ~ ker²³, then for % ¤ 2 we have by part 3),
+= ~ º%» l 2
+Of course,  O2 ~ O2 for any . Therefore, if  ~  ²%³°²%³, it follows that
+²%³ ~  ²%³ and hence  ~ .
+
+Dual Bases
+Let = be a vector space with basis 8 ~ ¸#    0¹. For each   0 , we can
+define a linear functional #i  = * by the orthogonality condition
+#i ²# ³ ~ Á
+where Á is the Kronecker delta function, defined by
+Á ~ F
+
+if  ~ 
+if  £ 
+
+
+
+
+Then the set 8 i ~ ¸#i    0¹ is linearly independent, since applying the
+equation
+ ~  #i b Ä b  #i
+to the basis vector # gives
+
+
+
+
+ ~   #i ²# ³ ~    Á ~ 
+~
+
+~
+
+for all  .
+Theorem 3.11 Let = be a vector space with basis 8 ~ ¸#    0¹.
+1) The set 8 i ~ ¸#i    0¹ is linearly independent.
+2) If = is finite-dimensional, then 8 i is a basis for = i , called the dual basis of
+8.
+Proof. For part 2), for any   = i , we have
+  ²# ³#i ²# ³ ~   ²# ³Á ~  ²# ³
+
+
+
+
+and so  ~   ²# ³#i is in the span of 8 i . Hence, 8 * is a basis for = i .
+
+The Isomorphism Theorems
+
+97
+
+It follows from the previous theorem that if dim²= ³  B, then
+dim²= i ³ ~ dim²= ³
+since the dual vectors also form a basis for = i . Our goal now is to show that the
+converse of this also holds. But first, let us consider an example.
+Example 3.3 Let = be an infinite-dimensional vector space over the field
+- ~ { ~ ¸Á ¹, with basis 8 . Since the only coefficients in - are  and , a
+finite linear combination over - is just a finite sum. Hence, = is the set of all
+finite sums of vectors in 8 and so according to Theorem 0.12,
+(= (  (F ²8 ³( ~ (8 (
+On the other hand, each linear functional   = i is uniquely defined by
+specifying its values on the basis 8 . Since these values must be either  or ,
+specifying a linear functional is equivalent to specifying the subset of 8 on
+which  takes the value . In other words, there is a one-to-one correspondence
+between linear functionals on = and all subsets of 8 . Hence,
+(= i ( ~ (F ²8 ³(  (8 (  (= (
+This shows that = i cannot be isomorphic to = , nor to any proper subset of = .
+Hence, dim²= i ³  dim²= ³.
+We wish to show that the behavior in the previous example is typical, in
+particular, that
+dim²= ³  dim²= i ³
+with equality if and only if = is finite-dimensional. The proof uses the concept
+of the prime subfield of a field 2 , which is defined as the smallest subfield of
+the field 2 . Since Á   2 , it follows that 2 contains a copy of the integers
+Á Á  ~  b Á  ~  b  b Á Ã
+If 2 has prime characteristic , then  ~  and so 2 contains the elements
+{ ~ ¸Á Á Á Á Ã Á  c ¹
+which form a subfield of 2 . Since any subfield - of 2 contains  and , we see
+that {  - and so { is the prime subfield of 2 . On the other hand, if 2 has
+characteristic , then 2 contains a “copy” of the integers { and therefore also
+the rational numbers r, which is the prime subfield of 2 . Our main interest in
+the prime subfield is that in either case, the prime subfield is countable.
+Theorem 3.12 Let = be a vector space. Then
+dim²= ³  dim²= i ³
+with equality if and only if = is finite-dimensional.
+
+98
+
+Advanced Linear Algebra
+
+Proof. For any vector space = , we have
+dim²= ³  dim²= i ³
+since the dual vectors to a basis 8 for = are linearly independent in = i . We
+have already seen that if = is finite-dimensional, then dim²= ³ ~ dim²= i ³. We
+wish to show that if = is infinite-dimensional, then dim²= ³  dim²= i ³. (The
+author is indebted to Professor Richard Foote for suggesting this line of proof.)
+If 8 is a basis for = and if 2 is the base field for = , then Theorem 2.7 implies
+that
+=  ²2 8 ³
+where ²2 8 ³ is the set of all functions with finite support from 8 to 2 and
+= i  28
+where 2 8 is the set of all functions from 8 to 2 . Thus, we can work with the
+vector spaces ²2 8 ³ and 2 8 .
+The plan is to show that if - is a countable subfield of 2 and if 8 is infinite,
+then
+dim2 2²2 8 ³ 3 ~ dim- 2²- 8 ³ 3  dim- ²- 8 ³  dim2 22 8 3
+Since we may take - to be the prime subfield of 2 , this will prove the theorem.
+The first equality follows from the fact that the 2 -space ²2 8 ³ and the - -space
+²- 8 ³ each have a basis consisting of the “standard” linear functionals
+¸    8 ¹ defined by
+ # ~ Á
+for all #  8 , where Á is the Kronecker delta function.
+For the final inequality, suppose that ¸ ¹  - 8 is linearly independent over and that
+   ~ 
+
+
+where   2 . If ¸ ¹ is a basis for 2 over - , then  ~  Á  for Á  and so
+ ~    ~   Á  
+
+
+Evaluating at any #  8 gives
+
+
+
+
+
+The Isomorphism Theorems
+
+99
+
+ ~   Á   ²#³ ~  8 Á  ²#³9
+
+
+
+
+
+
+
+
+and since the inner sums are in - and ¸ ¹ is - -independent, the inner sums
+must be zero:
+ Á  ²#³ ~ 
+
+
+Since this holds for all #  8 , we have
+ Á  ~ 
+
+
+which implies that Á ~  for all Á . Hence, ¸ ¹ is linearly independent over
+2 . This proves that dim- ²- 8 ³  dim2 22 8 3.
+For the center inequality, it is clear that
+dim- 2²- 8 ³ 3  dim- ²- 8 ³
+We will show that the inequality must be strict by showing that the cardinality
+of ²- 8 ³ is (8 ( whereas the cardinality of - 8 is greater than (8 (. To this end, the
+set ²- 8 ³ can be partitioned into blocks based on the support of the function. In
+particular, for each finite subset : of 8 , if we let
+(: ~ ¸  ²- 8 ³  supp² ³ ~ :¹
+then
+²- 8 ³ ~  (:
+:8
+: finite
+
+where the union is disjoint. Moreover, if (: ( ~ , then
+((: (  (- (  L
+and so
+b²- 8 ³ b ~  ((: (  (8 ( h L ~ max²(8 (Á L ³ ~ (8 (
+:8
+: finite
+
+But since the reverse inequality is easy to establish, we have
+b²- 8 ³ b ~ (8 (
+As to the cardinality of - 8 , for each subset ; of 8 , there is a function ;  - 8
+that sends every element of ; to  and every element of 8 ± ; to . Clearly,
+each distinct subset ; gives rise to a distinct function ; and so Cantor's
+
+100
+
+Advanced Linear Algebra
+
+theorem implies that
+b- 8 b  b8 b  (8 ( ~ b²- 8 ³ b
+This shows that
+dim- 2²- 8 ³ 3  dim- ²- 8 ³
+and completes the proof.
+
+Reflexivity
+If = is a vector space, then so is the dual space = i and so we may form the
+double (algebraic) dual space = ii , which consists of all linear functionals
+¢ = i ¦ - . In other words, an element  of = ** is a linear functional that
+assigns a scalar to each linear functional on = .
+With this firmly in mind, there is one rather obvious way to obtain an element of
+= ii . Namely, if #  = , consider the map #¢ = i ¦ - defined by
+#² ³ ~  ²#³
+which sends the linear functional  to the scalar  ²#³. The map # is called
+evaluation at #. To see that #  = ii , if  Á   = i and Á   - , then
+#² b ³ ~ ² b ³²#³ ~  ²#³ b ²#³ ~ #² ³ b #²³
+and so # is indeed linear.
+We can now define a map ¢ = ¦ = ii by
+# ~ #
+This is called the canonical map (or the natural map) from = to = ii . This
+map is injective and hence in the finite-dimensional case, it is also surjective.
+Theorem 3.13 The canonical map  ¢ = ¦ = ii defined by  # ~ #, where # is
+evaluation at #, is a monomorphism. If = is finite-dimensional, then  is an
+isomorphism.
+Proof. The map  is linear since
+" b #² ³ ~  ²" b #³ ~  ²"³ b  ²#³ ~ ²" b #³² ³
+for all   = i . To determine the kernel of  , observe that
+# ~  ¬ # ~ 
+¬ #² ³ ~  for all   = i
+¬  ²#³ ~  for all   = i
+¬ #~
+by Theorem 3.10 and so ker² ³ ~ ¸¹. In the finite-dimensional case, since
+
+The Isomorphism Theorems
+
+101
+
+dim²= ii ³ ~ dim²= i ³ ~ dim²= ³
+it follows that  is also surjective, hence an isomorphism.
+Note that if dim²= ³  B, then since the dimensions of = and = ii are the same,
+we deduce immediately that =  = ii . This is not the point of Theorem 3.13.
+The point is that the natural map # ¦ # is an isomorphism. Because of this, =
+is said to be algebraically reflexive. Theorem 3.13 and Theorem 3.12 together
+imply that a vector space is algebraically reflexive if and only if it is finitedimensional.
+If = is finite-dimensional, it is customary to identify the double dual space = ii
+with = and to think of the elements of = ii simply as vectors in = . Let us
+consider a specific example to show how algebraic reflexivity fails in the
+infinite-dimensional case.
+Example 3.4 Let = be the vector space over { with basis
+ ~ ²Á Ã Á Á Á Á Ã ³
+where the  is in the  th position. Thus, = is the set of all infinite binary
+sequences with a finite number of 's. Define the order ²#³ of any #  = to be
+the largest coordinate of # with value . Then ²#³  B for all #  = .
+Consider the dual vectors i , defined (as usual) by
+i ² ³ ~ Á
+For any #  = , the evaluation functional # has the property that
+#²i ³ ~ i ²#³ ~  if   ²#³
+However, since the dual vectors i are linearly independent, there is a linear
+functional   = ii for which
+ ²i ³ ~ 
+for all   . Hence,  does not have the form # for any #  = . This shows that
+the canonical map is not surjective and so = is not algebraically reflexive.
+
+Annihilators
+The functions   = i are defined on vectors in = , but we may also define  on
+subsets 4 of = by letting
+ ²4 ³ ~ ¸ ²#³  #  4 ¹
+
+102
+
+Advanced Linear Algebra
+
+Definition Let 4 be a nonempty subset of a vector space = . The annihilator
+4  of 4 is
+4  ~ ¸  = i   ²4 ³ ~ ¸¹¹
+The term annihilator is quite descriptive, since 4  consists of all linear
+functionals that annihilate (send to ) every vector in 4 . It is not hard to see
+that 4  is a subspace of = i , even when 4 is not a subspace of = .
+The basic properties of annihilators are contained in the following theorem.
+Theorem 3.14
+1) (Order-reversing) If 4 and 5 are nonempty subsets of = , then
+4  5 ¬ 5  4
+2) If dim²= ³  B, then for any nonempty subset 4 of = the natural map
+¢ span²4 ³  4 
+is an isomorphism from span²4 ³ onto 4  . In particular, if : is a
+subspace of = , then :   : .
+3) If : and ; are subspaces of = , then
+²: q ; ³ ~ :  b ;  and ²: b ; ³ ~ :  q ; 
+Proof. We leave proof of part 1) for the reader. For part 2), since
+4  ~ ²span²4 ³³
+it is sufficient to prove that ¢ :  :  is an isomorphism, where : is a
+subspace of = . Now, we know that  is a monomorphism, so it remains to prove
+that  : ~ :  . If  : , then  ~ has the property that for all   :  ,
+² ³ ~  ~ 
+and so  ~  :  , which implies that :  :  . Moreover, if #  :  , then
+for all   :  we have
+ ²#³ ~ #² ³ ~ 
+and so every linear functional that annihilates : also annihilates #. But if # ¤ : ,
+then there is a linear functional   = i for which ²:³ ~ ¸¹ and ²#³ £ .
+(We leave proof of this as an exercise.) Hence, #  : and so # ~  #   : and
+so :   : .
+For part 3), it is clear that  annihilates : b ; if and only if  annihilates both
+: and ; . Hence, ²: b ; ³ ~ :  q ;  . Also, if  ~  b   :  b ;  where
+  :  and   ;  , then Á   ²: q ; ³ and so   ²: q ; ³ . Thus,
+
+The Isomorphism Theorems
+
+103
+
+:  b ;   ²: q ; ³
+For the reverse inclusion, suppose that   ²: q ; ³ . Write
+= ~ : Z l ²: q ; ³ l ; Z l <
+where : ~ : Z l ²: q ; ³ and ; ~ ²: q ; ³ l ; Z . Define   = i by
+O: Z ~  Á
+
+O:q; ~  O:q; ~ Á
+
+O; Z ~ Á
+
+O< ~ 
+
+O:q; ~  O:q; ~ Á
+
+O; Z ~  Á
+
+O< ~ 
+
+and define   = i by
+O: Z ~ Á
+
+It follows that   ;  ,   :  and  b  ~  .
+
+Annihilators and Direct Sums
+Consider a direct sum decomposition
+= ~: l;
+Then any linear functional   ; i can be extended to a linear functional  on =
+by setting  ²:³ ~ . Let us call this extension by . Clearly,   :  and it is
+easy to see that the extension by  map  ¦  is an isomorphism from ; i to
+:  , whose inverse is the restriction to ; .
+Theorem 3.15 Let = ~ : l ; .
+a) The extension by  map is an isomorphism from ; i to :  and so
+; i  :
+b) If = is finite-dimensional, then
+dim²:  ³ ~ codim= ²:³ ~ dim²= ³ c dim²:³
+Example 3.5 Part b) of Theorem 3.15 may fail in the infinite-dimensional case,
+since it may easily happen that :   = i . As an example, let = be the vector
+space over { with a countably infinite ordered basis 8 ~ ² Á  Á Ã ³. Let
+: ~ º » and ; ~ º Á  Á Ã ». It is easy to see that :   ; i  = i and that
+dim²= i ³  dim²= ³.
+The annihilator provides a way to describe the dual space of a direct sum.
+Theorem 3.16 A linear functional on the direct sum = ~ : l ; can be written
+as a sum of a linear functional that annihilates : and a linear functional that
+annihilates ; , that is,
+²: l ; ³i ~ :  l ; 
+
+104
+
+Advanced Linear Algebra
+
+Proof. Clearly :  q ;  ~ ¸¹, since any functional that annihilates both : and
+; must annihilate : l ; ~ = . Hence, the sum :  b ;  is direct. The rest
+follows from Theorem 3.14, since
+= i ~ ¸¹ ~ ²: q ; ³ ~ :  b ;  ~ :  l ; 
+Alternatively, since ; b : ~  is the identity map, if   = i , then we can
+write
+ ~  k ²; b : ³ ~ ² k ; ³ b ² k : ³  :  l ; 
+and so = i ~ :  l ;  .
+
+Operator Adjoints
+If   B²= Á > ³, then we may define a map  d ¢ > * ¦ = i by
+ d ² ³ ~  k  ~  
+for   > * . (We will write composition as juxtaposition.) Thus, for any #  = ,
+´ d ² ³µ²#³ ~  ² #³
+The map  d is called the operator adjoint of  and can be described by the
+phrase “apply  first.”
+Theorem 3.17 (Properties of the Operator Adjoint)
+1) For  Á   B²= Á > ³ and Á   - ,
+² b  ³d ~  d b  d
+2) For   B²= Á > ³ and   B²> Á < ³,
+²³d ~ d  d
+3) For any invertible   B²= ³,
+² c ³d ~ ² d ³c
+Proof. Proof of part 1) is left for the reader. For part 2), we have for all   < i ,
+²³d ² ³ ~  ²³ ~ d ²  ³ ~ d ² d ² ³³ ~ ²d  d ³² ³
+Part 3) follows from part 2) and
+ d ² c ³d ~ ² c  ³d ~ d ~ 
+and in the same way, ² c ³d  d ~  . Hence ² c ³d ~ ² d ³c .
+If   B²= Á > ³, then  d  B(> i Á = i ) and so  dd  B²= ii Á > ii ³. Of course,
+ dd is not equal to  . However, in the finite-dimensional case, if we use the
+natural maps to identify = ii with = and > ii with > , then we can think of  dd
+
+The Isomorphism Theorems
+
+105
+
+as being in B²= Á > ³. Using these identifications, we do have equality in the
+finite-dimensional case.
+Theorem 3.18 Let = and > be finite-dimensional and let   B²= Á > ³. If we
+identify = ii with = and > ii with > using the natural maps, then  dd is
+identified with  .
+Proof. For any %  = let the corresponding element of = ii be denoted by % and
+similarly for > . Then before making any identifications, we have for #  = ,
+ dd ²#³² ³ ~ #´ d ² ³µ ~ #²  ³ ~  ² #³ ~  #² ³
+for all   > * and so
+ dd ²#³ ~  #  > ii
+Therefore, using the canonical identifications for both = ii and > ii we have
+ dd ²#³ ~  #
+for all #  = .
+The next result describes the kernel and image of the operator adjoint.
+Theorem 3.19 Let   B²= Á > ³. Then
+1) ker² d ³ ~ im² ³
+2) im² d ³ ~ ker² ³
+Proof. For part 1),
+ker² d ³ ~ ¸  > i   d ² ³ ~ ¹
+~ ¸  > i   ² = ³ ~ ¸¹¹
+~ ¸  > i   ²im² ³³ ~ ¸¹¹
+~ im² ³
+For part 2), if  ~  ~  d   im² d ³, then ker² ³  ker² ³ and so
+  ker² ³ .
+For the reverse inclusion, let   ker² ³  = i . We wish to show that
+ ~  d  ~  for some   > i . On 2 ~ ker² ³, there is no problem since 
+and  d  ~  agree on 2 for any   > i . Let : be a complement of ker² ³.
+Then  maps a basis 8 ~ ¸    0¹ for : to a linearly independent set
+8 ~ ¸     0¹
+in > and so we can define   > i on 8 by setting
+²  ³ ~  
+and extending to all of > . Then  ~  ~  d  on 8 and therefore on : . Thus,
+ ~  d   im² d ³.
+
+106
+
+Advanced Linear Algebra
+
+Corollary 3.20 Let   B²= Á > ³, where = and > are finite-dimensional.
+Then rk² ³ ~ rk² d ³.
+In the finite-dimensional case,  and  d can both be represented by matrices.
+Let
+8 ~ ² Á Ã Á  ³ and 9 ~ ² Á Ã Á  ³
+be ordered bases for = and > , respectively, and let
+i
+8 i ~ ²i Á Ã Á i ³ and 9i ~ ²i Á Ã Á 
+³
+
+be the corresponding dual bases. Then
+²´ µ8Á9 ³Á ~ ²´  µ9 ³ ~ i ´  µ
+and
+²´ d µ9i Á8i ³Á ~ ²´ d ²i ³µ8i ³ ~ ii ´ d ²i ³µ ~  d ²i ³² ³ ~ i ² ³
+Comparing the last two expressions we see that they are the same except that the
+roles of  and  are reversed. Hence, the matrices in question are transposes.
+Theorem 3.21 Let   B²= Á > ³, where = and > are finite-dimensional. If 8
+and 9 are ordered bases for = and > , respectively, and 8 i and 9i are the
+corresponding dual bases, then
+´ d µ9i Á8i ~ ²´ µ8Á9 ³!
+In words, the matrices of  and its operator adjoint  d are transposes of one
+another.
+
+Exercises
+1.
+2.
+3.
+4.
+5.
+6.
+
+If = is infinite-dimensional and : is an infinite-dimensional subspace, must
+the dimension of = °: be finite? Explain.
+Prove the correspondence theorem.
+Prove the first isomorphism theorem.
+Complete the proof of Theorem 3.9.
+Let : be a subspace of = . Starting with a basis ¸  Á Ã Á  ¹ for :Á how
+would you find a basis for = °: ?
+Use the first isomorphism theorem to prove the rank-plus-nullity theorem
+rk² ³ b null² ³ ~ dim²= ³
+
+7.
+
+for   B²= Á > ³ and dim²= ³  B.
+Let   B²= ³ and suppose that : is a subspace of = . Define a map
+ Z ¢ = °: ¦ = °: by
+
+The Isomorphism Theorems
+
+107
+
+ Z ²# b :³ ~  # b :
+When is  Z well-defined? If  Z is well-defined, is it a linear transformation?
+What are im² Z ³ and ker² Z ³?
+8. Show that for any nonzero vector #  = , there exists a linear functional
+  = i for which  ²#³ £ .
+9. Show that a vector #  = is zero if and only if  ²#³ ~  for all   = i .
+10. Let : be a proper subspace of a finite-dimensional vector space = and let
+#  = ± : . Show that there is a linear functional   = i for which
+ ²#³ ~  and  ² ³ ~  for all  : .
+11. Find a vector space = and decompositions
+= ~(l) ~* l+
+° +. Hence, (  * does not imply that (  *  .
+with (  * but ) 
+12. Find isomorphic vectors spaces = and > with
+= ~ : l ) and > ~ : l +
+but ) °
+ +. Hence, =  > does not imply that = °:  > °: .
+13. Let = be a vector space with
+= ~ : l ; ~ : l ;
+Prove that if : and : have finite codimension in = , then so does : q :
+and
+codim²: q : ³  dim²; ³ b dim²; ³
+14. Let = be a vector space with
+= ~ : l ; ~ : l ;
+Suppose that : and : have finite codimension. Hence, by the previous
+exercise, so does : q : . Find a direct sum decomposition = ~ > l ?
+for which (1) > has finite codimension, (2) >  : q : and (3)
+?  ; b ; .
+15. Let 8 be a basis for an infinite-dimensional vector space = and define, for
+all   8 , the map  Z  = i by  Z ²³ ~  if  ~  and  otherwise, for all
+  8 . Does ¸ Z    8 ¹ form a basis for = i ? What do you conclude about
+the concept of a dual basis?
+16. Prove that if : and ; are subspaces of = , then ²: l ; ³i  : i ^ ; i .
+17. Prove that d ~  and d ~  where  is the zero linear operator and  is
+the identity.
+18. Let : be a subspace of = . Prove that ²= °:³i  :  .
+19. Verify that
+a) ² b ³d ~  d b d for  Á   B²= Á > ³.
+b) ² ³d ~  d for any   - and   B²= Á > ³
+20. Let   B²= Á > ³, where = and > are finite-dimensional. Prove that
+rk² ³ ~ rk² d ³.
+
+Chapter 4
+
+Modules I: Basic Properties
+
+Motivation
+Let = be a vector space over a field - and let   B²= ³. Then for any
+polynomial ²%³  - ´%µ, the operator ² ³ is well-defined. For instance, if
+²%³ ~  b % b % , then
+² ³ ~  b  b  
+where  is the identity operator and   is the threefold composition  k  k  .
+Thus, using the operator  we can define the product of a polynomial
+²%³  - ´%µ and a vector #  = by
+²%³# ~ ² ³²#³
+
+(4.1)
+
+This product satisfies the usual properties of scalar multiplication, namely, for
+all ²%³Á ²%³  - ´%µ and "Á #  = ,
+²%³²" b #³ ~ ²%³" b ²%³#
+²²%³ b ²%³³" ~ ²%³" b ²%³"
+´²%³ ²%³µ" ~ ²%³´ ²%³"µ
+" ~ "
+Thus, for a fixed   B²= ³, we can think of = as being endowed with the
+operations of addition and multiplication of an element of = by a polynomial in
+- ´%µ. However, since - ´%µ is not a field, these two operations do not make =
+into a vector space. Nevertheless, the situation in which the scalars form a ring
+but not a field is extremely important, not only in this context but in many
+others.
+
+Modules
+Definition Let 9 be a commutative ring with identity, whose elements are
+called scalars. An 9 -module (or a module over 9 ) is a nonempty set 4 ,
+
+110
+
+Advanced Linear Algebra
+
+together with two operations. The first operation, called addition and denoted
+by b , assigns to each pair ²"Á #³  4 d 4 , an element " b #  4 . The
+second operation, denoted by juxtaposition, assigns to each pair
+²Á #³  9 d 4 , an element #  4 . Furthermore, the following properties
+must hold:
+1) 4 is an abelian group under addition.
+2) For all Á  9 and "Á #  4
+²" b #³ ~ " b #
+² b ³" ~ " b "
+² ³" ~ ² "³
+" ~ "
+The ring 9 is called the base ring of 4 .
+Note that vector spaces are just special types of modules: a vector space is a
+module over a field.
+When we turn in a later chapter to the study of the structure of a linear
+transformation   B²= ³, we will think of = as having the structure of a vector
+space over - as well as a module over - ´%µ and we will use the notation = . Put
+another way, = is an abelian group under addition, with two scalar
+multiplications—one whose scalars are elements of - and one whose scalars are
+polynomials over - . This viewpoint will be of tremendous benefit for the study
+of  . For now, we concentrate only on modules.
+Example 4.1
+1) If 9 is a ring, the set 9  of all ordered -tuples whose components lie in 9
+is an 9 -module, with addition and scalar multiplication defined
+componentwise (just as in -  ),
+² Á Ã Á  ³ b ² Á Ã Á  ³ ~ ² b  Á Ã Á  b ³
+and
+² Á Ã Á  ³ ~ ² Á Ã Á  ³
+for  ,  Á   9 . For example, { is the {-module of all ordered -tuples
+of integers.
+2) If 9 is a ring, the set CÁ ²9³ of all matrices of size  d  is an 9 module, under the usual operations of matrix addition and scalar
+multiplication over 9 . Since 9 is a ring, we can also take the product of
+matrices in CÁ ²9³. One important example is 9 ~ - ´%µ, whence
+CÁ ²- ´%µ³ is the - ´%µ-module of all  d  matrices whose entries are
+polynomials.
+3) Any commutative ring 9 with identity is a module over itself, that is, 9 is
+an 9 -module. In this case, scalar multiplication is just multiplication by
+
+Modules I: Basic Properties
+
+111
+
+elements of 9, that is, scalar multiplication is the ring multiplication. The
+defining properties of a ring imply that the defining properties of the 9 module 9 are satisfied. We shall use this example many times in the
+sequel.
+
+Importance of the Base Ring
+Our definition of a module requires that the ring 9 of scalars be commutative.
+Modules over noncommutative rings can exhibit quite a bit more unusual
+behavior than modules over commutative rings. Indeed, as one would expect,
+the general behavior of 9-modules improves as we impose more structure on
+the base ring 9. If we impose the very strict structure of a field, the result is the
+very well behaved vector space.
+To illustrate, we will give an example of a module over a noncommutative ring
+that has a basis of size  for every integer   ! As another example, if the
+base ring is an integral domain, then whenever # Á Ã Á # are linearly
+independent over 9 so are # Á Ã Á # for any nonzero   9 . This can fail
+when 9 is not an integral domain.
+We will also consider the property on the base ring 9 that all of its ideals are
+finitely generated. In this case, any finitely generated 9 -module 4 has the
+property that all of its submodules are also finitely generated. This property of
+9 -modules fails if 9 does not have the stated property.
+When 9 is a principal ideal domain (such as { or - ´%µ), each of its ideals is
+generated by a single element. In this case, the 9 -modules are “reasonably” well
+behaved. For instance, in general, a module may have a basis and yet possess a
+submodule that has no basis. However, if 9 is a principal ideal domain, this
+cannot happen.
+Nevertheless, even when 9 is a principal ideal domain, 9 -modules are less well
+behaved than vector spaces. For example, there are modules over a principal
+ideal domain that do not have any linearly independent elements. Of course,
+such modules cannot have a basis.
+
+Submodules
+Many of the basic concepts that we defined for vector spaces can also be
+defined for modules, although their properties are often quite different. We
+begin with submodules.
+Definition A submodule of an 9 -module 4 is a nonempty subset : of 4 that
+is an 9 -module in its own right, under the operations obtained by restricting the
+operations of 4 to : . We write :  4 to denote the fact that : is a submodule
+of 4 .
+
+

@@ -1,0 +1,1020 @@
+Real and Complex Inner Product Spaces
+
+211
+
+1)  is an isometry if it preserves the inner product, that is, if
+º "Á  #» ~ º"Á #»
+for all "Á #  = .
+2) A bijective isometry is called an isometric isomorphism. When ¢ = ¦ >
+is an isometric isomorphism, we say that = and > are isometrically
+isomorphic.
+It is clear that an isometry is injective and so it is an isometric isomorphism
+provided it is surjective. Moreover, if
+dim²= ³ ~ dim²> ³  B
+injectivity implies surjectivity and  is an isometry if and only if  is an
+isometric isomorphism. On the other hand, the following simple example shows
+that this is not the case for infinite-dimensional inner product spaces.
+Example 9.3 The map ¢ M ¦ M defined by
+²% Á % Á % Á Ã ³ ~ ²Á % Á % Á Ã ³
+is an isometry, but it is clearly not surjective.
+Since the norm determines the inner product, the following should not come as a
+surprise.
+Theorem 9.6 A linear transformation   B²= Á > ³ is an isometry if and only if
+it preserves the norm, that is, if and only if
+)#) ~ )#)
+for all #  = .
+Proof. Clearly, an isometry preserves the norm. The converse follows from the
+polarization identities. In the real case, we have
+
+² ) " b  # ) c ) " c  # ) ³
+
+
+~ ²) ²" b #³) c ) ²" c #³) ³
+
+
+~ ²)" b #) c )" c #) ³
+
+~ º"Á #»
+
+º "Á  #» ~
+
+and so  is an isometry. The complex case is similar.
+
+Orthogonality
+The presence of an inner product allows us to define the concept of
+orthogonality.
+
+212
+
+Advanced Linear Algebra
+
+Definition Let = be an inner product space.
+1) Two vectors "Á #  = are orthogonal, written "  #, if
+º"Á #» ~ 
+2) Two subsets ?Á @  = are orthogonal, written ?  @ , if º?Á @ » ~ ¸¹,
+that is, if %  & for all %  ? and &  @ . We write #  ? in place of
+¸#¹  ?.
+3) The orthogonal complement of a subset ?  = is the set
+?  ~ ¸#  =  #  ?¹
+The following result is easily proved.
+Theorem 9.7 Let = be an inner product space.
+1) The orthogonal complement ?  of any subset ?  = is a subspace of = .
+2) For any subspace : of = ,
+: q :  ~ ¸¹
+Definition An inner product space = is the orthogonal direct sum of
+subspaces : and ; if
+= ~ : l ;Á
+
+:;
+
+In this case, we write
+: p;
+More generally, = is the orthogonal direct sum of the subspaces : Á Ã Á : ,
+written
+: ~ : p Ä p :
+if
+= ~ : l Ä l :
+
+and
+
+:  : for  £ 
+
+Theorem 9.8 Let = be an inner product space. The following are equivalent.
+1) = ~ : p ;
+2) = ~ : l ; and ; ~ : 
+Proof. If = ~ : p ; , then by definition, ;  :  . However, if #  :  , then
+# ~ b ! where  : and !  ; . Then is orthogonal to both ! and # and so
+is orthogonal to itself, which implies that ~  and so #  ; . Hence, ; ~ :  .
+The converse is clear.
+
+Orthogonal and Orthonormal Sets
+Definition A nonempty set E ~ ¸"    2¹ of vectors in an inner product
+space is said to be an orthogonal set if "  " for all  £   2 . If, in
+addition, each vector " is a unit vector, then E is an orthonormal set. Thus, a
+
+Real and Complex Inner Product Spaces
+
+213
+
+set is orthonormal if
+º" Á " » ~ Á
+for all Á   2 , where Á is the Kronecker delta function.
+Of course, given any nonzero vector #  = , we may obtain a unit vector " by
+multiplying # by the reciprocal of its norm:
+"~
+
+
+#
+)#)
+
+This process is referred to as normalizing the vector #. Thus, it is a simple
+matter to construct an orthonormal set from an orthogonal set of nonzero
+vectors.
+Note that if "  #, then
+)" b #) ~ )") b )#)
+and the converse holds if - ~ s.
+Orthogonality is stronger than linear independence.
+Theorem 9.9 Any orthogonal set of nonzero vectors in = is linearly
+independent.
+Proof. If E ~ ¸"    2¹ is an orthogonal set of nonzero vectors and
+ " b Ä b  " ~ 
+then
+ ~ º " b Ä b  " Á " » ~  º" Á " »
+and so  ~ , for all  . Hence, E is linearly independent.
+
+Gram–Schmidt Orthogonalization
+The Gram–Schmidt process can be used to transform a sequence of vectors into
+an orthogonal sequence. We begin with the following.
+Theorem 9.10 (Gram–Schmidt augmentation) Let = be an inner product
+space and let E ~ ¸" Á Ã Á " ¹ be an orthogonal set of vectors in = . If
+# ¤ º" Á Ã Á " », then there is a nonzero "  = for which ¸" Á Ã Á " Á "¹ is
+orthogonal and
+º" Á Ã Á " Á "» ~ º" Á Ã Á " Á #»
+In particular,
+
+214
+
+Advanced Linear Algebra
+
+
+
+" ~ # c   " 
+~
+
+where
+if " ~ 
+if " £ 
+
+
+ ~ H º#Á" »
+
+º" Á" »
+
+Proof. We simply set
+" ~ # c  "  c Ä c   " 
+and force "  " for all , that is,
+ ~ º"Á " » ~ º# c  " c Ä c  " Á " » ~ º#Á " » c  º" Á "»
+Thus, if " ~ , take  ~  and if " £ , take
+ ~
+
+º#Á " »
+º" Á " »
+
+The Gram–Schmidt augmentation is traditionally applied to a sequence of
+linearly independent vectors, but it also applies to any sequence of vectors.
+Theorem 9.11 (The Gram–Schmidt orthogonalization process) Let
+8 ~ ²# Á # Á Ã ³ be a sequence of vectors in an inner product space = . Define a
+sequence E ~ ²" Á " Á Ã ³ by repeated Gram–Schmidt augmentation, that is,
+c
+
+" ~ # c  Á "
+~
+
+where " ~ # and
+
+Á ~ H º# Á" »
+º" Á" »
+
+if " ~ 
+if " £ 
+
+Then E is an orthogonal sequence in = with the property that
+º" Á Ã Á " » ~ º# Á Ã Á # »
+for all   . Also, " ~  if and only if #  º# Á Ã Á #c ».
+Proof. The result holds for  ~ . Assume it holds for  c . If
+#  º# Á Ã Á #c », then
+#  º# Á Ã Á #c » ~ º" Á Ã Á "c »
+Writing
+
+Real and Complex Inner Product Spaces
+
+215
+
+c
+
+# ~   "
+~
+
+we have
+º# Á " » ~ F
+
+
+ º" Á " »
+
+if " ~ 
+if " £ 
+
+Therefore,  ~ Á when " £  and so " ~ . Hence,
+º" Á Ã Á " » ~ º" Á Ã Á "c Á » ~ º# Á Ã Á #c » ~ º# Á Ã Á # »
+If # ¤ º# Á Ã Á #c » then
+º" Á Ã Á " » ~ º# Á Ã Á #c Á " » ~ º# Á Ã Á #c Á # »
+Example 9.4 Consider the inner product space s´%µ of real polynomials, with
+inner product defined by
+
+
+º²%³Á ²%³» ~
+
+²%³²%³%
+c
+
+Applying the Gram–Schmidt process to the sequence 8 ~ ²Á %Á % Á % Á Ã ³
+gives
+" ²%³ ~ 
+" ²%³ ~ % c
+
+  % %
+c
+
+  %
+
+h~%
+
+c
+ 
+
+  % %
+% %
+
+"3 ²%³ ~ % c c
+h  c c
+h % ~ % c
+
+ %
+  % %
+c
+c
+   
+ 
+ 
+ % ²% c ³%
+ % %
+ % %
+
+3
+h >% c ?
+"4 ²%³ ~ % c c
+h  c c
+h % c c
+
+
+ ²% c  ³ %
+ %
+ % %
+c
+c
+c
+3
+
+
+~ % c %
+and so on. The polynomials in this sequence are (at least up to multiplicative
+constants) the Legendre polynomials.
+
+The QR Factorization
+The Gram–Schmidt process can be used to factor any real or complex matrix
+into a product of a matrix with orthogonal columns and an upper triangular
+matrix. Suppose that ( ~ ²#  #  Ä  # ³ is an  d  matrix with columns
+# , where   . The Gram–Schmidt process applied to these columns gives
+orthogonal vectors 6 ~ ²"  "  Ä  " ³ for which
+
+216
+
+Advanced Linear Algebra
+
+º" Á Ã Á " » ~ º# Á Ã Á # »
+for all   . In particular,
+c
+
+# ~ " b  Á "
+~
+
+where
+
+Á ~ H º# Á" »
+º" Á" »
+
+if " ~ 
+if " £ 
+
+In matrix terms,
+v
+x
+²#  #  Ä  # ³ ~ ²"  "  Ä  " ³x
+
+Á
+
+
+w
+
+Ä Á y
+Ä Á {
+{
+Æ
+ z
+
+that is, ( ~ 6) where 6 has orthogonal columns and ) is upper triangular.
+We may normalize the nonzero columns " of 6 and move the positive
+constants to ) . In particular, if  ~ )" ) for " £  and  ~  for " ~ , then
+v 
+" "
+" x
+²#  #  Ä  # ³ ~ 6 c
+c Ä c 7x
+ 
+
+w
+
+ Á
+
+
+Ä  Á y
+Ä  Á {
+{
+Æ
+ z
+
+and so
+( ~ 89
+where the columns of 8 are orthogonal and each column is either a unit vector
+or the zero vector and 9 is upper triangular with positive entries on the main
+diagonal. Moreover, if the vectors # Á Ã Á # are linearly independent, then the
+columns of 8 are nonzero. Also, if  ~  and ( is nonsingular, then 8 is
+unitary/orthogonal.
+If the columns of ( are not linearly independent, we can make one final
+adjustment to this matrix factorization. If a column " ° is zero, then we may
+replace this column by any vector as long as we replace the ²Á ³th entry  in 9
+by . Therefore, we can take nonzero columns of 8, extend to an orthonormal
+basis for the span of the columns of 8 and replace the zero columns of 8 by the
+additional members of this orthonormal basis. In this way, 8 is replaced by a
+unitary/orthogonal matrix 8Z and 9 is replaced by an upper triangular matrix 9 Z
+that has nonnegative entries on the main diagonal.
+
+Real and Complex Inner Product Spaces
+
+217
+
+Theorem 9.12 Let (  CÁ ²- ³, where - ~ d or - ~ s. There exists a
+matrix 8  CÁ ²- ³ with orthonormal columns and an upper triangular
+matrix 9  C ²- ³ with nonnegative real entries on the main diagonal for
+which
+( ~ 89
+Moreover, if  ~ , then 8 is unitary/orthogonal. If ( is nonsingular, then 9
+can be chosen to have positive entries on the main diagonal, in which case the
+factors 8 and 9 are unique. The factorization ( ~ 89 is called the 89
+factorization of the matrix (. If ( is real, then 8 and 9 may be taken to be
+real.
+Proof. As to uniqueness, if ( is nonsingular and 89 ~ 8 9 then
+c
+8c
+ 8 ~ 9 9
+
+and the right side is upper triangular with nonzero entries on the main diagonal
+and the left side is unitary. But an upper triangular matrix with positive entries
+on the main diagonal is unitary if and only if it is the identity and so 8 ~ 8
+and 9 ~ 9. Finally, if ( is real, then all computations take place in the real
+field and so 8 and 9 are real.
+The 89 decomposition has important applications. For example, a system of
+linear equations (% ~ " can be written in the form
+89% ~ "
+and since 8c ~ 8i , we have
+9% ~ 8i "
+This is an upper triangular system, which is easily solved by back substitution;
+that is, starting from the bottom and working up.
+We mention also that the 89 factorization is associated with an algorithm for
+approximating the eigenvalues of a matrix, called the 89 algorithm.
+Specifically, if ( ~ ( is an  d  matrix, define a sequence of matrices as
+follows:
+1) Let ( ~ 8 9 be the 89 factorization of ( and let ( ~ 9 8 .
+2) Once ( has been defined, let ( ~ 8 9 be the 89 factorization of (
+and let (b ~ 9 8 .
+Then ( is unitarily/orthogonally similar to (, since
+i
+8c ( 8ic ~ 8c ²9c 8c ³8c
+~ 8c 9c ~ (c
+
+For complex matrices, it can be shown that under certain circumstances, such as
+when the eigenvalues of ( have distinct norms, the sequence ( converges
+
+218
+
+Advanced Linear Algebra
+
+(entrywise) to an upper triangular matrix < , which therefore has the eigenvalues
+of ( on its main diagonal. Results can be obtained in the real case as well. For
+more details, we refer the reader to [48], page 115.
+
+Hilbert and Hamel Bases
+Definition A maximal orthonormal set in an inner product space = is called a
+Hilbert basis for = .
+Zorn's lemma can be used to show that any nontrivial inner product space has a
+Hilbert basis. We leave the details to the reader.
+Some care must be taken not to confuse the concepts of a basis for a vector
+space and a Hilbert basis for an inner product space. To avoid confusion, a
+vector space basis, that is, a maximal linearly independent set of vectors, is
+referred to as a Hamel basis. We will refer to an orthonormal Hamel basis as an
+orthonormal basis.
+To be perfectly clear, there are maximal linearly independent sets called
+(Hamel) bases and maximal orthonormal sets (called Hilbert bases). If a
+maximal linearly independent set (basis) is orthonormal, it is called an
+orthonormal basis.
+Moreover, since every orthonormal set is linearly independent, it follows that an
+orthonormal basis is a Hilbert basis, since it cannot be properly contained in an
+orthonormal set. For finite-dimensional inner product spaces, the two types of
+bases are the same.
+Theorem 9.13 Let = be an inner product space. A finite subset
+E ~ ¸" Á Ã Á " ¹ of = is an orthonormal (Hamel) basis for = if and only if it is
+a Hilbert basis for = .
+Proof. We have seen that any orthonormal basis is a Hilbert basis. Conversely,
+if E is a finite maximal orthonormal set and E  F , where F is linearly
+independent, then we may apply part 1) to extend E to a strictly larger
+orthonormal set, in contradiction to the maximality of E . Hence, E is maximal
+linearly independent.
+The following example shows that the previous theorem fails for infinitedimensional inner product spaces.
+Example 9.5 Let = ~ M and let 4 be the set of all vectors of the form
+ ~ ²Á Ã Á Á Á Á Ã ³
+where  has a  in the th coordinate and 's elsewhere. Clearly, 4 is an
+orthonormal set. Moreover, it is maximal. For if # ~ ²% ³  M has the property
+that #  4 , then
+
+Real and Complex Inner Product Spaces
+
+219
+
+% ~ º#Á  » ~ 
+for all  and so # ~ . Hence, no nonzero vector # ¤ 4 is orthogonal to 4 .
+This shows that 4 is a Hilbert basis for the inner product space M .
+On the other hand, the vector space span of 4 is the subspace : of all
+sequences in M that have finite support, that is, have only a finite number of
+nonzero terms and since span²4 ³ ~ : £ M , we see that 4 is not a Hamel
+basis for the vector space M .
+
+The Projection Theorem and Best Approximations
+Orthonormal bases have a great practical advantage over arbitrary bases. From a
+computational point of view, if 8 ~ ¸# Á Ã Á # ¹ is a basis for = , then each
+#  = has the form
+# ~  # b Ä b  #
+In general, determining the coordinates  requires solving a system of linear
+equations of size  d .
+On the other hand, if E ~ ¸" Á Ã Á " ¹ is an orthonormal basis for = and
+# ~  "  b Ä b   " 
+then the coefficients  are quite easily computed:
+º#Á " » ~ º " b Ä b  " Á " » ~  º" Á " » ~ 
+Even if E ~ ¸" Á Ã Á " ¹ is not a basis (but just an orthonormal set), we can
+still consider the expansion
+V# ~ º#Á " »" b Ä b º#Á " »"
+Theorem 9.14 Let E ~ ¸" Á Ã Á " ¹ be an orthonormal subset of an inner
+product space = and let : ~ ºE». The Fourier expansion with respect to E of
+a vector #  = is
+V# ~ º#Á " »" b Ä b º#Á " »"
+Each coefficient º#Á " » is called a Fourier coefficient of # with respect to E .
+The vector V# can be characterized as follows:
+1) V# is the unique vector  : for which ²# c ³  : .
+2) V# is the best approximation to # from within : , that is, V# is the unique
+vector  : that is closest to #, in the sense that
+)# c V#)  )# c )
+for all  : ± V
+¸#¹.
+
+220
+
+Advanced Linear Algebra
+
+3) Bessel's inequality holds for all #  = , that is
+)V#)  )#)
+Proof. For part 1), since
+º# c V#Á " » ~ º#Á " » c º#Á
+V " » ~ 
+it follows that # c V#  :  . Also, if # c  :  for  : , then c V#  : and
+c V# ~ ²# c V#³ c ²# c ³  : 
+and so
+~ V#. For part 2), if
+²# c V#³  ²#
+V c ³ and so
+
+ : , then # c V#  :  implies that
+
+)# c ) ~ )# c V# b V# c ) ~ )# c V#) b )V# c )
+Hence, )# c ) is smallest if and only if ~ V# and the smallest value is
+)# c V#). We leave proof of Bessel's inequality as an exercise.
+Theorem 9.15 (The projection theorem) If : is a finite-dimensional subspace
+of an inner product space = , then
+: ~ : p :
+In particular, if #  = , then
+# ~ V# b ²# c V#³  : p : 
+It follows that
+dim²= ³ ~ dim²:³ b dim²:  ³
+Proof. We have seen that # c V#  :  and so = ~ : b :  . But : q :  ~ ¸¹
+and so = ~ : p :  .
+The following example shows that the projection theorem may fail if : is not
+finite-dimensional. Indeed, in the infinite-dimensional case, : must be a
+complete subspace, but we postpone a discussion of this case until Chapter 13.
+Example 9.6 As in Example 9.5, let = ~ M and let : be the subspace of all
+sequences with finite support, that is, : is spanned by the vectors
+ ~ ²Á Ã Á Á Á Á Ã ³
+where  has a  in the th coordinate and 's elsewhere. If % ~ ²% ³  :  , then
+% ~ º%Á  » ~  for all  and so % ~ . Therefore, :  ~ ¸¹. However,
+: p :  ~ : £ M
+The projection theorem has a variety of uses.
+
+Real and Complex Inner Product Spaces
+
+221
+
+Theorem 9.16 Let = be an inner product space and let : be a finitedimensional subspace of = .
+1) :  ~ :
+2) If ?  = and dim²º?»³  B, then
+?  ~ º?»
+Proof. For part 1), it is clear that :  :  . On the other hand, if #  :  , then
+the projection theorem implies that # ~ b Z where  : and Z  :  . Then
+Z
+is orthogonal to both and # and so Z is orthogonal to itself. Hence, Z ~ 
+and # ~  : and so : ~ :  . We leave the proof of part 2) as an exercise.
+
+Characterizing Orthonormal Bases
+We can characterize orthonormal bases using Fourier expansions.
+Theorem 9.17 Let E ~ ¸" Á Ã Á " ¹ be an orthonormal subset of an inner
+product space = and let : ~ ºE». The following are equivalent:
+1) E is an orthonormal basis for = .
+2) ºE» ~ ¸¹
+3) Every vector is equal to its Fourier expansion, that is, for all #  = ,
+V# ~ #
+4) Bessel's identity holds for all #  = , that is,
+)V#) ~ )#)
+5) Parseval's identity holds for all #Á $  = , that is,
+º#Á $» ~ V
+´#µE h ´$µ
+VE
+where
+´#µE h ´$µ
+V
+V E ~ º#Á " »º$Á " » b Ä b º#Á " »º$Á " »
+is the standard dot product in -  .
+Proof. To see that 1) implies 2), if #  ºE» is nonzero, then E r ¸#°)#)¹ is
+orthonormal and so E is not maximal. Conversely, if E is not maximal, there is
+an orthonormal set F for which E  F . Then any nonzero #  F ± E is in
+ºE» . Hence, 2) implies 1). We leave the rest of the proof as an exercise.
+
+The Riesz Representation Theorem
+We have been dealing with linear maps for some time. We now have a need for
+conjugate linear maps.
+Definition A function ¢ = ¦ > on complex vector spaces is conjugate linear
+if it is additive,
+²# b # ³ ~ # b #
+
+222
+
+Advanced Linear Algebra
+
+and
+²#³ ~ #
+for all   d. A conjugate isomorphism is a bijective conjugate linear map.
+If %  = , then the inner product function º h Á %»¢ = ¦ - defined by
+º h Á %»# ~ º#Á %»
+is a linear functional on = . Thus, the linear map  ¢ = ¦ = i defined by
+% ~ º h Á %»
+is conjugate linear. Moreover, since º h Á %» ~ º h Á &» implies % ~ &, it follows
+that  is injective and therefore a conjugate isomorphism (since = is finitedimensional).
+Theorem 9.18 (The Riesz representation theorem) Let = be a finitedimensional inner product space.
+1) The map ¢ = ¦ = i defined by
+% ~ º h Á %»
+is a conjugate isomorphism. In particular, for each   = i , there exists a
+unique vector %  = for which  ~ º h Á %», that is,
+ # ~ º#Á %»
+for all #  = . We call % the Riesz vector for  and denote it by 9 .
+2) The map 9¢ = i ¦ = defined by
+9 ~ 9
+is also a conjugate isomorphism, being the inverse of  . We will call this
+map the Riesz map.
+Proof. Here is the usual proof that  is surjective. If  ~ , then 9 ~ , so let
+us assume that  £ . Then 2 ~ ker² ³ has codimension  and so
+= ~ º$» p 2
+for $  2  . Letting % ~ $ for   - , we require that
+ ²#³ ~ º#Á $»
+and since this clearly holds for any #  2 , it is sufficient to show that it holds
+for # ~ $, that is,
+ ²$³ ~ º$Á $» ~ º$Á $»
+Thus,  ~  ²$³°)$) and
+
+Real and Complex Inner Product Spaces
+
+9 ~
+
+ ²$³
+) $) 
+
+223
+
+$
+
+For part 2), we have
+º#Á 9 b  » ~ ² b ³²#³
+~  ²#³ b ²#³
+~ º#Á 9 » b º#Á 9 »
+~ º#Á 9 b 9 »
+for all #  = and so
+9 b  ~ 9 b 9
+Note that if = ~ s , then 9 ~ ² ² ³Á Ã Á  ² ³³, where ² Á Ã Á  ³ is the
+standard basis for s .
+
+Exercises
+1.
+2.
+3.
+4.
+5.
+
+Prove that if a matrix 4 is unitary, upper triangular and has positive entries
+on the main diagonal, must be the identity matrix.
+Use the QR factorization to show that any triangularizable matrix is
+unitarily (orthogonally) triangularizable.
+Verify the statement concerning equality in the triangle inequality.
+Prove the parallelogram law.
+Prove the Apollonius identity
+)$ c ") b )$ c #) ~
+
+6.
+7.
+
+
+
+)" c #) b h$ c ²" b #³h
+
+
+
+
+
+Let = be an inner product space with basis 8 . Show that the inner product
+is uniquely defined by the values º"Á #», for all "Á #  8 .
+Prove that two vectors " and # in a real inner product space = are
+orthogonal if and only if
+)" b #) ~ )") b )#)
+
+8.
+9.
+
+Show that an isometry is injective.
+Use Zorn's lemma to show that any nontrivial inner product space has a
+Hilbert basis.
+10. Prove Bessel's inequality.
+11. Prove that an orthonormal set E is a Hilbert basis for a finite-dimensional
+vector space = if and only if V# ~ #, for all #  = .
+12. Prove that an orthonormal set E is a Hilbert basis for a finite-dimensional
+vector space = if and only if Bessel's identity holds for all #  = , that is, if
+and only if
+
+224
+
+Advanced Linear Algebra
+
+)V#) ~ )#)
+for all #  = .
+13. Prove that an orthonormal set E is a Hilbert basis for a finite-dimensional
+vector space = if and only if Parseval's identity holds for all #Á $  = , that
+is, if and only if
+º#Á $» ~ V
+´#µE h ´$µ
+VE
+for all #Á $  = .
+14. Let " ~ ² Á Ã Á  ³ and # ~ ²  Á Ã Á  ³ be in s . The Cauchy–Schwarz
+inequality states that
+(  b Ä b   (  ² b Ä b  ³²  b Ä b  ³
+Prove that we can do better:
+²(  ( b Ä b (  (³  ² b Ä b  ³²  b Ä b
+
+
+³
+
+15. Let = be a finite-dimensional inner product space. Prove that for any subset
+? of = , we have ?  ~ span²?³.
+16. Let F3 be the inner product space of all polynomials of degree at most 3,
+under the inner product
+B
+
+º²%³Á ²%³» ~
+
+
+
+²%³²%³ c% %
+
+cB
+
+Apply the Gram–Schmidt process to the basis ¸Á %Á % Á % ¹, thereby
+computing the first four Hermite polynomials (at least up to a
+multiplicative constant).
+17. Verify uniqueness in the Riesz representation theorem.
+18. Let = be a complex inner product space and let : be a subspace of = .
+Suppose that #  = is a vector for which º#Á » b º Á #»  º Á » for all
+ : . Prove that #  :  .
+19. If = and > are inner product spaces, consider the function on = ^ >
+defined by
+º²# Á $ ³Á ²# Á $ ³» ~ º# Á # » b º$ Á $ »
+Is this an inner product on = ^ > ?
+20. A normed vector space over s or d is a vector space (over s or d)
+together with a function ))¢ = ¦ s for which for all "Á #  = and scalars 
+we have
+a) )#) ~ (()#)
+b) )" b #)  )") b )#)
+c) )#) ~  if and only if # ~ 
+If = is a real normed space (over s) and if the norm satisfies the
+parallelogram law
+
+Real and Complex Inner Product Spaces
+
+225
+
+)" b #) b )" c #) ~ )") b )#)
+prove that the polarization identity
+º"Á #» ~
+
+
+²)" b #) c )" c #) ³
+
+
+defines an inner product on = . Hint: Evaluate º"Á %» b º#Á %» to show
+that º"Á %» ~ º"Á %» and º"Á %» b º#Á %» ~ º" b #Á %». Then complete the
+proof that º"Á %» ~ º"Á %».
+21. Let : be a subspace of a finite-dimensional inner product space = . Prove
+that each coset in = °: contains exactly one vector that is orthogonal to : .
+
+Extensions of Linear Functionals
+22. Let  be a linear functional on a subspace : of a finite-dimensional inner
+product space = . Let  ²#³ ~ º#Á 9 ». Suppose that   = i is an extension
+of  , that is, O: ~  . What is the relationship between the Riesz vectors 9
+and 9 ?
+23. Let  be a nonzero linear functional on a subspace : of a finite-dimensional
+inner product space = and let 2 ~ ker² ³. Show that if   = i is an
+extension of  , then 9  2  ± :  . Moreover, for each vector
+"  2  ± :  there is exactly one scalar  for which the linear functional
+²?³ ~ º?Á "» is an extension of  .
+
+Positive Linear Functionals on s
+A vector # ~ ² Á Ã Á  ³ in s is nonnegative (also called positive), written
+#  , if    for all . The vector # is strictly positive, written #  , if # is
+nonnegative but not . The set sb of all strictly positive vectors in s is called
+the nonnegative orthant in s À The vector # is strongly positive, written
+#  , if    for all . The set sbb , of all strongly positive vectors in s is
+the strongly positive orthant in s À
+Let  ¢ : ¦ s be a linear functional on a subspace : of s . Then  is
+nonnegative (also called positive), written   , if
+#   ¬  ²#³  
+for all #  : and  is strictly positive, written   , if
+#   ¬  ²#³  
+for all #  :À
+24. Prove that a linear functional  on s is positive if and only if 9   and
+strictly positive if and only if 9  . If : is a subspace of s is it true
+that a linear functional  on : is nonnegative if and only if 9  ?
+
+226
+
+Advanced Linear Algebra
+
+25. Let  ¢ : ¦ s be a strictly positive linear functional on a subspace : of s .
+Prove that  has a strictly positive extension to s . Use the fact that if
+< q s
+b ~ ¸¹, where
+sb ~ ¸² Á Ã Á  ³     all ¹
+and < is a subspace of s , then <  contains a strongly positive vector.
+26. If = is a real inner product space, then we can define an inner product on its
+complexification = d as follows (this is the same formula as for the ordinary
+inner product on a complex vector space):
+º" b #Á % b &» ~ º"Á %» b º#Á &» b ²º#Á %» c º"Á &»³
+Show that
+)²" b #³) ~ )") b )#)
+where the norm on the left is induced by the inner product on = d and the
+norm on the right is induced by the inner product on = .
+
+Chapter 10
+
+Structure Theory for Normal Operators
+
+Throughout this chapter, all vector spaces are assumed to be finite-dimensional
+unless otherwise noted. Also, the field - is either s or d.
+
+The Adjoint of a Linear Operator
+The purpose of this chapter is to study the structure of certain special types of
+linear operators on finite-dimensional real and complex inner product spaces. In
+order to define these operators, we introduce another type of adjoint (different
+from the operator adjoint of Chapter 3).
+Theorem 10.1 Let = and > be finite-dimensional inner product spaces over and let   B²= Á > ³. Then there is a unique function  i ¢ > ¦ = , defined by
+the condition
+º #Á $» ~ º#Á  i $»
+for all #  = and $  > . This function is in B²> Á = ³ and is called the adjoint
+of  .
+Proof. If  i exists, then it is unique, for if
+º #Á $» ~ º#Á $»
+then º#Á $» ~ º#Á  i $» for all # and $ and so  ~  i .
+We seek a linear map  i ¢ > ¦ = for which
+º#Á  i $» ~ º #Á $»
+By way of motivation, the vector  i $, if it exists, looks very much like a linear
+map sending # to º #Á $». The only problem is that  i # is supposed to be a
+vector, not a linear map. But the Riesz representation theorem tells us that linear
+maps can be represented by vectors.
+
+228
+
+Advanced Linear Algebra
+
+Specifically, for each $  > , the linear functional $  = i defined by
+$ # ~ º #Á $»
+has the form
+$ # ~ º#Á 9$ »
+where 9$  = is the Riesz vector for $ . If  i ¢ > ¦ = is defined by
+ i $ ~ 9$ ~ 9²$ ³
+where 9 is the Riesz map, then
+º#Á  i $» ~ º#Á 9$ » ~ $ # ~ º #Á $»
+Finally, since  i ~ 9 k  is the composition of the Riesz map 9 and the map
+ ¢ $ ª $ and since both of these maps are conjugate linear, their composition
+is linear.
+Here are some of the basic properties of the adjoint.
+Theorem 10.2 Let = and > be finite-dimensional inner product spaces. For
+every Á   B²= Á > ³ and   - ,
+1) ² b  ³i ~ i b  i
+2) ² ³i ~  i
+3)  ii ~  and so
+º i #Á $» ~ º#Á  $»
+4) If = ~ > , then ² ³i ~  i i
+5) If  is invertible, then ² c ³i ~ ² i ³c
+6) If = ~ > and ²%³  s´%µ, then ² ³i ~ ² i ³.
+Moreover, if   B²= ³ and : is a subspace of = , then
+7) : is  -invariant if and only if :  is  i -invariant.
+8) ²:Á :  ³ reduces  if and only if : is both  -invariant and  i -invariant, in
+which case
+² O: ³i ~ ² i ³O:
+Proof. For part 7), let  : and '  :  and write
+º i 'Á » ~ º'Á  »
+Now, if : is  -invariant, then º i 'Á » ~  for all  : and so  i '  :  and
+:  is  i -invariant. Conversely, if :  is  i -invariant, then º'Á  » ~  for all
+'  :  and so   :  ~ : , whence : is  -invariant.
+The first statement in part 8) follows from part 7) applied to both : and :  . For
+the second statement, since : is both  -invariant and  i -invariant, if Á !  : ,
+
+Structure Theory for Normal Operators
+
+229
+
+then
+º Á ² i ³O: ²!³» ~ º Á  i !» ~ º Á !» ~ º O: ² ³Á !»
+Hence, by definition of adjoint, ² i ³O: ~ ² O: ³i .
+Now let us relate the kernel and image of a linear transformation to those of its
+adjoint.
+Theorem 10.3 Let   B²= Á > ³, where = and > are finite-dimensional inner
+product spaces.
+1)
+ker² i ³ ~ im² ³
+
+and
+
+im² i ³ ~ ker² ³
+
+ surjective
+ injective
+
+¯
+¯
+
+ i injective
+ i surjective
+
+ker² i  ³ ~ ker² ³
+
+and
+
+ker² i ³ ~ ker² i ³
+
+im² i  ³ ~ im² i ³
+
+and
+
+im² i ³ ~ im² ³
+
+and so
+
+2)
+
+3)
+
+4)
+²:Á; ³i ~ ;  Á: 
+Proof. For part 1),
+"  ker² i ³ ¯  i " ~ 
+¯ º i "Á = » ~ ¸¹
+¯ º"Á  = » ~ ¸¹
+¯ "  im² ³
+and so ker² i ³ ~ im² ³ . The second equation in part 1) follows by replacing 
+by  i and taking complements.
+For part 2), it is clear that ker² ³  ker² i  ³. For the reverse inclusion, we have
+ i " ~ 
+
+¬
+
+º i  "Á "» ~ 
+
+¬
+
+º "Á  "» ~ 
+
+¬
+
+" ~ 
+
+and so ker² i  ³  ker² ³. The second equation follows from the first by
+replacing  with  i . We leave the rest of the proof for the reader.
+
+230
+
+Advanced Linear Algebra
+
+The Operator Adjoint and the Hilbert Space Adjoint
+We should make some remarks about the relationship between the operator
+adjoint  d of  , as defined in Chapter 3 and the adjoint  i that we have just
+defined, which is sometimes called the Hilbert space adjoint. In the first place,
+if  ¢ = ¦ > , then  d and  i have different domains and ranges:
+ d¢ > i ¦ = i
+
+and
+
+ i¢ > ¦ =
+
+The two maps are shown in Figure 10.1, along with the conjugate Riesz
+isomorphisms 9 = ¢ = i ¦ = and 9 > ¢ > i ¦ > .
+
+V*
+
+Wx
+
+W*
+
+RV
+
+RW
+
+V
+
+W*
+W
+
+W
+
+Figure 10.1
+i
+
+i
+
+The composite map ¢ > ¦ = defined by
+ ~ ²9 = ³c k  i k 9 >
+is linear. Moreover, for all   > i and #  = ,
+² d ² ³³# ~  ² #³
+~ º #Á 9 > ² ³»
+~ º#Á  i 9 > ² ³»
+~ ´²9 = ³c ² i 9 > ² ³³µ²#³
+~ ² ³#
+and so  ~  d . Hence, the relationship between  d and  i is
+ d ~ ²9 = ³c k  i k 9 >
+Loosely speaking, the Riesz functions are like “change of variables” functions
+from linear functionals to vectors, and we can say that  i does to Riesz vectors
+what  d does to the corresponding linear functionals. Put another way (and just
+as loosely),  and  i are the same, up to conjugate Riesz isomorphism.
+In Chapter 3, we showed that the matrix of the operator adjoint  d is the
+transpose of the matrix of the map  . For Hilbert space adjoints, the situation is
+slightly different (due to the conjugate linearity of the inner product). Suppose
+that 8 ~ ² Á Ã Á  ³ and 9 ~ ² Á Ã Á  ³ are ordered orthonormal bases for =
+and > , respectively. Then
+
+Structure Theory for Normal Operators
+
+231
+
+²´ i µ9Á8 ³Á ~ º i  Á  » ~ º Á   » ~ º  Á  » ~ ²´ µ8Á9 ³Á
+and so ´ i µ9Á8 and ´ µ8Á9 are conjugate transposes. The conjugate transpose of a
+matrix ( ~ ²Á ³ is
+(i ~ ²Á ³!
+and is called the adjoint of (.
+Theorem 10.4 Let   B²= Á > ³, where = and > are finite-dimensional inner
+product spaces.
+1) The operator adjoint  d and the Hilbert space adjoint  i are related by
+ d ~ ²9 = ³c k  i k 9 >
+where 9 = and 9 > are the conjugate Riesz isomorphisms on = and > ,
+respectively.
+2) If 8 and 9 are ordered orthonormal bases for = and > , respectively, then
+´ i µ9Á8 ~ ²´ µ8Á9 ³i
+In words, the matrix of the adjoint  i is the adjoint (conjugate transpose) of
+the matrix of  .
+
+Orthogonal Projections
+In an inner product space, we can single out some special projection operators.
+Definition A projection of the form :Á:  is said to be orthogonal.
+Equivalently, a projection  is orthogonal if ker²³  im²³.
+Some care must be taken to avoid confusion between orthogonal projections and
+two projections that are orthogonal to each other, that is, for which
+ ~  ~ .
+We have seen that an operator  is a projection operator if and only if it is
+idempotent. Here is the analogous characterization of orthogonal projections.
+Theorem 10.5 Let = be a finite-dimensional inner product space. The following
+are equivalent for an operator  on = :
+1)  is an orthogonal projection
+2)  is idempotent and self-adjoint
+3)  is idempotent and does not expand lengths, that is
+)#)  )#)
+for all #  = .
+
+

@@ -1,0 +1,1093 @@
+Vector Spaces
+
+37
+
+² Á Ã Á  ³ ~ ² Á Ã Á  ³
+When convenient, we will also write the elements of -  in column form.
+When - is a finite field - with  elements, we write = ²Á ³ for - .
+4) Many sequence spaces are vector spaces. The set Seq²- ³ of all infinite
+sequences with members from a field - is a vector space under the
+componentwise operations
+²  ³ b ²! ³ ~ ²  b ! ³
+and
+²  ³ ~ ²  ³
+In a similar way, the set  of all sequences of complex numbers that
+converge to  is a vector space, as is the set MB of all bounded complex
+sequences. Also, if  is a positive integer, then the set M of all complex
+sequences ²  ³ for which
+B
+
+ (  (  B
+~
+
+is a vector space under componentwise operations. To see that addition is a
+binary operation on M , one verifies Minkowski's inequality
+B
+
+
+8 (  b ! ( 9
+~
+
+°
+
+B
+
+ 8  (  ( 9
+~
+
+°
+
+B
+
+°
+
+b 8 (! ( 9
+~
+
+which we will not do here.
+
+Subspaces
+Most algebraic structures contain substructures, and vector spaces are no
+exception.
+Definition A subspace of a vector space = is a subset : of = that is a vector
+space in its own right under the operations obtained by restricting the
+operations of = to : . We use the notation :  = to indicate that : is a
+subspace of = and :  = to indicate that : is a proper subspace of = , that is,
+:  = but : £ = . The zero subspace of = is ¸¹.
+Since many of the properties of addition and scalar multiplication hold a fortiori
+in a nonempty subset : , we can establish that : is a subspace merely by
+checking that : is closed under the operations of = .
+Theorem 1.1 A nonempty subset : of a vector space = is a subspace of = if
+and only if : is closed under addition and scalar multiplication or, equivalently,
+
+38
+
+Advanced Linear Algebra
+
+: is closed under linear combinations, that is,
+Á   - Á "Á #  : ¬ " b #  :
+Example 1.2 Consider the vector space = ²Á ³ of all binary -tuples, that is,
+-tuples of 's and 's. The weight M ²#³ of a vector #  = ²Á ³ is the number
+of nonzero coordinates in #. For instance, M ²³ ~ . Let , be the set of
+all vectors in = of even weight. Then , is a subspace of = ²Á ³.
+To see this, note that
+M ²" b #³ ~ M ²"³ b M ²#³ c M ²" q #³
+where " q # is the vector in = ²Á ³ whose th component is the product of the
+th components of " and #, that is,
+²" q #³ ~ " h #
+Hence, if M ²"³ and M ²#³ are both even, so is M ²" b #³. Finally, scalar
+multiplication over - is trivial and so , is a subspace of = ²Á ³, known as
+the even weight subspace of = ²Á ³.
+Example 1.3 Any subspace of the vector space = ²Á ³ is called a linear code.
+Linear codes are among the most important and most studied types of codes,
+because their structure allows for efficient encoding and decoding of
+information.
+
+The Lattice of Subspaces
+The set I²= ³ of all subspaces of a vector space = is partially ordered by set
+inclusion. The zero subspace ¸¹ is the smallest element in I ²= ³ and the entire
+space = is the largest element.
+If :Á ;  I ²= ³, then : q ; is the largest subspace of = that is contained in
+both : and ; . In terms of set inclusion, : q ; is the greatest lower bound of :
+and ; :
+: q ; ~ glb¸:Á ; ¹
+Similarly, if ¸:    2¹ is any collection of subspaces of = , then their
+intersection is the greatest lower bound of the subspaces:
+: ~ glb¸:    2¹
+2
+
+On the other hand, if :Á ;  I ²= ³ (and - is infinite), then : r ;  I ²= ³ if
+and only if :  ; or ;  : . Thus, the union of two subspaces is never a
+subspace in any “interesting” case. We also have the following.
+
+Vector Spaces
+
+39
+
+Theorem 1.2 A nontrivial vector space = over an infinite field - is not the
+union of a finite number of proper subspaces.
+Proof. Suppose that = ~ : r Ä r : , where we may assume that
+: 
+\ : r Ä r :
+Let $  : ± ²: r Ä r : ³ and let # ¤ : . Consider the infinite set
+( ~ ¸$ b #    - ¹
+which is the “line” through #, parallel to $. We want to show that each :
+contains at most one vector from the infinite set (, which is contrary to the fact
+that = ~ : r Ä r : . This will prove the theorem.
+If $ b #  : for  £ , then $  : implies #  : , contrary to assumption.
+Next, suppose that  $ b #  : and  $ b #  : , for   , where  £  .
+Then
+:  ² $ b #³ c ² $ b #³ ~ ² c  ³$
+and so $  : , which is also contrary to assumption.
+To determine the smallest subspace of = containing the subspaces : and ; , we
+make the following definition.
+Definition Let : and ; be subspaces of = . The sum : b ; is defined by
+: b ; ~ ¸" b #  "  :Á #  ; ¹
+More generally, the sum of any collection ¸:    2¹ of subspaces is the set
+of all finite sums of vectors from the union : :
+: ~ H  b Ä b  c    : I
+2
+
+2
+
+It is not hard to show that the sum of any collection of subspaces of = is a
+subspace of = and that the sum is the least upper bound under set inclusion:
+: b ; ~ lub¸:Á ; ¹
+More generally,
+: ~ lub¸:    2¹
+2
+
+If a partially ordered set 7 has the property that every pair of elements has a
+least upper bound and greatest lower bound, then 7 is called a lattice. If 7 has
+a smallest element and a largest element and has the property that every
+collection of elements has a least upper bound and greatest lower bound, then 7
+
+40
+
+Advanced Linear Algebra
+
+is called a complete lattice. The least upper bound of a collection is also called
+the join of the collection and the greatest lower bound is called the meet.
+Theorem 1.3 The set I²= ³ of all subspaces of a vector space = is a complete
+lattice under set inclusion, with smallest element ¸¹, largest element = , meet
+glb¸:    2¹ ~
+
+:
+2
+
+and join
+lub¸:    2¹ ~  :
+2
+
+Direct Sums
+As we will see, there are many ways to construct new vector spaces from old
+ones.
+
+External Direct Sums
+Definition Let = Á Ã Á = be vector spaces over a field - . The external direct
+sum of = Á Ã Á = , denoted by
+= ~ = ^ Ä ^ =
+is the vector space = whose elements are ordered -tuples:
+= ~ ¸²# Á Ã Á # ³  #  = Á  ~ Á Ã Á ¹
+with componentwise operations
+²" Á Ã Á " ³ b ²# Á Ã Á # ³ ~ ²" b # Á Ã Á " b #³
+and
+²# Á Ã Á # ³ ~ ²# Á Ã Á # ³
+for all   - .
+Example 1.4 The vector space -  is the external direct sum of  copies of - ,
+that is,
+- ~ - ^ Ä ^ where there are  summands on the right-hand side.
+This construction can be generalized to any collection of vector spaces by
+generalizing the idea that an ordered -tuple ²# Á Ã Á # ³ is just a function
+ ¢ ¸Á Ã Á ¹ ¦ = from the index set ¸Á Ã Á ¹ to the union of the spaces
+with the property that  ²³  = .
+
+Vector Spaces
+
+41
+
+Definition Let < ~ ¸=    2¹ be any family of vector spaces over - . The
+direct product of < is the vector space
+ = ~ H ¢ 2 ¦  = d  ²³  = I
+
+2
+
+2
+
+thought of as a subspace of the vector space of all functions from 2 to = .
+It will prove more useful to restrict the set of functions to those with finite
+support.
+Definition Let < ~ ¸=    2¹ be a family of vector spaces over - . The
+support of a function  ¢ 2 ¦ = is the set
+supp² ³ ~ ¸  2   ²³ £ ¹
+Thus, a function  has finite support if  ²³ ~  for all but a finite number of
+  2. The external direct sum of the family < is the vector space
+ext
+
+ = ~ H ¢ 2 ¦  = d  ²³  = ,  has finite supportI
+2
+
+2
+
+thought of as a subspace of the vector space of all functions from 2 to = .
+An important special case occurs when = ~ = for all   2 . If we let = 2
+denote the set of all functions from 2 to = and ²= 2 ³ denote the set of all
+functions in = 2 that have finite support, then
+ext
+
+ = ~ = 2 and  = ~ ²= 2 ³
+2
+
+2
+
+Note that the direct product and the external direct sum are the same for a finite
+family of vector spaces.
+
+Internal Direct Sums
+An internal version of the direct sum construction is often more relevant.
+Definition A vector space = is the (internal) direct sum of a family
+< ~ ¸:    0¹ of subspaces of = , written
+= ~ <
+
+or = ~ :
+0
+
+if the following hold:
+
+42
+
+Advanced Linear Algebra
+
+1) (Join of the family) = is the sum (join) of the family < :
+= ~ :
+0
+
+2) (Independence of the family) For each   0 ,
+: q
+
+p
+
+:
+
+q £
+
+s
+t
+
+~ ¸¹
+
+In this case, each : is called a direct summand of = . If < ~ ¸: Á Ã Á : ¹ is a
+finite family, the direct sum is often written
+= ~ : l Ä l :
+Finally, if = ~ : l ; , then ; is called a complement of : in = .
+Note that the condition in part 2) of the previous definition is stronger than
+saying simply that the members of < are pairwise disjoint:
+: q : ~ J
+for all  £   0 .
+A word of caution is in order here: If : and ; are subspaces of = , then we may
+always say that the sum : b ; exists. However, to say that the direct sum of :
+and ; exists or to write : l ; is to imply that : q ; ~ ¸¹. Thus, while the
+sum of two subspaces always exists, the direct sum of two subspaces does not
+always exist. Similar statements apply to families of subspaces of = .
+The reader will be asked in a later chapter to show that the concepts of internal
+and external direct sum are essentially equivalent (isomorphic). For this reason,
+the term “direct sum” is often used without qualification.
+Once we have discussed the concept of a basis, the following theorem can be
+easily proved.
+Theorem 1.4 Any subspace of a vector space has a complement, that is, if : is a
+subspace of = , then there exists a subspace ; for which = ~ : l ; .
+It should be emphasized that a subspace generally has many complements
+(although they are isomorphic). The reader can easily find examples of this in
+s .
+We can characterize the uniqueness part of the definition of direct sum in other
+useful ways. First a remark. If : and ; are distinct subspaces of = and if
+%Á &  : q ; , then the sum % b & can be thought of as a sum of vectors from the
+
+Vector Spaces
+
+43
+
+same subspace (say : ) or from different subspaces—one from : and one from
+; . When we say that a vector # cannot be written as a sum of vectors from the
+distinct subspaces : and ; , we mean that # cannot be written as a sum % b &
+where % and & can be interpreted as coming from different subspaces, even if
+they can also be interpreted as coming from the same subspace. Thus, if
+%Á &  : q ; , then # ~ % b & does express # as a sum of vectors from distinct
+subspaces.
+Theorem 1.5 Let < ~ ¸:    0¹ be a family of distinct subspaces of = . The
+following are equivalent:
+1) (Independence of the family) For each   0 ,
+: q
+
+p
+
+:
+
+q £
+
+s
+t
+
+~ ¸¹
+
+2) (Uniqueness of expression for ) The zero vector  cannot be written as a
+sum of nonzero vectors from distinct subspaces of < .
+3) (Uniqueness of expression) Every nonzero #  = has a unique, except for
+order of terms, expression as a sum
+#~
+
+bÄb 
+
+of nonzero vectors from distinct subspaces in < .
+Hence, a sum
+= ~ :
+0
+
+is direct if and only if any one of 1)–3) holds.
+Proof. Suppose that 2) fails, that is,
+~
+where the nonzero
+
+ b Ä b 
+
+ 's are from distinct subspaces : . Then    and so
+
+c  ~
+
+ b Ä b 
+
+which violates 1). Hence, 1) implies 2). If 2) holds and
+#~
+
+bÄb 
+
+where the terms are nonzero and the
+similarily for the ! 's, then
+~
+
+and # ~ ! b Ä b !
+ 's belong to distinct subspaces in < and
+
+ b Ä b  c ! c Ä c ! 
+
+By collecting terms from the same subspaces, we may write
+ ~ ²  c ! ³ b Ä b ²  c ! ³ b
+
+b b Ä b
+
+ c !b c Ä c !
+
+44
+
+Advanced Linear Algebra
+
+Then 2) implies that  ~  ~  and
+implies 3).
+
+" ~ !" for all " ~ Á Ã Á  . Hence, 2)
+
+Finally, suppose that 3) holds. If
+ £ #  : q
+then # ~
+
+:
+
+q £
+
+s
+t
+
+  : and
+ ~
+
+where
+
+p
+
+ b Ä b 
+
+  : are nonzero. But this violates 3).
+
+Example 1.5 Any matrix (  C can be written in the form
+(~
+
+
+
+²( b (! ³ b ²( c (! ³ ~ ) b *
+
+
+
+(1.1)
+
+where (! is the transpose of (. It is easy to verify that ) is symmetric and * is
+skew-symmetric and so (1.1) is a decomposition of ( as the sum of a symmetric
+matrix and a skew-symmetric matrix.
+Since the sets Sym and SkewSym of all symmetric and skew-symmetric
+matrices in C are subspaces of C , we have
+C ~ Sym b SkewSym
+Furthermore, if : b ; ~ : Z b ; Z , where : and : Z are symmetric and ; and ; Z
+are skew-symmetric, then the matrix
+< ~ : c :Z ~ ; Z c ;
+is both symmetric and skew-symmetric. Hence, provided that char²- ³ £ , we
+must have < ~  and so : ~ : Z and ; ~ ; Z . Thus,
+C ~ Sym l SkewSym
+
+Spanning Sets and Linear Independence
+A set of vectors spans a vector space if every vector can be written as a linear
+combination of some of the vectors in that set. Here is the formal definition.
+Definition The subspace spanned (or subspace generated) by a nonempty set
+: of vectors in = is the set of all linear combinations of vectors from : :
+º:» ~ span²:³ ~ ¸ # b Ä b  #    - Á #  :¹
+
+Vector Spaces
+
+45
+
+When : ~ ¸# Á Ã Á # ¹ is a finite set, we use the notation º# Á Ã Á # » or
+span²# Á Ã Á # ³. A set : of vectors in = is said to span = , or generate = , if
+= ~ span²:³.
+It is clear that any superset of a spanning set is also a spanning set. Note also
+that all vector spaces have spanning sets, since = spans itself.
+
+Linear Independence
+Linear independence is a fundamental concept.
+Definition Let = be a vector space. A nonempty set : of vectors in = is
+linearly independent if for any distinct vectors  Á Ã Á  in : ,
+  b Ä b   ~ 
+
+¬
+
+ ~ 
+
+for all 
+
+In words, : is linearly independent if the only linear combination of vectors
+from : that is equal to  is the trivial linear combination, all of whose
+coefficients are . If : is not linearly independent, it is said to be linearly
+dependent.
+It is immediate that a linearly independent set of vectors cannot contain the zero
+vector, since then  h  ~  violates the condition of linear independence.
+Another way to phrase the definition of linear independence is to say that : is
+linearly independent if the zero vector has an “as unique as possible” expression
+as a linear combination of vectors from : . We can never prevent the zero vector
+from being written in the form  ~   b Ä b   , but we can prevent  from
+being written in any other way as a linear combination of the vectors in : .
+For the introspective reader, the expression  ~  b ² c   ³ has two
+interpretations. One is  ~   b   where  ~  and  ~ c, but this does
+not involve distinct vectors so is not relevant to the question of linear
+independence. The other interpretation is  ~  b ! where ! ~ c  £ 
+(assuming that  £ ). Thus, if : is linearly independent, then : cannot
+contain both  and c  .
+Definition Let : be a nonempty set of vectors in = . To say that a nonzero
+vector #  = is an essentially unique linear combination of the vectors in : is
+to say that, up to order of terms, there is one and only one way to express # as a
+linear combination
+# ~   b Ä b   
+where the  's are distinct vectors in : and the coefficients  are nonzero. More
+explicitly, # £  is an essentially unique linear combination of the vectors in :
+if #  º:» and if whenever
+
+46
+
+Advanced Linear Algebra
+
+# ~   b Ä b   
+
+and # ~  ! b Ä b  !
+
+where the  's are distinct, the ! 's are distinct and all coefficients are nonzero,
+then  ~  and after a reindexing of the  ! 's if necessary, we have  ~  and
+ ~ ! for all  ~ Á Ã Á . (Note that this is stronger than saying that
+  ~  ! .)
+We may characterize linear independence as follows.
+Theorem 1.6 Let : £ ¸¹ be a nonempty set of vectors in = . The following are
+equivalent:
+1) : is linearly independent.
+2) Every nonzero vector #  span²:³ is an essentially unique linear
+combination of the vectors in : .
+3) No vector in : is a linear combination of other vectors in : .
+Proof. Suppose that 1) holds and that
+ £ # ~   b Ä b    ~   !  b Ä b   ! 
+where the  's are distinct, the ! 's are distinct and the coefficients are nonzero.
+By subtracting and grouping 's and !'s that are equal, we can write
+ ~ ² c  ³  b Ä b ² c  ³ 
+b b b b Ä b  
+c b !b c Ä c  !
+and so 1) implies that  ~  ~  and " ~ " and
+Thus, 1) implies 2).
+If 2) holds and
+
+" ~ !" for all  ~ Á Ã Á  .
+
+ : can be written as
+~   b Ä b  
+
+where   : are different from , then we may collect like terms on the right
+and then remove all terms with  coefficient. The resulting expression violates
+2). Hence, 2) implies 3). If 3) holds and
+  b Ä b   ~ 
+where the
+
+ 's are distinct and  £ , then    and we may write
+ ~c
+
+
+²  b Ä b   ³
+
+
+which violates 3).
+The following key theorem relates the notions of spanning set and linear
+independence.
+
+Vector Spaces
+
+47
+
+Theorem 1.7 Let : be a set of vectors in = . The following are equivalent:
+1) : is linearly independent and spans = .
+2) Every nonzero vector #  = is an essentially unique linear combination of
+vectors in : .
+3) : is a minimal spanning set, that is, : spans = but any proper subset of :
+does not span = .
+4) : is a maximal linearly independent set, that is, : is linearly independent,
+but any proper superset of : is not linearly independent.
+A set of vectors in = that satisfies any (and hence all) of these conditions is
+called a basis for = .
+Proof. We have seen that 1) and 2) are equivalent. Now suppose 1) holds. Then
+: is a spanning set. If some proper subset : Z of : also spanned = , then any
+vector in : c : Z would be a linear combination of the vectors in : Z ,
+contradicting the fact that the vectors in : are linearly independent. Hence 1)
+implies 3).
+Conversely, if : is a minimal spanning set, then it must be linearly independent.
+For if not, some vector  : would be a linear combination of the other vectors
+in : and so : c ¸ ¹ would be a proper spanning subset of : , which is not
+possible. Hence 3) implies 1).
+Suppose again that 1) holds. If : were not maximal, there would be a vector
+#  = c : for which the set : r ¸#¹ is linearly independent. But then # is not
+in the span of : , contradicting the fact that : is a spanning set. Hence, : is a
+maximal linearly independent set and so 1) implies 4).
+Conversely, if : is a maximal linearly independent set, then : must span = , for
+if not, we could find a vector #  = c : that is not a linear combination of the
+vectors in : . Hence, : r ¸#¹ would be a linearly independent proper superset of
+:, which is a contradiction. Thus, 4) implies 1).
+Theorem 1.8 A finite set : ~ ¸# Á Ã Á # ¹ of vectors in = is a basis for = if
+and only if
+= ~ º# » l Ä l º# »
+Example 1.6 The th standard vector in -  is the vector  that has 's in all
+coordinate positions except the th, where it has a . Thus,
+ ~ ²Á Á Ã Á ³Á
+
+ ~ ²Á Á Ã Á ³ Á Ã Á
+
+ ~ ²Á Ã Á Á ³
+
+The set ¸ Á Ã Á  ¹ is called the standard basis for -  .
+The proof that every nontrivial vector space has a basis is a classic example of
+the use of Zorn's lemma.
+
+48
+
+Advanced Linear Algebra
+
+Theorem 1.9 Let = be a nonzero vector space. Let 0 be a linearly independent
+set in = and let : be a spanning set in = containing 0 . Then there is a basis 8
+for = for which 0  8  : . In particular,
+1) Any vector space, except the zero space ¸¹, has a basis.
+2) Any linearly independent set in = is contained in a basis.
+3) Any spanning set in = contains a basis.
+Proof. Consider the collection 7 of all linearly independent subsets of =
+containing 0 and contained in : . This collection is not empty, since 0  7 .
+Now, if
+9 ~ ¸0    2¹
+is a chain in 7 , then the union
+< ~  0
+2
+
+is linearly independent and satisfies 0  <  : , that is, <  7 . Hence, every
+chain in 7 has an upper bound in 7 and according to Zorn's lemma, 7 must
+contain a maximal element 8 , which is linearly independent.
+Now, 8 is a basis for the vector space º:» ~ = , for if any  : is not a linear
+combination of the elements of 8 , then 8 r ¸ ¹  : is linearly independent,
+contradicting the maximality of 8 . Hence :  º8 » and so = ~ º:»  º8 ».
+The reader can now show, using Theorem 1.9, that any subspace of a vector
+space has a complement.
+
+The Dimension of a Vector Space
+The next result, with its classical elegant proof, says that if a vector space = has
+a finite spanning set : , then the size of any linearly independent set cannot
+exceed the size of : .
+Theorem 1.10 Let = be a vector space and assume that the vectors # Á Ã Á #
+are linearly independent and the vectors  Á Ã Á  span = . Then   .
+Proof. First, we list the two sets of vectors: the spanning set followed by the
+linearly independent set:
+ Á Ã Á  Â # Á Ã Á # 
+Then we move the first vector # to the front of the first list:
+# Á  Á Ã Á  Â # Á Ã Á #
+Since  Á Ã Á  span = , # is a linear combination of the  's. This implies that
+we may remove one of the  's, which by reindexing if necessary can be  ,
+from the first list and still have a spanning set
+# Á  Á Ã Á  Â # Á Ã Á #
+
+Vector Spaces
+
+49
+
+Note that the first set of vectors still spans = and the second set is still linearly
+independent.
+Now we repeat the process, moving # from the second list to the first list
+# Á # Á  Á Ã Á  Â # Á Ã Á #
+As before, the vectors in the first list are linearly dependent, since they spanned
+= before the inclusion of # . However, since the # 's are linearly independent,
+any nontrivial linear combination of the vectors in the first list that equals 
+must involve at least one of the  's. Hence, we may remove that vector, which
+again by reindexing if necessary may be taken to be  and still have a spanning
+set
+# Á # Á  Á Ã Á  Â # Á Ã Á #
+Once again, the first set of vectors spans = and the second set is still linearly
+independent.
+Now, if   , then this process will eventually exhaust the
+list
+# Á # Á Ã Á # Â #b Á Ã Á #
+
+ 's and lead to the
+
+where # Á # Á Ã Á # span = , which is clearly not possible since # is not in the
+span of # Á # Á Ã Á # . Hence,   .
+Corollary 1.11 If = has a finite spanning set, then any two bases of = have the
+same size.
+Now let us prove the analogue of Corollary 1.11 for arbitrary vector spaces.
+Theorem 1.12 If = is a vector space, then any two bases for = have the same
+cardinality.
+Proof. We may assume that all bases for = are infinite sets, for if any basis is
+finite, then = has a finite spanning set and so Corollary 1.11 applies.
+Let 8 ~ ¸    0¹ be a basis for = and let 9 be another basis for = . Then any
+vector   9 can be written as a finite linear combination of the vectors in 8 ,
+where all of the coefficients are nonzero, say
+ ~    
+<
+
+But because 9 is a basis, we must have
+ < ~ 0
+9
+
+50
+
+Advanced Linear Algebra
+
+for if the vectors in 9 can be expressed as finite linear combinations of the
+vectors in a proper subset 8 Z of 8 , then 8 Z spans = , which is not the case.
+Since (< (  L for all   9, Theorem 0.17 implies that
+(8 ( ~ (0 (  L (9( ~ (9(
+But we may also reverse the roles of 8 and 9, to conclude that (9(  (8 ( and so
+the Schröder–Bernstein theorem implies that (8 ( ~ (9(.
+Theorem 1.12 allows us to make the following definition.
+Definition A vector space = is finite-dimensional if it is the zero space ¸¹, or
+if it has a finite basis. All other vector spaces are infinite-dimensional. The
+dimension of the zero space is  and the dimension of any nonzero vector
+space = is the cardinality of any basis for = . If a vector space = has a basis of
+cardinality  , we say that = is -dimensional and write dim²= ³ ~  .
+It is easy to see that if : is a subspace of = , then dim²:³  dim²= ³. If in
+addition, dim²:³ ~ dim²= ³  B, then : ~ = .
+Theorem 1.13 Let = be a vector space.
+1) If 8 is a basis for = and if 8 ~ 8 r 8 and 8 q 8 ~ J, then
+= ~ º8 » l º8 »
+2) Let = ~ : l ; . If 8 is a basis for : and 8 is a basis for ; , then
+8 q 8 ~ J and 8 ~ 8 r 8 is a basis for = .
+Theorem 1.14 Let : and ; be subspaces of a vector space = . Then
+dim²:³ b dim²; ³ ~ dim²: b ; ³ b dim²: q ; ³
+In particular, if ; is any complement of : in = , then
+dim²:³ b dim²; ³ ~ dim²= ³
+that is,
+dim²: l ; ³ ~ dim²:³ b dim²; ³
+Proof. Suppose that 8 ~ ¸    0¹ is a basis for : q ; . Extend this to a basis
+7 r 8 for : where 7 ~ ¸    1 ¹ is disjoint from 8 . Also, extend 8 to a
+basis 8 r 9 for ; where 9 ~ ¸    2¹ is disjoint from 8 . We claim that
+7 r 8 r 9 is a basis for : b ; . It is clear that º7 r 8 r 9» ~ : b ; .
+To see that 7 r 8 r 9 is linearly independent, suppose to the contrary that
+
+Vector Spaces
+
+51
+
+ # b Ä b  # ~ 
+where #  7 r 8 r 9 and  £  for all . There must be vectors # in this
+expression from both 7 and 9, since 7 r 8 and 8 r 9 are linearly independent.
+Isolating the terms involving the vectors from 7 on one side of the equality
+shows that there is a nonzero vector in %  º7» q º8 r 9». But then %  : q ;
+and so %  º7» q º8 », which implies that % ~ , a contradiction. Hence,
+7 r 8 r 9 is linearly independent and a basis for : b ; .
+Now,
+dim²:³ b dim²; ³ ~ (7 r 8 ( b (8 r 9(
+~ (7( b (8 ( b (8 ( b (9(
+~ (7( b (8 ( b (9( b dim²: q ; ³
+~ dim²: b ; ³ b dim²: q ; ³
+as desired.
+It is worth emphasizing that while the equation
+dim²:³ b dim²; ³ ~ dim²: b ; ³ b dim²: q ; ³
+holds for all vector spaces, we cannot write
+dim²: b ; ³ ~ dim²:³ b dim²; ³ c dim²: q ; ³
+unless : b ; is finite-dimensional.
+
+Ordered Bases and Coordinate Matrices
+It will be convenient to consider bases that have an order imposed on their
+members.
+Definition Let = be a vector space of dimension . An ordered basis for = is
+an ordered -tuple ²# Á Ã Á # ³ of vectors for which the set ¸# Á Ã Á # ¹ is a
+basis for = .
+If 8 ~ ²# Á Ã Á # ³ is an ordered basis for = , then for each #  = there is a
+unique ordered -tuple ² Á Ã Á  ³ of scalars for which
+# ~   # b Ä b   # 
+Accordingly, we can define the coordinate map 8 ¢ = ¦ -  by
+8 ²#³ ~ ´#µ8 ~
+
+v  y
+Å
+w  z
+
+(1.3)
+
+52
+
+Advanced Linear Algebra
+
+where the column matrix ´#µ8 is known as the coordinate matrix of # with
+respect to the ordered basis 8 . Clearly, knowing ´#µ8 is equivalent to knowing #
+(assuming knowledge of 8 ).
+Furthermore, it is easy to see that the coordinate map 8 is bijective and
+preserves the vector space operations, that is,
+8 ² # b Ä b  # ³ ~  8 ²# ³ b Ä b  8 ²# ³
+or equivalently
+´ # b Ä b  # µ8 ~  ´# µ8 b Ä b  ´# µ8
+Functions from one vector space to another that preserve the vector space
+operations are called linear transformations and form the objects of study in the
+next chapter.
+
+The Row and Column Spaces of a Matrix
+Let ( be an  d  matrix over - . The rows of ( span a subspace of -  known
+as the row space of ( and the columns of ( span a subspace of -  known as
+the column space of (. The dimensions of these spaces are called the row rank
+and column rank, respectively. We denote the row space and row rank by
+rs²(³ and rrk²(³ and the column space and column rank by cs²(³ and crk²(³.
+It is a remarkable and useful fact that the row rank of a matrix is always equal to
+its column rank, despite the fact that if  £ , the row space and column space
+are not even in the same vector space!
+Our proof of this fact hinges on the following simple observation about
+matrices.
+Lemma 1.15 Let ( be an  d  matrix. Then elementary column operations do
+not affect the row rank of (. Similarly, elementary row operations do not affect
+the column rank of (.
+Proof. The second statement follows from the first by taking transposes. As to
+the first, the row space of ( is
+rs²(³ ~ º (Á Ã Á  (»
+where  are the standard basis vectors in -  . Performing an elementary
+column operation on ( is equivalent to multiplying ( on the right by an
+elementary matrix , . Hence the row space of (, is
+rs²(,³ ~ º (,Á Ã Á  (,»
+and since , is invertible,
+
+Vector Spaces
+
+53
+
+rrk²(³ ~ dim²rs²(³³ ~ dim²rs²(,³³ ~ rrk²(,³
+as desired.
+Theorem 1.16 If (  CÁ , then rrk²(³ ~ crk²(³. This number is called the
+rank of ( and is denoted by rk²(³.
+Proof. According to the previous lemma, we may reduce ( to reduced column
+echelon form without affecting the row rank. But this reduction does not affect
+the column rank either. Then we may further reduce ( to reduced row echelon
+form without affecting either rank. The resulting matrix 4 has the same row
+and column ranks as (. But 4 is a matrix with 's followed by 's on the main
+diagonal (entries 4Á Á 4Á Á Ã ) and 's elsewhere. Hence,
+rrk²(³ ~ rrk²4 ³ ~ crk²4 ³ ~ crk²(³
+as desired.
+
+The Complexification of a Real Vector Space
+If > is a complex vector space (that is, a vector space over d), then we can
+think of > as a real vector space simply by restricting all scalars to the field s.
+Let us denote this real vector space by >s and call it the real version of > .
+On the other hand, to each real vector space = , we can associate a complex
+vector space = d . This “complexification” process will play a useful role when
+we discuss the structure of linear operators on a real vector space. (Throughout
+our discussion = will denote a real vector space.)
+Definition If = is a real vector space, then the set = d ~ = d = of ordered
+pairs, with componentwise addition
+²"Á #³ b ²%Á &³ ~ ²" b %Á # b &³
+and scalar multiplication over d defined by
+² b ³²"Á #³ ~ ²" c #Á # b "³
+for Á   s is a complex vector space, called the complexification of = .
+It is convenient to introduce a notation for vectors in = d that resembles the
+notation for complex numbers. In particular, we denote ²"Á #³  = d by " b #
+and so
+= d ~ ¸" b #  "Á #  = ¹
+Addition now looks like ordinary addition of complex numbers,
+²" b #³ b ²% b &³ ~ ²" b %³ b ²# b &³
+and scalar multiplication looks like ordinary multiplication of complex numbers,
+
+54
+
+Advanced Linear Algebra
+
+² b ³²" b #³ ~ ²" c #³ b ²# b "³
+Thus, for example, we immediately have for Á   s,
+²" b #³ ~ " b #
+²" b #³ ~ c# b "
+² b ³" ~ " b "
+² b ³# ~ c# b #
+The real part of ' ~ " b # is "  = and the imaginary part of ' is #  = .
+The essence of the fact that ' ~ " b #  = d is really an ordered pair is that ' is
+ if and only if its real and imaginary parts are both .
+We can define the complexification map cpx¢ = ¦ = d by
+cpx²#³ ~ # b 
+Let us refer to # b  as the complexification, or complex version of #  = .
+Note that this map is a group homomorphism, that is,
+cpx²³ ~  b 
+
+and
+
+cpx²" f #³ ~ cpx²"³ f cpx²#³
+
+and it is injective:
+cpx²"³ ~ cpx²#³ ¯ " ~ #
+Also, it preserves multiplication by real scalars:
+cpx²"³ ~ " b  ~ ²" b ³ ~ cpx²"³
+for   s. However, the complexification map is not surjective, since it gives
+only “real” vectors in = d .
+The complexification map is an injective linear transformation (defined in the
+next chapter) from the real vector space = to the real version ²= d ³s of the
+complexification = d , that is, to the complex vector space = d provided that
+scalars are restricted to real numbers. In this way, we see that = d contains an
+embedded copy of = .
+
+The Dimension of = d
+The vector-space dimensions of = and = d are the same. This should not
+necessarily come as a surprise because although = d may seem “bigger” than = ,
+the field of scalars is also “bigger.”
+Theorem 1.17 If 8 ~ ¸#    0¹ is a basis for = over s, then the
+complexification of 8 ,
+cpx²8 ³ ~ ¸# b   #  8 ¹
+
+Vector Spaces
+
+55
+
+is a basis for the vector space = d over d. Hence,
+dim²= d ³ ~ dim²= ³
+Proof. To see that cpx²8 ³ spans = d over d, let % b &  = d . Then %Á &  =
+and so there exist real numbers  and  (some of which may be ) for which
+1
+
+1
+
+% b & ~   # b @  # A
+~
+
+~
+
+1
+
+~  ² # b  # ³
+~
+1
+
+~  ² b  ³²# b ³
+~
+
+To see that cpx²8 ³ is linearly independent, if
+1
+
+ ² b  ³²# b ³ ~  b 
+~
+
+then the previous computations show that
+1
+
+1
+
+  # ~  and   # ~ 
+~
+
+~
+
+The independence of 8 then implies that  ~  and  ~  for all .
+If #  = and 8 ~ ¸#    0¹ is a basis for = , then we may write
+
+
+# ~   # 
+~
+
+for   s. Since the coefficients are real, we have
+
+
+# b  ~   ²# b ³
+~
+
+and so the coordinate matrices are equal:
+´# b µcpx²8 ³ ~ ´#µ8
+
+Exercises
+1.
+
+Let = be a vector space over - . Prove that # ~  and  ~  for all #  =
+and   - . Describe the different 's in these equations. Prove that if
+# ~ , then  ~  or # ~ . Prove that # ~ # implies that # ~  or  ~ .
+
+56
+2.
+3.
+
+4.
+
+Advanced Linear Algebra
+Prove Theorem 1.3.
+a) Find an abelian group = and a field - for which = is a vector space
+over - in at least two different ways, that is, there are two different
+definitions of scalar multiplication making = a vector space over - .
+b) Find a vector space = over - and a subset : of = that is (1) a
+subspace of = and (2) a vector space using operations that differ from
+those of = .
+Suppose that = is a vector space with basis 8 ~ ¸    0¹ and : is a
+subspace of = . Let ¸) Á Ã Á ) ¹ be a partition of 8 . Then is it true that
+
+
+: ~ ²: q º) »³
+~
+
+5.
+6.
+
+What if : q º) » £ ¸¹ for all ?
+Prove Theorem 1.8.
+Let :Á ; Á <  I ²= ³. Show that if <  : , then
+: q ²; b < ³ ~ ²: q ; ³ b <
+
+7.
+
+This is called the modular law for the lattice I²= ³.
+For what vector spaces does the distributive law of subspaces
+: q ²; b < ³ ~ ²: q ; ³ b ²: q < ³
+
+hold?
+A vector # ~ ² Á Ã Á  ³  s is called strongly positive if    for all
+ ~ Á Ã Á .
+a) Suppose that # is strongly positive. Show that any vector that is “close
+enough” to # is also strongly positive. (Formulate carefully what “close
+enough” should mean.)
+b) Prove that if a subspace : of s contains a strongly positive vector,
+then : has a basis of strongly positive vectors.
+9. Let 4 be an  d  matrix whose rows are linearly independent. Suppose
+that the  columns  Á Ã Á  of 4 span the column space of 4 . Let * be
+the matrix obtained from 4 by deleting all columns except  Á Ã Á  .
+Show that the rows of * are also linearly independent.
+10. Prove that the first two statements in Theorem 1.7 are equivalent.
+11. Show that if : is a subspace of a vector space = , then dim²:³  dim²= ³.
+Furthermore, if dim²:³ ~ dim²= ³  B then : ~ = . Give an example to
+show that the finiteness is required in the second statement.
+12. Let dim²= ³  B and suppose that = ~ < l : ~ < l : . What can you
+say about the relationship between : and : ? What can you say if
+:  : ?
+13. What is the relationship between : l ; and ; l : ? Is the direct sum
+operation commutative? Formulate and prove a similar statement
+concerning associativity. Is there an “identity” for direct sum? What about
+“negatives”?
+8.
+
+Vector Spaces
+
+57
+
+14. Let = be a finite-dimensional vector space over an infinite field - . Prove
+that if : Á Ã Á : are subspaces of = of equal dimension, then there is a
+subspace ; of = for which = ~ : l ; for all  ~ Á Ã Á  . In other words,
+; is a common complement of the subspaces : .
+15. Prove that the vector space 9 of all continuous functions from s to s is
+infinite-dimensional.
+16. Show that Theorem 1.2 need not hold if the base field - is finite.
+17. Let : be a subspace of = . The set # b : ~ ¸# b   :¹ is called an
+affine subspace of = .
+a) Under what conditions is an affine subspace of = a subspace of = ?
+b) Show that any two affine subspaces of the form # b : and $ b : are
+either equal or disjoint.
+18. If = and > are vector spaces over - for which (= ( ~ (> (, then does it
+follow that dim²= ³ ~ dim²> ³?
+19. Let = be an -dimensional real vector space and suppose that : is a
+subspace of = with dim²:³ ~  c . Define an equivalence relation  on
+the set = ± : by #  $ if the “line segment”
+3²#Á $³ ~ ¸# b ² c ³$      ¹
+has the property that 3²#Á $³ q : ~ J. Prove that  is an equivalence
+relation and that it has exactly two equivalence classes.
+20. Let - be a field. A subfield of - is a subset 2 of - that is a field in its
+own right using the same operations as defined on - .
+a) Show that - is a vector space over any subfield 2 of - .
+b) Suppose that - is an -dimensional vector space over a subfield 2 of
+- . If = is an -dimensional vector space over - , show that = is also a
+vector space over 2 . What is the dimension of = as a vector space
+over 2 ?
+21. Let - be a finite field of size  and let = be an -dimensional vector space
+over - . The purpose of this exercise is to show that the number of
+subspaces of = of dimension  is
+
+²  c ³Ä² c ³
+4 5 ~ 
+ 
+² c ³Ä² c ³² c c ³Ä² c ³
+The expressions ²  ³ are called Gaussian coefficients and have properties
+similar to those of the binomial coefficients. Let :²Á ³ be the number of
+ -dimensional subspaces of = .
+a) Let 5 ²Á ³ be the number of  -tuples of linearly independent vectors
+²# Á Ã Á # ³ in = . Show that
+5 ²Á ³ ~ ²  c ³²  c ³Ä²  c  c ³
+b) Now, each of the  -tuples in a) can be obtained by first choosing a
+subspace of = of dimension  and then selecting the vectors from this
+subspace. Show that for any  -dimensional subspace of = , the number
+
+58
+
+Advanced Linear Algebra
+of  -tuples of independent vectors in this subspace is
+²  c ³²  c ³Ä²  c  c ³
+c)
+
+Show that
+5 ²Á ³ ~ :²Á ³²  c ³²  c ³Ä²  c  c ³
+
+How does this complete the proof?
+22. Prove that any subspace : of s is a closed set or, equivalently, that its set
+complement :  ~ s ± : is open, that is, for any %  :  there is an open
+ball )²%Á ³ centered at % with radius    for which )²%Á ³  :  .
+23. Let 8 ~ ¸ Á Ã Á  ¹ and 9 ~ ¸ Á Ã Á  ¹ be bases for a vector space = .
+Let      c . Show that there is a permutation  of ¸Á Ã Á ¹ such
+that
+ Á Ã Á  Á ²b³ Á Ã Á ²³
+and
+²³ Á Ã Á ²³ Á b Á Ã Á 
+are both bases for = . Hint: You may use the fact that if 4 is an invertible
+ d  matrix and if     , then it is possible to reorder the rows so
+that the upper left  d  submatrix and the lower right ² c ³ d ² c ³
+submatrix are both invertible. (This follows, for example, from the general
+Laplace expansion theorem for determinants.)
+24. Let = be an -dimensional vector space over an infinite field - and
+suppose that : Á Ã Á : are subspaces of = with dim²: ³    . Prove
+that there is a subspace ; of = of dimension  c  for which
+; q : ~ ¸¹ for all .
+25. What is the dimension of the complexification = d thought of as a real
+vector space?
+26. (When is a subspace of a complex vector space a complexification?) Let =
+be a real vector space with complexification = d and let < be a subspace of
+= d . Prove that there is a subspace : of = for which
+< ~ : d ~ ¸ b !  Á !  :¹
+if and only if < is closed under complex conjugation ¢ = d ¦ = d defined
+by ²" b #³ ~ " c #.
+
+Chapter 2
+
+Linear Transformations
+
+Linear Transformations
+Loosely speaking, a linear transformation is a function from one vector space to
+another that preserves the vector space operations. Let us be more precise.
+Definition Let = and > be vector spaces over a field - . A function  ¢ = ¦ >
+is a linear transformation if
+ ²" b #³ ~  ²"³ b  ²#³
+for all scalars Á  - and vectors ",#  = . The set of all linear
+transformations from = to > is denoted by B²= Á > ³.
+1) A linear transformation from = to = is called a linear operator on = . The
+set of all linear operators on = is denoted by B²= ³. A linear operator on a
+real vector space is called a real operator and a linear operator on a
+complex vector space is called a complex operator.
+2) A linear transformation from = to the base field - (thought of as a vector
+space over itself) is called a linear functional on = . The set of all linear
+functionals on = is denoted by = i and called the dual space of = .
+We should mention that some authors use the term linear operator for any linear
+transformation from = to > . Also, the application of a linear transformation 
+on a vector # is denoted by  ²#³ or by  #, parentheses being used when
+necessary, as in  ²" b #³, or to improve readability, as in ² "³ rather than
+² ²"³³.
+Definition The following terms are also employed:
+1) homomorphism for linear transformation
+2) endomorphism for linear operator
+3) monomorphism (or embedding) for injective linear transformation
+4) epimorphism for surjective linear transformation
+5) isomorphism for bijective linear transformation.
+
+

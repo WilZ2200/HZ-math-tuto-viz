@@ -4,8 +4,8 @@
 window.EXTRA_VIZ = window.EXTRA_VIZ || {};
 window.EXTRA_VIZ['ch16'] = window.EXTRA_VIZ['ch16'] || {};
 
-// Section 1: Affine Combinations and Affine Independence
-window.EXTRA_VIZ['ch16']['ch16-sec01'] = [
+// Section 3: Affine Combinations and Barycentric Coordinates
+window.EXTRA_VIZ['ch16']['ch16-sec03'] = [
     {
         id: 'ch16-extra-viz-1',
         title: 'Interactive: Affine Combination Explorer',
@@ -364,8 +364,8 @@ window.EXTRA_VIZ['ch16']['ch16-sec01'] = [
     }
 ];
 
-// Section 2: Affine Transformations and Maps
-window.EXTRA_VIZ['ch16']['ch16-sec02'] = [
+// Section 5: Affine Maps
+window.EXTRA_VIZ['ch16']['ch16-sec05'] = [
     {
         id: 'ch16-extra-viz-4',
         title: 'Interactive: Affine vs Linear Map Comparison',
@@ -495,8 +495,8 @@ window.EXTRA_VIZ['ch16']['ch16-sec02'] = [
     }
 ];
 
-// Section 3: Affine Hulls and Flats
-window.EXTRA_VIZ['ch16']['ch16-sec03'] = [
+// Section 2: Affine Subspaces and Flats
+window.EXTRA_VIZ['ch16']['ch16-sec02'] = [
     {
         id: 'ch16-extra-viz-5',
         title: 'Interactive: Affine Hull Construction',
@@ -743,7 +743,7 @@ window.EXTRA_VIZ['ch16']['ch16-sec03'] = [
     }
 ];
 
-// Section 4: Flats as Cosets
+// Section 4: Affine Independence and Affine Bases
 window.EXTRA_VIZ['ch16']['ch16-sec04'] = [
     {
         id: 'ch16-extra-viz-7',
